@@ -3,7 +3,8 @@ package timetable;
 import java.util.ArrayList;
 
 /**
- * Class that represents a lecture one knows from university.
+ * Represents a lecture one knows from university. A {@link Facility} and {@link Lecturer} object can be assigned to it
+ * as well as a arbitrary number of {@link Note} objects which can be used to link important information.
  * @author David Sugar
  */
 public class Lecture {
@@ -92,7 +93,7 @@ public class Lecture {
     }
 
     /**
-     * Return the note from the specified index.
+     * Return a note from the specified index.
      * @param i Index
      * @return Reference to a Note object on success, null otherwise.
      */

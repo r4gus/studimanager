@@ -1,13 +1,14 @@
 package timetable;
 
 /**
- * Container that holds all available Lecturer objects.
+ * Container that can be used to store available {@link Lecturer} objects. It extends the {@link Container} class
+ * which provides all basic operations for adding and removing elements.
  * @author David Sugar
  */
 public class Lecturers extends Container<Lecturer> {
 
     /**
-     * Add an Lecturer object to the Lecturers container.
+     * Add an {@link Lecturer} object to the Lecturers container.
      * [Note: This method implements better argument checks via Exceptions and should be preferred over
      * {@link #add(Lecturer o) add(Lecturer o)}.]
      * @param o The object to add.

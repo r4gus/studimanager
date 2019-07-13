@@ -1,7 +1,9 @@
 package timetable;
 
 /**
- * An Lecturer object represents a person who teaches/ lectures at a school/ university.
+ * An <code>Lecturer</code> object represents a person who teaches/ lectures at a school/ university.
+ * An instance of this class can be assigned to a {@link Lecture} and on the other hand multiple lectures can be held
+ * by the same <code>Lecturer</code>.
  * @author David Sugar
  */
 public class Lecturer {

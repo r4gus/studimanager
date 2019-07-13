@@ -2,6 +2,10 @@ package timetable;
 
 import java.util.Objects;
 
+/**
+ * Used to represent a school or university building.
+ * @author David Sugar
+ */
 public class Facility {
     private String building;
     private String room;

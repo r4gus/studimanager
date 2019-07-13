@@ -3,8 +3,9 @@ package timetable;
 import java.util.ArrayList;
 
 /**
- * A container can hold objects of the specified type T.
- * It can be used to store objects of the same type in one place to have a global record within a program.
+ * A container can hold objects of the specified type T by utilizing the {@link ArrayList} class.
+ * It is used to store objects of the same type at one place and implements basic functionality like
+ * {@link #add(Object) add(Object} and {@link #remove(Object) remove(Object}.
  * @author David Sugar
  * @param <T> Type of the objects one wants to store.
  */

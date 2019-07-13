@@ -4,7 +4,9 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
- * Represents a note/ notepad where the user can store important information regarding a lecture.
+ * The <code>Note</code> class can be used to store information related to a {@link Lecture}. Among
+ * other things it has an <code>expirationDate</code> member that can hold a {@link LocalDateTime}
+ * object indicating a point in time at which the <code>Note</code> will expire.
  * @author David Sugar
  */
 public class Note {
@@ -63,7 +65,7 @@ public class Note {
     }
 
     /**
-     * Check if this note has been expired.
+     * Check if this note has been expired by comparing it to the current {@link LocalDateTime}.
      * @return True if it has expired, false otherwise.
      */
     public boolean hasExpired() {

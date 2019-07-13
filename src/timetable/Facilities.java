@@ -1,12 +1,13 @@
 package timetable;
 
 /**
- * Container that holds all available Facility objects.
+ * Container that can hold an arbitrary number of {@link Facility} objects. It extends the {@link Container} class
+ * which provides all basic operations for adding and removing elements.
  * @author David Sugar
  */
 public class Facilities extends Container<Facility> {
     /**
-     * Add an Facility object to the Facilities container.
+     * Add an {@link Facility} object to the Facilities container.
      * [Note: This method implements better argument checks via Exceptions and should be preferred over
      * {@link #add(Facility o) add(Facility o)}.]
      * @param o The object to add.
