@@ -4,8 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import timetable.Facilities;
 import timetable.Facility;
-import timetable.Lecturer;
-import timetable.Lecturers;
 
 import static org.junit.jupiter.api.Assertions.*;
 

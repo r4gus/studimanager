@@ -60,8 +60,7 @@ public class Note {
         if (o == null || getClass() != o.getClass()) return false;
         Note note = (Note) o;
         return title.equals(note.title) &&
-                body.equals(note.body) &&
-                Objects.equals(expirationDate, note.expirationDate);
+                body.equals(note.body);
     }
 
     /**

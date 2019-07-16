@@ -3,7 +3,6 @@ package timetable.test;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.*;
 import timetable.Lecturer;
 
 class LecturerTest {
@@ -23,23 +22,23 @@ class LecturerTest {
 
     @org.junit.jupiter.api.Test
     void equalsTrue() {
-        assertTrue(lect1.equals(lect1));    // same object reference
-        assertTrue(lect1.equals(lect3));    // same state
-        assertTrue(lect7.equals(lect6));    // same state
+        assertEquals(lect1, lect1);    // same object reference
+        assertEquals(lect1, lect3);    // same state
+        assertEquals(lect7, lect6);    // same state
 
     }
 
     @Test
     void equalsFalse() {
-        assertFalse(lect1.equals(lect2));
-        assertFalse(lect1.equals(lect4));
-        assertFalse(lect1.equals(lect5));
-        assertFalse(lect1.equals(lect6));
-        assertFalse(lect6.equals(lect4));
-        assertFalse(lect6.equals(lect5));
-        assertFalse(lect4.equals(lect5));
-        assertFalse(lect2.equals(lect5));
-        assertFalse(lect2.equals(null));
+        assertNotEquals(lect1, lect2);
+        assertNotEquals(lect1, lect4);
+        assertNotEquals(lect1, lect5);
+        assertNotEquals(lect1, lect6);
+        assertNotEquals(lect6, lect4);
+        assertNotEquals(lect6, lect5);
+        assertNotEquals(lect4, lect5);
+        assertNotEquals(lect2, lect5);
+        assertNotEquals(null, lect2);
     }
 
 }
