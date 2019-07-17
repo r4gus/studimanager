@@ -22,6 +22,17 @@ public class Exam {
     private boolean bestanden;
     private boolean aktuelleKlausur;
 
+    public Exam()
+    {
+
+    }
+
+    public Exam(String fachnummer)
+    {
+        this.fachnummer = fachnummer;
+    }
+
+
     public String getFachnummer() {
         return fachnummer;
     }
