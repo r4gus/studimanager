@@ -1,5 +1,10 @@
 package exam;
 
+/**
+ * Das <code>Exam</code> object repräsentiert eine Klausur, welche am Ende eines Semesters geschrieben wird.
+ * @author Lukas Mendel
+ */
+
 import java.util.Date;
 
 public class Exam {
