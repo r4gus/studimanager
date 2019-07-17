@@ -15,7 +15,7 @@ public class Exam {
     private Date datum;
     private String begin;
     private String dauer;
-    private String Raum;
+    private String building;
     private int raumnummer;
     private int versuchsNummer;
     private double note;
@@ -81,12 +81,12 @@ public class Exam {
         this.dauer = dauer;
     }
 
-    public String getRaum() {
-        return Raum;
+    public String getBuilding() {
+        return building;
     }
 
-    public void setRaum(String raum) {
-        Raum = raum;
+    public void setBuilding(String building) {
+        this.building = building;
     }
 
     public int getRaumnummer() {
