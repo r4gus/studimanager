@@ -1,30 +1,49 @@
 package exam;
 
 /**
- * Das <code>Exam</code> object repräsentiert eine Klausur, welche am Ende eines Semesters geschrieben wird.
+ * The <code>Exam</code> object represents an exam written at the end of a semester.
+ *
  * @author Lukas Mendel
  */
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Exam {
 
     private String subjectNumber;
     private String technicalName;
-    private String semester;
-    private Date date;
+    private int semester;
+    private LocalDate date;
     private String begin;
     private String duration;
     private String building;
-    private int roomNumber;
+    private String roomNumber;
     private int trialNumber;
     private double mark;
     private boolean insisted;
     private boolean currentExam;
 
-    public Exam()
-    {
+    public Exam() {
+    }
 
+    public Exam(String subjectNumber) {
+        this.subjectNumber = subjectNumber;
+    }
+
+    public Exam(String subjectNumber, String technicalName, int semester, LocalDate date, String begin, String duration, String building, String roomNumber, int trialNumber, double mark, boolean insisted, boolean currentExam) {
+        this.subjectNumber = subjectNumber;
+        this.technicalName = technicalName;
+        this.semester = semester;
+        this.date = date;
+        this.begin = begin;
+        this.duration = duration;
+        this.building = building;
+        this.roomNumber = roomNumber;
+        this.trialNumber = trialNumber;
+        this.mark = mark;
+        this.insisted = insisted;
+        this.currentExam = currentExam;
     }
 
     public String getSubjectNumber() {
@@ -43,19 +62,19 @@ public class Exam {
         this.technicalName = technicalName;
     }
 
-    public String getSemester() {
+    public int getSemester() {
         return semester;
     }
 
-    public void setSemester(String semester) {
+    public void setSemester(int semester) {
         this.semester = semester;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -83,11 +102,11 @@ public class Exam {
         this.building = building;
     }
 
-    public int getRoomNumber() {
+    public String getRoomNumber() {
         return roomNumber;
     }
 
-    public void setRoomNumber(int roomNumber) {
+    public void setRoomNumber(String roomNumber) {
         this.roomNumber = roomNumber;
     }
 
