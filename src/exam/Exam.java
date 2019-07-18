@@ -8,6 +8,7 @@ package exam;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Objects;
 
 public class Exam {
 
@@ -24,11 +25,9 @@ public class Exam {
     private boolean insisted;
     private boolean currentExam;
 
-    public Exam() {
-    }
-
     public Exam(String subjectNumber) {
         this.subjectNumber = subjectNumber;
+        this.currentExam = true;
     }
 
     public Exam(String subjectNumber, String technicalName, int semester, LocalDate date, String begin, String duration, String building, String roomNumber, int trialNumber, double mark, boolean insisted, boolean currentExam) {
@@ -140,5 +139,24 @@ public class Exam {
 
     public void setCurrentExam(boolean currentExam) {
         this.currentExam = currentExam;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Exam exam = (Exam) o;
+        return semester == exam.semester &&
+                trialNumber == exam.trialNumber &&
+                Double.compare(exam.mark, mark) == 0 &&
+                insisted == exam.insisted &&
+                currentExam == exam.currentExam &&
+                subjectNumber.equals(exam.subjectNumber) &&
+                Objects.equals(technicalName, exam.technicalName) &&
+                Objects.equals(date, exam.date) &&
+                Objects.equals(begin, exam.begin) &&
+                Objects.equals(duration, exam.duration) &&
+                Objects.equals(building, exam.building) &&
+                Objects.equals(roomNumber, exam.roomNumber);
     }
 }

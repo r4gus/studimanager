@@ -1,5 +1,6 @@
 package exam;
 
+import custom_exceptions.UserException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -26,7 +27,24 @@ public class ExamList {
      * @param exam Element Exam which should be added to the ArrayList
      */
 
-    public void addExam(Exam exam) {
+    public void addExam(Exam exam) throws UserException {
+
+        for (Exam e: exams) {
+
+            try {
+
+                if(exam.equals(e))
+                {
+                    throw new IllegalArgumentException("Eintrag ist bereits vorhanden");
+                }
+            }
+            catch (IllegalArgumentException exception)
+            {
+                //loggen
+                throw new UserException("Die Prüfung mit dieser Nummer exisitert bereits");
+            }
+
+        }
         exams.add(exam);
     }
 
@@ -37,9 +55,23 @@ public class ExamList {
      */
 
     public void deleteExam(int index) {
-        exams.remove(index);
+
+        if( exams.size() > index) {
+            exams.remove(index);
+        }else
+        {
+            throw new IllegalArgumentException("Index zu groß");
+        }
     }
 
+    /**
+     * the method returns the length of the arraylist.
+     */
+
+    public int size()
+    {
+        return exams.size();
+    }
 
     /**
      * the method iterates over the individual elements of the array list and checks certain parameters is set to true.
