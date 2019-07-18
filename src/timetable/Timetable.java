@@ -51,7 +51,9 @@ public class Timetable {
     private int semester;
 
     public Timetable(int unitsPerDay, int semester) {
-        logger.entering(getClass().toString(), "Timetable");
+        logger.entering(getClass().toString(), "Timetable", new Object[]{
+                unitsPerDay, semester
+        });
 
         this.days = MAX_DAYS;
 
