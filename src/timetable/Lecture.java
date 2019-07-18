@@ -6,6 +6,7 @@ import java.util.Objects;
 /**
  * Represents a lecture one knows from university. A {@link Facility} and {@link Lecturer} object can be assigned to it
  * as well as a arbitrary number of {@link Note} objects which can be used to link important information.
+ *
  * @author David Sugar
  */
 public class Lecture {
@@ -16,13 +17,19 @@ public class Lecture {
     private Notes notes;
 
     public Lecture(String title, Facility facility, Lecturer lecturer, boolean elective, Notes notes) {
+        Timetable.logger.entering(getClass().toString(), "Lecture", new Object[]{
+                title, facility, lecturer, elective, notes
+        });
+
         this.title = title;
         this.facility = facility;
         this.lecturer = lecturer;
         this.elective = elective;
 
-        if(notes == null) this.notes = new Notes();
+        if (notes == null) this.notes = new Notes();
         else this.notes = notes;
+
+        Timetable.logger.exiting(getClass().toString(), "Lecture");
     }
 
     public String getTitle() {
@@ -68,11 +75,17 @@ public class Lecture {
     /**
      * Find the specified {@link Note} object among all notes in {@link Notes} that are linked
      * to this lecture. Internally it calls the {@link Container#find(Object)} method.
+     *
      * @param n The note to find.
      * @return Index of the note, -1 if not found.
      */
     public int findNote(Note n) {
-        return notes.find(n);
+        Timetable.logger.entering(getClass().toString(), "findNote", n);
+
+        var ret = notes.find(n);
+
+        Timetable.logger.exiting(getClass().toString(), "findNote", ret);
+        return ret;
     }
 
     /**
@@ -85,53 +98,80 @@ public class Lecture {
      * @throws IllegalArgumentException If a similar note already exists or if null has been passed as an argument.
      */
     public boolean addNote(Note n) throws IllegalArgumentException {
-        if(n == null) throw new IllegalArgumentException("null passed as an argument");
-        if(findNote(n) != -1) throw new IllegalArgumentException("The specified note already exists");
+        Timetable.logger.entering(getClass().toString(), "addNote", n);
 
-        return this.notes.add(n);
+        if (n == null) throw new IllegalArgumentException("null passed as an argument");
+        if (findNote(n) != -1) throw new IllegalArgumentException("The specified note already exists");
+
+        var ret = this.notes.add(n);
+
+        Timetable.logger.exiting(getClass().toString(), "addNote", ret);
+        return ret;
     }
 
     /**
      * Return a {@link Note} object from the specified index. It uses the
      * {@link Container#getElement(int)} method internally which is inherited by the
      * {@link Notes} class.
+     *
      * @param i Index
      * @return Reference to a Note object on success, null otherwise.
      */
     public Note getNote(int i) {
-        return notes.getElement(i);
+        Timetable.logger.entering(getClass().toString(), "getNote", i);
+
+        var ret = notes.getElement(i);
+
+        Timetable.logger.exiting(getClass().toString(), "getNote", ret);
+        return ret;
     }
 
     /**
      * Remove the first occurrence of the specified note from the list. It uses the
      * {@link Container#remove(Object)} method internally which is inherited by the
      * {@link Notes} class.
+     *
      * @param n The {@link Note} object to remove
      * @return true on success, false otherwise.
      */
     public boolean removeNote(Note n) {
-        return notes.remove(n);
+        Timetable.logger.entering(getClass().toString(), "removeNote", n);
+
+        var ret = notes.remove(n);
+
+        Timetable.logger.exiting(getClass().toString(), "getNote", ret);
+        return ret;
     }
 
     /**
      * Remove the note at the specified index from the list and return it.It uses the
      * {@link Container#remove(int)} method internally which is inherited by the
      * {@link Notes} class.
+     *
      * @param i Index
      * @return {@link Note} object on success, null otherwise.
      */
     public Note removeNote(int i) {
-        return notes.remove(i);
+        Timetable.logger.entering(getClass().toString(), "removeNote", i);
+
+        var ret = notes.remove(i);
+
+        Timetable.logger.exiting(getClass().toString(), "removeNote", ret);
+        return ret;
     }
 
     /**
      * Remove all notes that have expired from the <code>notes</code> list.
-      */
+     */
     public void removeExpiredNotes() {
-        for(int i = 0; i < notes.size(); i++) {
-            if(getNote(i).hasExpired())
+        Timetable.logger.entering(getClass().toString(), "removeExpiredNotes");
+
+        for (int i = 0; i < notes.size(); i++) {
+            if (getNote(i).hasExpired())
                 removeNote(i);
         }
+
+        Timetable.logger.exiting(getClass().toString(), "removeExpiredNotes");
     }
 
     /**
@@ -149,13 +189,18 @@ public class Lecture {
      */
     @Override
     public boolean equals(Object o) {
+        Timetable.logger.entering(getClass().toString(), "equals", o);
+
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Lecture lecture = (Lecture) o;
-        return elective == lecture.elective &&
+        var ret = elective == lecture.elective &&
                 title.equals(lecture.title) &&
                 Objects.equals(this.facility, lecture.facility) &&
                 Objects.equals(this.lecturer, lecture.lecturer);
+
+        Timetable.logger.exiting(getClass().toString(), "equals", ret);
+        return ret;
     }
 
 
@@ -167,7 +212,12 @@ public class Lecture {
      * @return <code>Lecture</code> object (copy of this)
      */
     public Lecture softCopy() {
-        return new Lecture(this.title, this.facility,
+        Timetable.logger.entering(getClass().toString(), "softCopy");
+
+        var ret = new Lecture(this.title, this.facility,
                 this.lecturer, this.elective, this.notes);
+
+        Timetable.logger.exiting(getClass().toString(), "softCopy", ret);
+        return ret;
     }
 }
