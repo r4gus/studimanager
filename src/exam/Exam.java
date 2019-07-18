@@ -9,44 +9,38 @@ import java.util.Date;
 
 public class Exam {
 
-    private String fachnummer;
-    private String fachbezeichnung;
+    private String subjectNumber;
+    private String technicalName;
     private String semester;
-    private Date datum;
+    private Date date;
     private String begin;
-    private String dauer;
+    private String duration;
     private String building;
-    private int raumnummer;
-    private int versuchsNummer;
-    private double note;
-    private boolean bestanden;
-    private boolean aktuelleKlausur;
+    private int roomNumber;
+    private int trialNumber;
+    private double mark;
+    private boolean insisted;
+    private boolean currentExam;
 
     public Exam()
     {
 
     }
 
-    public Exam(String fachnummer)
-    {
-        this.fachnummer = fachnummer;
+    public String getSubjectNumber() {
+        return subjectNumber;
     }
 
-
-    public String getFachnummer() {
-        return fachnummer;
+    public void setSubjectNumber(String subjectNumber) {
+        this.subjectNumber = subjectNumber;
     }
 
-    public void setFachnummer(String fachnummer) {
-        this.fachnummer = fachnummer;
+    public String getTechnicalName() {
+        return technicalName;
     }
 
-    public String getFachbezeichnung() {
-        return fachbezeichnung;
-    }
-
-    public void setFachbezeichnung(String fachbezeichnung) {
-        this.fachbezeichnung = fachbezeichnung;
+    public void setTechnicalName(String technicalName) {
+        this.technicalName = technicalName;
     }
 
     public String getSemester() {
@@ -57,12 +51,12 @@ public class Exam {
         this.semester = semester;
     }
 
-    public Date getDatum() {
-        return datum;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDatum(Date datum) {
-        this.datum = datum;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getBegin() {
@@ -73,12 +67,12 @@ public class Exam {
         this.begin = begin;
     }
 
-    public String getDauer() {
-        return dauer;
+    public String getDuration() {
+        return duration;
     }
 
-    public void setDauer(String dauer) {
-        this.dauer = dauer;
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 
     public String getBuilding() {
@@ -89,43 +83,43 @@ public class Exam {
         this.building = building;
     }
 
-    public int getRaumnummer() {
-        return raumnummer;
+    public int getRoomNumber() {
+        return roomNumber;
     }
 
-    public void setRaumnummer(int raumnummer) {
-        this.raumnummer = raumnummer;
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
     }
 
-    public int getVersuchsNummer() {
-        return versuchsNummer;
+    public int getTrialNumber() {
+        return trialNumber;
     }
 
-    public void setVersuchsNummer(int versuchsNummer) {
-        this.versuchsNummer = versuchsNummer;
+    public void setTrialNumber(int trialNumber) {
+        this.trialNumber = trialNumber;
     }
 
-    public double getNote() {
-        return note;
+    public double getMark() {
+        return mark;
     }
 
-    public void setNote(double note) {
-        this.note = note;
+    public void setMark(double mark) {
+        this.mark = mark;
     }
 
-    public boolean isBestanden() {
-        return bestanden;
+    public boolean isInsisted() {
+        return insisted;
     }
 
-    public void setBestanden(boolean bestanden) {
-        this.bestanden = bestanden;
+    public void setInsisted(boolean insisted) {
+        this.insisted = insisted;
     }
 
-    public boolean isAktuelleKlausur() {
-        return aktuelleKlausur;
+    public boolean isCurrentExam() {
+        return currentExam;
     }
 
-    public void setAktuelleKlausur(boolean aktuelleKlausur) {
-        this.aktuelleKlausur = aktuelleKlausur;
+    public void setCurrentExam(boolean currentExam) {
+        this.currentExam = currentExam;
     }
 }
