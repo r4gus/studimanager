@@ -7,7 +7,6 @@ package exam;
  */
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 
 public class Exam {
@@ -158,5 +157,24 @@ public class Exam {
                 Objects.equals(duration, exam.duration) &&
                 Objects.equals(building, exam.building) &&
                 Objects.equals(roomNumber, exam.roomNumber);
+    }
+
+
+    @Override
+    public String toString() {
+        return "Exam{" +
+                "subjectNumber='" + subjectNumber + '\'' +
+                ", technicalName='" + technicalName + '\'' +
+                ", semester=" + semester +
+                ", date=" + date +
+                ", begin='" + begin + '\'' +
+                ", duration='" + duration + '\'' +
+                ", building='" + building + '\'' +
+                ", roomNumber='" + roomNumber + '\'' +
+                ", trialNumber=" + trialNumber +
+                ", mark=" + mark +
+                ", insisted=" + insisted +
+                ", currentExam=" + currentExam +
+                '}';
     }
 }

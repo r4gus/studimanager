@@ -4,16 +4,33 @@ import custom_exceptions.UserException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.*;
 
 /**
  * The <code>ExamList</code> object represents a list of exams written at the end of a semester.
- * It contains all basic operations to insert or delete a document.
+ * It contains all basic operations to insert or delete a Exam.
  *
  * @author Lukas Mendel
  */
 
 public class ExamList {
+
+    protected static final Logger logger = Logger.getLogger(ExamList.class.getName());
+
+    static {
+        try {
+            Handler handler = new FileHandler("log/ExamList-log.%u%g.txt", 2048 * 2048, 1, true);
+            handler.setFormatter(new SimpleFormatter());
+            logger.addHandler(handler);
+            logger.setLevel(Level.FINER);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
     private ArrayList<Exam> exams = new ArrayList<>();
 
@@ -29,23 +46,22 @@ public class ExamList {
 
     public void addExam(Exam exam) throws UserException {
 
-        for (Exam e: exams) {
+        logger.entering(getClass().toString(), "addExam", new Object[]{exam});
+        for (Exam e : exams) {
 
             try {
 
-                if(exam.equals(e))
-                {
+                if (exam.equals(e)) {
                     throw new IllegalArgumentException("Eintrag ist bereits vorhanden");
                 }
-            }
-            catch (IllegalArgumentException exception)
-            {
+            } catch (IllegalArgumentException exception) {
                 //loggen
                 throw new UserException("Die Prüfung mit dieser Nummer exisitert bereits");
             }
 
         }
         exams.add(exam);
+        logger.exiting(getClass().toString(), "addExam");
     }
 
     /**
@@ -56,10 +72,9 @@ public class ExamList {
 
     public void deleteExam(int index) {
 
-        if( exams.size() > index) {
+        if (exams.size() > index) {
             exams.remove(index);
-        }else
-        {
+        } else {
             throw new IllegalArgumentException("Index zu groß");
         }
     }
@@ -68,8 +83,7 @@ public class ExamList {
      * the method returns the length of the arraylist.
      */
 
-    public int size()
-    {
+    public int size() {
         return exams.size();
     }
 
@@ -103,6 +117,4 @@ public class ExamList {
         }
         return obserList;
     }
-
-
 }
