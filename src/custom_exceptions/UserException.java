@@ -1,7 +1,6 @@
 package custom_exceptions;
 
 import logging.MyLogger;
-
 import java.util.logging.Level;
 
 /**
@@ -29,7 +28,7 @@ public class UserException extends Exception {
 
     public UserException(String userMessage, Throwable cause) {
         super(userMessage, cause);
-        MyLogger.LOGGER.log(Level.WARNING, userMessage + cause.toString() , this.getStackTrace());
+        MyLogger.LOGGER.log(Level.WARNING, "msg:" + userMessage + "cause:" +  cause.toString() , this.getStackTrace());
     }
 
 

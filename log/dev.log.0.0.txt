@@ -1,0 +1,328 @@
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: ENTRY 0
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: ENTRY 10
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: ENTRY 1 Analysis 2 2019-04-13 9:00 2:00 G1 0.23 1
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: ENTRY 2 Analysis 2 2019-04-13 9:00 2:00 G1 0.23 1
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: ENTRY 3 Analysis 2 2019-04-13 9:00 2:00 G1 0.23 1
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: ENTRY 4 Analysis 2 2019-04-13 9:00 2:00 G1 0.23 1
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: ENTRY 5 Analysis 2 2019-04-13 9:00 2:00 G1 0.23 1
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: ENTRY 101
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam Exam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@4df828d7
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: ENTRY Exam{subjectNumber='0', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@b59d31
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: ENTRY Exam{subjectNumber='10', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@62fdb4a6
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='0', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@11e21d0e
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@31206beb
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: ENTRY Exam{subjectNumber='1', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@3e77a1ed
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='0', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@3ffcd140
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@23bb8443
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='10', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@1176dcec
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@120d6fe6
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: ENTRY Exam{subjectNumber='2', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@4ba2ca36
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='0', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@3444d69d
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@1372ed45
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='10', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@6a79c292
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@37574691
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='1', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@25359ed8
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@21a947fe
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: ENTRY Exam{subjectNumber='3', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=false}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@5606c0b
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='0', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@80ec1f8
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@1445d7f
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='10', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@6a396c1e
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@6c3f5566
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='1', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@12405818
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@314c508a
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='2', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@10b48321
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@6b67034
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: ENTRY Exam{subjectNumber='4', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@16267862
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='0', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@453da22c
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@71248c21
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='10', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@442675e1
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@6166e06f
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='1', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@49e202ad
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@1c72da34
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='2', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@6b0c2d26
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@3d3fcdb0
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='3', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=false}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@641147d0
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@6e38921c
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: ENTRY Exam{subjectNumber='5', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=false, currentExam=false}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@64d7f7e0
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='0', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@27c6e487
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@49070868
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='10', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@6385cb26
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@38364841
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='1', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@28c4711c
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@59717824
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='2', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@146044d7
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@1e9e725a
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='3', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=false}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@15d9bc04
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@473b46c3
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='4', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@516be40f
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList size
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList size
+FINER: RETURN 7
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@70b0b186
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: ENTRY Exam{subjectNumber='101', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@ba8d91c
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='0', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@7364985f
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@5d20e46
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='10', technicalName='null', semester=0, date=null, begin='null', duration='null', building='null', roomNumber='null', trialNumber=0, mark=0.0, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@709ba3fb
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@3d36e4cd
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='1', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@6a472554
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@7ff2a664
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='2', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@525b461a
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@58c1c010
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='3', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=true, currentExam=false}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@b7f23d9
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@61d47554
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='4', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=false, currentExam=true}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@69b794e2
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam toString
+FINER: RETURN [Ljava.lang.Object;@3f200884
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: ENTRY Exam{subjectNumber='5', technicalName='Analysis', semester=2, date=2019-04-13, begin='9:00', duration='2:00', building='G1', roomNumber='0.23', trialNumber=1, mark=2.3, insisted=false, currentExam=false}
+Juli 19, 2019 2:44:11 NACHM. class exam.Exam equals
+FINER: RETURN [Ljava.lang.Object;@4d339552
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList addExam
+FINER: RETURN
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList size
+FINER: ENTRY
+Juli 19, 2019 2:44:11 NACHM. class exam.ExamList size
+FINER: RETURN 8

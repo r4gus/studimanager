@@ -46,7 +46,7 @@ public class ExamList {
 
         }
         exams.add(exam);
-        MyLogger.LOGGER.exiting(getClass().toString(), "addExam", new Object[]{exam});
+        MyLogger.LOGGER.exiting(getClass().toString(), "addExam");
     }
 
     /**
@@ -63,7 +63,7 @@ public class ExamList {
         } else {
             throw new IllegalArgumentException("Index out of Bounds");
         }
-        MyLogger.LOGGER.exiting(getClass().toString(), "deleteExam", new Object[]{index});
+        MyLogger.LOGGER.exiting(getClass().toString(), "deleteExam");
     }
 
     /**
@@ -108,7 +108,7 @@ public class ExamList {
                     break;
             }
         }
-        MyLogger.LOGGER.exiting(getClass().toString(), "getExamWithSpecalProperties", new Object[]{parameter});
+        MyLogger.LOGGER.exiting(getClass().toString(), "getExamWithSpecalProperties", new Object[]{obserList});
         return obserList;
     }
 }
