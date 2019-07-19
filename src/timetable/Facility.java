@@ -1,9 +1,11 @@
 package timetable;
 
 import java.util.Objects;
+import logging.MyLogger;
 
 /**
  * Used to represent a school or university building.
+ *
  * @author David Sugar
  */
 public class Facility {
@@ -15,11 +17,17 @@ public class Facility {
 
 
     public Facility(String building, String room, String street, String zipcode, String city) {
+        MyLogger.LOGGER.entering(getClass().toString(), "Facility", new Object[]{
+                building, room, street, zipcode, city
+        });
+
         this.building = building;
         this.room = room;
         this.street = street;
         this.zipcode = zipcode;
         this.city = city;
+
+        MyLogger.LOGGER.exiting(getClass().toString(), "Facility");
     }
 
     public String getBuilding() {
@@ -64,13 +72,18 @@ public class Facility {
 
     @Override
     public boolean equals(Object o) {
+        MyLogger.LOGGER.entering(getClass().toString(), "equals", o);
+
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Facility facility = (Facility) o;
-        return building.equals(facility.building) &&
+        var ret = building.equals(facility.building) &&
                 room.equals(facility.room) &&
                 Objects.equals(street, facility.street) &&
                 Objects.equals(zipcode, facility.zipcode) &&
                 Objects.equals(city, facility.city);
+
+        MyLogger.LOGGER.exiting(getClass().toString(), "equals", ret);
+        return ret;
     }
 }

@@ -1,12 +1,20 @@
 package timetable;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.logging.*;
+
+import logging.MyLogger;
+import logging.MyLogger.*;
 
 /**
  * Represents a timetable with n <code>days</code> and m <code>unitsPerDay</code>.
  * An arbitrary number of {@link Lecture} objects can be assigned to each unit. This is facilitated
  * by the {@link Lectures} class which acts as a container for <code>lectures</code>.
+ * <p>
+ * An {@link Logger} object is used to log all actions e.g. method and constructor calls that
+ * happen within the {@link timetable} package as well as Exceptions which occur during those calls.
  *
  * @author David Sugar
  */
@@ -22,6 +30,8 @@ public class Timetable {
     private static final long DEFAULT_LUNCH_TIME = 60;
     private static final LocalTime DEFAULT_LUNCH_AT = LocalTime.of(13, 0);
 
+
+
     private final int days;
     private final int unitsPerDay;
     private Lectures unit[][];
@@ -29,35 +39,46 @@ public class Timetable {
     private int semester;
 
     public Timetable(int unitsPerDay, int semester) {
+        MyLogger.LOGGER.entering(getClass().toString(), "Timetable", new Object[]{
+                unitsPerDay, semester
+        });
+
         this.days = MAX_DAYS;
 
-        if(unitsPerDay < MIN_UNITS || unitsPerDay > MAX_UNITS) this.unitsPerDay = 7;
+        if (unitsPerDay < MIN_UNITS || unitsPerDay > MAX_UNITS) this.unitsPerDay = 7;
         else this.unitsPerDay = unitsPerDay;
 
-        if(semester < MIN_SEMESTER) this.semester = 1;
+        if (semester < MIN_SEMESTER) this.semester = 1;
         else this.semester = semester;
 
         unit = new Lectures[unitsPerDay][days];
 
         // calculate the beginning and end of each unit
-        for(int i = 0; i < days; i++)
-            for(int j = 0; j < unitsPerDay; j++) {
+        for (int i = 0; i < days; i++)
+            for (int j = 0; j < unitsPerDay; j++) {
                 LocalTime start = DEFAULT_BEGIN.plusMinutes(DEFAULT_DURATION_M * j + DEFAULT_BREAK_TIME * j);
-                if( start.compareTo(DEFAULT_LUNCH_AT) >= 0)
+                if (start.compareTo(DEFAULT_LUNCH_AT) >= 0)
                     start = start.plusMinutes(DEFAULT_LUNCH_TIME - DEFAULT_BREAK_TIME);
 
                 this.unit[j][i] = new Lectures(start, start.plusMinutes(DEFAULT_DURATION_M));
             }
 
         dateTime = LocalDateTime.now();
+
+
+        MyLogger.LOGGER.exiting(getClass().toString(), "Timetable");
+    }
+
+    public int getDays() {
+        return days;
+    }
+
+    public int getUnitsPerDay() {
+        return unitsPerDay;
     }
 
     public Lectures[][] getUnit() {
         return unit;
-    }
-
-    public void setUnit(Lectures[][] unit) {
-        this.unit = unit;
     }
 
     public LocalDateTime getDateTime() {
