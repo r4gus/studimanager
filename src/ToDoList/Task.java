@@ -18,7 +18,7 @@ public class Task {
     private String projectTitle;
     private int taskId;
     private String projectDescription;
-    private String projectStatus;
+    private int projectStatus;
     private boolean isDone;
     private LocalDate projectStart;
     private LocalTime projectDuration;
@@ -33,7 +33,7 @@ public class Task {
 
     }
 
-    public Task(String projectTitle, String projectDescription, String projectStatus, boolean isDone, LocalDate projectStart, LocalTime projectDuration, LocalDate deadline, boolean remindMe, LocalDateTime remindTime) {
+    public Task(String projectTitle, String projectDescription, int projectStatus, boolean isDone, LocalDate projectStart, LocalTime projectDuration, LocalDate deadline, boolean remindMe, LocalDateTime remindTime) {
         this.projectTitle = projectTitle;
         this.taskId = currentTaskId;
         this.projectDescription = projectDescription;
@@ -63,11 +63,11 @@ public class Task {
         this.projectDescription = projectDescription;
     }
 
-    public String getProjectStatus() {
+    public int getProjectStatus() {
         return projectStatus;
     }
 
-    public void setProjectStatus(String projectStatus) {
+    public void setProjectStatus(int projectStatus) {
         this.projectStatus = projectStatus;
     }
 

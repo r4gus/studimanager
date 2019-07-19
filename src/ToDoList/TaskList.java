@@ -21,7 +21,6 @@ public class TaskList {
 
     }
 
-
     /**
      * the method adds an element Task to the arrayList in Tasks
      *
@@ -85,13 +84,22 @@ public class TaskList {
      * the method iterates over the individual elements of the array list and checks certain parameters is set to true.
      * If yes, the element is added to the returning list.
      *
-     * @param parameter :"upc" = upcoming exam / "pas" = passed exam / "fai" = failed exam
+     * @param parameter :"0" = upcoming exam / "1" = passed exam / "2" = failed exam ...
      */
 
-    public ArrayList<Task> getExamWithSpecalProperties(String parameter) {
+    public ArrayList<Task> getExamWithSpecalProperties(int parameter) {
 
+        MyLogger.LOGGER.entering(getClass().toString(), "getExamWithSpecalProperties", new Object[]{parameter});
+        ArrayList<Task> taskList = new ArrayList<>();
+        for (Task e : tasks) {
 
-        return new ArrayList<>();
+            if(e.getProjectStatus() == parameter)
+            {
+                tasks.add(e);
+            }
+        }
+        MyLogger.LOGGER.exiting(getClass().toString(), "getExamWithSpecalProperties", new Object[]{taskList});
+        return taskList;
     }
 
 
