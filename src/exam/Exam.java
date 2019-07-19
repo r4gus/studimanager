@@ -6,6 +6,8 @@ package exam;
  * @author Lukas Mendel
  */
 
+import logging.MyLogger;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -25,11 +27,16 @@ public class Exam {
     private boolean currentExam;
 
     public Exam(String subjectNumber) {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "Exam", new Object[]{subjectNumber});
         this.subjectNumber = subjectNumber;
         this.currentExam = true;
+        MyLogger.LOGGER.exiting(getClass().toString(), "Exam");
     }
 
     public Exam(String subjectNumber, String technicalName, int semester, LocalDate date, String begin, String duration, String building, String roomNumber, int trialNumber, double mark, boolean insisted, boolean currentExam) {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "Exam", new Object[]{subjectNumber, technicalName, semester, date, begin, duration, building, roomNumber, trialNumber});
         this.subjectNumber = subjectNumber;
         this.technicalName = technicalName;
         this.semester = semester;
@@ -42,6 +49,7 @@ public class Exam {
         this.mark = mark;
         this.insisted = insisted;
         this.currentExam = currentExam;
+        MyLogger.LOGGER.exiting(getClass().toString(), "Exam");
     }
 
     public String getSubjectNumber() {
@@ -142,10 +150,12 @@ public class Exam {
 
     @Override
     public boolean equals(Object o) {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "equals", new Object[]{o});
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Exam exam = (Exam) o;
-        return semester == exam.semester &&
+        boolean result = semester == exam.semester &&
                 trialNumber == exam.trialNumber &&
                 Double.compare(exam.mark, mark) == 0 &&
                 insisted == exam.insisted &&
@@ -157,12 +167,16 @@ public class Exam {
                 Objects.equals(duration, exam.duration) &&
                 Objects.equals(building, exam.building) &&
                 Objects.equals(roomNumber, exam.roomNumber);
+        MyLogger.LOGGER.exiting(getClass().toString(), "equals", new Object[]{result});
+        return result;
     }
 
 
     @Override
     public String toString() {
-        return "Exam{" +
+
+        MyLogger.LOGGER.entering(getClass().toString(), "toString");
+        String result = "Exam{" +
                 "subjectNumber='" + subjectNumber + '\'' +
                 ", technicalName='" + technicalName + '\'' +
                 ", semester=" + semester +
@@ -176,5 +190,7 @@ public class Exam {
                 ", insisted=" + insisted +
                 ", currentExam=" + currentExam +
                 '}';
+        MyLogger.LOGGER.exiting(getClass().toString(), "toString", new Object[]{result});
+        return result;
     }
 }
