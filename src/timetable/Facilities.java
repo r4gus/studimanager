@@ -1,5 +1,7 @@
 package timetable;
 
+import logging.MyLogger;
+
 /**
  * Container that can hold an arbitrary number of {@link Facility} objects. It extends the {@link Container} class
  * which provides all basic operations for adding and removing elements.
@@ -17,14 +19,14 @@ public class Facilities extends Container<Facility> {
      * @throws IllegalArgumentException If a null pointer was passed or if the object already exists.
      */
     public boolean addFacility(Facility o) throws IllegalArgumentException {
-        Timetable.logger.entering(getClass().toString(), "addFacility", o);
+        MyLogger.LOGGER.entering(getClass().toString(), "addFacility", o);
 
         if (o == null) throw new IllegalArgumentException("null pointer passed!");
         if (this.find(o) != -1) throw new IllegalArgumentException("The specified Facility already exists!");
 
         var ret = this.add(o);
 
-        Timetable.logger.exiting(getClass().toString(), "addFacility", ret);
+        MyLogger.LOGGER.exiting(getClass().toString(), "addFacility", ret);
         return ret;
     }
 }

@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.logging.*;
 
+import logging.MyLogger;
+import logging.MyLogger.*;
+
 /**
  * Represents a timetable with n <code>days</code> and m <code>unitsPerDay</code>.
  * An arbitrary number of {@link Lecture} objects can be assigned to each unit. This is facilitated
@@ -27,22 +30,7 @@ public class Timetable {
     private static final long DEFAULT_LUNCH_TIME = 60;
     private static final LocalTime DEFAULT_LUNCH_AT = LocalTime.of(13, 0);
 
-    // Setup logger
-    protected static final Logger logger = Logger.getLogger(Timetable.class.getName());
 
-    static {
-        try {
-            // New file handler with simple output
-            Handler handler = new FileHandler("log/timetable-log.%u%g.txt", 2048 * 2048, 1, true);
-            handler.setFormatter(new SimpleFormatter()); // Uses FXML format by default, uncomment for simple format
-
-            // add new handler
-            logger.addHandler(handler);
-            logger.setLevel(Level.FINER);
-        } catch (IOException exc) {
-            exc.printStackTrace();
-        }
-    }
 
     private final int days;
     private final int unitsPerDay;
@@ -51,7 +39,7 @@ public class Timetable {
     private int semester;
 
     public Timetable(int unitsPerDay, int semester) {
-        logger.entering(getClass().toString(), "Timetable", new Object[]{
+        MyLogger.LOGGER.entering(getClass().toString(), "Timetable", new Object[]{
                 unitsPerDay, semester
         });
 
@@ -78,7 +66,7 @@ public class Timetable {
         dateTime = LocalDateTime.now();
 
 
-        logger.exiting(getClass().toString(), "Timetable");
+        MyLogger.LOGGER.exiting(getClass().toString(), "Timetable");
     }
 
     public int getDays() {

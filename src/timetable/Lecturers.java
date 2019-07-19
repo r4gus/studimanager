@@ -1,5 +1,7 @@
 package timetable;
 
+import logging.MyLogger;
+
 /**
  * Container that can be used to store available {@link Lecturer} objects. It extends the {@link Container} class
  * which provides all basic operations for adding and removing elements.
@@ -18,14 +20,14 @@ public class Lecturers extends Container<Lecturer> {
      * @throws IllegalArgumentException If a null pointer was passed or if the object already exists.
      */
     public boolean addLecturer(Lecturer o) throws IllegalArgumentException {
-        Timetable.logger.entering(getClass().toString(), "addLecture", o);
+        MyLogger.LOGGER.entering(getClass().toString(), "addLecture", o);
 
         if (o == null) throw new IllegalArgumentException("null pointer passed!");
         if (this.find(o) != -1) throw new IllegalArgumentException("The specified Lecturer already exists!");
 
         var ret = this.add(o);
 
-        Timetable.logger.entering(getClass().toString(), "addLecture", ret);
+        MyLogger.LOGGER.entering(getClass().toString(), "addLecture", ret);
         return ret;
     }
 

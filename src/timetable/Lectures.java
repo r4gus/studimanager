@@ -2,6 +2,7 @@ package timetable;
 
 import java.time.LocalTime;
 import java.util.logging.Level;
+import logging.MyLogger;
 
 /**
  * Container that can be used to store {@link Lecture} objects. It extends the {@link Container} class
@@ -49,18 +50,18 @@ public class Lectures extends Container<Lecture> {
      * @throws IllegalArgumentException If a null pointer was passed or if the object already exists.
      */
     public boolean addLecture(Lecture o) throws IllegalArgumentException {
-        Timetable.logger.entering(getClass().toString(), "addLecture", o);
+        MyLogger.LOGGER.entering(getClass().toString(), "addLecture", o);
 
         if (o == null) {
-            Timetable.logger.log(Level.WARNING, "null pointer passed", o);
+            MyLogger.LOGGER.log(Level.WARNING, "null pointer passed", o);
             throw new IllegalArgumentException("null pointer passed!");
         }
         if (this.find(o) != -1) {
-            Timetable.logger.log(Level.WARNING, "the specified Lecture object already exists", o);
+            MyLogger.LOGGER.log(Level.WARNING, "the specified Lecture object already exists", o);
             throw new IllegalArgumentException("The specified Lecture already exists!");
         }
 
-        Timetable.logger.exiting(getClass().toString(), "addLecture");
+        MyLogger.LOGGER.exiting(getClass().toString(), "addLecture");
         return this.add(o);
     }
 }

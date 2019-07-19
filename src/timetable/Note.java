@@ -3,6 +3,9 @@ package timetable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import logging.MyLogger;
+import logging.MyLogger.*;
+
 /**
  * The <code>Note</code> class can be used to store information related to a {@link Lecture}. Among
  * other things it has an <code>expirationDate</code> member that can hold a {@link LocalDateTime}
@@ -17,7 +20,7 @@ public class Note {
     private boolean important;
 
     public Note(String title, String body, LocalDateTime expirationDate, boolean important) {
-        Timetable.logger.entering(getClass().toString(), "Note", new Object[]{title, body, expirationDate,
+        MyLogger.LOGGER.entering(getClass().toString(), "Note", new Object[]{title, body, expirationDate,
                 important});
 
         this.title = title;
@@ -25,7 +28,7 @@ public class Note {
         this.expirationDate = expirationDate;
         this.important = important;
 
-        Timetable.logger.exiting(getClass().toString(), "Note");
+        MyLogger.LOGGER.exiting(getClass().toString(), "Note");
     }
 
     public String getTitle() {
@@ -62,14 +65,14 @@ public class Note {
 
     @Override
     public boolean equals(Object o) {
-        Timetable.logger.entering(getClass().toString(), "equals", o);
+        MyLogger.LOGGER.entering(getClass().toString(), "equals", o);
 
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Note note = (Note) o;
         var res = title.equals(note.title) && body.equals(note.body);
 
-        Timetable.logger.exiting(getClass().toString(), "equals", res);
+        MyLogger.LOGGER.exiting(getClass().toString(), "equals", res);
 
         return res;
     }
@@ -80,11 +83,11 @@ public class Note {
      * @return True if it has expired, false otherwise.
      */
     public boolean hasExpired() {
-        Timetable.logger.entering(getClass().toString(), "equals");
+        MyLogger.LOGGER.entering(getClass().toString(), "equals");
 
         if (this.expirationDate == null) return false;
         else {
-            Timetable.logger.exiting(getClass().toString(), "equals");
+            MyLogger.LOGGER.exiting(getClass().toString(), "equals");
             return this.expirationDate.isBefore(LocalDateTime.now());
         }
     }

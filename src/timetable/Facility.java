@@ -1,6 +1,7 @@
 package timetable;
 
 import java.util.Objects;
+import logging.MyLogger;
 
 /**
  * Used to represent a school or university building.
@@ -16,7 +17,7 @@ public class Facility {
 
 
     public Facility(String building, String room, String street, String zipcode, String city) {
-        Timetable.logger.entering(getClass().toString(), "Facility", new Object[]{
+        MyLogger.LOGGER.entering(getClass().toString(), "Facility", new Object[]{
                 building, room, street, zipcode, city
         });
 
@@ -26,7 +27,7 @@ public class Facility {
         this.zipcode = zipcode;
         this.city = city;
 
-        Timetable.logger.exiting(getClass().toString(), "Facility");
+        MyLogger.LOGGER.exiting(getClass().toString(), "Facility");
     }
 
     public String getBuilding() {
@@ -71,7 +72,7 @@ public class Facility {
 
     @Override
     public boolean equals(Object o) {
-        Timetable.logger.entering(getClass().toString(), "equals", o);
+        MyLogger.LOGGER.entering(getClass().toString(), "equals", o);
 
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -82,7 +83,7 @@ public class Facility {
                 Objects.equals(zipcode, facility.zipcode) &&
                 Objects.equals(city, facility.city);
 
-        Timetable.logger.exiting(getClass().toString(), "equals", ret);
+        MyLogger.LOGGER.exiting(getClass().toString(), "equals", ret);
         return ret;
     }
 }

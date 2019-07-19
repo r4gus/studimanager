@@ -2,6 +2,7 @@ package timetable;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import logging.MyLogger;
 
 /**
  * Represents a lecture one knows from university. A {@link Facility} and {@link Lecturer} object can be assigned to it
@@ -17,7 +18,7 @@ public class Lecture {
     private Notes notes;
 
     public Lecture(String title, Facility facility, Lecturer lecturer, boolean elective, Notes notes) {
-        Timetable.logger.entering(getClass().toString(), "Lecture", new Object[]{
+        MyLogger.LOGGER.entering(getClass().toString(), "Lecture", new Object[]{
                 title, facility, lecturer, elective, notes
         });
 
@@ -29,7 +30,7 @@ public class Lecture {
         if (notes == null) this.notes = new Notes();
         else this.notes = notes;
 
-        Timetable.logger.exiting(getClass().toString(), "Lecture");
+        MyLogger.LOGGER.exiting(getClass().toString(), "Lecture");
     }
 
     public String getTitle() {
@@ -80,11 +81,11 @@ public class Lecture {
      * @return Index of the note, -1 if not found.
      */
     public int findNote(Note n) {
-        Timetable.logger.entering(getClass().toString(), "findNote", n);
+        MyLogger.LOGGER.entering(getClass().toString(), "findNote", n);
 
         var ret = notes.find(n);
 
-        Timetable.logger.exiting(getClass().toString(), "findNote", ret);
+        MyLogger.LOGGER.exiting(getClass().toString(), "findNote", ret);
         return ret;
     }
 
@@ -98,14 +99,14 @@ public class Lecture {
      * @throws IllegalArgumentException If a similar note already exists or if null has been passed as an argument.
      */
     public boolean addNote(Note n) throws IllegalArgumentException {
-        Timetable.logger.entering(getClass().toString(), "addNote", n);
+        MyLogger.LOGGER.entering(getClass().toString(), "addNote", n);
 
         if (n == null) throw new IllegalArgumentException("null passed as an argument");
         if (findNote(n) != -1) throw new IllegalArgumentException("The specified note already exists");
 
         var ret = this.notes.add(n);
 
-        Timetable.logger.exiting(getClass().toString(), "addNote", ret);
+        MyLogger.LOGGER.exiting(getClass().toString(), "addNote", ret);
         return ret;
     }
 
@@ -118,11 +119,11 @@ public class Lecture {
      * @return Reference to a Note object on success, null otherwise.
      */
     public Note getNote(int i) {
-        Timetable.logger.entering(getClass().toString(), "getNote", i);
+        MyLogger.LOGGER.entering(getClass().toString(), "getNote", i);
 
         var ret = notes.getElement(i);
 
-        Timetable.logger.exiting(getClass().toString(), "getNote", ret);
+        MyLogger.LOGGER.exiting(getClass().toString(), "getNote", ret);
         return ret;
     }
 
@@ -135,11 +136,11 @@ public class Lecture {
      * @return true on success, false otherwise.
      */
     public boolean removeNote(Note n) {
-        Timetable.logger.entering(getClass().toString(), "removeNote", n);
+        MyLogger.LOGGER.entering(getClass().toString(), "removeNote", n);
 
         var ret = notes.remove(n);
 
-        Timetable.logger.exiting(getClass().toString(), "getNote", ret);
+        MyLogger.LOGGER.exiting(getClass().toString(), "getNote", ret);
         return ret;
     }
 
@@ -152,11 +153,11 @@ public class Lecture {
      * @return {@link Note} object on success, null otherwise.
      */
     public Note removeNote(int i) {
-        Timetable.logger.entering(getClass().toString(), "removeNote", i);
+        MyLogger.LOGGER.entering(getClass().toString(), "removeNote", i);
 
         var ret = notes.remove(i);
 
-        Timetable.logger.exiting(getClass().toString(), "removeNote", ret);
+        MyLogger.LOGGER.exiting(getClass().toString(), "removeNote", ret);
         return ret;
     }
 
@@ -164,14 +165,14 @@ public class Lecture {
      * Remove all notes that have expired from the <code>notes</code> list.
      */
     public void removeExpiredNotes() {
-        Timetable.logger.entering(getClass().toString(), "removeExpiredNotes");
+        MyLogger.LOGGER.entering(getClass().toString(), "removeExpiredNotes");
 
         for (int i = 0; i < notes.size(); i++) {
             if (getNote(i).hasExpired())
                 removeNote(i);
         }
 
-        Timetable.logger.exiting(getClass().toString(), "removeExpiredNotes");
+        MyLogger.LOGGER.exiting(getClass().toString(), "removeExpiredNotes");
     }
 
     /**
@@ -189,7 +190,7 @@ public class Lecture {
      */
     @Override
     public boolean equals(Object o) {
-        Timetable.logger.entering(getClass().toString(), "equals", o);
+        MyLogger.LOGGER.entering(getClass().toString(), "equals", o);
 
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -199,7 +200,7 @@ public class Lecture {
                 Objects.equals(this.facility, lecture.facility) &&
                 Objects.equals(this.lecturer, lecture.lecturer);
 
-        Timetable.logger.exiting(getClass().toString(), "equals", ret);
+        MyLogger.LOGGER.exiting(getClass().toString(), "equals", ret);
         return ret;
     }
 
@@ -212,12 +213,12 @@ public class Lecture {
      * @return <code>Lecture</code> object (copy of this)
      */
     public Lecture softCopy() {
-        Timetable.logger.entering(getClass().toString(), "softCopy");
+        MyLogger.LOGGER.entering(getClass().toString(), "softCopy");
 
         var ret = new Lecture(this.title, this.facility,
                 this.lecturer, this.elective, this.notes);
 
-        Timetable.logger.exiting(getClass().toString(), "softCopy", ret);
+        MyLogger.LOGGER.exiting(getClass().toString(), "softCopy", ret);
         return ret;
     }
 }

@@ -1,5 +1,7 @@
 package timetable;
 
+import logging.MyLogger;
+
 /**
  * An <code>Lecturer</code> object represents a person who teaches/ lectures at a school/ university.
  * An instance of this class can be assigned to a {@link Lecture} and on the other hand multiple lectures can be held
@@ -14,7 +16,7 @@ public class Lecturer {
     private Facility facility;
 
     public Lecturer(String firstName, String lastName, String email, Facility facility) {
-        Timetable.logger.entering(getClass().toString(), "Lecturer", new Object[]{
+        MyLogger.LOGGER.entering(getClass().toString(), "Lecturer", new Object[]{
                 firstName, lastName, email, facility
         });
 
@@ -23,7 +25,7 @@ public class Lecturer {
         this.email = email;
         this.facility = facility;
 
-        Timetable.logger.exiting(getClass().toString(), "Lecturer");
+        MyLogger.LOGGER.exiting(getClass().toString(), "Lecturer");
     }
 
     public String getFirstName() {
@@ -60,7 +62,7 @@ public class Lecturer {
 
     @Override
     public boolean equals(Object o) {
-        Timetable.logger.entering(getClass().toString(), "equals", o);
+        MyLogger.LOGGER.entering(getClass().toString(), "equals", o);
 
         if (this == o) {
             return true;
@@ -86,7 +88,7 @@ public class Lecturer {
 
         var ret = b1 && b2;
 
-        Timetable.logger.exiting(getClass().toString(), "equals", ret);
+        MyLogger.LOGGER.exiting(getClass().toString(), "equals", ret);
         return ret;
     }
 }
