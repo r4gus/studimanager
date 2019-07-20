@@ -1,4 +1,4 @@
-package ToDoList;
+package todolist;
 
 /**
  * The <code>Task</code> object the Task object represents a task of a user.
