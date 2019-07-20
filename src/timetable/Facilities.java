@@ -12,7 +12,7 @@ public class Facilities extends Container<Facility> {
     /**
      * Add an {@link Facility} object to the Facilities container.
      * [Note: This method implements better argument checks via Exceptions and should be preferred over
-     * {@link #add(Facility o) add(Facility o)}.]
+     * {@link Container#add(Object o)}.]
      *
      * @param o The object to add.
      * @return True if the object has been added to the container successfully, false otherwise.

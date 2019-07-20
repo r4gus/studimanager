@@ -43,7 +43,7 @@ public class Lectures extends Container<Lecture> {
     /**
      * Add an {@link Lecture} object to the <code>Lectures</code> container.
      * [Note: This method implements better argument checks via Exceptions and should be preferred over
-     * {@link #add(Lecture o)}.]
+     * {@link Container#add(Object o)}.]
      *
      * @param o The object to add.
      * @return True if the object has been added to the container successfully, false otherwise.
