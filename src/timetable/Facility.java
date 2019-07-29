@@ -86,4 +86,9 @@ public class Facility {
         MyLogger.LOGGER.exiting(getClass().toString(), "equals", ret);
         return ret;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(building, room, street, zipcode, city);
+    }
 }

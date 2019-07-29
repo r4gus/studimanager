@@ -2,6 +2,8 @@ package timetable;
 
 import logging.MyLogger;
 
+import java.util.logging.Level;
+
 /**
  * Container that can hold an arbitrary number of {@link Facility} objects. It extends the {@link Container} class
  * which provides all basic operations for adding and removing elements.
@@ -21,8 +23,13 @@ public class Facilities extends Container<Facility> {
     public boolean addFacility(Facility o) throws IllegalArgumentException {
         MyLogger.LOGGER.entering(getClass().toString(), "addFacility", o);
 
-        if (o == null) throw new IllegalArgumentException("null pointer passed!");
-        if (this.find(o) != -1) throw new IllegalArgumentException("The specified Facility already exists!");
+        if (o == null) {
+            MyLogger.LOGGER.log(Level.WARNING, "null pointer passed!");
+            throw new IllegalArgumentException("null pointer passed!");
+        } if (this.find(o) != -1) {
+            MyLogger.LOGGER.log(Level.WARNING, "The specified Facility already exists");
+            throw new IllegalArgumentException("The specified Facility already exists!");
+        }
 
         var ret = this.add(o);
 
