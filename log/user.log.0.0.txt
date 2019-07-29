@@ -162,3 +162,29 @@ Jul 29, 2019 1:06:44 PM timetable.Facilities addFacility
 WARNING: The specified Facility already exists
 Jul 29, 2019 1:06:45 PM timetable.Facilities addFacility
 WARNING: The specified Facility already exists
+Jul 29, 2019 4:10:09 PM timetable.Lecturers addLecturer
+WARNING: null pointer passed!
+Jul 29, 2019 4:10:10 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 29, 2019 4:10:10 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 29, 2019 4:10:10 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 29, 2019 4:10:10 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 4:10:10 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 29, 2019 4:10:10 PM custom_exceptions.UserException <init>
+WARNING: The specified Lecture already exists!
+Jul 29, 2019 4:10:10 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 4:10:10 PM custom_exceptions.UserException <init>
+WARNING: null pointer passed!
+Jul 29, 2019 4:10:10 PM custom_exceptions.UserException <init>
+WARNING: Index out of bounds
+Jul 29, 2019 4:10:10 PM timetable.Facilities addFacility
+WARNING: null pointer passed!
+Jul 29, 2019 4:10:10 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 29, 2019 4:10:10 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
