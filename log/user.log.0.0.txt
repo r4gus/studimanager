@@ -1,0 +1,164 @@
+Jul 26, 2019 9:36:08 PM timetable.Lecturers addLecturer
+WARNING: null pointer passed!
+Jul 26, 2019 9:36:08 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 26, 2019 9:36:08 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 26, 2019 9:36:08 PM timetable.Facilities addFacility
+WARNING: null pointer passed!
+Jul 26, 2019 9:36:08 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 26, 2019 9:36:08 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 26, 2019 9:36:08 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 26, 2019 9:36:08 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 26, 2019 9:36:08 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 26, 2019 9:36:08 PM timetable.Timetable addLecture
+WARNING: The specified Lecture already exists!
+Jul 26, 2019 9:36:08 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 26, 2019 9:36:08 PM timetable.Timetable addLecture
+WARNING: null pointer passed!
+Jul 26, 2019 10:29:14 PM timetable.Lecturers addLecturer
+WARNING: null pointer passed!
+Jul 26, 2019 10:29:14 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 26, 2019 10:29:14 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 26, 2019 10:29:14 PM timetable.Facilities addFacility
+WARNING: null pointer passed!
+Jul 26, 2019 10:29:14 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 26, 2019 10:29:14 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 26, 2019 10:29:14 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 26, 2019 10:29:14 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 26, 2019 10:29:14 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 26, 2019 10:29:14 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 10:08:19 AM timetable.Lecturers addLecturer
+WARNING: null pointer passed!
+Jul 29, 2019 10:08:19 AM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 29, 2019 10:08:19 AM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 29, 2019 10:08:19 AM timetable.Facilities addFacility
+WARNING: null pointer passed!
+Jul 29, 2019 10:08:19 AM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 29, 2019 10:08:19 AM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 29, 2019 10:08:19 AM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 29, 2019 10:08:19 AM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 10:08:20 AM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 29, 2019 10:08:20 AM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 12:37:08 PM timetable.Lecturers addLecturer
+WARNING: null pointer passed!
+Jul 29, 2019 12:37:08 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 29, 2019 12:37:08 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 29, 2019 12:37:08 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 29, 2019 12:37:08 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 12:37:08 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 29, 2019 12:37:08 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 12:37:08 PM timetable.Facilities addFacility
+WARNING: null pointer passed!
+Jul 29, 2019 12:37:08 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 29, 2019 12:37:08 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 29, 2019 1:01:02 PM timetable.Lecturers addLecturer
+WARNING: null pointer passed!
+Jul 29, 2019 1:01:02 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 29, 2019 1:01:02 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 29, 2019 1:01:02 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 29, 2019 1:01:02 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 1:01:02 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 29, 2019 1:01:02 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 1:01:02 PM timetable.Facilities addFacility
+WARNING: null pointer passed!
+Jul 29, 2019 1:01:02 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 29, 2019 1:01:02 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 29, 2019 1:01:19 PM timetable.Lecturers addLecturer
+WARNING: null pointer passed!
+Jul 29, 2019 1:01:19 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 29, 2019 1:01:19 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 29, 2019 1:01:19 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 29, 2019 1:01:19 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 1:01:19 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 29, 2019 1:01:19 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 1:01:19 PM timetable.Facilities addFacility
+WARNING: null pointer passed!
+Jul 29, 2019 1:01:19 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 29, 2019 1:01:19 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 29, 2019 1:01:45 PM timetable.Lecturers addLecturer
+WARNING: null pointer passed!
+Jul 29, 2019 1:01:45 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 29, 2019 1:01:45 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 29, 2019 1:01:45 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 29, 2019 1:01:45 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 1:01:45 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 29, 2019 1:01:45 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 1:01:45 PM timetable.Facilities addFacility
+WARNING: null pointer passed!
+Jul 29, 2019 1:01:45 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 29, 2019 1:01:45 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 29, 2019 1:06:44 PM timetable.Lecturers addLecturer
+WARNING: null pointer passed!
+Jul 29, 2019 1:06:44 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 29, 2019 1:06:44 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Jul 29, 2019 1:06:44 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 29, 2019 1:06:44 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 1:06:44 PM timetable.Lectures addLecture
+WARNING: the specified Lecture object already exists
+Jul 29, 2019 1:06:44 PM timetable.Lectures addLecture
+WARNING: null pointer passed
+Jul 29, 2019 1:06:44 PM timetable.Facilities addFacility
+WARNING: null pointer passed!
+Jul 29, 2019 1:06:44 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Jul 29, 2019 1:06:45 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
