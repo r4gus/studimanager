@@ -61,12 +61,12 @@
                 </Tab>
                 <Tab text="Klausuren - Übersicht">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      <fx:include source="../guiExam/layoutExam.fxml"/>
                   </content>
                 </Tab>
                   <Tab text="Task - ToDoList">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      <fx:include source="../guiTodolist/layoutTodolist.fxml"/>
                     </content>
                   </Tab>
               </tabs>
