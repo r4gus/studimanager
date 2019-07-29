@@ -56,7 +56,7 @@
               <tabs>
                 <Tab text="Vorlesungsplan">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    <fx:include source="../guiKalender/layoutKalender.fxml"/>
                   </content>
                 </Tab>
                 <Tab text="Klausuren - Übersicht">
