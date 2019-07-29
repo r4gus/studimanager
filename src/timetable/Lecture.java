@@ -221,4 +221,9 @@ public class Lecture {
         MyLogger.LOGGER.exiting(getClass().toString(), "softCopy", ret);
         return ret;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, facility, lecturer, elective);
+    }
 }
