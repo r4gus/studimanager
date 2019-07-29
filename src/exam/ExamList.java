@@ -3,10 +3,9 @@ package exam;
 import custom_exceptions.UserException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-import java.io.IOException;
+import logging.MyLogger;
 import java.util.ArrayList;
-import java.util.logging.*;
+import java.util.logging.Level;
 
 /**
  * The <code>ExamList</code> object represents a list of exams written at the end of a semester.
@@ -17,21 +16,6 @@ import java.util.logging.*;
 
 public class ExamList {
 
-    protected static final Logger logger = Logger.getLogger(ExamList.class.getName());
-
-    static {
-        try {
-            Handler handler = new FileHandler("log/ExamList-log.%u%g.txt", 2048 * 2048, 1, true);
-            handler.setFormatter(new SimpleFormatter());
-            logger.addHandler(handler);
-            logger.setLevel(Level.FINER);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
     private ArrayList<Exam> exams = new ArrayList<>();
 
     public ExamList() {
@@ -39,14 +23,14 @@ public class ExamList {
     }
 
     /**
-     * the method deletes an element Exam from the arrayList in Exams
+     * the method adds an element Exam to the arrayList in Exams
      *
      * @param exam Element Exam which should be added to the ArrayList
      */
 
     public void addExam(Exam exam) throws UserException {
 
-        logger.entering(getClass().toString(), "addExam", new Object[]{exam});
+        MyLogger.LOGGER.entering(getClass().toString(), "addExam", new Object[]{exam});
         for (Exam e : exams) {
 
             try {
@@ -55,13 +39,14 @@ public class ExamList {
                     throw new IllegalArgumentException("Eintrag ist bereits vorhanden");
                 }
             } catch (IllegalArgumentException exception) {
-                //loggen
+
+                MyLogger.LOGGER.log(Level.WARNING, exception.getMessage(), exception);
                 throw new UserException("Die Prüfung mit dieser Nummer exisitert bereits");
             }
 
         }
         exams.add(exam);
-        logger.exiting(getClass().toString(), "addExam");
+        MyLogger.LOGGER.exiting(getClass().toString(), "addExam");
     }
 
     /**
@@ -72,11 +57,13 @@ public class ExamList {
 
     public void deleteExam(int index) {
 
+        MyLogger.LOGGER.entering(getClass().toString(), "deleteExam", new Object[]{index});
         if (exams.size() > index) {
             exams.remove(index);
         } else {
-            throw new IllegalArgumentException("Index zu groß");
+            throw new IllegalArgumentException("Index out of Bounds");
         }
+        MyLogger.LOGGER.exiting(getClass().toString(), "deleteExam");
     }
 
     /**
@@ -84,7 +71,11 @@ public class ExamList {
      */
 
     public int size() {
-        return exams.size();
+
+        MyLogger.LOGGER.entering(getClass().toString(), "size");
+        int size = exams.size();
+        MyLogger.LOGGER.exiting(getClass().toString(), "size", size);
+        return size;
     }
 
     /**
@@ -93,7 +84,10 @@ public class ExamList {
      *
      * @param parameter :"upc" = upcoming exam / "pas" = passed exam / "fai" = failed exam
      */
+
     public ObservableList<Exam> getExamWithSpecalProperties(String parameter) {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "getExamWithSpecalProperties", new Object[]{parameter});
         ObservableList<Exam> obserList = FXCollections.observableArrayList();
         for (Exam e : exams) {
 
@@ -115,6 +109,7 @@ public class ExamList {
                     break;
             }
         }
+        MyLogger.LOGGER.exiting(getClass().toString(), "getExamWithSpecalProperties", new Object[]{obserList});
         return obserList;
     }
 }

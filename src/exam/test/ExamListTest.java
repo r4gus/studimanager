@@ -7,7 +7,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +15,7 @@ class ExamListTest {
 
     private ExamList examList = new ExamList();
     private ExamList examListEmpty = new ExamList();
-    private Exam f1, f2, f3, f4, f5, f6, f7;
+    private Exam f1, f2, f3, f4, f5, f6, f7, f8;
 
     @BeforeEach
     void setUp() {
@@ -38,6 +37,7 @@ class ExamListTest {
         f7 = new Exam("5", "Analysis", 2, LocalDate.of(2019, 4, 13),
                 "9:00", "2:00", "G1", "0.23", 1, 2.3,
                 false, false);
+        f8 = new Exam("101");
 
 
         try {
@@ -56,16 +56,18 @@ class ExamListTest {
 
     @Test
     void deleteObjektFromArrayList() {
+
         assertEquals(7, examList.size());
         examList.deleteExam(1);
         assertEquals(6, examList.size());
     }
 
     @Test
-    void addObjektFromArrayList() {
+    void addObjektToArrayList() {
+
         assertEquals(7, examList.size());
         try {
-            examList.addExam(f1);
+            examList.addExam(f8);
         } catch (UserException e) {
 
         }
@@ -86,8 +88,8 @@ class ExamListTest {
 
 
     @Test
-        // ??? wie behandeln ??
     void deleteObjektFromEmtyArrayList() {
+
         assertEquals(0, examListEmpty.size());
         try {
             examList.deleteExam(0);
