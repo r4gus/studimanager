@@ -1,20 +1,14 @@
 package todolist.test;
 
 import custom_exceptions.UserException;
-import exam.Exam;
-import exam.ExamList;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import todolist.Task;
 import todolist.TaskList;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -107,9 +101,9 @@ class TaskListTest {
     @Test
     void getToDoTasks() {
 
-        ArrayList<Task> taskArrayList = new ArrayList<>();
+        ArrayList<Task> taskArrayList;
         taskArrayList = taskList.getExamWithSpecalProperties(0);
-        assertEquals(1, taskArrayList.size());
+        assertEquals(4, taskArrayList.size());
     }
 
     @Test

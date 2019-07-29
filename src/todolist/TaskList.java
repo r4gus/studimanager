@@ -95,7 +95,7 @@ public class TaskList {
 
             if(e.getProjectStatus() == parameter)
             {
-                tasks.add(e);
+                taskList.add(e);
             }
         }
         MyLogger.LOGGER.exiting(getClass().toString(), "getExamWithSpecalProperties", new Object[]{taskList});
