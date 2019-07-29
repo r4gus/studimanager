@@ -1631,3 +1631,35 @@ Juli 29, 2019 10:31:02 VORM. class todolist.TaskList getExamWithSpecalProperties
 FINER: ENTRY 2
 Juli 29, 2019 10:31:02 VORM. class todolist.TaskList getExamWithSpecalProperties
 FINER: RETURN [Ljava.lang.Object;@2df32bf7
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5427c60c
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@69379752
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@27fe3806
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5f71c76a
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1d7acb34
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@48a242ce
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1e4a7dd4
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 2
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: RETURN [Ljava.lang.Object;@60438a68
