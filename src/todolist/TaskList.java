@@ -17,7 +17,7 @@ public class TaskList {
 
     private ArrayList<Task> tasks = new ArrayList<>();
 
-    TaskList() {
+    public TaskList() {
 
     }
 
@@ -27,7 +27,7 @@ public class TaskList {
      * @param task Element Task which should be added to the ArrayList
      */
 
-    private void addTask(Task task) throws UserException {
+    public void addTask(Task task) throws UserException {
 
         MyLogger.LOGGER.entering(getClass().toString(), "addTask", new Object[]{task});
         for (Task e : tasks) {
@@ -55,7 +55,7 @@ public class TaskList {
      * @param index index indicates which element should be deleted from ArrayList
      */
 
-    private void deleteTask(int index) {
+    public void deleteTask(int index) {
 
         MyLogger.LOGGER.entering(getClass().toString(), "deleteTask", new Object[]{index});
         if (tasks.size() > index) {
@@ -84,7 +84,7 @@ public class TaskList {
      * the method iterates over the individual elements of the array list and checks certain parameters is set to true.
      * If yes, the element is added to the returning list.
      *
-     * @param parameter :"0" = upcoming exam / "1" = passed exam / "2" = failed exam ...
+     * @param parameter  0  TasktoDo / "1" = in progress / "2" = Done / "3" = can be deleted
      */
 
     public ArrayList<Task> getExamWithSpecalProperties(int parameter) {
