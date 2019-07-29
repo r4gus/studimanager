@@ -2,6 +2,8 @@ package timetable;
 
 import logging.MyLogger;
 
+import java.util.Objects;
+
 /**
  * An <code>Lecturer</code> object represents a person who teaches/ lectures at a school/ university.
  * An instance of this class can be assigned to a {@link Lecture} and on the other hand multiple lectures can be held
@@ -90,5 +92,10 @@ public class Lecturer {
 
         MyLogger.LOGGER.exiting(getClass().toString(), "equals", ret);
         return ret;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, email, facility);
     }
 }
