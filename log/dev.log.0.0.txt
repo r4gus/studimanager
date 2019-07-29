@@ -326,3 +326,1340 @@ Juli 19, 2019 2:44:11 NACHM. class exam.ExamList size
 FINER: ENTRY
 Juli 19, 2019 2:44:11 NACHM. class exam.ExamList size
 FINER: RETURN 8
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@27fe3806
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1ad282e0
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7f416310
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1cab0bfb
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5e955596
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@50de0926
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@2473b9ce
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@60438a68
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 8:55:00 NACHM. class todolist.TaskList size
+FINER: RETURN 8
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@27fe3806
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1ad282e0
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7f416310
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1cab0bfb
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5e955596
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@50de0926
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@2473b9ce
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList size
+FINER: RETURN 7
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList deleteTask
+FINER: ENTRY 1
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList deleteTask
+FINER: RETURN
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 8:56:01 NACHM. class todolist.TaskList size
+FINER: RETURN 6
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@27fe3806
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1ad282e0
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7f416310
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1cab0bfb
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5e955596
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@50de0926
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@2473b9ce
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList size
+FINER: RETURN 7
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@74294adb
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 8:56:15 NACHM. class todolist.TaskList size
+FINER: RETURN 8
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@17baae6e
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@133e16fd
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@51b279c9
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1ad282e0
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7f416310
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1cab0bfb
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5e955596
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList size
+FINER: RETURN 7
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@3bd94634
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList size
+FINER: RETURN 8
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@799d4f69
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@49c43f4e
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@290dbf45
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@12028586
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@17776a8
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@69a10787
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@2d127a61
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList size
+FINER: RETURN 0
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList deleteTask
+FINER: ENTRY 0
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList deleteTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@2bbaf4f0
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@11c20519
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@70beb599
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@4e41089d
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@32a068d1
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@33cb5951
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@365c30cc
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 1
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList getExamWithSpecalProperties
+FINER: RETURN [Ljava.lang.Object;@701fc37a
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6166e06f
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@49e202ad
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1c72da34
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6b0c2d26
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@3d3fcdb0
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@641147d0
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6e38921c
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList size
+FINER: RETURN 7
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList deleteTask
+FINER: ENTRY 1
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList deleteTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList size
+FINER: RETURN 6
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@64d7f7e0
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@27c6e487
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@49070868
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6385cb26
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@38364841
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@28c4711c
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@59717824
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 3
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList getExamWithSpecalProperties
+FINER: RETURN [Ljava.lang.Object;@146044d7
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@473b46c3
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@516be40f
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@3c0a50da
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@646be2c3
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@797badd3
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@77be656f
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@19dc67c2
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList size
+FINER: RETURN 7
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@19dc67c2
+Juli 21, 2019 8:56:28 NACHM. todolist.TaskList addTask
+WARNING: Eintrag ist bereits vorhanden
+java.lang.IllegalArgumentException: Eintrag ist bereits vorhanden
+	at todolist.TaskList.addTask(TaskList.java:38)
+	at todolist.test.TaskListTest.addExistingObjektFromArrayList(TaskListTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:675)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:125)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:132)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:124)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:74)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:104)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:62)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:43)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:35)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:202)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:198)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:69)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+
+Juli 21, 2019 8:56:28 NACHM. custom_exceptions.UserException <init>
+WARNING: Die Aufgabe mit dieser Nummer46exisitert bereits
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@4d339552
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@f0f2775
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5a4aa2f2
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6591f517
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@345965f2
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@429bd883
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@4d49af10
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 2
+Juli 21, 2019 8:56:28 NACHM. class todolist.TaskList getExamWithSpecalProperties
+FINER: RETURN [Ljava.lang.Object;@279ad2e3
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@69379752
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@51b279c9
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1ad282e0
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7f416310
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1cab0bfb
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5e955596
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@50de0926
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList size
+FINER: RETURN 7
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@58a90037
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList size
+FINER: RETURN 8
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@49c43f4e
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@290dbf45
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@12028586
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@17776a8
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@69a10787
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@2d127a61
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@2bbaf4f0
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList size
+FINER: RETURN 0
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList deleteTask
+FINER: ENTRY 0
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList deleteTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@11c20519
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@70beb599
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@4e41089d
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@32a068d1
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@33cb5951
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@365c30cc
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@701fc37a
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 3
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList getExamWithSpecalProperties
+FINER: RETURN [Ljava.lang.Object;@4148db48
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@49e202ad
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1c72da34
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6b0c2d26
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@3d3fcdb0
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@641147d0
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6e38921c
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@64d7f7e0
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList size
+FINER: RETURN 7
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList deleteTask
+FINER: ENTRY 1
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList deleteTask
+FINER: RETURN
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 9:17:50 NACHM. class todolist.TaskList size
+FINER: RETURN 6
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@27c6e487
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@49070868
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6385cb26
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@38364841
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@28c4711c
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@59717824
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@146044d7
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList size
+FINER: ENTRY
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList size
+FINER: RETURN 7
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@146044d7
+Juli 21, 2019 9:17:51 NACHM. todolist.TaskList addTask
+WARNING: Eintrag ist bereits vorhanden
+java.lang.IllegalArgumentException: Eintrag ist bereits vorhanden
+	at todolist.TaskList.addTask(TaskList.java:38)
+	at todolist.test.TaskListTest.addExistingObjektFromArrayList(TaskListTest.java:86)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:675)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:125)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:132)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:124)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:74)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:104)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:62)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:43)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:35)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:202)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:198)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:69)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+
+Juli 21, 2019 9:17:51 NACHM. custom_exceptions.UserException <init>
+WARNING: Die Aufgabe mit dieser Nummer38exisitert bereits
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@3d36e4cd
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6a472554
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7ff2a664
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@525b461a
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@58c1c010
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@b7f23d9
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@61d47554
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 0
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@429bd883
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@4d49af10
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@279ad2e3
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@58134517
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@4450d156
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@4461c7e3
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@351d0846
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 1
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@35fc6dc4
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7fe8ea47
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@226a82c4
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@731f8236
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@255b53dc
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1dd92fe2
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6b53e23f
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:17:51 NACHM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 2
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@27fe3806
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1ad282e0
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7f416310
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1cab0bfb
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5e955596
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@50de0926
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@2473b9ce
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 3
+Juli 21, 2019 9:18:20 NACHM. class todolist.TaskList getExamWithSpecalProperties
+FINER: RETURN [Ljava.lang.Object;@2df32bf7
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@80169cf
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@17baae6e
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@69379752
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@27fe3806
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5f71c76a
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1d7acb34
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@48a242ce
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList size
+FINER: ENTRY
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList size
+FINER: RETURN 7
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@17695df3
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList size
+FINER: ENTRY
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList size
+FINER: RETURN 8
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1efee8e7
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1ee807c6
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@76a4d6c
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@517cd4b
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6cc7b4de
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@32cf48b7
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@679b62af
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList size
+FINER: ENTRY
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList size
+FINER: RETURN 0
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList deleteTask
+FINER: ENTRY 0
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList deleteTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5cdd8682
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@d6da883
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@45afc369
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@799d4f69
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@49c43f4e
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@290dbf45
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@12028586
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 3
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: RETURN [Ljava.lang.Object;@17776a8
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@69a10787
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@2d127a61
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@2bbaf4f0
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@11c20519
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@70beb599
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@4e41089d
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@32a068d1
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList size
+FINER: ENTRY
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList size
+FINER: RETURN 7
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList deleteTask
+FINER: ENTRY 1
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList deleteTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList size
+FINER: ENTRY
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList size
+FINER: RETURN 6
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@33cb5951
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@365c30cc
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@701fc37a
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@4148db48
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@282003e1
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7fad8c79
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@71a794e5
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList size
+FINER: ENTRY
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList size
+FINER: RETURN 7
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@71a794e5
+Juli 29, 2019 10:24:12 VORM. todolist.TaskList addTask
+WARNING: Eintrag ist bereits vorhanden
+java.lang.IllegalArgumentException: Eintrag ist bereits vorhanden
+	at todolist.TaskList.addTask(TaskList.java:38)
+	at todolist.test.TaskListTest.addExistingObjektFromArrayList(TaskListTest.java:87)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:675)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:125)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:132)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:124)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:74)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:104)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:62)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:43)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:35)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:202)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:198)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:69)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+
+Juli 29, 2019 10:24:12 VORM. custom_exceptions.UserException <init>
+WARNING: Die Aufgabe mit dieser Nummer38exisitert bereits
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6b67034
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@16267862
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@453da22c
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@71248c21
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@442675e1
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6166e06f
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@49e202ad
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 0
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@58fdd99
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6b1274d2
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7bc1a03d
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@70b0b186
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@ba8d91c
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7364985f
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5d20e46
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 1
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@3d36e4cd
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@6a472554
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7ff2a664
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@525b461a
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@58c1c010
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@b7f23d9
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@61d47554
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:24:12 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 2
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@27fe3806
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1ad282e0
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7f416310
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1cab0bfb
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5e955596
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@50de0926
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@2473b9ce
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:27:10 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 0
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1c1bbc4e
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@fa4c865
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@3bd82cf5
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@544fa968
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@247bddad
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@d35dea7
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7770f470
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:28:27 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 0
+Juli 29, 2019 10:28:52 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1c1bbc4e
+Juli 29, 2019 10:28:52 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:28:52 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@fa4c865
+Juli 29, 2019 10:28:52 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:28:52 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@3bd82cf5
+Juli 29, 2019 10:28:52 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:28:52 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@544fa968
+Juli 29, 2019 10:28:52 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:28:52 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@247bddad
+Juli 29, 2019 10:28:52 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:28:52 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@d35dea7
+Juli 29, 2019 10:28:52 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:28:52 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7770f470
+Juli 29, 2019 10:28:52 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:29:12 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 0
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@27fe3806
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1ad282e0
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7f416310
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1cab0bfb
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5e955596
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@50de0926
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@2473b9ce
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 0
+Juli 29, 2019 10:30:52 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: RETURN [Ljava.lang.Object;@2df32bf7
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@27fe3806
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1ad282e0
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@7f416310
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1cab0bfb
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5e955596
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@50de0926
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@2473b9ce
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 2
+Juli 29, 2019 10:31:02 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: RETURN [Ljava.lang.Object;@2df32bf7
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5427c60c
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@69379752
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@27fe3806
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@5f71c76a
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1d7acb34
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@48a242ce
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: ENTRY todolist.Task@1e4a7dd4
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList addTask
+FINER: RETURN
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: ENTRY 2
+Juli 29, 2019 11:30:19 VORM. class todolist.TaskList getExamWithSpecalProperties
+FINER: RETURN [Ljava.lang.Object;@60438a68

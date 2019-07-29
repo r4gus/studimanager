@@ -84,6 +84,7 @@ public class ExamList {
      *
      * @param parameter :"upc" = upcoming exam / "pas" = passed exam / "fai" = failed exam
      */
+
     public ObservableList<Exam> getExamWithSpecalProperties(String parameter) {
 
         MyLogger.LOGGER.entering(getClass().toString(), "getExamWithSpecalProperties", new Object[]{parameter});

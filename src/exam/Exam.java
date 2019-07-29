@@ -7,7 +7,6 @@ package exam;
  */
 
 import logging.MyLogger;
-
 import java.time.LocalDate;
 import java.util.Objects;
 
