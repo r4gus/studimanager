@@ -232,10 +232,16 @@ public class Timetable {
     }
 
     public Lecture getLecture(int unit, int day, int i) throws UserException {
-        return null;
+        if(unit < 0 || unit >= unitsPerDay || day < 0 || day >= days)
+            throw new UserException("Index out of bounds");
+
+        return getUnit()[unit][day].getElement(i);
     }
 
     public boolean addLecture(int unit, int day, Lecture lecture) throws UserException {
+        if(unit < 0 || unit >= unitsPerDay || day < 0 || day >= days)
+            throw new UserException("Index out of bounds");
+
         MyLogger.LOGGER.entering(getClass().toString(), "addLecture", lecture);
 
         try {

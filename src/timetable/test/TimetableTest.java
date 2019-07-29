@@ -157,4 +157,32 @@ class TimetableTest {
         assertEquals("OOP", table2.getUnit()[0][0].getElement(1).getTitle());
         assertEquals("Algorithmen", table2.getUnit()[2][4].getElement(0).getTitle());
     }
+
+    @Test
+    void getLectureTest() {
+        try {
+            assertTrue(table2.addLecture(0,0, l1));
+            assertTrue(table2.addLecture(0,0, l3));
+            assertTrue(table2.addLecture(1,4, l2));
+            assertTrue(table2.addLecture(0,6, l3));
+        } catch(UserException exc) {
+            fail();
+        }
+
+        try {
+            assertEquals(l1, table2.getLecture(0,0, 0));
+            assertEquals(l3, table2.getLecture(0,0, 1));
+            assertEquals(l2, table2.getLecture(1,4, 0));
+            assertEquals(l3, table2.getLecture(0,6, 0));
+        } catch (UserException exc) {
+            fail();
+        }
+
+        try {
+            table2.addLecture(0, 7, l1);
+            fail();
+        } catch (UserException exc) {
+            assertTrue(true);
+        }
+    }
 }
