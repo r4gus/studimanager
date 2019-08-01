@@ -64,4 +64,12 @@ public class Lectures extends Container<Lecture> {
         MyLogger.LOGGER.exiting(getClass().toString(), "addLecture");
         return this.add(o);
     }
+
+    /**
+     * Get the start and end time of the unit/ lecture separated with an '-'.
+     * @return start and end time separated with an '-'
+     */
+    public String getTime() {
+        return this.from + "\n-\n" + this.to;
+    }
 }

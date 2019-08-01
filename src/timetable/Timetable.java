@@ -2,6 +2,7 @@ package timetable;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 
 import custom_exceptions.UserException;
@@ -34,7 +35,6 @@ public class Timetable {
     private final int days;
     private final int unitsPerDay;
     private Lectures unit[][];
-    private LocalDateTime dateTime;
     private int semester;
     private Lectures LECTURES = new Lectures(); // used to keep record over all records
     private Lecturers LECTURERS = new Lecturers(); // used to keep record over all lecturers
@@ -44,7 +44,7 @@ public class Timetable {
      * Should only be used for test purposes.
      */
     public Timetable(int unitsPerDay, int semester) {
-        this(unitsPerDay, semester, 8, 0, 90, 15, 60, 13, 0, MAX_DAYS);
+        this(unitsPerDay, semester, 8, 0, 90, 15, 60, 13, 0, 6);
     }
 
     /** This constructor should be used in most cases. It provides precise control over the construction of the
@@ -103,9 +103,6 @@ public class Timetable {
                 this.unit[j][i] = new Lectures(start, start.plusMinutes(DEFAULT_DURATION_M));
             }
 
-        dateTime = LocalDateTime.now();
-
-
         MyLogger.LOGGER.exiting(getClass().toString(), "Timetable");
     }
 
@@ -133,20 +130,20 @@ public class Timetable {
         return unit;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
-
     public int getSemester() {
         return semester;
     }
 
     public void setSemester(int semester) {
         this.semester = semester;
+    }
+
+    /**
+     * Get the today's date.
+     * @return The today's date as String.
+     */
+    public String getDate() {
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern("E dd.MM.yyyy"));
     }
 
     /**
