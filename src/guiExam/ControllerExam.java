@@ -31,6 +31,8 @@ public class ControllerExam implements Initializable {
     @FXML
     public TableView<Exam> tableviewExams;
     @FXML
+    public TableView<Exam> tableviewExamsInsisted;
+    @FXML
     public TableColumn colSubjectNumber;
     @FXML
     public TableColumn coltechnicalName;
@@ -48,10 +50,16 @@ public class ControllerExam implements Initializable {
     public TableColumn colRoomNumber;
     @FXML
     public TableColumn colTrialNumber;
+    @FXML
+    public TableColumn colSubjectNumberInsisted;
+    @FXML
+    public TableColumn coltechnicalNameInsisted;
 
 
     private ObservableList<Exam> exams = FXCollections.observableArrayList(new Exam("test", "testname", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", false, false)
             , new Exam("Analysis", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", false, false));
+
+    private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", false, false));
 
     /**
      * the method deletes an element Exam from selected TableView.
@@ -92,6 +100,10 @@ public class ControllerExam implements Initializable {
     }
 
 
+    /**
+     * the method adds an element Exam to examList.
+     */
+
     private void addExam(String examNumber) {
 
         exams.add(new Exam(examNumber));
@@ -100,14 +112,12 @@ public class ControllerExam implements Initializable {
 
     /**
      * Increases the value of the TrialNumber property of the Exam class by 1.
-     *
      */
 
     public void secondTrialExam() {
 
         ObservableList<Integer> selectedItems = tableviewExams.getSelectionModel().getSelectedIndices();
-        for (int examIndex: selectedItems)
-        {
+        for (int examIndex : selectedItems) {
             Exam exam = exams.get(examIndex);
             String trNr = exam.getTrialNumber();
             Integer trialNr = Integer.parseInt(trNr);
@@ -116,8 +126,17 @@ public class ControllerExam implements Initializable {
             exam.setTrialNumber(new SimpleStringProperty(trNr));
             tableviewExams.refresh();
         }
+    }
 
+    /**
+     * Deletes the element from the list exams and adds it to the list examsInsisted.
+     */
 
+    public void addElementToTableviewExamsInsisted() {
+        ObservableList<Exam> selectedItems = tableviewExams.getSelectionModel().getSelectedItems();
+        examsInsisted.addAll(selectedItems);
+        exams.removeAll(selectedItems);
+        tableviewExamsInsisted.refresh();
     }
 
 
@@ -130,6 +149,7 @@ public class ControllerExam implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
 
         tableviewExams.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableviewExams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -152,6 +172,12 @@ public class ControllerExam implements Initializable {
         colTrialNumber.setCellValueFactory(new PropertyValueFactory<Exam, String>("trialNumber"));
         colTrialNumber.setMaxWidth(1f * Integer.MAX_VALUE * 50);
 
+        colSubjectNumberInsisted.setCellValueFactory((new PropertyValueFactory<Exam, String>("subjectNumber")));
+        colSubjectNumberInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        coltechnicalNameInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("technicalName"));
+        coltechnicalNameInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+
         tableviewExams.setItems(exams);
+        tableviewExamsInsisted.setItems(examsInsisted);
     }
 }
