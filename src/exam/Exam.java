@@ -28,15 +28,15 @@ public class Exam {
     private boolean insisted;
     private boolean currentExam;
 
+    private static final String valueNotAvailibale =  "N. V." ;
+
     public Exam(String subjectNumber) {
 
+        this(subjectNumber, Exam.valueNotAvailibale, Exam.valueNotAvailibale , Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, "1", Exam.valueNotAvailibale, false ,true );
         MyLogger.LOGGER.entering(getClass().toString(), "Exam", new Object[]{subjectNumber});
-        this.subjectNumber = new SimpleStringProperty(subjectNumber);
-        this.currentExam = true;
         MyLogger.LOGGER.exiting(getClass().toString(), "Exam");
     }
 
-    // Konstruktoren ohne codedoppelung
 
     public Exam(String subjectNumber, String technicalName, String semester, String date, String begin, String duration, String building, String roomNumber, String trialNumber, String mark, boolean insisted, boolean currentExam) {
 

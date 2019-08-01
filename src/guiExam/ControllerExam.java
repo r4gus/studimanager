@@ -1,6 +1,7 @@
 package guiExam;
 
 import exam.Exam;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +15,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+/**
+ * The <code>ControllerExam</code> object represents the controller of the Gui layoutExam.
+ * This is one of the tabs of the TabPane.
+ * In the controller the logic is separated from the Gui and its elements.
+ *
+ * @author Lukas Mendel
+ */
 
 public class ControllerExam implements Initializable {
 
@@ -41,13 +50,27 @@ public class ControllerExam implements Initializable {
     public TableColumn colTrialNumber;
 
 
-    private ObservableList<Exam> exams = FXCollections.observableArrayList(new Exam("test" , "testname", "3" , "2019-04-12", "9.00" , "2:00" , "R0.23" , "G1", "1" , "2.3" , false ,false ));
+    private ObservableList<Exam> exams = FXCollections.observableArrayList(new Exam("test", "testname", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", false, false)
+            , new Exam("Analysis", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", false, false));
+
+    /**
+     * the method deletes an element Exam from selected TableView.
+     *
+     * @param actionEvent Element Exam which should be added to the ArrayList
+     */
 
     public void clickDeleteExam(ActionEvent actionEvent) {
 
         ObservableList<Exam> selectedItems = tableviewExams.getSelectionModel().getSelectedItems();
         exams.removeAll(selectedItems);
     }
+
+
+    /**
+     * the method adds an element Exam to TableView.
+     *
+     * @param actionEvent Element Exam which should be added to the ArrayList
+     */
 
     public void clickAddExam(ActionEvent actionEvent) {
 
@@ -56,16 +79,54 @@ public class ControllerExam implements Initializable {
         textfieldLectureNumber.clear();
     }
 
+
+    /**
+     * the method deletes all elements Exam from selected TableView
+     *
+     * @param actionEvent Element Exam which should be added to the ArrayList
+     */
+
     public void clickClearList(ActionEvent actionEvent) {
 
         tableviewExams.getItems().clear();
     }
+
 
     private void addExam(String examNumber) {
 
         exams.add(new Exam(examNumber));
     }
 
+
+    /**
+     * Increases the value of the TrialNumber property of the Exam class by 1.
+     *
+     */
+
+    public void secondTrialExam() {
+
+        ObservableList<Integer> selectedItems = tableviewExams.getSelectionModel().getSelectedIndices();
+        for (int examIndex: selectedItems)
+        {
+            Exam exam = exams.get(examIndex);
+            String trNr = exam.getTrialNumber();
+            Integer trialNr = Integer.parseInt(trNr);
+            trialNr++;
+            trNr = "" + trialNr;
+            exam.setTrialNumber(new SimpleStringProperty(trNr));
+            tableviewExams.refresh();
+        }
+
+
+    }
+
+
+    /**
+     * the method deletes all elements Exam from selected TableView
+     *
+     * @param url            Element Exam which should be added to the ArrayList
+     * @param resourceBundle Element Exam which should be added to the ArrayList
+     */
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -92,7 +153,5 @@ public class ControllerExam implements Initializable {
         colTrialNumber.setMaxWidth(1f * Integer.MAX_VALUE * 50);
 
         tableviewExams.setItems(exams);
-
-
     }
 }
