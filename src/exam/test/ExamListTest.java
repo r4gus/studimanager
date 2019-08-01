@@ -22,8 +22,8 @@ class ExamListTest {
         examList = new ExamList();
         f1 = new Exam("0");
         f2 = new Exam("10");
-        f3 = new Exam("1", "Analysis", 2, LocalDate.of(2019, 4, 13),
-                "9:00", "2:00", "G1", "0.23", 1, 2.3,
+   /*     f3 = new Exam("1", "Analysis", "2", LocalDate.of(2019, 4, 13),
+                "9:00", "2:00", "G1", "0.23", "1", "2.3",
                 true, true);
         f4 = new Exam("2", "Analysis", 2, LocalDate.of(2019, 4, 13),
                 "9:00", "2:00", "G1", "0.23", 1, 2.3,
@@ -36,7 +36,7 @@ class ExamListTest {
                 false, true);
         f7 = new Exam("5", "Analysis", 2, LocalDate.of(2019, 4, 13),
                 "9:00", "2:00", "G1", "0.23", 1, 2.3,
-                false, false);
+                false, false); */
         f8 = new Exam("101");
 
 
