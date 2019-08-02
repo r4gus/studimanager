@@ -8,13 +8,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="677.0" prefWidth="1042.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiExam.ControllerExam">
    <children>
       <TextField fx:id="textfieldLectureNumber" layoutX="34.0" layoutY="76.0" prefHeight="25.0" prefWidth="140.0" promptText="Fachnummer" />
       <Button id="addExam" layoutX="34.0" layoutY="33.0" mnemonicParsing="false" onAction="#clickAddExam" prefHeight="25.0" prefWidth="140.0" text="Klausur hinzufügen" />
-      <Separator layoutX="28.0" layoutY="119.0" prefHeight="1.0" prefWidth="935.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="77.0" />
+      <Separator layoutX="28.0" layoutY="119.0" prefHeight="1.0" prefWidth="935.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
       <Button id="deleteExam" layoutX="539.0" layoutY="33.0" mnemonicParsing="false" onAction="#clickDeleteExam" prefHeight="25.0" prefWidth="140.0" text="Klausur(en) löschen" />
       <Button id="deleteList" layoutX="379.0" layoutY="33.0" mnemonicParsing="false" onAction="#clickClearList" prefHeight="25.0" prefWidth="140.0" text="Liste Leeren" />
       <TableView fx:id="tableviewExams" layoutX="117.0" layoutY="184.0" prefHeight="200.0" prefWidth="762.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
@@ -34,23 +35,34 @@
       <Separator layoutX="700.0" layoutY="15.0" orientation="VERTICAL" prefHeight="97.0" prefWidth="0.0" />
       <Button layoutX="727.0" layoutY="33.0" mnemonicParsing="false" onAction="#addElementToTableviewExamsInsisted" prefHeight="25.0" prefWidth="140.0" text="Klausur(en) bestanden" />
       <Button layoutX="727.0" layoutY="76.0" mnemonicParsing="false" onAction="#editExamObject" prefHeight="25.0" prefWidth="140.0" text="Klausur bearbeiten" />
-      <Label layoutX="378.0" layoutY="148.0" text="Anstehende Klausuren im aktuellen Semester:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="449.0" layoutY="432.0" text="bestandene Klausuren:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
+      <VBox alignment="CENTER" layoutX="3.0" layoutY="134.0" prefHeight="25.0" prefWidth="1042.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="134.0">
+         <children>
+            <Label text="Anstehende Klausuren im aktuellen Semester:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
       <TableView fx:id="tableviewExamsInsisted" layoutX="113.0" layoutY="463.0" prefHeight="200.0" prefWidth="768.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
          <columns>
              <TableColumn fx:id="colSubjectNumberInsisted" text="Fachnummer" />
-             <TableColumn fx:id="coltechnicalNameInsisted" text="Fachbezeichung" />
+             <TableColumn fx:id="coltechnicalNameInsisted" prefWidth="103.0" text="Fachbezeichung" />
+            <TableColumn fx:id="colMarkInsisted" prefWidth="87.0" text="Note" />
+            <TableColumn fx:id="colModulMarkInsisted" prefWidth="96.0" text="Modulnote" />
+            <TableColumn fx:id="colTrialsInsisted" prefWidth="121.0" text="Anzahl der Versuche" />
          </columns>
       </TableView>
       <ChoiceBox fx:id="stringChoiceBoxTableView" layoutX="379.0" layoutY="76.0" prefHeight="25.0" prefWidth="140.0" />
       <Button layoutX="888.0" layoutY="33.0" mnemonicParsing="false" onAction="#secondTrialExam" prefHeight="25.0" prefWidth="140.0" text="Klausur zweitversuch" />
+      <VBox alignment="CENTER" layoutX="3.0" layoutY="417.0" prefHeight="32.0" prefWidth="1042.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="417.0">
+         <children>
+            <Label text="bestandene Klausuren:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

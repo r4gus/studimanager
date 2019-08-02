@@ -58,6 +58,13 @@ public class ControllerExam implements Initializable {
     public TableColumn colSubjectNumberInsisted;
     @FXML
     public TableColumn coltechnicalNameInsisted;
+    @FXML
+    public TableColumn colMarkInsisted;
+    @FXML
+    public TableColumn colModulMarkInsisted;
+    @FXML
+    public TableColumn colTrialsInsisted;
+
 
     @FXML
     public ChoiceBox<String> stringChoiceBoxTableView;
@@ -65,10 +72,10 @@ public class ControllerExam implements Initializable {
     public static final String choiceBoxValue1 = "Aktuelle Klausuren";
     public static final String choiceBoxValue2 = "Bestandene Klausuren";
 
-    private ObservableList<Exam> exams = FXCollections.observableArrayList(new Exam("test", "testname", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", false, false)
-            , new Exam("Analysis", "Mathe", "3", "2019-04-12", "9.00", "1:30", "R0.23", "G1", "1", "2.3", false, false));
+    private ObservableList<Exam> exams = FXCollections.observableArrayList(new Exam("test", "testname", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3","2.0", false, false)
+            , new Exam("Analysis", "Mathe", "3", "2019-04-12", "9.00", "1:30", "R0.23", "G1", "1", "2.3","3.0" ,  false, false));
 
-    private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", false, false));
+    private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2,5", false, false));
 
     private ObservableList<String> observableListChoiceBox = FXCollections.observableArrayList(ControllerExam.choiceBoxValue1, ControllerExam.choiceBoxValue2);
 
@@ -217,10 +224,18 @@ public class ControllerExam implements Initializable {
         colTrialNumber.setCellValueFactory(new PropertyValueFactory<Exam, String>("trialNumber"));
         colTrialNumber.setMaxWidth(1f * Integer.MAX_VALUE * 50);
 
+        tableviewExamsInsisted.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        tableviewExamsInsisted.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         colSubjectNumberInsisted.setCellValueFactory((new PropertyValueFactory<Exam, String>("subjectNumber")));
         colSubjectNumberInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
         coltechnicalNameInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("technicalName"));
         coltechnicalNameInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colMarkInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("mark"));
+        colMarkInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colModulMarkInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("modulMark"));
+        colModulMarkInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colTrialsInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("trialNumber"));
+        colTrialsInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
 
         tableviewExams.setItems(exams);
         tableviewExamsInsisted.setItems(examsInsisted);

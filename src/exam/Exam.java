@@ -25,20 +25,21 @@ public class Exam {
     private SimpleStringProperty roomNumber;
     private SimpleStringProperty trialNumber;
     private SimpleStringProperty mark;
+    private SimpleStringProperty modulMark;
     private boolean insisted;
     private boolean currentExam;
 
-    private static final String valueNotAvailibale =  "N. V." ;
+    private static final String valueNotAvailibale = "N. V.";
 
     public Exam(String subjectNumber) {
 
-        this(subjectNumber, Exam.valueNotAvailibale, Exam.valueNotAvailibale , Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, "1", Exam.valueNotAvailibale, false ,true );
+        this(subjectNumber, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, "1", Exam.valueNotAvailibale, Exam.valueNotAvailibale , false, true);
         MyLogger.LOGGER.entering(getClass().toString(), "Exam", new Object[]{subjectNumber});
         MyLogger.LOGGER.exiting(getClass().toString(), "Exam");
     }
 
 
-    public Exam(String subjectNumber, String technicalName, String semester, String date, String begin, String duration, String building, String roomNumber, String trialNumber, String mark, boolean insisted, boolean currentExam) {
+    public Exam(String subjectNumber, String technicalName, String semester, String date, String begin, String duration, String building, String roomNumber, String trialNumber, String mark, String modulMark , boolean insisted, boolean currentExam) {
 
         MyLogger.LOGGER.entering(getClass().toString(), "Exam", new Object[]{subjectNumber, technicalName, semester, date, begin, duration, building, roomNumber, trialNumber});
         this.subjectNumber = new SimpleStringProperty(subjectNumber);
@@ -51,6 +52,7 @@ public class Exam {
         this.roomNumber = new SimpleStringProperty(roomNumber);
         this.trialNumber = new SimpleStringProperty(trialNumber);
         this.mark = new SimpleStringProperty(mark);
+        this.modulMark = new SimpleStringProperty(modulMark);
         this.insisted = insisted;
         this.currentExam = currentExam;
         MyLogger.LOGGER.exiting(getClass().toString(), "Exam");
@@ -136,6 +138,12 @@ public class Exam {
         this.mark = mark;
     }
 
+    public String getModulMark() { return modulMark.get(); }
+
+    public SimpleStringProperty modulMarkProperty() { return modulMark; }
+
+    public void setModulMark(String modulMark) { this.modulMark.set(modulMark); }
+
     public boolean isInsisted() {
         return insisted;
     }
@@ -154,29 +162,28 @@ public class Exam {
 
     @Override
     public boolean equals(Object o) {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "equals", new Object[]{o});
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Exam exam = (Exam) o;
-            boolean result = insisted == exam.insisted &&
-                            currentExam == exam.currentExam &&
-                            Objects.equals(subjectNumber, exam.subjectNumber) &&
-                            Objects.equals(technicalName, exam.technicalName) &&
-                            Objects.equals(semester, exam.semester) &&
-                            Objects.equals(date, exam.date) &&
-                            Objects.equals(begin, exam.begin) &&
-                            Objects.equals(duration, exam.duration) &&
-                            Objects.equals(building, exam.building) &&
-                            Objects.equals(roomNumber, exam.roomNumber) &&
-                            Objects.equals(trialNumber, exam.trialNumber) &&
-                            Objects.equals(mark, exam.mark);
+        boolean result = insisted == exam.insisted &&
+                currentExam == exam.currentExam &&
+                Objects.equals(subjectNumber, exam.subjectNumber) &&
+                Objects.equals(technicalName, exam.technicalName) &&
+                Objects.equals(semester, exam.semester) &&
+                Objects.equals(date, exam.date) &&
+                Objects.equals(begin, exam.begin) &&
+                Objects.equals(duration, exam.duration) &&
+                Objects.equals(building, exam.building) &&
+                Objects.equals(roomNumber, exam.roomNumber) &&
+                Objects.equals(trialNumber, exam.trialNumber) &&
+                Objects.equals(mark, exam.mark) &&
+                Objects.equals(modulMark, exam.modulMark);
         MyLogger.LOGGER.exiting(getClass().toString(), "equals", new Object[]{result});
         return result;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(subjectNumber, technicalName, semester, date, begin, duration, building, roomNumber, trialNumber, mark, insisted, currentExam);
-    }
 
     @Override
     public String toString() {
@@ -191,6 +198,7 @@ public class Exam {
                 ", roomNumber=" + roomNumber +
                 ", trialNumber=" + trialNumber +
                 ", mark=" + mark +
+                ", modulMark=" + modulMark +
                 ", insisted=" + insisted +
                 ", currentExam=" + currentExam +
                 '}';
