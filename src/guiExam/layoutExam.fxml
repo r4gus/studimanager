@@ -33,7 +33,7 @@
       <Separator layoutX="358.0" layoutY="15.0" orientation="VERTICAL" prefHeight="97.0" prefWidth="0.0" />
       <Separator layoutX="700.0" layoutY="15.0" orientation="VERTICAL" prefHeight="97.0" prefWidth="0.0" />
       <Button layoutX="727.0" layoutY="33.0" mnemonicParsing="false" onAction="#addElementToTableviewExamsInsisted" prefHeight="25.0" prefWidth="140.0" text="Klausur(en) bestanden" />
-      <Button layoutX="727.0" layoutY="76.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Klausur bearbeiten" />
+      <Button layoutX="727.0" layoutY="76.0" mnemonicParsing="false" onAction="#editExamObject" prefHeight="25.0" prefWidth="140.0" text="Klausur bearbeiten" />
       <Label layoutX="378.0" layoutY="148.0" text="Anstehende Klausuren im aktuellen Semester:">
          <font>
             <Font size="14.0" />
@@ -50,7 +50,7 @@
              <TableColumn fx:id="coltechnicalNameInsisted" text="Fachbezeichung" />
          </columns>
       </TableView>
-      <ChoiceBox layoutX="379.0" layoutY="76.0" prefHeight="25.0" prefWidth="140.0" />
+      <ChoiceBox fx:id="stringChoiceBoxTableView" layoutX="379.0" layoutY="76.0" prefHeight="25.0" prefWidth="140.0" />
       <Button layoutX="888.0" layoutY="33.0" mnemonicParsing="false" onAction="#secondTrialExam" prefHeight="25.0" prefWidth="140.0" text="Klausur zweitversuch" />
    </children>
 </AnchorPane>

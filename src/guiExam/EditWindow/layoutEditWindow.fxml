@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="467.0" prefWidth="545.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiExam.EditWindow.ControllerEditWindow">
+   <children>
+      <Label layoutX="80.0" layoutY="63.0" text="Klausur bearbeiten:" textFill="#a40f0f">
+         <font>
+            <Font name="Eras Demi ITC" size="14.0" />
+         </font></Label>
+      <TextField fx:id="textFieldLectureNr" layoutX="210.0" layoutY="133.0" promptText="Nummer" />
+      <Label layoutX="80.0" layoutY="137.0" text="Fachnummer:" />
+      <TextField fx:id="textFieldtechnicalName" layoutX="210.0" layoutY="165.0" promptText="beschreibung" />
+      <Label layoutX="80.0" layoutY="169.0" text="Fachbezeichnung:" />
+   </children>
+</AnchorPane>

@@ -1,18 +1,22 @@
 package guiExam;
 
+import custom_exceptions.UserException;
 import exam.Exam;
+import guiExam.EditWindow.ControllerEditWindow;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -55,11 +59,18 @@ public class ControllerExam implements Initializable {
     @FXML
     public TableColumn coltechnicalNameInsisted;
 
+    @FXML
+    public ChoiceBox<String> stringChoiceBoxTableView;
+
+    public static final String choiceBoxValue1 = "Aktuelle Klausuren";
+    public static final String choiceBoxValue2 = "Bestandene Klausuren";
 
     private ObservableList<Exam> exams = FXCollections.observableArrayList(new Exam("test", "testname", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", false, false)
-            , new Exam("Analysis", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", false, false));
+            , new Exam("Analysis", "Mathe", "3", "2019-04-12", "9.00", "1:30", "R0.23", "G1", "1", "2.3", false, false));
 
     private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", false, false));
+
+    private ObservableList<String> observableListChoiceBox = FXCollections.observableArrayList(ControllerExam.choiceBoxValue1, ControllerExam.choiceBoxValue2);
 
     /**
      * the method deletes an element Exam from selected TableView.
@@ -96,7 +107,20 @@ public class ControllerExam implements Initializable {
 
     public void clickClearList(ActionEvent actionEvent) {
 
-        tableviewExams.getItems().clear();
+        try {
+            if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue1)) {
+                tableviewExams.getItems().clear();
+            } else if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue2)) {
+                tableviewExamsInsisted.getItems().clear();
+            } else {
+                throw new UserException("Bitte wählen Sie eine der Optionen aus");
+            }
+        } catch (UserException e) {
+
+            // Fehlermeldung an Oberfläche werden --> Message Box
+            // Soll ein großes Package erstellt werden in dem es eine Klasse gibt
+            // in der verschiedene Fehlermeldungen für user erstellt werden ??
+        }
     }
 
 
@@ -139,6 +163,27 @@ public class ControllerExam implements Initializable {
         tableviewExamsInsisted.refresh();
     }
 
+    public void editExamObject() {
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditWindow/layoutEditWindow.fxml"));
+            //ControllerEditWindow controllerEditWindow = new ControllerEditWindow();
+            //fxmlLoader.setController(controllerEditWindow);
+
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Klausur bearbeiten");
+            stage.show();
+
+        } catch (IOException e) {
+
+            // Loggen usw...
+        }
+
+
+    }
+
 
     /**
      * the method deletes all elements Exam from selected TableView
@@ -179,5 +224,6 @@ public class ControllerExam implements Initializable {
 
         tableviewExams.setItems(exams);
         tableviewExamsInsisted.setItems(examsInsisted);
+        stringChoiceBoxTableView.setItems(observableListChoiceBox);
     }
 }
