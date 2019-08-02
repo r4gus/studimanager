@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="494.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiExam.EditWindow.ControllerEditWindow">
+<AnchorPane prefHeight="494.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" layoutX="36.0" layoutY="61.0" prefHeight="25.0" prefWidth="367.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="60.0">
          <children>
@@ -43,13 +43,13 @@
                <children>
                   <TextField fx:id="textFieldLectureNr" promptText="Nummer" />
                   <TextField fx:id="textFieldtechnicalName" promptText="beschreibung" />
-                  <ComboBox prefWidth="150.0" promptText="Semester" />
-                  <DatePicker prefHeight="25.0" prefWidth="149.0" />
-                  <TextField fx:id="textFieldtechnicalName1" promptText="9:00" />
-                  <TextField fx:id="textFieldtechnicalName2" promptText="2:00" />
-                  <TextField fx:id="textFieldtechnicalName3" promptText="Audimax" />
-                  <TextField fx:id="textFieldtechnicalName31" promptText="R 0.23" />
-                  <TextField fx:id="textFieldtechnicalName311" promptText="R 0.23" />
+                  <ComboBox fx:id="ComboBoxSemester" prefWidth="150.0" promptText="Semester" />
+                  <DatePicker fx:id="DatePickerFieldDate" prefHeight="25.0" prefWidth="149.0" />
+                  <TextField fx:id="textFieldBegin" promptText="9:00" />
+                  <TextField fx:id="textFieldDuration" promptText="2:00" />
+                  <TextField fx:id="textFieldBuilding" promptText="Audimax" />
+                  <TextField fx:id="textFieldRoomNumber" promptText="R 0.23" />
+                  <TextField fx:id="textFieldTrialNumber" promptText="1" />
                </children>
                <padding>
                   <Insets top="5.0" />

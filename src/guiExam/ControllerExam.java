@@ -2,6 +2,7 @@ package guiExam;
 
 import custom_exceptions.UserException;
 import exam.Exam;
+import guiExam.EditWindow.ControllerEditWindow;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -114,9 +115,9 @@ public class ControllerExam implements Initializable {
     public void clickClearList(ActionEvent actionEvent) {
 
         try {
-            if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue1)) {
+            if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue1) && tableviewExams.getItems() != null) {
                 tableviewExams.getItems().clear();
-            } else if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue2)) {
+            } else if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue2) && tableviewExamsInsisted.getItems() != null) {
                 tableviewExamsInsisted.getItems().clear();
             } else {
                 throw new UserException("Bitte wählen Sie eine der Optionen aus");
@@ -172,13 +173,14 @@ public class ControllerExam implements Initializable {
     public void editExamObject() {
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditWindow/layoutEditWindow.fxml"));
-            //ControllerEditWindow controllerEditWindow = new ControllerEditWindow();
-            //fxmlLoader.setController(controllerEditWindow);
-
+           FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditWindow/layoutEditWindow.fxml"));
+            ControllerEditWindow controllerEditWindow = new ControllerEditWindow(this);
+            fxmlLoader.setController(controllerEditWindow);
             Parent root = fxmlLoader.load();
+
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            stage.setResizable(false);
             stage.setTitle("Klausur bearbeiten");
             stage.show();
 
