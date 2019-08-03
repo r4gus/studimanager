@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="382.0" prefWidth="387.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" layoutX="179.0" layoutY="85.0" prefHeight="24.0" prefWidth="220.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <Label text="Bestandene Klausur bearbeiten:" textFill="#a40f0f">
+               <font>
+                  <Font name="Eras Demi ITC" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="76.0" layoutY="157.0" prefHeight="219.0" prefWidth="347.0" spacing="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="110.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="17.0">
+               <children>
+                  <Label text="Fachnummer:">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Fachbezeichnung:" />
+                  <Label text="Note" />
+                  <Label text="Modulnote" />
+                  <Label text="Anzahl Versuche:" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="textFieldLectureNrResult" promptText="67547" />
+                  <TextField fx:id="textFieldtechnicalNameResult" promptText="Analysis" />
+                  <TextField fx:id="textFieldMarkResult" promptText="2.5" />
+                  <TextField fx:id="textFieldmodulMarkResult" promptText="2.7" />
+                  <TextField fx:id="textFieldtrialNumberResult" promptText="2" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Speichern">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
