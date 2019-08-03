@@ -56,7 +56,7 @@
               <tabs>
                 <Tab text="Vorlesungsplan">
                   <content>
-                    <fx:include source="../guiKalender/layoutKalender.fxml"/>
+                    <fx:include source="../guiCalendar/layoutCalendar.fxml"/>
                   </content>
                 </Tab>
                 <Tab text="Klausuren - Übersicht">

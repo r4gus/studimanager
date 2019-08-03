@@ -91,4 +91,9 @@ public class Facility {
     public int hashCode() {
         return Objects.hash(building, room, street, zipcode, city);
     }
+
+    @Override
+    public String toString() {
+        return this.building + " " + this.room;
+    }
 }
