@@ -3,6 +3,8 @@ package guiExam.EditWindow;
 import guiExam.ControllerExam;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -15,9 +17,9 @@ public class ControllerEditWindow implements Initializable {
     @FXML
     public TextField textFieldtechnicalName;
     @FXML
-    public TextField ComboBoxSemester;
+    public ComboBox ComboBoxSemester;
     @FXML
-    public TextField DatePickerFieldDate;
+    public DatePicker DatePickerFieldDate;
     @FXML
     public TextField textFieldBegin;
     @FXML

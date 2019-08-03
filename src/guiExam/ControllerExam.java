@@ -14,8 +14,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.imageio.IIOException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -72,8 +75,8 @@ public class ControllerExam implements Initializable {
     public static final String choiceBoxValue1 = "Aktuelle Klausuren";
     public static final String choiceBoxValue2 = "Bestandene Klausuren";
 
-    private ObservableList<Exam> exams = FXCollections.observableArrayList(new Exam("test", "testname", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3","2.0", false, false)
-            , new Exam("Analysis", "Mathe", "3", "2019-04-12", "9.00", "1:30", "R0.23", "G1", "1", "2.3","3.0" ,  false, false));
+    private ObservableList<Exam> exams = FXCollections.observableArrayList(new Exam("test", "testname", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2.0", false, false)
+            , new Exam("Analysis", "Mathe", "3", "2019-04-12", "9.00", "1:30", "R0.23", "G1", "1", "2.3", "3.0", false, false));
 
     private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2,5", false, false));
 
@@ -171,75 +174,79 @@ public class ControllerExam implements Initializable {
     }
 
     public void editExamObject() {
-        try {
 
-           FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditWindow/layoutEditWindow.fxml"));
-            ControllerEditWindow controllerEditWindow = new ControllerEditWindow(this);
-            fxmlLoader.setController(controllerEditWindow);
-            Parent root = fxmlLoader.load();
+            //load Content
 
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setResizable(false);
-            stage.setTitle("Klausur bearbeiten");
-            stage.show();
+            try {
+                //Load second scene
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditWindow/layoutEditWindow.fxml"));
+                ControllerEditWindow controllerLesson = new ControllerEditWindow(this);
+                fxmlLoader.setController(controllerLesson);
+                Parent root = fxmlLoader.load();
 
-        } catch (IOException e) {
 
-            // Loggen usw...
+                //Show scene 2 (edit Lesson) in new window
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.setResizable(false);
+                stage.setTitle("Unterrichtstunde anpassen");
+                stage.show();
+            } catch (IOException ex) {
+                System.err.println(ex);
+            }
         }
 
 
+
+
+
+        /**
+         * the method deletes all elements Exam from selected TableView
+         *
+         * @param url            Element Exam which should be added to the ArrayList
+         * @param resourceBundle Element Exam which should be added to the ArrayList
+         */
+
+        @Override
+        public void initialize (URL url, ResourceBundle resourceBundle){
+
+
+            tableviewExams.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+            tableviewExams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+            colSubjectNumber.setCellValueFactory((new PropertyValueFactory<Exam, String>("subjectNumber")));
+            colSubjectNumber.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+            coltechnicalName.setCellValueFactory(new PropertyValueFactory<Exam, String>("technicalName"));
+            coltechnicalName.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+            colSemester.setCellValueFactory(new PropertyValueFactory<Exam, String>("semester"));
+            colSemester.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+            colDate.setCellValueFactory(new PropertyValueFactory<Exam, String>("date"));
+            colDate.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+            colBegin.setCellValueFactory(new PropertyValueFactory<Exam, String>("begin"));
+            colBegin.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+            colDuration.setCellValueFactory(new PropertyValueFactory<Exam, String>("duration"));
+            colDuration.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+            colBuilding.setCellValueFactory(new PropertyValueFactory<Exam, String>("building"));
+            colBuilding.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+            colRoomNumber.setCellValueFactory(new PropertyValueFactory<Exam, String>("roomNumber"));
+            colRoomNumber.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+            colTrialNumber.setCellValueFactory(new PropertyValueFactory<Exam, String>("trialNumber"));
+            colTrialNumber.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+
+            tableviewExamsInsisted.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+            tableviewExamsInsisted.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+            colSubjectNumberInsisted.setCellValueFactory((new PropertyValueFactory<Exam, String>("subjectNumber")));
+            colSubjectNumberInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+            coltechnicalNameInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("technicalName"));
+            coltechnicalNameInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+            colMarkInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("mark"));
+            colMarkInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+            colModulMarkInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("modulMark"));
+            colModulMarkInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+            colTrialsInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("trialNumber"));
+            colTrialsInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+
+            tableviewExams.setItems(exams);
+            tableviewExamsInsisted.setItems(examsInsisted);
+            stringChoiceBoxTableView.setItems(observableListChoiceBox);
+        }
     }
-
-
-    /**
-     * the method deletes all elements Exam from selected TableView
-     *
-     * @param url            Element Exam which should be added to the ArrayList
-     * @param resourceBundle Element Exam which should be added to the ArrayList
-     */
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
-        tableviewExams.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        tableviewExams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        colSubjectNumber.setCellValueFactory((new PropertyValueFactory<Exam, String>("subjectNumber")));
-        colSubjectNumber.setMaxWidth(1f * Integer.MAX_VALUE * 50);
-        coltechnicalName.setCellValueFactory(new PropertyValueFactory<Exam, String>("technicalName"));
-        coltechnicalName.setMaxWidth(1f * Integer.MAX_VALUE * 50);
-        colSemester.setCellValueFactory(new PropertyValueFactory<Exam, String>("semester"));
-        colSemester.setMaxWidth(1f * Integer.MAX_VALUE * 50);
-        colDate.setCellValueFactory(new PropertyValueFactory<Exam, String>("date"));
-        colDate.setMaxWidth(1f * Integer.MAX_VALUE * 50);
-        colBegin.setCellValueFactory(new PropertyValueFactory<Exam, String>("begin"));
-        colBegin.setMaxWidth(1f * Integer.MAX_VALUE * 50);
-        colDuration.setCellValueFactory(new PropertyValueFactory<Exam, String>("duration"));
-        colDuration.setMaxWidth(1f * Integer.MAX_VALUE * 50);
-        colBuilding.setCellValueFactory(new PropertyValueFactory<Exam, String>("building"));
-        colBuilding.setMaxWidth(1f * Integer.MAX_VALUE * 50);
-        colRoomNumber.setCellValueFactory(new PropertyValueFactory<Exam, String>("roomNumber"));
-        colRoomNumber.setMaxWidth(1f * Integer.MAX_VALUE * 50);
-        colTrialNumber.setCellValueFactory(new PropertyValueFactory<Exam, String>("trialNumber"));
-        colTrialNumber.setMaxWidth(1f * Integer.MAX_VALUE * 50);
-
-        tableviewExamsInsisted.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        tableviewExamsInsisted.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        colSubjectNumberInsisted.setCellValueFactory((new PropertyValueFactory<Exam, String>("subjectNumber")));
-        colSubjectNumberInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
-        coltechnicalNameInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("technicalName"));
-        coltechnicalNameInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
-        colMarkInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("mark"));
-        colMarkInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
-        colModulMarkInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("modulMark"));
-        colModulMarkInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
-        colTrialsInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("trialNumber"));
-        colTrialsInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
-
-        tableviewExams.setItems(exams);
-        tableviewExamsInsisted.setItems(examsInsisted);
-        stringChoiceBoxTableView.setItems(observableListChoiceBox);
-    }
-}
