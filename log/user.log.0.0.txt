@@ -196,3 +196,5 @@ Aug. 03, 2019 9:01:07 VORM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus
 Aug. 03, 2019 9:09:55 VORM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus
+Aug. 03, 2019 10:30:46 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus

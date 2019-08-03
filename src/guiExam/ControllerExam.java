@@ -14,8 +14,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -194,6 +194,7 @@ public class ControllerExam implements Initializable {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Klausurdaten anpassen");
             stage.show();
         } catch (IOException ex) {
