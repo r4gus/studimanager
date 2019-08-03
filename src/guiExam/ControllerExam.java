@@ -1,18 +1,22 @@
 package guiExam;
 
+import custom_exceptions.UserException;
 import exam.Exam;
+import guiExam.EditWindow.ControllerEditWindow;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -54,12 +58,26 @@ public class ControllerExam implements Initializable {
     public TableColumn colSubjectNumberInsisted;
     @FXML
     public TableColumn coltechnicalNameInsisted;
+    @FXML
+    public TableColumn colMarkInsisted;
+    @FXML
+    public TableColumn colModulMarkInsisted;
+    @FXML
+    public TableColumn colTrialsInsisted;
 
 
-    private ObservableList<Exam> exams = FXCollections.observableArrayList(new Exam("test", "testname", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", false, false)
-            , new Exam("Analysis", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", false, false));
+    @FXML
+    public ChoiceBox<String> stringChoiceBoxTableView;
 
-    private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", false, false));
+    public static final String choiceBoxValue1 = "Aktuelle Klausuren";
+    public static final String choiceBoxValue2 = "Bestandene Klausuren";
+
+    private ObservableList<Exam> exams = FXCollections.observableArrayList(new Exam("test", "testname", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2.0", false, false)
+            , new Exam("Analysis", "Mathe", "3", "2019-04-12", "9.00", "1:30", "R0.23", "G1", "1", "2.3", "3.0", false, false));
+
+    private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2,5", false, false));
+
+    private ObservableList<String> observableListChoiceBox = FXCollections.observableArrayList(ControllerExam.choiceBoxValue1, ControllerExam.choiceBoxValue2);
 
     /**
      * the method deletes an element Exam from selected TableView.
@@ -96,7 +114,20 @@ public class ControllerExam implements Initializable {
 
     public void clickClearList(ActionEvent actionEvent) {
 
-        tableviewExams.getItems().clear();
+        try {
+            if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue1) && tableviewExams.getItems() != null) {
+                tableviewExams.getItems().clear();
+            } else if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue2) && tableviewExamsInsisted.getItems() != null) {
+                tableviewExamsInsisted.getItems().clear();
+            } else {
+                throw new UserException("Bitte wählen Sie eine der Optionen aus");
+            }
+        } catch (UserException e) {
+
+            // Fehlermeldung an Oberfläche werden --> Message Box
+            // Soll ein großes Package erstellt werden in dem es eine Klasse gibt
+            // in der verschiedene Fehlermeldungen für user erstellt werden ??
+        }
     }
 
 
@@ -133,10 +164,44 @@ public class ControllerExam implements Initializable {
      */
 
     public void addElementToTableviewExamsInsisted() {
+
         ObservableList<Exam> selectedItems = tableviewExams.getSelectionModel().getSelectedItems();
         examsInsisted.addAll(selectedItems);
         exams.removeAll(selectedItems);
         tableviewExamsInsisted.refresh();
+    }
+
+    public void editExamObject() {
+
+        Exam exam;
+        exam = tableviewExams.getSelectionModel().getSelectedItem();
+        if (exam == null) {
+            try {
+                throw new UserException("Bitte wählen Sie eine Klausur aus");
+            }
+            catch (UserException e) {
+
+                //User darüber informieren... was er falsch gemacht hat.
+            }
+        }
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditWindow/layoutEditWindow.fxml"));
+            ControllerEditWindow controllerLesson = new ControllerEditWindow(this, exam);
+            fxmlLoader.setController(controllerLesson);
+            Parent root = fxmlLoader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Klausurdaten anpassen");
+            stage.show();
+        } catch (IOException ex) {
+
+            //.... loggen usw....
+
+        }
     }
 
 
@@ -172,12 +237,21 @@ public class ControllerExam implements Initializable {
         colTrialNumber.setCellValueFactory(new PropertyValueFactory<Exam, String>("trialNumber"));
         colTrialNumber.setMaxWidth(1f * Integer.MAX_VALUE * 50);
 
+        tableviewExamsInsisted.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        tableviewExamsInsisted.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         colSubjectNumberInsisted.setCellValueFactory((new PropertyValueFactory<Exam, String>("subjectNumber")));
         colSubjectNumberInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
         coltechnicalNameInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("technicalName"));
         coltechnicalNameInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colMarkInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("mark"));
+        colMarkInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colModulMarkInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("modulMark"));
+        colModulMarkInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colTrialsInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("trialNumber"));
+        colTrialsInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
 
         tableviewExams.setItems(exams);
         tableviewExamsInsisted.setItems(examsInsisted);
+        stringChoiceBoxTableView.setItems(observableListChoiceBox);
     }
 }
