@@ -92,8 +92,21 @@ public class ControllerExam implements Initializable {
 
     public void clickDeleteExam(ActionEvent actionEvent) {
 
+        // auf beide Listen prüfen und dann entsprechend Löschen...
+
         ObservableList<Exam> selectedItems = tableviewExams.getSelectionModel().getSelectedItems();
+        if (selectedItems.size() == 0)
+        {
+            try {
+                throw new UserException("Bitte wählen Sie eine Klausur aus die Sie löschen möchten.");
+            } catch (UserException e) {
+
+                showInformationAltertForUser(e.getMessage());
+            }
+        }
+
         exams.removeAll(selectedItems);
+        tableviewExams.getSelectionModel().clearSelection();
     }
 
 
@@ -181,6 +194,7 @@ public class ControllerExam implements Initializable {
             trNr = "" + trialNr;
             exam.setTrialNumber(new SimpleStringProperty(trNr));
             tableviewExams.refresh();
+            tableviewExams.getSelectionModel().clearSelection();
         }
     }
 
@@ -191,17 +205,33 @@ public class ControllerExam implements Initializable {
     public void addElementToTableviewExamsInsisted() {
 
         ObservableList<Exam> selectedItems = tableviewExams.getSelectionModel().getSelectedItems();
+        for (Exam e: selectedItems) {
+
+            e.setInsisted(true);
+        }
+        // delete focus
         examsInsisted.addAll(selectedItems);
         exams.removeAll(selectedItems);
         tableviewExamsInsisted.refresh();
+        tableviewExams.getSelectionModel().clearSelection();
     }
 
     public void editExamObject() {
 
+        if(tableviewExams.getSelectionModel().getSelectedItem() != null && tableviewExamsInsisted.getSelectionModel().getSelectedItem() != null){
+
+            showInformationAltertForUser("Sie können immer nur eine Klausur bearbeiten! \nBitte wählen Sie jetzt die gewüschte Klausur aus, \ndie Sie bearbeiten möchten.");
+            tableviewExams.getSelectionModel().clearSelection();
+            tableviewExamsInsisted.getSelectionModel().clearSelection();
+            return;
+        }
+
         Exam exam;
         exam = tableviewExams.getSelectionModel().getSelectedItem();
+        tableviewExams.getSelectionModel().clearSelection();
         if (exam == null) {
             exam = tableviewExamsInsisted.getSelectionModel().getSelectedItem();
+            tableviewExamsInsisted.getSelectionModel().clearSelection();
         }
         if (exam == null) {
             try {
@@ -214,11 +244,14 @@ public class ControllerExam implements Initializable {
         if (!exam.isInsisted()) {
             ControllerEditWindow controllerLesson = new ControllerEditWindow(this, exam);
             loadWindowEditExams(exam, pathControllerEditWindowLesson, controllerLesson);
+
         } else if (exam.isInsisted()) {
             ControllerEditWindowExamResult controllerLessonInsisted = new ControllerEditWindowExamResult(this, exam);
             loadWindowEditExams(exam, pathControllerEditWindowLessonInsisted, controllerLessonInsisted);
         }
     }
+
+
 
     private void loadWindowEditExams(Exam exam, String path, Object o) {
         try {
