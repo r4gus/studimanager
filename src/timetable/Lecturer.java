@@ -98,4 +98,9 @@ public class Lecturer {
     public int hashCode() {
         return Objects.hash(firstName, lastName, email, facility);
     }
+
+    @Override
+    public String toString() {
+        return this.firstName + " " + this.lastName;
+    }
 }
