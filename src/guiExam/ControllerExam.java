@@ -3,6 +3,7 @@ package guiExam;
 import custom_exceptions.UserException;
 import exam.Exam;
 import guiExam.EditWindow.ControllerEditWindow;
+import guiExam.EditWindowInsisted.ControllerEditWindowInsisted;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -73,10 +74,13 @@ public class ControllerExam implements Initializable {
     public static final String choiceBoxValue1 = "Aktuelle Klausuren";
     public static final String choiceBoxValue2 = "Bestandene Klausuren";
 
+    private static final String pathControllerEditWindowLesson = "EditWindow/layoutEditWindow.fxml";
+    private static final String pathControllerEditWindowLessonInsisted = "EditWindowInsisted/layoutEditWindowInsisted.fxml";
+
     private ObservableList<Exam> exams = FXCollections.observableArrayList(new Exam("test", "testname", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2.0", false, false)
             , new Exam("Analysis", "Mathe", "3", "2019-04-12", "9.00", "1:30", "R0.23", "G1", "1", "2.3", "3.0", false, false));
 
-    private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2,5", false, false));
+    private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2,5", true, false));
 
     private ObservableList<String> observableListChoiceBox = FXCollections.observableArrayList(ControllerExam.choiceBoxValue1, ControllerExam.choiceBoxValue2);
 
@@ -102,8 +106,17 @@ public class ControllerExam implements Initializable {
     public void clickAddExam(ActionEvent actionEvent) {
 
         String examNumber = textfieldLectureNumber.getText();
-        addExam(examNumber);
-        textfieldLectureNumber.clear();
+        if (examNumber.isEmpty()) {
+            try {
+                throw new UserException("Sie müssen eine Klausurnummer in das Textfeld eingeben");
+            } catch (UserException e) {
+                showInformationAltertForUser(e.getMessage());
+            }
+
+        } else {
+            addExam(examNumber);
+            textfieldLectureNumber.clear();
+        }
     }
 
 
@@ -188,25 +201,34 @@ public class ControllerExam implements Initializable {
         Exam exam;
         exam = tableviewExams.getSelectionModel().getSelectedItem();
         if (exam == null) {
+            exam = tableviewExamsInsisted.getSelectionModel().getSelectedItem();
+        }
+
+        if (exam == null) {
             try {
                 throw new UserException("Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.");
             } catch (UserException e) {
 
                 showInformationAltertForUser(e.getMessage());
+                return;
             }
         }
-            if (!exam.isInsisted())
-            {
-                loadWindowEditExams(exam);
-            }
-
+        if (!exam.isInsisted()) {
+            ControllerEditWindow controllerLesson = new ControllerEditWindow(this, exam);
+            loadWindowEditExams(exam, pathControllerEditWindowLesson, controllerLesson);
+        }
+        else if (exam.isInsisted())
+        {
+            ControllerEditWindowInsisted controllerLessonInsisted = new ControllerEditWindowInsisted(this, exam);
+            loadWindowEditExams(exam, pathControllerEditWindowLessonInsisted, controllerLessonInsisted);
+        }
     }
 
-    private void loadWindowEditExams(Exam exam) {
+    private void loadWindowEditExams(Exam exam ,String path, Object o) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditWindow/layoutEditWindow.fxml"));
-            ControllerEditWindow controllerLesson = new ControllerEditWindow(this, exam);
-            fxmlLoader.setController(controllerLesson);
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+            //ControllerEditWindow controllerLesson = new ControllerEditWindow(this, exam);
+            fxmlLoader.setController(o);
             Parent root = fxmlLoader.load();
 
             Stage stage = new Stage();
@@ -221,9 +243,6 @@ public class ControllerExam implements Initializable {
         }
     }
 
-    private void loadWindowEditExamsInsisted() {
-
-    }
 
 
     /**

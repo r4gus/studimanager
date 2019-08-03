@@ -20,6 +20,10 @@ public class ControllerEditWindowInsisted implements Initializable {
     @FXML
     public TextField textFieldModulMarkInsisted;
 
+    @FXML
+    private javafx.scene.control.Button buttonSaveExamChangesInsisted;
+
+
     private ControllerExam controllerExam;
     private Exam exam;
 
@@ -35,6 +39,11 @@ public class ControllerEditWindowInsisted implements Initializable {
         textFieldtechnicalNameInsisted.setText(exam.getTechnicalName());
         textFieldMarkInsisted.setText(exam.getMark());
         textFieldModulMarkInsisted.setText(exam.getModulMark());
+
+    }
+
+    public void buttonSaveExamChangesInsisted()
+    {
 
     }
 }
