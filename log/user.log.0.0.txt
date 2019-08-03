@@ -218,3 +218,7 @@ Aug. 03, 2019 2:10:11 NACHM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
 Aug. 03, 2019 2:10:16 NACHM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug. 03, 2019 2:16:56 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 2:23:42 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.

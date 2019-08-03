@@ -195,7 +195,14 @@ public class ControllerExam implements Initializable {
                 showInformationAltertForUser(e.getMessage());
             }
         }
+            if (!exam.isInsisted())
+            {
+                loadWindowEditExams(exam);
+            }
 
+    }
+
+    private void loadWindowEditExams(Exam exam) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditWindow/layoutEditWindow.fxml"));
             ControllerEditWindow controllerLesson = new ControllerEditWindow(this, exam);
@@ -212,6 +219,10 @@ public class ControllerExam implements Initializable {
 
             //.... loggen usw....
         }
+    }
+
+    private void loadWindowEditExamsInsisted() {
+
     }
 
 
