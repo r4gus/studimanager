@@ -16,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -115,19 +116,30 @@ public class ControllerExam implements Initializable {
     public void clickClearList(ActionEvent actionEvent) {
 
         try {
+
+            if (stringChoiceBoxTableView.getValue() == null) {
+                throw new UserException("Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!");
+            }
             if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue1) && tableviewExams.getItems() != null) {
                 tableviewExams.getItems().clear();
             } else if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue2) && tableviewExamsInsisted.getItems() != null) {
                 tableviewExamsInsisted.getItems().clear();
-            } else {
-                throw new UserException("Bitte wählen Sie eine der Optionen aus");
             }
         } catch (UserException e) {
-
-            // Fehlermeldung an Oberfläche werden --> Message Box
-            // Soll ein großes Package erstellt werden in dem es eine Klasse gibt
-            // in der verschiedene Fehlermeldungen für user erstellt werden ??
+            /* remember Exception logs automatically */
+            showInformationAltertForUser(e.getMessage());
         }
+    }
+
+
+    private void showInformationAltertForUser(String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("User Information");
+        alert.setHeaderText("Fehlermeldung:");
+        alert.setContentText(content);
+
+        // Das auszuwählende Element farblich hervorheben ??? oder anders kentlich machen ??
+        alert.showAndWait();
     }
 
 
@@ -177,11 +189,10 @@ public class ControllerExam implements Initializable {
         exam = tableviewExams.getSelectionModel().getSelectedItem();
         if (exam == null) {
             try {
-                throw new UserException("Bitte wählen Sie eine Klausur aus");
-            }
-            catch (UserException e) {
+                throw new UserException("Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.");
+            } catch (UserException e) {
 
-                //User darüber informieren... was er falsch gemacht hat.
+                showInformationAltertForUser(e.getMessage());
             }
         }
 
@@ -200,7 +211,6 @@ public class ControllerExam implements Initializable {
         } catch (IOException ex) {
 
             //.... loggen usw....
-
         }
     }
 
