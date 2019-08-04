@@ -292,3 +292,19 @@ Aug. 04, 2019 9:21:17 VORM. custom_exceptions.UserException <init>
 WARNING: Bitte Wählen Sie eine Klausur aus
 Aug. 04, 2019 9:21:30 VORM. custom_exceptions.UserException <init>
 WARNING: Bitte Wählen Sie eine Klausur aus
+Aug. 04, 2019 12:44:21 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 12:45:32 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 12:53:30 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 12:56:07 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 1:03:23 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 1:03:27 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 1:03:30 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 1:03:33 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben

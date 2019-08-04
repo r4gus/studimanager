@@ -13,13 +13,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="677.0" prefWidth="1042.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiExam.ControllerExam">
+<AnchorPane prefHeight="677.0" prefWidth="1042.0" stylesheets="@style_Exam.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiExam.ControllerExam">
    <children>
       <HBox alignment="CENTER" layoutX="34.0" layoutY="15.0" spacing="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
          <children>
             <VBox alignment="CENTER" prefHeight="84.0" prefWidth="140.0" spacing="10.0">
                <children>
-                  <Button id="addExam" mnemonicParsing="false" onAction="#clickAddExam" prefHeight="25.0" prefWidth="140.0" text="Klausur hinzufügen" />
+                  <Button id="addExam" mnemonicParsing="false" onAction="#clickAddExam" prefHeight="25.0" prefWidth="140.0" styleClass="buttonMenu" text="Klausur hinzufügen" />
                   <TextField fx:id="textfieldLectureNumber" prefHeight="25.0" prefWidth="140.0" promptText="Fachnummer" />
                </children>
             </VBox>

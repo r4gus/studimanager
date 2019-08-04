@@ -1,0 +1,17 @@
+
+
+.buttonMenu {
+
+
+        -fx-background-radius: 6;
+        -fx-background-color: #FFFFFF ;
+        -fx-font-family: Eras-Demi-ITC;
+        -fx-text-fill: #5e5e5e;
+        -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+        -fx-font-weight: bold;
+        -fx-font-size: 1.1em;
+}
+
+buttonMenu:hover {
+  background-color: yellow;
+}
