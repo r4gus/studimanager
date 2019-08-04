@@ -9,9 +9,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
+
+/**
+ * The <code>ControllerEditWindowExamResult</code> object represents the controller of the Gui layoutEditWindowExamResult.
+ *
+ * In the controller the logic is separated from the Gui and its elements.
+ *
+ * @author Lukas Mendel
+ */
 
 public class ControllerEditWindowExamResult implements Initializable {
 
@@ -44,6 +51,13 @@ public class ControllerEditWindowExamResult implements Initializable {
         this.exam = exam;
     }
 
+
+    /**
+     * Called to initialize a controller after its root element has been completely processed
+     *
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

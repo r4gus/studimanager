@@ -278,3 +278,17 @@ Aug. 03, 2019 10:41:24 NACHM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
 Aug. 03, 2019 10:41:32 NACHM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 03, 2019 10:44:00 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 03, 2019 10:44:32 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 8:36:22 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 04, 2019 8:36:27 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 04, 2019 9:02:46 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 04, 2019 9:21:17 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte Wählen Sie eine Klausur aus
+Aug. 04, 2019 9:21:30 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte Wählen Sie eine Klausur aus

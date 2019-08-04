@@ -80,40 +80,77 @@ public class ControllerExam implements Initializable {
     private ObservableList<Exam> exams = FXCollections.observableArrayList(new Exam("test", "testname", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2.0", false, false)
             , new Exam("Analysis", "Mathe", "3", "2019-04-12", "9.00", "1:30", "R0.23", "G1", "1", "2.3", "3.0", false, false));
 
-    private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2,5", true, false));
 
+    private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2,5", true, false));
     private ObservableList<String> observableListChoiceBox = FXCollections.observableArrayList(ControllerExam.choiceBoxValue1, ControllerExam.choiceBoxValue2);
 
+
     /**
-     * the method deletes an element Exam from selected TableView.
+     * the method deletes element(s) Exam from selected TableView(s).
      *
-     * @param actionEvent Element Exam which should be added to the ArrayList
+     * @param actionEvent This event type is widely used to represent a variety of things, such as when a Button has been fired, when a KeyFrame has finished, and other such usages.
      */
 
     public void clickDeleteExam(ActionEvent actionEvent) {
 
-        // auf beide Listen prüfen und dann entsprechend Löschen...
-
+        boolean tableViewExam = false;
         ObservableList<Exam> selectedItems = tableviewExams.getSelectionModel().getSelectedItems();
-        if (selectedItems.size() == 0)
-        {
+        if (selectedItems.isEmpty()) {
+            selectedItems = tableviewExamsInsisted.getSelectionModel().getSelectedItems();
+            tableViewExam = false;
+        } else {
+            tableViewExam = true;
+        }
+
+        if (!tableviewExams.getSelectionModel().getSelectedItems().isEmpty() && !tableviewExamsInsisted.getSelectionModel().getSelectedItems().isEmpty()) {
+            ObservableList<Exam> selectedItems1 = tableviewExamsInsisted.getSelectionModel().getSelectedItems();
+            deleteTableViewItems(selectedItems);
+            deleteTableViewItemsInsisted(selectedItems1);
+            return;
+        }
+        if (selectedItems.size() == 0) {
             try {
                 throw new UserException("Bitte wählen Sie eine Klausur aus die Sie löschen möchten.");
             } catch (UserException e) {
-
                 showInformationAltertForUser(e.getMessage());
+                return;
             }
         }
+        if (tableViewExam) {
+            deleteTableViewItems(selectedItems);
+        } else if (!tableViewExam) {
+            deleteTableViewItemsInsisted(selectedItems);
+        }
+    }
 
+    /**
+     * the method removes element(s) Exam from TableView.
+     *
+     * @param selectedItems This parameter contains a list of Exam items to be deleted from TableView.
+     */
+
+    private void deleteTableViewItems(ObservableList<Exam> selectedItems) {
         exams.removeAll(selectedItems);
         tableviewExams.getSelectionModel().clearSelection();
     }
 
 
     /**
+     * the method removes element(s) Exam from TableView.
+     *
+     * @param selectedItems This parameter contains a list of Exam items to be deleted from TableView.
+     */
+
+    private void deleteTableViewItemsInsisted(ObservableList<Exam> selectedItems) {
+        examsInsisted.removeAll(selectedItems);
+        tableviewExamsInsisted.getSelectionModel().clearSelection();
+    }
+
+
+    /**
      * the method adds an element Exam to TableView.
      *
-     * @param actionEvent Element Exam which should be added to the ArrayList
+     * @param actionEvent This event type is widely used to represent a variety of things, such as when a Button has been fired, when a KeyFrame has finished, and other such usages.
      */
 
     public void clickAddExam(ActionEvent actionEvent) {
@@ -136,7 +173,7 @@ public class ControllerExam implements Initializable {
     /**
      * the method deletes all elements Exam from selected TableView
      *
-     * @param actionEvent Element Exam which should be added to the ArrayList
+     * @param actionEvent This event type is widely used to represent a variety of things, such as when a Button has been fired, when a KeyFrame has finished, and other such usages.
      */
 
     public void clickClearList(ActionEvent actionEvent) {
@@ -157,6 +194,11 @@ public class ControllerExam implements Initializable {
         }
     }
 
+
+    /**
+     * This method displays an error message to the user with understandable content,
+     * so that the user can correct the error if necessary.
+     */
 
     public void showInformationAltertForUser(String content) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -205,20 +247,32 @@ public class ControllerExam implements Initializable {
     public void addElementToTableviewExamsInsisted() {
 
         ObservableList<Exam> selectedItems = tableviewExams.getSelectionModel().getSelectedItems();
-        for (Exam e: selectedItems) {
-
+        for (Exam e : selectedItems) {
             e.setInsisted(true);
         }
-        // delete focus
+        if (selectedItems.isEmpty()) {
+            try {
+                throw new UserException("Bitte Wählen Sie eine Klausur aus");
+            } catch (UserException ex) {
+                showInformationAltertForUser(ex.getMessage());
+            }
+        }
         examsInsisted.addAll(selectedItems);
         exams.removeAll(selectedItems);
         tableviewExamsInsisted.refresh();
         tableviewExams.getSelectionModel().clearSelection();
     }
 
+
+    /**
+     * This method decides which Fxml file is to be loaded with the corresponding controller
+     * based on various actions of the user.
+     * If the selection is incorrect, the user will be informed about it.
+     */
+
     public void editExamObject() {
 
-        if(tableviewExams.getSelectionModel().getSelectedItem() != null && tableviewExamsInsisted.getSelectionModel().getSelectedItem() != null){
+        if (tableviewExams.getSelectionModel().getSelectedItem() != null && tableviewExamsInsisted.getSelectionModel().getSelectedItem() != null) {
 
             showInformationAltertForUser("Sie können immer nur eine Klausur bearbeiten! \nBitte wählen Sie jetzt die gewüschte Klausur aus, \ndie Sie bearbeiten möchten.");
             tableviewExams.getSelectionModel().clearSelection();
@@ -252,11 +306,18 @@ public class ControllerExam implements Initializable {
     }
 
 
+    /**
+     * This method creates new windows using the appropriate parameters.
+     *
+     * @param exam       This is the exam object to be displayed in the window.
+     * @param path       This is the storage path to the corresponding FXML file.
+     * @param controller This is the corresponding controller for FXML file.
+     */
 
-    private void loadWindowEditExams(Exam exam, String path, Object o) {
+    private void loadWindowEditExams(Exam exam, String path, Object controller) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
-            fxmlLoader.setController(o);
+            fxmlLoader.setController(controller);
             Parent root = fxmlLoader.load();
 
             Stage stage = new Stage();
@@ -273,10 +334,10 @@ public class ControllerExam implements Initializable {
 
 
     /**
-     * the method deletes all elements Exam from selected TableView
+     * Called to initialize a controller after its root element has been completely processed
      *
-     * @param url            Element Exam which should be added to the ArrayList
-     * @param resourceBundle Element Exam which should be added to the ArrayList
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
      */
 
     @Override
