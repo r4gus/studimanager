@@ -308,3 +308,7 @@ Aug. 04, 2019 1:03:30 NACHM. custom_exceptions.UserException <init>
 WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
 Aug. 04, 2019 1:03:33 NACHM. custom_exceptions.UserException <init>
 WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 8:14:59 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 8:18:05 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte Wählen Sie eine Klausur aus
