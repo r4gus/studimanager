@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<AnchorPane fx:id="tdl_anchorPane" prefHeight="559.0" prefWidth="813.0" stylesheets="@style_ToDoList.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiTodolist.ControllerTodolist">
+<AnchorPane fx:id="anchorPaneToDoList" prefHeight="559.0" prefWidth="813.0" stylesheets="@style_ToDoList.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiTodolist.ControllerTodolist">
    <children>
       <HBox alignment="CENTER" layoutX="379.0" layoutY="59.0" prefHeight="31.0" prefWidth="713.0" styleClass="hBox" stylesheets="@style_ToDoList.css" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="35.0">
          <children>
             <Label text="CanBan Board" />
          </children>
       </HBox>
-      <HBox layoutX="116.0" layoutY="265.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="hBox" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="140.0">
+      <HBox fx:id="hboxToDoLists" layoutX="116.0" layoutY="265.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="hBox" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="140.0">
          <children>
             <VBox prefHeight="200.0" prefWidth="200.0" styleClass="vBox">
                <HBox.margin>
@@ -26,7 +26,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="50.0" layoutY="88.0" prefHeight="35.0" prefWidth="713.0" spacing="10.0" styleClass="hBox" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="95.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="+">
+            <Button fx:id="buttonEditCanBan" mnemonicParsing="false" onAction="#createNewSection" prefHeight="25.0" prefWidth="67.0" text="+">
                <HBox.margin>
                   <Insets left="70.0" />
                </HBox.margin>

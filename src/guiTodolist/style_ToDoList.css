@@ -23,3 +23,14 @@
 .button:hover{
     -fx-background-color: #FFAA00;
 }
+
+.buttonTest{
+
+    -fx-background-radius: 4;
+    -fx-background-color:green ;
+    -fx-font-family: Eras-Demi-ITC;
+    -fx-text-fill: #5e5e5e;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+
+}
