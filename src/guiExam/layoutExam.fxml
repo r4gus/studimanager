@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="677.0" prefWidth="1042.0" stylesheets="@style_Exam.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiExam.ControllerExam">
+<AnchorPane prefHeight="677.0" prefWidth="1042.0" styleClass="anchorPaneExamen" stylesheets="@style_Exam.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiExam.ControllerExam">
    <children>
       <HBox alignment="CENTER" layoutX="34.0" layoutY="15.0" spacing="15.0" styleClass="hBox" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
          <children>
@@ -53,14 +53,13 @@
             </VBox>
          </children>
       </HBox>
-      <Separator layoutX="28.0" layoutY="119.0" prefHeight="1.0" prefWidth="935.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" />
       <TableView fx:id="tableviewExams" layoutX="117.0" layoutY="184.0" prefHeight="200.0" prefWidth="762.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
         <columns>
             <TableColumn fx:id="colSubjectNumber" text="Fachnummer" />
             <TableColumn fx:id="coltechnicalName" text="Fachbezeichung" />
             <TableColumn fx:id="colSemester" text="Semester" />
             <TableColumn fx:id="colDate" text="Datum" />
-            <TableColumn fx:id="colBegin" text="Begin" />
+            <TableColumn fx:id="colBegin" text="Beginn" />
             <TableColumn fx:id="colDuration" text="Dauer" />
             <TableColumn fx:id="colBuilding" text="Gebäude" />
             <TableColumn fx:id="colRoomNumber" text="Raumnummer" />

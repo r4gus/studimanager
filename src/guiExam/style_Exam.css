@@ -1,9 +1,12 @@
 
+.anchorPaneExamen{
+        -fx-background-color: linear-gradient(#cecece 55%,  #424141 100%);
+}
 
 .hBox{
         -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
         -fx-background-radius: 6;
-        -fx-background-color: linear-gradient(#131313 0%, #424141 100%);
+        -fx-background-color: linear-gradient(#563E27 10%, #424141 100%);
 }
 
 
@@ -17,6 +20,10 @@
         -fx-font-size: 1.1em;
 }
 
+.button:hover{
+        -fx-background-color: #FFAA00;
+}
+
 .text-field{
         -fx-background-radius: 6;
         -fx-background-color: #FFFFFF ;
@@ -25,7 +32,7 @@
         -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 
-.choice-box{
+.choice-box, .combo-box{
         -fx-background-radius: 6;
         -fx-background-color: #FFFFFF ;
         -fx-text-fill: #5e5e5e;

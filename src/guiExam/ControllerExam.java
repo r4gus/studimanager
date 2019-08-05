@@ -228,6 +228,16 @@ public class ControllerExam implements Initializable {
     public void secondTrialExam() {
 
         ObservableList<Integer> selectedItems = tableviewExams.getSelectionModel().getSelectedIndices();
+
+        if (selectedItems.isEmpty()) {
+            try {
+                throw new UserException("Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.");
+            } catch (UserException e) {
+                showInformationAltertForUser(e.getMessage());
+                return;
+            }
+        }
+
         for (int examIndex : selectedItems) {
             Exam exam = exams.get(examIndex);
             String trNr = exam.getTrialNumber();

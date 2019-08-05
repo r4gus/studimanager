@@ -312,3 +312,17 @@ Aug. 04, 2019 8:14:59 NACHM. custom_exceptions.UserException <init>
 WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
 Aug. 04, 2019 8:18:05 NACHM. custom_exceptions.UserException <init>
 WARNING: Bitte Wählen Sie eine Klausur aus
+Aug. 05, 2019 8:30:45 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 05, 2019 8:42:54 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte Wählen Sie eine Klausur aus
+Aug. 05, 2019 8:42:58 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 05, 2019 8:43:04 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug. 05, 2019 8:46:55 VORM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 05, 2019 8:48:23 VORM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 05, 2019 9:08:08 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.

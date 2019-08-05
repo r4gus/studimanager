@@ -71,6 +71,10 @@ public class ControllerEditWindowExamResult implements Initializable {
 
     }
 
+    /**
+     * The method converts a variable of the data type String into an int.
+     */
+
     public int returnIndex(String string) {
         int value = 0;
         switch (string) {
@@ -109,18 +113,24 @@ public class ControllerEditWindowExamResult implements Initializable {
         return value;
     }
 
+
+    /**
+     * The method loads the user data from the interface and stores it in the corresponding Exam object.
+     */
+
     @FXML
     private void buttonSaveExamChangesResults() {
 
-        SimpleStringProperty value = new SimpleStringProperty();
+        SimpleStringProperty value0 = new SimpleStringProperty();
         SimpleStringProperty value1 = new SimpleStringProperty();
         SimpleStringProperty value2 = new SimpleStringProperty();
         SimpleStringProperty value3 = new SimpleStringProperty();
+
         SimpleStringProperty value4 = new SimpleStringProperty();
 
 
-        value.setValue(textFieldLectureNrResult.getText());
-        exam.setSubjectNumber(value);
+        value0.setValue(textFieldLectureNrResult.getText());
+        exam.setSubjectNumber(value0);
         value1.setValue(textFieldtechnicalNameResult.getText());
         exam.setTechnicalName(value1);
         value2.setValue(textFieldMarkResult.getText());
