@@ -47,8 +47,9 @@ public class ControllerTodolist implements Initializable {
     public void createNewSection()
     {
         VBox vBoxList = new VBox(10);
-        vBoxList.setMinWidth(100);
-        vBoxList.setMinHeight(111);
+        vBoxList.setPrefWidth(50);
+        vBoxList.setPrefWidth(200);
+        hboxToDoLists.setMargin( vBoxList , new Insets(10,10,10,10));
 
 
 
