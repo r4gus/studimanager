@@ -1,0 +1,25 @@
+
+.hBox{
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+    -fx-background-radius: 6;
+    -fx-background-color: linear-gradient(#ffb3b3 10%, #ffb3b3 100%);
+}
+
+.vBox{
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+    -fx-background-radius: 6;
+    -fx-background-color: linear-gradient(ff8080 10%, #ff1a1a 100%);
+}
+
+.button {
+    -fx-background-radius: 4;
+    -fx-background-color: #FFFFFF ;
+    -fx-font-family: Eras-Demi-ITC;
+    -fx-text-fill: #5e5e5e;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+.button:hover{
+    -fx-background-color: #FFAA00;
+}
