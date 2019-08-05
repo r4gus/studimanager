@@ -16,8 +16,8 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 /**
- * The <code>ControllerExam</code> object represents the controller of the Gui EditExamWindow.
- * ...
+ * The <code>ControllerEditWindow</code> object represents the controller of the Gui layoutEditWindow.
+ *
  * In the controller the logic is separated from the Gui and its elements.
  *
  * @author Lukas Mendel
@@ -61,6 +61,13 @@ public class ControllerEditWindow implements Initializable {
     }
 
 
+    /**
+     * Called to initialize a controller after its root element has been completely processed
+     *
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -76,6 +83,11 @@ public class ControllerEditWindow implements Initializable {
         textFieldRoomNumber.setText(exam.getRoomNumber());
         comboBoxTrialNumber.getSelectionModel().select(returnIndex(exam.getTrialNumber()));
     }
+
+
+    /**
+     * The method converts a variable of the data type String into an int.
+     */
 
     public int returnIndex(String string) {
         int value = 0;
@@ -115,6 +127,11 @@ public class ControllerEditWindow implements Initializable {
         return value;
     }
 
+
+    /**
+     * The method turns a string into an int array, which is needed to create a date object.
+     */
+
     public int[] returnDateYear() {
         int[] datumInt = new int[3];
         String[] datumString;
@@ -127,6 +144,10 @@ public class ControllerEditWindow implements Initializable {
         }
         return datumInt;
     }
+
+    /**
+     * The method loads the user data from the interface and stores it in the corresponding Exam object.
+     */
 
     @FXML
     private void buttonSaveExamChanges() {
