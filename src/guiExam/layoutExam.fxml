@@ -60,7 +60,7 @@
             <TableColumn fx:id="coltechnicalName" text="Fachbezeichung" />
             <TableColumn fx:id="colSemester" text="Semester" />
             <TableColumn fx:id="colDate" text="Datum" />
-            <TableColumn fx:id="colBegin" text="Begin" />
+            <TableColumn fx:id="colBegin" text="Beginn" />
             <TableColumn fx:id="colDuration" text="Dauer" />
             <TableColumn fx:id="colBuilding" text="Gebäude" />
             <TableColumn fx:id="colRoomNumber" text="Raumnummer" />
