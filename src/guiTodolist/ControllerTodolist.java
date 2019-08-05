@@ -39,7 +39,6 @@ public class ControllerTodolist implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        createNewSection();
     }
 
 
