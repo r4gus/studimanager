@@ -71,8 +71,8 @@ public class ControllerExam implements Initializable {
     @FXML
     public ChoiceBox<String> stringChoiceBoxTableView;
 
-    public static final String choiceBoxValue1 = "Aktuelle Klausuren";
-    public static final String choiceBoxValue2 = "Bestandene Klausuren";
+    private static final String choiceBoxValue1 = "Aktuelle Klausuren";
+    private static final String choiceBoxValue2 = "Bestandene Klausuren";
 
     private static final String pathControllerEditWindowLesson = "EditWindow/layoutEditWindow.fxml";
     private static final String pathControllerEditWindowLessonInsisted = "EditWindowExamResult/layoutEditWindowExamResult.fxml";
@@ -93,7 +93,7 @@ public class ControllerExam implements Initializable {
 
     public void clickDeleteExam(ActionEvent actionEvent) {
 
-        boolean tableViewExam = false;
+        boolean tableViewExam;
         ObservableList<Exam> selectedItems = tableviewExams.getSelectionModel().getSelectedItems();
         if (selectedItems.isEmpty()) {
             selectedItems = tableviewExamsInsisted.getSelectionModel().getSelectedItems();
@@ -200,7 +200,7 @@ public class ControllerExam implements Initializable {
      * so that the user can correct the error if necessary.
      */
 
-    public void showInformationAltertForUser(String content) {
+    private void showInformationAltertForUser(String content) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("User Information");
         alert.setHeaderText("Fehlermeldung:");

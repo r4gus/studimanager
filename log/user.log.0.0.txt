@@ -326,3 +326,15 @@ Aug. 05, 2019 8:48:23 VORM. custom_exceptions.UserException <init>
 WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
 Aug. 05, 2019 9:08:08 VORM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.
+Aug. 05, 2019 9:25:57 VORM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 05, 2019 9:25:59 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug. 05, 2019 9:26:01 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 05, 2019 9:26:03 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte Wählen Sie eine Klausur aus
+Aug. 05, 2019 9:26:05 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 05, 2019 9:26:07 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.
