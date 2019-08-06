@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
@@ -24,11 +25,15 @@ public class ControllerTodolist implements Initializable {
 
     @FXML
     public AnchorPane anchorPaneToDoList;
+
     @FXML
     public Button buttonEditCanBan;
+    @FXML
+    public TextField textFieldHeaderToDoList;
 
     @FXML
     public HBox hboxToDoLists;
+
 
 
     /**
@@ -49,19 +54,26 @@ public class ControllerTodolist implements Initializable {
     {
         VBox vBoxList = new VBox(10);
         vBoxList.setPrefWidth(200);
-        vBoxList.setPrefWidth(200);
+        vBoxList.setPrefWidth(hboxToDoLists.getWidth()/5);
+        vBoxList.setMinWidth(200);
         hboxToDoLists.setMargin( vBoxList , new Insets(10,10,10,10));
 
         /*  add List controls and heading */
         HBox hBoxHeading = new HBox();
-        Label labelHeading = new Label("Überschrift");
+        Label labelHeading = new Label(textFieldHeaderToDoList.getText());
         labelHeading.setPadding(new Insets(2,10,2,10));
         Button button = new Button("...");
 
-        hBoxHeading.getChildren().addAll(labelHeading, button);
+        // mithilfe einer Region.. Mehrere Ausrichtungen vorgeben.. ??
+        // Link: https://stackoverflow.com/questions/29707882/javafx-hbox-alignment
+        Region region = new Region();
+        region.prefHeight(5);
+        region.prefWidth(5);
+        HBox.setHgrow(region, Priority.ALWAYS);
+
+        hBoxHeading.getChildren().addAll(labelHeading, region, button);
         vBoxList.getChildren().add(hBoxHeading);
         hBoxHeading.setAlignment(Pos.CENTER_RIGHT);
-        hBoxHeading.setMargin( labelHeading , new Insets(0,35,0,0));
 
         vBoxList.getStyleClass().add("vBox");
         vBoxList.setMargin( hBoxHeading , new Insets(10,10,10,10));

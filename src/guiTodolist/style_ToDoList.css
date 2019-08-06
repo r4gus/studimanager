@@ -14,7 +14,7 @@
     -fx-background-color: linear-gradient(ff8080 10%, #ff1a1a 100%);
 }
 
-.button, .label {
+.button, .label, .text-field {
     -fx-background-radius: 4;
     -fx-background-color: #FFFFFF ;
     -fx-font-family: Eras-Demi-ITC;
