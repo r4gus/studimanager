@@ -4,11 +4,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -81,21 +80,41 @@ public class ControllerTodolist implements Initializable {
         vBoxTest.setAlignment(Pos.CENTER);
         labelHeading.setPadding(new Insets(2, 10, 2, 10));
         Button buttonEditList = new Button("...");
+        generateHboxEditButton(buttonEditList);
 
         /* Berechnung der Centralen Possition muss noch verbessert werden!!  */
         int factor = 18;
-        if (textFieldHeaderToDoList.getText().length() > 10)
+        if (textFieldHeaderToDoList.getText().length() > 8)
             factor = 10;
         double centerHeading = ((300 - (textFieldHeaderToDoList.getText().length()) * factor) - 10) / 2;
         hBoxHeading.setMargin(labelHeading, new Insets(0, centerHeading, 0, 0));
 
+        textFieldHeaderToDoList.clear();
         hBoxHeading.getChildren().addAll(labelHeading, buttonEditList);
         hBoxHeading.setAlignment(Pos.CENTER_RIGHT);
 
         return hBoxHeading;
     }
 
+    /**
+     * generates the functionality of the ToDoList button.
+     */
+
     public void generateHboxEditButton(Button buttonEditToDoList) {
+
+        ContextMenu contextMenuEditTask = new ContextMenu();
+        MenuItem menuItemNewTask = new MenuItem("Neue Aufgabe");
+        MenuItem b = new MenuItem("Option 2");
+        Menu menuItemSort = new Menu("Sortieren nach:");
+            MenuItem subMmenuItemSortDate = new MenuItem("Nach Fälligkeitsdatum");
+            MenuItem subMmenuItemSortAlphabet = new MenuItem("Alphabetisch");
+            MenuItem subMmenuItemSortbla = new MenuItem("...");
+            menuItemSort.getItems().addAll(subMmenuItemSortDate, subMmenuItemSortAlphabet, subMmenuItemSortbla);
+        MenuItem d = new MenuItem("Option 4");
+        MenuItem e = new MenuItem("Option 5");
+        contextMenuEditTask.getItems().addAll(menuItemNewTask,b,menuItemSort,d,e);
+        buttonEditToDoList.setContextMenu(contextMenuEditTask);
+
 
 
     }
