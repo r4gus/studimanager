@@ -35,7 +35,6 @@ public class ControllerTodolist implements Initializable {
     public HBox hboxToDoLists;
 
 
-
     /**
      * Called to initialize a controller after its root element has been completely processed
      *
@@ -49,36 +48,57 @@ public class ControllerTodolist implements Initializable {
     }
 
 
+    /**
+     * generates a ToDoList with different functions e.g. adding a task etc.
+     */
 
-    public void createNewSection()
-    {
+    public void createNewSection() {
         VBox vBoxList = new VBox(10);
-        vBoxList.setPrefWidth(200);
-        vBoxList.setPrefWidth(hboxToDoLists.getWidth()/5);
-        vBoxList.setMinWidth(200);
-        hboxToDoLists.setMargin( vBoxList , new Insets(10,10,10,10));
+        vBoxList.setPrefWidth(300);
+        vBoxList.setMinWidth(300);
+        hboxToDoLists.setMargin(vBoxList, new Insets(10, 10, 10, 10));
 
-        /*  add List controls and heading */
-        HBox hBoxHeading = new HBox();
-        Label labelHeading = new Label(textFieldHeaderToDoList.getText());
-        labelHeading.setPadding(new Insets(2,10,2,10));
-        Button button = new Button("...");
 
-        // mithilfe einer Region.. Mehrere Ausrichtungen vorgeben.. ??
-        // Link: https://stackoverflow.com/questions/29707882/javafx-hbox-alignment
-        Region region = new Region();
-        region.prefHeight(5);
-        region.prefWidth(5);
-        HBox.setHgrow(region, Priority.ALWAYS);
-
-        hBoxHeading.getChildren().addAll(labelHeading, region, button);
+        HBox hBoxHeading = generateHboxHeading();
         vBoxList.getChildren().add(hBoxHeading);
-        hBoxHeading.setAlignment(Pos.CENTER_RIGHT);
 
         vBoxList.getStyleClass().add("vBox");
-        vBoxList.setMargin( hBoxHeading , new Insets(10,10,10,10));
+        vBoxList.setMargin(hBoxHeading, new Insets(10, 10, 10, 10));
         hboxToDoLists.getChildren().add(vBoxList);
 
     }
+
+    /**
+     * Generates the overwriting of the ToDoList and the button with various functions.
+     */
+
+    public HBox generateHboxHeading() {
+        /*  add List controls and heading */
+        HBox hBoxHeading = new HBox();
+        Label labelHeading = new Label(textFieldHeaderToDoList.getText());
+        VBox vBoxTest = new VBox();
+        vBoxTest.getChildren().addAll(labelHeading);
+        vBoxTest.setAlignment(Pos.CENTER);
+        labelHeading.setPadding(new Insets(2, 10, 2, 10));
+        Button buttonEditList = new Button("...");
+
+        /* Berechnung der Centralen Possition muss noch verbessert werden!!  */
+        int factor = 18;
+        if (textFieldHeaderToDoList.getText().length() > 10)
+            factor = 10;
+        double centerHeading = ((300 - (textFieldHeaderToDoList.getText().length()) * factor) - 10) / 2;
+        hBoxHeading.setMargin(labelHeading, new Insets(0, centerHeading, 0, 0));
+
+        hBoxHeading.getChildren().addAll(labelHeading, buttonEditList);
+        hBoxHeading.setAlignment(Pos.CENTER_RIGHT);
+
+        return hBoxHeading;
+    }
+
+    public void generateHboxEditButton(Button buttonEditToDoList) {
+
+
+    }
+
 
 }
