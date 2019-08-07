@@ -1,5 +1,7 @@
 package guiTodolist;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -71,7 +73,7 @@ public class ControllerTodolist implements Initializable {
      * Generates the overwriting of the ToDoList and the button with various functions.
      */
 
-    public HBox generateHboxHeading() {
+    private HBox generateHboxHeading() {
         /*  add List controls and heading */
         HBox hBoxHeading = new HBox();
         Label labelHeading = new Label(textFieldHeaderToDoList.getText());
@@ -100,23 +102,36 @@ public class ControllerTodolist implements Initializable {
      * generates the functionality of the ToDoList button.
      */
 
-    public void generateHboxEditButton(Button buttonEditToDoList) {
+    private void generateHboxEditButton(Button buttonEditToDoList) {
 
         ContextMenu contextMenuEditTask = new ContextMenu();
         MenuItem menuItemNewTask = new MenuItem("Neue Aufgabe");
-        MenuItem b = new MenuItem("Option 2");
+        menuItemNewTask.getStyleClass().add("menu-item");
+
+        MenuItem b = new MenuItem("Liste bearbeiten");
         Menu menuItemSort = new Menu("Sortieren nach:");
-            MenuItem subMmenuItemSortDate = new MenuItem("Nach Fälligkeitsdatum");
-            MenuItem subMmenuItemSortAlphabet = new MenuItem("Alphabetisch");
-            MenuItem subMmenuItemSortbla = new MenuItem("...");
-            menuItemSort.getItems().addAll(subMmenuItemSortDate, subMmenuItemSortAlphabet, subMmenuItemSortbla);
-        MenuItem d = new MenuItem("Option 4");
+        MenuItem subMmenuItemSortDate = new MenuItem("Nach Fälligkeitsdatum");
+        MenuItem subMmenuItemSortAlphabet = new MenuItem("Alphabetisch");
+        MenuItem subMmenuItemSortbla = new MenuItem("...");
+        menuItemSort.getItems().addAll(subMmenuItemSortDate, subMmenuItemSortAlphabet, subMmenuItemSortbla);
+        MenuItem menuItemDeleteList = new MenuItem("Liste löschen");
+        generateDeleteFunction(menuItemDeleteList);
         MenuItem e = new MenuItem("Option 5");
-        contextMenuEditTask.getItems().addAll(menuItemNewTask,b,menuItemSort,d,e);
+        contextMenuEditTask.getItems().addAll(menuItemNewTask, b, menuItemSort, menuItemDeleteList, e);
         buttonEditToDoList.setContextMenu(contextMenuEditTask);
 
+    }
+
+    private void generateDeleteFunction(MenuItem menuItem)
+    {
+        menuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
 
 
+
+            }
+        });
     }
 
 
