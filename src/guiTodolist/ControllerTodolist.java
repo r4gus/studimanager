@@ -3,14 +3,18 @@ package guiTodolist;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
+import javafx.stage.Stage;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -34,6 +38,8 @@ public class ControllerTodolist implements Initializable {
 
     @FXML
     public HBox hboxToDoLists;
+
+    private static final String pathControllerTask = "Task/layout_Task.fxml";
 
 
     /**
@@ -105,9 +111,9 @@ public class ControllerTodolist implements Initializable {
     private void generateHboxEditButton(Button buttonEditToDoList) {
 
         ContextMenu contextMenuEditTask = new ContextMenu();
-        MenuItem menuItemNewTask = new MenuItem("Neue Aufgabe");
-        menuItemNewTask.getStyleClass().add("menu-item");
 
+        MenuItem menuItemNewTask = new MenuItem("Neue Aufgabe");
+        generateAddTaskFunction(menuItemNewTask);
         MenuItem b = new MenuItem("Liste bearbeiten");
         Menu menuItemSort = new Menu("Sortieren nach:");
         MenuItem subMmenuItemSortDate = new MenuItem("Nach Fälligkeitsdatum");
@@ -116,23 +122,49 @@ public class ControllerTodolist implements Initializable {
         menuItemSort.getItems().addAll(subMmenuItemSortDate, subMmenuItemSortAlphabet, subMmenuItemSortbla);
         MenuItem menuItemDeleteList = new MenuItem("Liste löschen");
         generateDeleteFunction(menuItemDeleteList);
-        MenuItem e = new MenuItem("Option 5");
+        MenuItem e = new MenuItem("...");
         contextMenuEditTask.getItems().addAll(menuItemNewTask, b, menuItemSort, menuItemDeleteList, e);
         buttonEditToDoList.setContextMenu(contextMenuEditTask);
 
     }
 
-    private void generateDeleteFunction(MenuItem menuItem)
-    {
+    private void generateDeleteFunction(MenuItem menuItem) {
         menuItem.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
 
 
             }
         });
     }
 
+    private void generateAddTaskFunction(MenuItem menuItem) {
+        menuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                loadNewWindow("Aufgabe", pathControllerTask);
+            }
+        });
+    }
+
+
+    private void loadNewWindow(String title, String fxmlPath) {
+
+        try {
+            //Load second scene
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = fxmlLoader.load();
+
+            //Show scene 2 (edit Task) in new window
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.setTitle(title);
+            stage.show();
+        } catch (IOException ex) {
+            System.err.println(ex);
+        }
+    }
 
 }
