@@ -1,5 +1,6 @@
 package guiTodolist;
 
+import guiTodolist.Task.ControllerTask;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -129,38 +130,54 @@ public class ControllerTodolist implements Initializable {
 
     }
 
+
+    /**
+     * The method creates an event by loading a corresponding window. This event is assigned to an item from the context menu.
+     *
+     * @param   menuItem The parameter contains the corresponding element to which the event is to be assigned.
+     */
+
     private void generateDeleteFunction(MenuItem menuItem) {
-        menuItem.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
+        menuItem.setOnAction(actionEvent ->  {
 
 
-            }
         });
     }
+
+    /**
+     * The method creates an event by loading a corresponding window. This event is assigned to an item from the context menu.
+     *
+     * @param   menuItem The parameter contains the corresponding element to which the event is to be assigned.
+     */
 
     private void generateAddTaskFunction(MenuItem menuItem) {
-        menuItem.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
+        menuItem.setOnAction(actionEvent -> {
 
-                loadNewWindow("Aufgabe", pathControllerTask);
-            }
+                ControllerTask controllerTask = new ControllerTask(this);
+                loadNewWindow("Aufgabe", pathControllerTask, controllerTask);
+
         });
     }
 
 
-    private void loadNewWindow(String title, String fxmlPath) {
+    /**
+     * The method loads a new window according to the specified parameters.
+     *
+     * @param   title Title of the new window
+     * @param   fxmlPath File path to the required fxml file.
+     */
+
+    private void loadNewWindow(String title, String fxmlPath, Object Controller) {
 
         try {
             //Load second scene
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
+            fxmlLoader.setController(Controller);
             Parent root = fxmlLoader.load();
 
             //Show scene 2 (edit Task) in new window
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle(title);
             stage.show();
