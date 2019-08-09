@@ -1,21 +1,23 @@
 
 
-
+.anchorPaneToDoList{
+    -fx-background-color: linear-gradient( #D8D8D8 1% , #6E6E6E 15% , #B90707 60% , #6E6E6E 100%);
+}
 
 .hBox{
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
     -fx-background-radius: 6;
-    -fx-background-color: linear-gradient(#ffb3b3 10%, #ffb3b3 100%);
+    -fx-background-color: #E6E6E6;
 }
 
 .vBox{
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
     -fx-background-radius: 6;
-    -fx-background-color: linear-gradient(ff8080 10%, #ff1a1a 100%);
+    -fx-background-color: linear-gradient(#ff8080 10%, #ff1a1a 100%);
 }
 
-.button, .label, .text-field {
-    -fx-background-radius: 4;
+.button, .text-field {
+    -fx-background-radius: 8;
     -fx-background-color: #FFFFFF ;
     -fx-font-family: Eras-Demi-ITC;
     -fx-text-fill: #5e5e5e;
@@ -24,6 +26,31 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 
+.label{
+    -fx-background-radius: 4;
+    -fx-background-color: #FFFFFF ;
+    -fx-font-family: Eras-Demi-ITC;
+    -fx-text-fill: #5e5e5e;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+.button{
+    -fx-background-radius: 25;
+}
+
+
+.labelHeader{
+    -fx-background-color: #6E6E6E;
+    -fx-background-radius: 8;
+    -fx-font-family: Eras-Demi-ITC;
+    -fx-text-fill: #FAFAFA;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.7em;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+
 .button:hover{
     -fx-background-color: #FFAA00;
+    -fx-text-fill: #FAFAFA;
 }
