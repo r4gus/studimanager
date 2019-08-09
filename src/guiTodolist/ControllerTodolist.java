@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -160,6 +161,7 @@ public class ControllerTodolist implements Initializable {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle(title);
             stage.show();
         } catch (IOException ex) {
