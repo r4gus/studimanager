@@ -13,26 +13,26 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="677.0" prefWidth="1042.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiExam.ControllerExam">
+<AnchorPane prefHeight="677.0" prefWidth="1042.0" styleClass="anchorPaneExamen" stylesheets="@style_Exam.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiExam.ControllerExam">
    <children>
-      <HBox alignment="CENTER" layoutX="34.0" layoutY="15.0" spacing="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
+      <HBox alignment="CENTER" layoutX="34.0" layoutY="15.0" spacing="15.0" styleClass="hBox" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
          <children>
             <VBox alignment="CENTER" prefHeight="84.0" prefWidth="140.0" spacing="10.0">
                <children>
-                  <Button id="addExam" mnemonicParsing="false" onAction="#clickAddExam" prefHeight="25.0" prefWidth="140.0" text="Klausur hinzufügen" />
+                  <Button id="addExam" mnemonicParsing="false" onAction="#clickAddExam" prefHeight="25.0" prefWidth="140.0" styleClass="buttonMenu" text="Klausur hinzufügen" />
                   <TextField fx:id="textfieldLectureNumber" prefHeight="25.0" prefWidth="140.0" promptText="Fachnummer" />
                </children>
             </VBox>
             <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="0.0" />
             <VBox alignment="CENTER" prefHeight="76.0" prefWidth="140.0" spacing="10.0">
                <children>
-                  <Button id="deleteList" mnemonicParsing="false" onAction="#clickClearList" prefHeight="25.0" prefWidth="140.0" text="Liste Leeren" />
+                  <Button id="deleteList" mnemonicParsing="false" onAction="#clickClearList" prefHeight="25.0" prefWidth="140.0" styleClass="buttonMenu" text="Liste Leeren" />
                   <ChoiceBox fx:id="stringChoiceBoxTableView" prefHeight="25.0" prefWidth="140.0" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="76.0" prefWidth="140.0" spacing="10.0">
                <children>
-                  <Button id="deleteExam" mnemonicParsing="false" onAction="#clickDeleteExam" prefHeight="25.0" prefWidth="140.0" text="Klausur(en) löschen" />
+                  <Button id="deleteExam" mnemonicParsing="false" onAction="#clickDeleteExam" prefHeight="25.0" prefWidth="140.0" styleClass="buttonMenu" text="Klausur(en) löschen" />
                </children>
             </VBox>
             <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="0.0">
@@ -42,25 +42,24 @@
             </Separator>
             <VBox alignment="CENTER" prefHeight="76.0" prefWidth="140.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addElementToTableviewExamsInsisted" prefHeight="25.0" prefWidth="140.0" text="Klausur(en) bestanden" />
-                  <Button mnemonicParsing="false" onAction="#editExamObject" prefHeight="25.0" prefWidth="140.0" text="Klausur bearbeiten" />
+                  <Button mnemonicParsing="false" onAction="#addElementToTableviewExamsInsisted" prefHeight="25.0" prefWidth="140.0" styleClass="buttonMenu" text="Klausur(en) bestanden" />
+                  <Button mnemonicParsing="false" onAction="#editExamObject" prefHeight="25.0" prefWidth="140.0" styleClass="buttonMenu" text="Klausur bearbeiten" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="76.0" prefWidth="140.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#secondTrialExam" prefHeight="25.0" prefWidth="140.0" text="Klausur zweitversuch" />
+                  <Button mnemonicParsing="false" onAction="#secondTrialExam" prefHeight="25.0" prefWidth="140.0" styleClass="buttonMenu" text="Klausur zweitversuch" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <Separator layoutX="28.0" layoutY="119.0" prefHeight="1.0" prefWidth="935.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" />
       <TableView fx:id="tableviewExams" layoutX="117.0" layoutY="184.0" prefHeight="200.0" prefWidth="762.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
         <columns>
             <TableColumn fx:id="colSubjectNumber" text="Fachnummer" />
             <TableColumn fx:id="coltechnicalName" text="Fachbezeichung" />
             <TableColumn fx:id="colSemester" text="Semester" />
             <TableColumn fx:id="colDate" text="Datum" />
-            <TableColumn fx:id="colBegin" text="Begin" />
+            <TableColumn fx:id="colBegin" text="Beginn" />
             <TableColumn fx:id="colDuration" text="Dauer" />
             <TableColumn fx:id="colBuilding" text="Gebäude" />
             <TableColumn fx:id="colRoomNumber" text="Raumnummer" />
@@ -69,10 +68,13 @@
       </TableView>
       <VBox alignment="CENTER" layoutX="3.0" layoutY="134.0" prefHeight="25.0" prefWidth="1042.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="134.0">
          <children>
-            <Label text="Anstehende Klausuren im aktuellen Semester:">
+            <Label styleClass="labelUeberschriften" text="Anstehende Klausuren im aktuellen Semester:">
                <font>
                   <Font size="14.0" />
                </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </Label>
          </children>
       </VBox>
@@ -87,10 +89,16 @@
       </TableView>
       <VBox alignment="CENTER" layoutX="3.0" layoutY="417.0" prefHeight="32.0" prefWidth="1042.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="417.0">
          <children>
-            <Label text="bestandene Klausuren:">
+            <Label styleClass="labelUeberschriften" text="bestandene Klausuren:">
                <font>
                   <Font size="14.0" />
                </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </Label>
          </children>
       </VBox>

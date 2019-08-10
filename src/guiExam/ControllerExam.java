@@ -3,6 +3,7 @@ package guiExam;
 import custom_exceptions.UserException;
 import exam.Exam;
 import guiExam.EditWindow.ControllerEditWindow;
+import guiExam.EditWindowExamResult.ControllerEditWindowExamResult;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,6 +17,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -69,65 +71,143 @@ public class ControllerExam implements Initializable {
     @FXML
     public ChoiceBox<String> stringChoiceBoxTableView;
 
-    public static final String choiceBoxValue1 = "Aktuelle Klausuren";
-    public static final String choiceBoxValue2 = "Bestandene Klausuren";
+    private static final String choiceBoxValue1 = "Aktuelle Klausuren";
+    private static final String choiceBoxValue2 = "Bestandene Klausuren";
+
+    private static final String pathControllerEditWindowLesson = "EditWindow/layoutEditWindow.fxml";
+    private static final String pathControllerEditWindowLessonInsisted = "EditWindowExamResult/layoutEditWindowExamResult.fxml";
 
     private ObservableList<Exam> exams = FXCollections.observableArrayList(new Exam("test", "testname", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2.0", false, false)
             , new Exam("Analysis", "Mathe", "3", "2019-04-12", "9.00", "1:30", "R0.23", "G1", "1", "2.3", "3.0", false, false));
 
-    private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2,5", false, false));
 
+    private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2,5", true, false));
     private ObservableList<String> observableListChoiceBox = FXCollections.observableArrayList(ControllerExam.choiceBoxValue1, ControllerExam.choiceBoxValue2);
 
+
     /**
-     * the method deletes an element Exam from selected TableView.
+     * the method deletes element(s) Exam from selected TableView(s).
      *
-     * @param actionEvent Element Exam which should be added to the ArrayList
+     * @param actionEvent This event type is widely used to represent a variety of things, such as when a Button has been fired, when a KeyFrame has finished, and other such usages.
      */
 
     public void clickDeleteExam(ActionEvent actionEvent) {
 
+        boolean tableViewExam;
         ObservableList<Exam> selectedItems = tableviewExams.getSelectionModel().getSelectedItems();
+        if (selectedItems.isEmpty()) {
+            selectedItems = tableviewExamsInsisted.getSelectionModel().getSelectedItems();
+            tableViewExam = false;
+        } else {
+            tableViewExam = true;
+        }
+
+        if (!tableviewExams.getSelectionModel().getSelectedItems().isEmpty() && !tableviewExamsInsisted.getSelectionModel().getSelectedItems().isEmpty()) {
+            ObservableList<Exam> selectedItems1 = tableviewExamsInsisted.getSelectionModel().getSelectedItems();
+            deleteTableViewItems(selectedItems);
+            deleteTableViewItemsInsisted(selectedItems1);
+            return;
+        }
+        if (selectedItems.size() == 0) {
+            try {
+                throw new UserException("Bitte wählen Sie eine Klausur aus die Sie löschen möchten.");
+            } catch (UserException e) {
+                showInformationAltertForUser(e.getMessage());
+                return;
+            }
+        }
+        if (tableViewExam) {
+            deleteTableViewItems(selectedItems);
+        } else if (!tableViewExam) {
+            deleteTableViewItemsInsisted(selectedItems);
+        }
+    }
+
+    /**
+     * the method removes element(s) Exam from TableView.
+     *
+     * @param selectedItems This parameter contains a list of Exam items to be deleted from TableView.
+     */
+
+    private void deleteTableViewItems(ObservableList<Exam> selectedItems) {
         exams.removeAll(selectedItems);
+        tableviewExams.getSelectionModel().clearSelection();
+    }
+
+
+    /**
+     * the method removes element(s) Exam from TableView.
+     *
+     * @param selectedItems This parameter contains a list of Exam items to be deleted from TableView.
+     */
+
+    private void deleteTableViewItemsInsisted(ObservableList<Exam> selectedItems) {
+        examsInsisted.removeAll(selectedItems);
+        tableviewExamsInsisted.getSelectionModel().clearSelection();
     }
 
 
     /**
      * the method adds an element Exam to TableView.
      *
-     * @param actionEvent Element Exam which should be added to the ArrayList
+     * @param actionEvent This event type is widely used to represent a variety of things, such as when a Button has been fired, when a KeyFrame has finished, and other such usages.
      */
 
     public void clickAddExam(ActionEvent actionEvent) {
 
         String examNumber = textfieldLectureNumber.getText();
-        addExam(examNumber);
-        textfieldLectureNumber.clear();
+        if (examNumber.trim().isEmpty()) {
+            try {
+                throw new UserException("Sie müssen eine Klausurnummer in das Textfeld eingeben");
+            } catch (UserException e) {
+                showInformationAltertForUser(e.getMessage());
+            }
+
+        } else {
+            addExam(examNumber);
+            textfieldLectureNumber.clear();
+        }
     }
 
 
     /**
      * the method deletes all elements Exam from selected TableView
      *
-     * @param actionEvent Element Exam which should be added to the ArrayList
+     * @param actionEvent This event type is widely used to represent a variety of things, such as when a Button has been fired, when a KeyFrame has finished, and other such usages.
      */
 
     public void clickClearList(ActionEvent actionEvent) {
 
         try {
+
+            if (stringChoiceBoxTableView.getValue() == null) {
+                throw new UserException("Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!");
+            }
             if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue1) && tableviewExams.getItems() != null) {
                 tableviewExams.getItems().clear();
             } else if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue2) && tableviewExamsInsisted.getItems() != null) {
                 tableviewExamsInsisted.getItems().clear();
-            } else {
-                throw new UserException("Bitte wählen Sie eine der Optionen aus");
             }
         } catch (UserException e) {
-
-            // Fehlermeldung an Oberfläche werden --> Message Box
-            // Soll ein großes Package erstellt werden in dem es eine Klasse gibt
-            // in der verschiedene Fehlermeldungen für user erstellt werden ??
+            /* remember Exception logs automatically */
+            showInformationAltertForUser(e.getMessage());
         }
+    }
+
+
+    /**
+     * This method displays an error message to the user with understandable content,
+     * so that the user can correct the error if necessary.
+     */
+
+    private void showInformationAltertForUser(String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("User Information");
+        alert.setHeaderText("Fehlermeldung:");
+        alert.setContentText(content);
+
+        // Das auszuwählende Element farblich hervorheben ??? oder anders kentlich machen ??
+        alert.showAndWait();
     }
 
 
@@ -148,6 +228,16 @@ public class ControllerExam implements Initializable {
     public void secondTrialExam() {
 
         ObservableList<Integer> selectedItems = tableviewExams.getSelectionModel().getSelectedIndices();
+
+        if (selectedItems.isEmpty()) {
+            try {
+                throw new UserException("Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.");
+            } catch (UserException e) {
+                showInformationAltertForUser(e.getMessage());
+                return;
+            }
+        }
+
         for (int examIndex : selectedItems) {
             Exam exam = exams.get(examIndex);
             String trNr = exam.getTrialNumber();
@@ -156,6 +246,7 @@ public class ControllerExam implements Initializable {
             trNr = "" + trialNr;
             exam.setTrialNumber(new SimpleStringProperty(trNr));
             tableviewExams.refresh();
+            tableviewExams.getSelectionModel().clearSelection();
         }
     }
 
@@ -166,29 +257,77 @@ public class ControllerExam implements Initializable {
     public void addElementToTableviewExamsInsisted() {
 
         ObservableList<Exam> selectedItems = tableviewExams.getSelectionModel().getSelectedItems();
+        for (Exam e : selectedItems) {
+            e.setInsisted(true);
+        }
+        if (selectedItems.isEmpty()) {
+            try {
+                throw new UserException("Bitte Wählen Sie eine Klausur aus");
+            } catch (UserException ex) {
+                showInformationAltertForUser(ex.getMessage());
+            }
+        }
         examsInsisted.addAll(selectedItems);
         exams.removeAll(selectedItems);
         tableviewExamsInsisted.refresh();
+        tableviewExams.getSelectionModel().clearSelection();
     }
+
+
+    /**
+     * This method decides which Fxml file is to be loaded with the corresponding controller
+     * based on various actions of the user.
+     * If the selection is incorrect, the user will be informed about it.
+     */
 
     public void editExamObject() {
 
-        Exam exam;
-        exam = tableviewExams.getSelectionModel().getSelectedItem();
-        if (exam == null) {
-            try {
-                throw new UserException("Bitte wählen Sie eine Klausur aus");
-            }
-            catch (UserException e) {
+        if (tableviewExams.getSelectionModel().getSelectedItem() != null && tableviewExamsInsisted.getSelectionModel().getSelectedItem() != null) {
 
-                //User darüber informieren... was er falsch gemacht hat.
-            }
+            showInformationAltertForUser("Sie können immer nur eine Klausur bearbeiten! \nBitte wählen Sie jetzt die gewüschte Klausur aus, \ndie Sie bearbeiten möchten.");
+            tableviewExams.getSelectionModel().clearSelection();
+            tableviewExamsInsisted.getSelectionModel().clearSelection();
+            return;
         }
 
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditWindow/layoutEditWindow.fxml"));
+        Exam exam;
+        exam = tableviewExams.getSelectionModel().getSelectedItem();
+        tableviewExams.getSelectionModel().clearSelection();
+        if (exam == null) {
+            exam = tableviewExamsInsisted.getSelectionModel().getSelectedItem();
+            tableviewExamsInsisted.getSelectionModel().clearSelection();
+        }
+        if (exam == null) {
+            try {
+                throw new UserException("Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.");
+            } catch (UserException e) {
+                showInformationAltertForUser(e.getMessage());
+                return;
+            }
+        }
+        if (!exam.isInsisted()) {
             ControllerEditWindow controllerLesson = new ControllerEditWindow(this, exam);
-            fxmlLoader.setController(controllerLesson);
+            loadWindowEditExams(exam, pathControllerEditWindowLesson, controllerLesson);
+
+        } else if (exam.isInsisted()) {
+            ControllerEditWindowExamResult controllerLessonInsisted = new ControllerEditWindowExamResult(this, exam);
+            loadWindowEditExams(exam, pathControllerEditWindowLessonInsisted, controllerLessonInsisted);
+        }
+    }
+
+
+    /**
+     * This method creates new windows using the appropriate parameters.
+     *
+     * @param exam       This is the exam object to be displayed in the window.
+     * @param path       This is the storage path to the corresponding FXML file.
+     * @param controller This is the corresponding controller for FXML file.
+     */
+
+    private void loadWindowEditExams(Exam exam, String path, Object controller) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+            fxmlLoader.setController(controller);
             Parent root = fxmlLoader.load();
 
             Stage stage = new Stage();
@@ -200,16 +339,15 @@ public class ControllerExam implements Initializable {
         } catch (IOException ex) {
 
             //.... loggen usw....
-
         }
     }
 
 
     /**
-     * the method deletes all elements Exam from selected TableView
+     * Called to initialize a controller after its root element has been completely processed
      *
-     * @param url            Element Exam which should be added to the ArrayList
-     * @param resourceBundle Element Exam which should be added to the ArrayList
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
      */
 
     @Override

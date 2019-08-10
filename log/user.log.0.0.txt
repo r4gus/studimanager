@@ -198,31 +198,145 @@ Aug. 03, 2019 9:09:55 VORM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus
 Aug. 03, 2019 10:30:46 VORM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus
-Aug 07, 2019 7:16:41 PM custom_exceptions.UserException <init>
+Aug. 03, 2019 1:42:26 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine der Optionen aus
+Aug. 03, 2019 1:47:44 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine der Optionen aus
+Aug. 03, 2019 1:48:29 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine der Optionen aus
+Aug. 03, 2019 1:48:42 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine der Optionen aus
+Aug. 03, 2019 1:52:25 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine der Optionen aus
+Aug. 03, 2019 1:52:45 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine der Optionen aus
+Aug. 03, 2019 1:59:01 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine der Optionen aus
+Aug. 03, 2019 2:03:56 NACHM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus
-Aug 08, 2019 11:42:01 AM timetable.Lecturers addLecturer
-WARNING: null pointer passed!
-Aug 08, 2019 11:42:02 AM timetable.Lecturers addLecturer
-WARNING: The specified Lecturer already exists!
-Aug 08, 2019 11:42:02 AM timetable.Lecturers addLecturer
-WARNING: The specified Lecturer already exists!
-Aug 08, 2019 11:42:02 AM timetable.Lectures addLecture
-WARNING: the specified Lecture object already exists
-Aug 08, 2019 11:42:02 AM timetable.Lectures addLecture
-WARNING: null pointer passed
-Aug 08, 2019 11:42:02 AM timetable.Lectures addLecture
-WARNING: the specified Lecture object already exists
-Aug 08, 2019 11:42:02 AM custom_exceptions.UserException <init>
-WARNING: The specified Lecture already exists!
-Aug 08, 2019 11:42:02 AM timetable.Lectures addLecture
-WARNING: null pointer passed
-Aug 08, 2019 11:42:02 AM custom_exceptions.UserException <init>
-WARNING: null pointer passed!
-Aug 08, 2019 11:42:02 AM custom_exceptions.UserException <init>
-WARNING: Index out of bounds
-Aug 08, 2019 11:42:02 AM timetable.Facilities addFacility
-WARNING: null pointer passed!
-Aug 08, 2019 11:42:02 AM timetable.Facilities addFacility
-WARNING: The specified Facility already exists
-Aug 08, 2019 11:42:02 AM timetable.Facilities addFacility
-WARNING: The specified Facility already exists
+Aug. 03, 2019 2:10:11 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 2:10:16 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug. 03, 2019 2:16:56 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 2:23:42 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 3:07:08 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug. 03, 2019 3:11:57 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 03, 2019 3:18:56 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 3:19:23 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 3:20:14 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 3:22:23 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 3:23:08 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 3:26:10 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 3:41:34 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 03, 2019 3:47:30 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug. 03, 2019 3:47:34 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 3:51:54 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 03, 2019 3:52:11 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug. 03, 2019 3:52:20 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 4:00:28 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 03, 2019 7:35:41 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 9:49:16 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 03, 2019 9:49:20 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug. 03, 2019 9:49:40 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 9:52:40 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 10:11:43 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 10:24:38 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 10:25:21 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 10:26:06 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 03, 2019 10:27:12 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 03, 2019 10:36:54 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug. 03, 2019 10:41:24 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 03, 2019 10:41:32 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 03, 2019 10:44:00 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 03, 2019 10:44:32 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 8:36:22 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 04, 2019 8:36:27 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 04, 2019 9:02:46 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 04, 2019 9:21:17 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte Wählen Sie eine Klausur aus
+Aug. 04, 2019 9:21:30 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte Wählen Sie eine Klausur aus
+Aug. 04, 2019 12:44:21 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 12:45:32 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 12:53:30 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 12:56:07 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 1:03:23 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 1:03:27 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 1:03:30 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 1:03:33 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 8:14:59 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 04, 2019 8:18:05 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte Wählen Sie eine Klausur aus
+Aug. 05, 2019 8:30:45 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 05, 2019 8:42:54 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte Wählen Sie eine Klausur aus
+Aug. 05, 2019 8:42:58 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 05, 2019 8:43:04 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug. 05, 2019 8:46:55 VORM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 05, 2019 8:48:23 VORM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 05, 2019 9:08:08 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.
+Aug. 05, 2019 9:25:57 VORM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 05, 2019 9:25:59 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug. 05, 2019 9:26:01 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 05, 2019 9:26:03 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte Wählen Sie eine Klausur aus
+Aug. 05, 2019 9:26:05 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 05, 2019 9:26:07 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.
+Aug. 09, 2019 7:55:20 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!

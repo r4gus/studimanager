@@ -33,7 +33,7 @@ public class Exam {
 
     public Exam(String subjectNumber) {
 
-        this(subjectNumber, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, "1", Exam.valueNotAvailibale, Exam.valueNotAvailibale , false, true);
+        this(subjectNumber, Exam.valueNotAvailibale, "3", "2019-04-03", Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, Exam.valueNotAvailibale, "1", Exam.valueNotAvailibale, Exam.valueNotAvailibale , false, true);
         MyLogger.LOGGER.entering(getClass().toString(), "Exam", new Object[]{subjectNumber});
         MyLogger.LOGGER.exiting(getClass().toString(), "Exam");
     }
@@ -140,9 +140,7 @@ public class Exam {
 
     public String getModulMark() { return modulMark.get(); }
 
-    public SimpleStringProperty modulMarkProperty() { return modulMark; }
-
-    public void setModulMark(String modulMark) { this.modulMark.set(modulMark); }
+    public void setModulMark(SimpleStringProperty modulMark) { this.modulMark = modulMark; }
 
     public boolean isInsisted() {
         return insisted;
