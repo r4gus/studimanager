@@ -13,6 +13,7 @@ import logging.MyLogger;
 public class Lectures extends Container<Lecture> {
     private LocalTime from;  // start of the lecture
     private LocalTime to;    // end of the lecture
+    private Lecture head; // lecture to display inside the grid pane
 
     public Lectures() {
         from = null;
@@ -38,6 +39,14 @@ public class Lectures extends Container<Lecture> {
 
     public void setTo(LocalTime to) {
         this.to = to;
+    }
+
+    public Lecture getHead() {
+        return head;
+    }
+
+    public void setHead(Lecture head) {
+        this.head = head;
     }
 
     /**
