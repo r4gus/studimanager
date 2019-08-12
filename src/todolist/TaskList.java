@@ -15,10 +15,22 @@ import java.util.logging.Level;
 
 public class TaskList {
 
+    private String heading;
     private ArrayList<Task> tasks = new ArrayList<>();
+
+    //Sonstoge Eigenschagter Der TodoListe...
 
     public TaskList() {
 
+    }
+
+
+    public String getHeading() {
+        return heading;
+    }
+
+    public void setHeading(String heading) {
+        this.heading = heading;
     }
 
     /**

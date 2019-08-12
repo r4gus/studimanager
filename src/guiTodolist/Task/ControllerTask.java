@@ -3,17 +3,24 @@ package guiTodolist.Task;
 import guiTodolist.ControllerTodolist;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import todolist.Task;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
+
 
 
 /**
@@ -23,6 +30,7 @@ import java.util.ResourceBundle;
  *
  * @author Lukas Mendel
  */
+
 
 public class ControllerTask implements Initializable {
 
@@ -57,17 +65,20 @@ public class ControllerTask implements Initializable {
     private ObservableList<String> itemsChecklist = FXCollections.observableArrayList();
 
     private ControllerTodolist controllerTodolist;
+    private VBoxTasklist vboxTodoList;
+    private Task currentTask;
 
 
-    public ControllerTask(){
+    public ControllerTask(VBoxTasklist vboxTasklist){
 
+        this.vboxTodoList = vboxTasklist;
     }
 
-    public ControllerTask(ControllerTodolist controllerTodolist){
+    public ControllerTask(ControllerTodolist controllerTodolist, VBoxTasklist vboxTodoList) {
 
         this.controllerTodolist = controllerTodolist;
+        this.vboxTodoList = vboxTodoList;
     }
-
 
 
     /**
@@ -124,33 +135,67 @@ public class ControllerTask implements Initializable {
 
 
     /**
-     * generates a ToDoList with different functions e.g. adding a task etc.
+     * generates a Task with user-information e.g. task-heading.
      */
 
     public void createTask() {
 
-        VBox vBoxnewTask = createNewGuiElemnts();
-        /* add new Task  */
-        //Controller ToDoList brauch entsprechende Methoden zum hinzufügen / entfernen von Tasks auf HboxTask Listen halter element.
+        this.currentTask = createTaskObjekt();                  /* Object Task is created */
+        VBoxTask vBoxnewTask = createNewGuiElemnts();               /* VboxTask will be created  */
+        vBoxnewTask.setTaskID(this.currentTask.getTaskId());            /*  Add TaskID from Object */
+        currentTask.setTaskListId(vboxTodoList.getTaskListID());            /* Add TaskList-ID to Object from taskList */
+        vboxTodoList.getChildren().add(vBoxnewTask);
         Stage stage = (Stage) this.buttonCreateTask.getScene().getWindow();
         stage.close();
     }
 
     /**
-     * generates a ToDoList with different functions e.g. adding a task etc.
+     * generates a Task with different functions e.g. show basic information.
      */
 
-    public VBox createNewGuiElemnts()
-    {
+    public VBoxTask createNewGuiElemnts() {
 
-        VBox vBoxTask = new VBox();
-        vBoxTask.getStyleClass().add("vBox");
+        VBoxTask vBoxTask = new VBoxTask(currentTask);
+        addEventDragDetected(vBoxTask, this.currentTask);
 
-        Label labelHeading = new Label(textFieldHeadingTask.getText());
-
-        vBoxTask.getChildren().addAll(labelHeading );
+        this.vboxTodoList.setMargin(vBoxTask, new Insets(5, 10, 5, 10));
 
         return vBoxTask;
     }
+
+    /**
+     * Gives the object the function to be moved on the surface.
+     */
+
+    public void addEventDragDetected(VBoxTask vBoxTask, Task task ){
+
+        vBoxTask.setOnDragDetected(mouseEvent -> {
+            Dragboard dragboard = vBoxTask.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent clipboardContent = new ClipboardContent();
+            DataFormat dataFormat = new DataFormat("VBox");   // name an die ID des Objekts Binden...
+            clipboardContent.put(dataFormat, task);
+            dragboard.setContent(clipboardContent);
+        });
+
+    }
+
+
+    /**
+     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     */
+
+    private Task createTaskObjekt() {
+
+        Task task = new Task(textFieldHeadingTask.getText().trim().isEmpty() ? null : textFieldHeadingTask.getText());
+        task.setProjectDescription(((textAreaDescription.getText().trim().isEmpty() ? null : textAreaDescription.getText())));
+        task.setProjectStatus(0);
+        task.setDone(false);
+        task.setNotes(textAreaNotes.getText().trim().isEmpty() ? null : new ArrayList<> (Arrays.asList(textAreaNotes.getText().split("\n"))) );
+        //task.setItemsChecklist(listViewChecklist.getItems().isEmpty() ? null : listViewChecklist.getItems());
+        task.setDeadline(datePickerDueDate.getValue());
+
+        return task;
+    }
+
 
 }

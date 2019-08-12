@@ -16,6 +16,14 @@
     -fx-background-color: linear-gradient(#ff8080 10%, #ff1a1a 100%);
 }
 
+.vBoxTask{
+    -fx-background-radius: 6;
+    -fx-background-color: #DC143C ;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+
+
+
 .button, .text-field {
     -fx-background-radius: 8;
     -fx-background-color: #FFFFFF ;

@@ -8,12 +8,23 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 public class Main extends Application {
 
+    private static Stage primaryStage;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
+        setPrimaryStage(primaryStage);
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Studimanager");
         primaryStage.setScene(new Scene(root, 1000, 700));
         primaryStage.show();
+    }
+
+    public static Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+    private void setPrimaryStage(Stage primStage) {
+        Main.primaryStage = primStage;
     }
 
 

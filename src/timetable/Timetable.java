@@ -272,6 +272,11 @@ public class Timetable {
         MyLogger.LOGGER.entering(getClass().toString(), "addLecture", lecture);
 
         try {
+            /* set lecture to display */
+            if(getUnit()[unit][day].getSize() == 0) {
+                getUnit()[unit][day].setHead(lecture);
+            }
+
             boolean x = getUnit()[unit][day].addLecture(lecture);
 
             /* add lecture and it's position to the hash map */
