@@ -1,11 +1,10 @@
 package guiTodolist.Task;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
@@ -100,6 +99,7 @@ public class VBoxTask extends VBox {
 
         VBox vBoxbasicInformation = new VBox();
         this.setMargin(vBoxbasicInformation, new Insets(8, 0, 10, 0));
+        vBoxbasicInformation.setSpacing(5);
         HBox hBoxPriority = generateHBoxPrio("Priorität: ", "guiTodolist/Task/Icons/icons8-mittlere-prio-48.png");
         HBox hBoxDate = null;
         HBox hBoxProgressbar = null;
@@ -107,7 +107,7 @@ public class VBoxTask extends VBox {
             hBoxDate = generateHboxDate("Fälligkeitsdatum: ");
         }
         if (task.getItemsChecklist() != null) {
-            hBoxProgressbar = new HBox();
+            hBoxProgressbar = generateProgressBar();
         }
         if (hBoxDate == null) {
             vBoxbasicInformation.getChildren().addAll(hBoxPriority, hBoxProgressbar);
@@ -125,12 +125,31 @@ public class VBoxTask extends VBox {
      * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
      */
 
+    private HBox generateProgressBar(){
+
+        int anzhahlAufgaben =  task.getItemsChecklist().size();
+        String verhältnis = "Checklist 0 /" + anzhahlAufgaben;
+        HBox hBox = hBox(verhältnis);
+        hBox.setSpacing(37);
+        ProgressBar progressBarList = new ProgressBar();
+        progressBarList.setProgress(0);
+        progressBarList.setPrefWidth(93);
+        hBox.getChildren().add(progressBarList);
+        return  hBox;
+    }
+
+
+    /**
+     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     */
+
     private HBox hBox(String labelname) {
         HBox hBox = new HBox();
-        hBox.setAlignment(Pos.CENTER);
+        hBox.setAlignment(Pos.CENTER_LEFT);
         hBox.setSpacing(10);
         Label label = new Label(labelname);
         label.setPadding(new Insets(2, 10, 2, 10));
+        hBox.setMargin(label, new Insets(0, 0, 0, 10));
         hBox.getChildren().add(label);
         return hBox;
     }
@@ -141,7 +160,12 @@ public class VBoxTask extends VBox {
 
     private HBox generateHBoxPrio(String labelname, String filepath) {
         HBox hBox = hBox(labelname);
-        ImageView imageViewPrio = generateImageviewIcons(filepath);
+        hBox.setSpacing(95);
+        Image image = new Image(filepath);
+        ImageView imageViewPrio = new ImageView();
+        imageViewPrio.setFitWidth(24);
+        imageViewPrio.setFitHeight(24);
+        imageViewPrio.setImage(image);
         hBox.getChildren().addAll(imageViewPrio);
         return hBox;
     }
@@ -223,7 +247,6 @@ public class VBoxTask extends VBox {
         if (this.task.getItemsChecklist().size() == 0) {
             checklist.setVisible(false);
         }
-
     }
 
 
