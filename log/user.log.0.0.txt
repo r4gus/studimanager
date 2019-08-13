@@ -340,3 +340,5 @@ Aug. 05, 2019 9:26:07 VORM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.
 Aug. 09, 2019 7:55:20 VORM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug. 12, 2019 9:53:59 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
