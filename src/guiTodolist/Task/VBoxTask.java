@@ -4,6 +4,8 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DataFormat;
 import javafx.scene.input.Dragboard;
@@ -11,6 +13,9 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import todolist.Task;
+
+import javax.swing.*;
+import java.io.InputStream;
 
 /**
  * The <code>VBoxTaskTask</code> object represents the controller of the Gui CreateTask.
@@ -93,28 +98,39 @@ public class VBoxTask extends VBox {
         hBoxStatusElements.setAlignment(Pos.CENTER);
         hBoxStatusElements.setSpacing(10);
 
-        Button buttonEdit = new Button("...");
-        Button buttonDetails = new Button(" + ");
-        Button buttonDeadline = new Button("L");
-        Button buttonFileAttachment = new Button("F");
-        Button buttonNotes = new Button("N");
+        Button buttonEdit = new Button(" - "); // Delete mit Icon
+        Button buttonDetails = new Button(" + "); // mit Image
+        ImageView imageViewDeadline = generateImageviewIcons("guiTodolist/Task/Icons/icons8-Deadline-48.png");
+        ImageView imageViewFiles = generateImageviewIcons("guiTodolist/Task/Icons/icons8-dokumente-48.png");
+        ImageView imageViewChecklist = generateImageviewIcons("guiTodolist/Task/Icons/icons8-aufgabenliste-48.png");
+        ImageView imageViewNotes = generateImageviewIcons("guiTodolist/Task/Icons/icons8-bemerkungen-48.png");
 
-        createNewInformationtoobarVisibleCheck(buttonDeadline, buttonFileAttachment, buttonNotes);
-        hBoxStatusElements.getChildren().addAll(buttonEdit, buttonDetails, buttonDeadline, buttonFileAttachment, buttonNotes);
+        createNewInformationtoobarVisibleCheck(imageViewDeadline, imageViewFiles , imageViewChecklist , imageViewNotes);
+        hBoxStatusElements.getChildren().addAll(buttonEdit, buttonDetails, imageViewDeadline, imageViewFiles, imageViewChecklist ,imageViewNotes);
         this.getChildren().add(hBoxStatusElements);
+    }
+
+    private ImageView generateImageviewIcons(String filepath)
+    {
+        Image image = new Image(filepath);
+        ImageView iv1 = new ImageView();
+        iv1.setFitWidth(36);
+        iv1.setFitHeight(36);
+        iv1.setImage(image);
+        return iv1;
     }
 
     /**
      * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
      */
 
-    private void createNewInformationtoobarVisibleCheck(Button buttonDeadline, Button buttonFileAtt, Button buttonNotes) {
+    private void createNewInformationtoobarVisibleCheck(ImageView deadline, ImageView fileAttachment, ImageView checklist , ImageView notes) {
 
         if (this.task.getDeadline() == null) {
-            buttonDeadline.setVisible(false);
+            deadline.setVisible(false);
         }
         if (this.task.getNotes() == null) {
-            buttonNotes.setVisible(false);
+            notes.setVisible(false);
         }
 
     }
