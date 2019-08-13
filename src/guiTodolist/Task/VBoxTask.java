@@ -27,7 +27,6 @@ public class VBoxTask extends VBox {
 
     private Task task;
     private int taskID;
-    private int taskListID;
     private VBoxTasklist vBoxTasklist;
 
     public VBoxTask(Task task, VBoxTasklist vBoxTasklist) {
@@ -49,16 +48,8 @@ public class VBoxTask extends VBox {
         this.taskID = taskID;
     }
 
-    public int getTaskListID() {
-        return taskListID;
-    }       //Variable und getter + Setter derzeit nicht in verwendung
-
-    public void setTaskListID(int taskListID) {
-        this.taskListID = taskListID;
-    }
-
     /**
-     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     * init method generates VBoxtask.
      */
 
     public void initVBoxTask() {
@@ -106,15 +97,15 @@ public class VBoxTask extends VBox {
         if (task.getDeadline() != null) {
             hBoxDate = generateHboxDate("Fälligkeitsdatum: ");
         }
-        if (task.getItemsChecklist() != null) {
+        if (task.getItemsChecklist().size() > 0) {
             hBoxProgressbar = generateProgressBar();
         }
-        if (hBoxDate == null) {
+        if (hBoxDate == null && hBoxProgressbar == null) {
+            vBoxbasicInformation.getChildren().addAll(hBoxPriority);
+        } else if (hBoxDate == null) {
             vBoxbasicInformation.getChildren().addAll(hBoxPriority, hBoxProgressbar);
         } else if (hBoxProgressbar == null) {
             vBoxbasicInformation.getChildren().addAll(hBoxPriority, hBoxDate);
-        } else if (hBoxDate == null && hBoxProgressbar == null) {
-            vBoxbasicInformation.getChildren().addAll(hBoxPriority);
         } else {
             vBoxbasicInformation.getChildren().addAll(hBoxPriority, hBoxDate, hBoxProgressbar);
         }
@@ -125,17 +116,17 @@ public class VBoxTask extends VBox {
      * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
      */
 
-    private HBox generateProgressBar(){
+    private HBox generateProgressBar() {
 
-        int anzhahlAufgaben =  task.getItemsChecklist().size();
-        String verhältnis = "Checklist 0 /" + anzhahlAufgaben;
-        HBox hBox = hBox(verhältnis);
+        int anzhahlAufgaben = task.getItemsChecklist().size();
+        String verhaeltnis = "Checklist 0 /" + anzhahlAufgaben;
+        HBox hBox = hBox(verhaeltnis);
         hBox.setSpacing(37);
         ProgressBar progressBarList = new ProgressBar();
         progressBarList.setProgress(0);
         progressBarList.setPrefWidth(93);
         hBox.getChildren().add(progressBarList);
-        return  hBox;
+        return hBox;
     }
 
 
@@ -211,7 +202,7 @@ public class VBoxTask extends VBox {
      * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
      */
 
-    private void addEventToDeleteButton(Button buttonDelete){
+    private void addEventToDeleteButton(Button buttonDelete) {
 
         buttonDelete.setOnAction(actionEvent -> {
 
@@ -254,7 +245,7 @@ public class VBoxTask extends VBox {
      * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
      */
 
-    public void addEventDragDetected(VBoxTask vBoxTask, Task task) {
+    private void addEventDragDetected(VBoxTask vBoxTask, Task task) {
 
         vBoxTask.setOnDragDetected(mouseEvent -> {
             Dragboard dragboard = vBoxTask.startDragAndDrop(TransferMode.ANY);
