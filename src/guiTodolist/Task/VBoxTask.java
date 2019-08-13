@@ -14,9 +14,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import todolist.Task;
 
-import javax.swing.*;
-import java.io.InputStream;
-
 /**
  * The <code>VBoxTaskTask</code> object represents the controller of the Gui CreateTask.
  * This is one of the tabs of the TabPane.
@@ -99,7 +96,8 @@ public class VBoxTask extends VBox {
         hBoxStatusElements.setSpacing(10);
 
         Button buttonEdit = new Button(" - "); // Delete mit Icon
-        Button buttonDetails = new Button(" + "); // mit Image
+        Button buttonDetails = new Button(" i "); // mit Image
+
         ImageView imageViewDeadline = generateImageviewIcons("guiTodolist/Task/Icons/icons8-Deadline-48.png");
         ImageView imageViewFiles = generateImageviewIcons("guiTodolist/Task/Icons/icons8-dokumente-48.png");
         ImageView imageViewChecklist = generateImageviewIcons("guiTodolist/Task/Icons/icons8-aufgabenliste-48.png");

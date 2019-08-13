@@ -114,11 +114,9 @@ public class VBoxTasklist extends VBox {
                 Task task = (Task) o;
 
                 /* alter Task von alter Liste finden    */
-                VBoxTasklist vBOXTaskListOLD = null;
-                VBoxTask vBOXTaskOLD = null;
-
-                /* alter Task von alter Liste löschen    */
-             //   vBOXTaskListOLD.getChildren().remove(vBOXTaskOLD);
+                VBoxTasklist vBoxTasklistOLD = findTasklistwithID(task.getTaskListId());
+                VBoxTask vBoxTaskOLD = findVBoxTaskWithID(task.getTaskId(), vBoxTasklistOLD);
+                vBoxTasklistOLD.getChildren().remove(vBoxTaskOLD);
 
                 VBoxTask vBoxTask = new VBoxTask(task);
                 vBoxToDoList.getChildren().add(vBoxTask);
@@ -126,6 +124,33 @@ public class VBoxTasklist extends VBox {
             }
         });
     }
+
+    private VBoxTasklist findTasklistwithID(int taskListID) {
+
+        for (Node node : this.hboxToDoLists.getChildren()) {
+
+            VBoxTasklist vBoxTasklist = (VBoxTasklist) node;
+            if (vBoxTasklist.getTaskListID() == taskListID) {
+                return vBoxTasklist;
+            }
+        }
+        return null;        //Exception Handling
+    }
+
+    private VBoxTask findVBoxTaskWithID(int taskID, VBoxTasklist vBoxTasklist) {
+
+        for (Node node : vBoxTasklist.getChildren()) {
+
+            if (node instanceof VBoxTask) {
+                VBoxTask vBoxTask = (VBoxTask) node;
+                if (vBoxTask.getTaskID() == taskID) {
+                    return vBoxTask;
+                }
+            }
+        }
+        return null;
+    }
+
 
     /**
      * The method creates an event by loading a corresponding window. This event is assigned to an item from the context menu.
