@@ -61,7 +61,7 @@ public class VBoxTask extends VBox {
 
 
     /**
-     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     * generates the required elements for the task.
      */
 
     private void generateBasicVbox() {
@@ -83,7 +83,7 @@ public class VBoxTask extends VBox {
     }
 
     /**
-     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     * generates the middle part of the task of the Gui.
      */
 
     private VBox generateBasicInformationBox() {
@@ -113,7 +113,7 @@ public class VBoxTask extends VBox {
     }
 
     /**
-     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     * Generates the progress display of the checklist.
      */
 
     private HBox generateProgressBar() {
@@ -131,7 +131,9 @@ public class VBoxTask extends VBox {
 
 
     /**
-     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     * generates the Hbox for single elements of the middle part of the task
+     *
+     * @param labelname Text to be displayed.
      */
 
     private HBox hBox(String labelname) {
@@ -146,7 +148,10 @@ public class VBoxTask extends VBox {
     }
 
     /**
-     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     * generates the priority display of the task
+     *
+     * @param labelname Text to be displayed.
+     * @param filepath  File path for the corresponding icon.
      */
 
     private HBox generateHBoxPrio(String labelname, String filepath) {
@@ -162,7 +167,9 @@ public class VBoxTask extends VBox {
     }
 
     /**
-     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     * generates the display for due date.
+     *
+     * @param labelname Text to be displayed.
      */
 
     private HBox generateHboxDate(String labelname) {
@@ -175,7 +182,10 @@ public class VBoxTask extends VBox {
 
 
     /**
-     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     * generates the lower Gui part of the task.
+     *
+     * @param vBoxTask
+     * @param hBoxStatusElements
      */
 
     private void createNewInformationtoobar(VBox vBoxTask, HBox hBoxStatusElements) {
@@ -199,7 +209,9 @@ public class VBoxTask extends VBox {
     }
 
     /**
-     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     * allows you to delete the element.
+     *
+     * @param buttonDelete button to which the event should be added
      */
 
     private void addEventToDeleteButton(Button buttonDelete) {
@@ -211,7 +223,9 @@ public class VBoxTask extends VBox {
     }
 
     /**
-     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     * Generates a new element icon which is displayed on the Gui.
+     *
+     * @param filepath File path for the corresponding icon.
      */
 
     private ImageView generateImageviewIcons(String filepath) {
@@ -224,7 +238,12 @@ public class VBoxTask extends VBox {
     }
 
     /**
-     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     * method checks whether the elements on the Gui should be visible for the user.
+     *
+     * @param deadline       Image object containing an image.
+     * @param fileAttachment Image object containing an image.
+     * @param checklist      Image object containing an image.
+     * @param notes          Image object containing an image.
      */
 
     private void createNewInformationtoobarVisibleCheck(ImageView deadline, ImageView fileAttachment, ImageView checklist, ImageView notes) {
@@ -242,7 +261,10 @@ public class VBoxTask extends VBox {
 
 
     /**
-     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     * Add events that allow drag and drop feature.
+     *
+     * @param vBoxTask element which the event to be added to.
+     * @param task     The object belonging to the Gui object.
      */
 
     private void addEventDragDetected(VBoxTask vBoxTask, Task task) {
