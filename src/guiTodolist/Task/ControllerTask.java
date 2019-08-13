@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
@@ -20,7 +21,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
-
 
 
 /**
@@ -69,7 +69,7 @@ public class ControllerTask implements Initializable {
     private Task currentTask;
 
 
-    public ControllerTask(VBoxTasklist vboxTasklist){
+    public ControllerTask(VBoxTasklist vboxTasklist) {
 
         this.vboxTodoList = vboxTasklist;
     }
@@ -155,11 +155,9 @@ public class ControllerTask implements Initializable {
 
     public VBoxTask createNewGuiElemnts() {
 
-        VBoxTask vBoxTask = new VBoxTask(currentTask);
+        VBoxTask vBoxTask = new VBoxTask(currentTask, vboxTodoList);
         addEventDragDetected(vBoxTask, this.currentTask);
-
         this.vboxTodoList.setMargin(vBoxTask, new Insets(5, 10, 5, 10));
-
         return vBoxTask;
     }
 
@@ -167,7 +165,7 @@ public class ControllerTask implements Initializable {
      * Gives the object the function to be moved on the surface.
      */
 
-    public void addEventDragDetected(VBoxTask vBoxTask, Task task ){
+    public void addEventDragDetected(VBoxTask vBoxTask, Task task) {
 
         vBoxTask.setOnDragDetected(mouseEvent -> {
             Dragboard dragboard = vBoxTask.startDragAndDrop(TransferMode.ANY);
@@ -190,8 +188,15 @@ public class ControllerTask implements Initializable {
         task.setProjectDescription(((textAreaDescription.getText().trim().isEmpty() ? null : textAreaDescription.getText())));
         task.setProjectStatus(0);
         task.setDone(false);
-        task.setNotes(textAreaNotes.getText().trim().isEmpty() ? null : new ArrayList<> (Arrays.asList(textAreaNotes.getText().split("\n"))) );
-        //task.setItemsChecklist(listViewChecklist.getItems().isEmpty() ? null : listViewChecklist.getItems());
+        task.setNotes(textAreaNotes.getText().trim().isEmpty() ? null : new ArrayList<>(Arrays.asList(textAreaNotes.getText().split("\n"))));
+        if (listViewChecklist.getItems().size() >= 0) {
+            ObservableList observableList = listViewChecklist.getItems();
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (Object object:  observableList){
+                arrayList.add(object.toString());
+            }
+            task.setItemsChecklist(arrayList);
+        }
         task.setDeadline(datePickerDueDate.getValue());
 
         return task;

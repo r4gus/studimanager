@@ -94,7 +94,7 @@ public class VBoxTasklist extends VBox {
      * @param vBoxToDoList ...
      */
 
-    private void addSetOnDragOverEvent(VBox vBoxToDoList) {
+    private void addSetOnDragOverEvent(VBoxTasklist vBoxToDoList) {
 
         vBoxToDoList.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
@@ -118,8 +118,9 @@ public class VBoxTasklist extends VBox {
                 VBoxTask vBoxTaskOLD = findVBoxTaskWithID(task.getTaskId(), vBoxTasklistOLD);
                 vBoxTasklistOLD.getChildren().remove(vBoxTaskOLD);
 
-                VBoxTask vBoxTask = new VBoxTask(task);
+                VBoxTask vBoxTask = new VBoxTask(task, vBoxToDoList);
                 vBoxToDoList.getChildren().add(vBoxTask);
+                task.setTaskListId(vBoxToDoList.getTaskListID());
                 vBoxToDoList.setMargin(vBoxTask, new Insets(5, 10, 5, 10));
             }
         });
@@ -128,10 +129,11 @@ public class VBoxTasklist extends VBox {
     private VBoxTasklist findTasklistwithID(int taskListID) {
 
         for (Node node : this.hboxToDoLists.getChildren()) {
-
-            VBoxTasklist vBoxTasklist = (VBoxTasklist) node;
-            if (vBoxTasklist.getTaskListID() == taskListID) {
-                return vBoxTasklist;
+            if (node instanceof VBoxTasklist) {
+                VBoxTasklist vBoxTasklist = (VBoxTasklist) node;
+                if (vBoxTasklist.getTaskListID() == taskListID) {
+                    return vBoxTasklist;
+                }
             }
         }
         return null;        //Exception Handling
