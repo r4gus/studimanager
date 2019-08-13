@@ -94,7 +94,7 @@ public class VBoxTasklist extends VBox {
      * @param vBoxToDoList ...
      */
 
-    private void addSetOnDragOverEvent(VBox vBoxToDoList) {
+    private void addSetOnDragOverEvent(VBoxTasklist vBoxToDoList) {
 
         vBoxToDoList.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
@@ -114,18 +114,45 @@ public class VBoxTasklist extends VBox {
                 Task task = (Task) o;
 
                 /* alter Task von alter Liste finden    */
-                VBoxTasklist vBOXTaskListOLD = null;
-                VBoxTask vBOXTaskOLD = null;
+                VBoxTasklist vBoxTasklistOLD = findTasklistwithID(task.getTaskListId());
+                VBoxTask vBoxTaskOLD = findVBoxTaskWithID(task.getTaskId(), vBoxTasklistOLD);
+                vBoxTasklistOLD.getChildren().remove(vBoxTaskOLD);
 
-                /* alter Task von alter Liste löschen    */
-             //   vBOXTaskListOLD.getChildren().remove(vBOXTaskOLD);
-
-                VBoxTask vBoxTask = new VBoxTask(task);
+                VBoxTask vBoxTask = new VBoxTask(task, vBoxToDoList);
                 vBoxToDoList.getChildren().add(vBoxTask);
+                task.setTaskListId(vBoxToDoList.getTaskListID());
                 vBoxToDoList.setMargin(vBoxTask, new Insets(5, 10, 5, 10));
             }
         });
     }
+
+    private VBoxTasklist findTasklistwithID(int taskListID) {
+
+        for (Node node : this.hboxToDoLists.getChildren()) {
+            if (node instanceof VBoxTasklist) {
+                VBoxTasklist vBoxTasklist = (VBoxTasklist) node;
+                if (vBoxTasklist.getTaskListID() == taskListID) {
+                    return vBoxTasklist;
+                }
+            }
+        }
+        return null;        //Exception Handling
+    }
+
+    private VBoxTask findVBoxTaskWithID(int taskID, VBoxTasklist vBoxTasklist) {
+
+        for (Node node : vBoxTasklist.getChildren()) {
+
+            if (node instanceof VBoxTask) {
+                VBoxTask vBoxTask = (VBoxTask) node;
+                if (vBoxTask.getTaskID() == taskID) {
+                    return vBoxTask;
+                }
+            }
+        }
+        return null;
+    }
+
 
     /**
      * The method creates an event by loading a corresponding window. This event is assigned to an item from the context menu.
