@@ -1,5 +1,6 @@
 package guiTodolist;
 
+import custom_exceptions.UserException;
 import guiTodolist.Task.VBoxTasklist;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -54,6 +55,15 @@ public class ControllerTodolist implements Initializable {
 
     public void createNewSection() {
 
+        try {
+            if (textFieldHeaderToDoList.getText().trim().isEmpty()) {
+                throw new UserException("Info", "Bitte geben Sie einen Titel für die neue Tasklist ein");
+            }
+
+        } catch (UserException e) {
+            /* Exception logs automatically and creates InfoWindow For User */
+            return;
+        }
         TaskList taskList = new TaskList();
         taskList.setHeading(textFieldHeaderToDoList.getText());
         textFieldHeaderToDoList.clear();

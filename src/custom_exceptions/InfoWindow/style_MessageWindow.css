@@ -1,5 +1,9 @@
 
 
+.anchorPaneMessage{
+    -fx-background-color: linear-gradient( #D8D8D8 15% , #6E6E6E 55% , #D8D8D8 100%);
+}
+
 .label{
     -fx-background-radius: 4;
     -fx-background-color: #FFFFFF ;
