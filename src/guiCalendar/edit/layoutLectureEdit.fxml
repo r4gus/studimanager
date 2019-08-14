@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.GridPane?>
+<AnchorPane prefHeight="700.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiCalendar.edit.ControllerLectureEdit">
+    <children>
+        <ScrollPane fx:id="edit_scroll" fitToWidth="true" fitToHeight="true">
+            <content>
+                <GridPane fx:id="edit_grid" alignment="CENTER">
+
+                </GridPane>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

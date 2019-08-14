@@ -1,42 +1,58 @@
 package guiCalendar.calendar;
 
 import custom_exceptions.UserException;
-import guiCalendar.info.LectureInfo;
+import guiCalendar.info.ControllerLectureInfo;
+import io.Load;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import logging.MyLogger;
-import sample.Controller;
+import sample.Main;
 import timetable.*;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * @author David Sugar
  */
 public class ControllerCalendar implements Initializable {
-    /* only for test purposes */
-    private Timetable timetable = new Timetable(7, 2, 6);
+
+    private Timetable timetable = null;
+
     public final static String DAYS[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
-    private static final int BIG_FONT_SIZE = 22;
-    private static final int MEDIUM_FONT_SIZE = 16;
-    private static final int SMALL_FONT_SIZE = 12;
-    private final double COLUMN_PERCENTAGE_WIDTH = 100.0 / timetable.getDays(); // always fit columns to screen
-    private final double ROW_PERCENTAGE_HEIGHT = 100.0 / timetable.getUnitsPerDay();
+    public static final int BIG_FONT_SIZE = 22;
+    public static final int MEDIUM_FONT_SIZE = 16;
+    public static final int SMALL_FONT_SIZE = 12;
+    private double COLUMN_PERCENTAGE_WIDTH = 100.0;
+    private double ROW_PERCENTAGE_HEIGHT = 100.0;
+    private final static String PATH = "files/timetable.ser";
 
     @FXML
     public AnchorPane tt_anchorPane;
@@ -46,25 +62,36 @@ public class ControllerCalendar implements Initializable {
         MyLogger.LOGGER.entering(getClass().toString(), "initialize",
                 new Object[]{url, resourceBundle});
 
+        /* load timetable */
+        this.load();
+
+        COLUMN_PERCENTAGE_WIDTH = 100.0 / timetable.getDays();
+        ROW_PERCENTAGE_HEIGHT = 100.0 / timetable.getUnitsPerDay();
+
         /* load stylesheet */
         tt_anchorPane.getStylesheets().add(getClass().getResource("guiCalendar.css").toExternalForm());
 
         GridPane gridPane = new GridPane();
+        /* setup gridPane */
+        adjustGridPane(gridPane);
 
         /* object for displaying time and date */
         Text date = new Text(timetable.getDate());
         date.setFont(new Font(BIG_FONT_SIZE));
 
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setFitToHeight(true);            // automatically resize contents height
+        scrollPane.setFitToWidth(true);             // automatically resize contents width
+
         sampleLectures();
 
-        /* setup gridPane */
-        adjustGridPane(gridPane);
+
 
         /* anchor gridPane */
-        AnchorPane.setTopAnchor(gridPane, 85.0);
-        AnchorPane.setBottomAnchor(gridPane, 8.0);
-        AnchorPane.setRightAnchor(gridPane, 8.0);
-        AnchorPane.setLeftAnchor(gridPane, 8.0);
+        AnchorPane.setTopAnchor(scrollPane, 85.0);
+        AnchorPane.setBottomAnchor(scrollPane, 8.0);
+        AnchorPane.setRightAnchor(scrollPane, 8.0);
+        AnchorPane.setLeftAnchor(scrollPane, 8.0);
 
         /* anchor date */
         AnchorPane.setTopAnchor(date, 25.0);
@@ -76,10 +103,27 @@ public class ControllerCalendar implements Initializable {
         populateGrid(gridPane);
 
         /* add to children */
-        tt_anchorPane.getChildren().add(gridPane);
+        scrollPane.setContent(gridPane);
+        tt_anchorPane.getChildren().add(scrollPane);
         tt_anchorPane.getChildren().add(date);
 
         MyLogger.LOGGER.exiting(getClass().toString(), "initialize");
+    }
+
+    /**
+     * Loads and deserializes an object 'T' from a file specified in {@link #PATH}.
+     * Then stores that object in {@link #timetable}.
+     */
+    private void load() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(PATH))) {
+            timetable = (Timetable) ois.readObject();
+        } catch (IOException | ClassNotFoundException exc) {
+            System.err.println(exc.getMessage());
+        }
+    }
+
+    private void store() {
+
     }
 
     private void sampleLectures() {
@@ -125,7 +169,9 @@ public class ControllerCalendar implements Initializable {
             for(Pair<Integer, Integer> elem: v) {   // iterate over every tuple
 
                 if( timetable.getUnit()[elem.getKey()][elem.getValue()].getHead() != null &&
-                        timetable.getUnit()[elem.getKey()][elem.getValue()].getHead().equals(k)) {
+                        timetable.getUnit()[elem.getKey()][elem.getValue()].getHead().equals(k)) {  // only display Lecture 'k' if it's set as head
+
+                    VBox vBox;
 
                     // get text-info's about the lecture
                     Text title = new Text(k.getTitle());
@@ -134,28 +180,64 @@ public class ControllerCalendar implements Initializable {
                     Text lect = new Text(k.getLecturer().toString());
 
 
+                    // get the count of lectures assigned to the specified unit
+                    int lecture_count = timetable.getUnit()[elem.getKey()][elem.getValue()].getSize();
+
                     // place the text inside a VBox
-                    VBox vBox = new VBox(3, title, room, lect);
+                    if (lecture_count > 1) {
+                        // shows how many elements the unit contains
+                        Text count = new Text("+ " + (lecture_count - 1));
+                        count.setStyle("-fx-font-size: 11");
+
+                        vBox = new VBox(3,title, room, lect, count);
+                    } else {
+                        vBox = new VBox(3, title, room, lect);
+                    }
+
                     vBox.setAlignment(Pos.CENTER);
 
                     Button button = new Button();
 
-                    // add vBox to button
-                    button.setGraphic(vBox);
+                    button.setGraphic(vBox);                                // add vBox to button
                     button.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
                     button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);  // fill whole cell
+
+                    // get information about all lectures assigned to this unit as tooltip
+                    String infoString = "";
+                    for(Lecture l: timetable.getUnit()[elem.getKey()][elem.getValue()].getContainer()) {
+                        infoString += l.getTitle() + "\n";
+                    }
+                    Tooltip lectureTooltip = new Tooltip(infoString);
+                    button.setTooltip(lectureTooltip);
+
 
                     /* show all lectures assigned to a unit */
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent actionEvent) {
-                            Stage infoStage = new Stage();              // create new stage
-                            LectureInfo info = new LectureInfo();       // instantiate LectureInfo
-                            infoStage.setTitle(ControllerCalendar.DAYS[elem.getValue()] + " - " +
-                                    timetable.getUnit()[elem.getKey()][elem.getValue()].getFrom());
-                            info.setLectures(timetable.getUnit()[elem.getKey()][elem.getValue()]);  // pass lectures
-                            info.start(infoStage);
-                            infoStage.show();
+                            try {
+                                // load info-page scene
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/guiCalendar/info/layoutLectureInfo.fxml"));
+                                Parent root = loader.load();
+
+                                // get controller
+                                ControllerLectureInfo controllerLectureInfo = loader.getController();
+                                // pass Lectures object
+                                controllerLectureInfo.setLectures(timetable.getUnit()[elem.getKey()][elem.getValue()]);
+
+                                // show info-page scene
+                                Stage stage = new Stage();
+                                stage.setScene(new Scene(root));
+                                stage.setTitle(ControllerCalendar.DAYS[elem.getValue()] + " - " +
+                                        timetable.getUnit()[elem.getKey()][elem.getValue()].getFrom());
+
+                                // prevents interaction with the primary stage until the new window is closed.
+                                stage.initModality(Modality.WINDOW_MODAL);
+                                stage.initOwner(Main.getPrimaryStage());
+                                stage.show();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     });
 
@@ -176,10 +258,11 @@ public class ControllerCalendar implements Initializable {
     private void adjustGridPane(GridPane gridPane) {
         MyLogger.LOGGER.entering(getClass().toString(), "adjustGridPane", gridPane);
 
-        gridPane.setVgap(3); // vertical space between elements
+        gridPane.setVgap(5); // vertical space between elements
         gridPane.setHgap(5); // horizontal space between elements
         gridPane.setAlignment(Pos.TOP_LEFT); // alignment of the GridPane
-        gridPane.setGridLinesVisible(true);
+
+        //gridPane.setGridLinesVisible(true);
 
         /* specify the width of each column dependent on the number of days */
         for(int i = 0; i <= timetable.getDays(); i++) {
@@ -193,6 +276,15 @@ public class ControllerCalendar implements Initializable {
             RowConstraints row = new RowConstraints();
             row.setPercentHeight(ROW_PERCENTAGE_HEIGHT); // height relative to the total size of the window
             gridPane.getRowConstraints().add(row); // add row constraint
+        }
+
+        for(int i = 1; i <= timetable.getDays(); i++) {
+            for(int j = 1; j <= timetable.getUnitsPerDay(); j++) {
+                Pane pane = new Pane();
+                pane.getStyleClass().add("lecture-pane");
+
+                gridPane.add(pane, i, j);
+            }
         }
 
         MyLogger.LOGGER.exiting(getClass().toString(), "adjustGridPane");

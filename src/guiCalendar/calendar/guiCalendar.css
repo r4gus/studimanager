@@ -13,5 +13,9 @@
 
 .button:pressed {
     -fx-cursor: hand;
-    -fx-background-color: lightgrey;
+    -fx-background-color: grey;
+}
+
+.lecture-pane {
+    -fx-background-color: lightGrey;
 }

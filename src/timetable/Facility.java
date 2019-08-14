@@ -1,5 +1,6 @@
 package timetable;
 
+import java.io.Serializable;
 import java.util.Objects;
 import logging.MyLogger;
 
@@ -8,7 +9,7 @@ import logging.MyLogger;
  *
  * @author David Sugar
  */
-public class Facility {
+public class Facility implements Serializable {
     private String building;
     private String room;
     private String street;

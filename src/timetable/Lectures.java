@@ -1,5 +1,6 @@
 package timetable;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.logging.Level;
 import logging.MyLogger;
@@ -10,7 +11,7 @@ import logging.MyLogger;
  *
  * @author David Sugar
  */
-public class Lectures extends Container<Lecture> {
+public class Lectures extends Container<Lecture> implements Serializable {
     private LocalTime from;  // start of the lecture
     private LocalTime to;    // end of the lecture
     private Lecture head; // lecture to display inside the grid pane

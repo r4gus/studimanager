@@ -2,6 +2,7 @@ package timetable;
 
 import logging.MyLogger;
 
+import java.io.Serializable;
 import java.util.logging.Level;
 
 /**
@@ -10,7 +11,7 @@ import java.util.logging.Level;
  *
  * @author David Sugar
  */
-public class Lecturers extends Container<Lecturer> {
+public class Lecturers extends Container<Lecturer> implements Serializable {
 
     /**
      * Add an {@link Lecturer} object to the Lecturers container.

@@ -2,6 +2,7 @@ package timetable;
 
 import logging.MyLogger;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Objects;
  *
  * @author David Sugar
  */
-public class Lecturer {
+public class Lecturer implements Serializable {
     private String firstName;
     private String lastName;
     private String email;

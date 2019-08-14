@@ -340,3 +340,23 @@ Aug. 05, 2019 9:26:07 VORM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.
 Aug. 09, 2019 7:55:20 VORM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug 12, 2019 10:45:50 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug 12, 2019 10:45:59 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug 13, 2019 9:08:33 AM guiCalendar.info.ControllerLectureInfo populateGrid
+SEVERE: Null pointer passed to populateGrid().
+Aug 13, 2019 9:09:54 AM guiCalendar.info.ControllerLectureInfo populateGrid
+SEVERE: Null pointer passed to populateGrid().
+Aug 13, 2019 9:13:43 AM guiCalendar.info.ControllerLectureInfo populateGrid
+SEVERE: Null pointer passed to populateGrid().
+Aug 13, 2019 9:15:30 AM guiCalendar.info.ControllerLectureInfo populateGrid
+SEVERE: Null pointer passed to populateGrid().
+Aug 13, 2019 9:20:42 AM guiCalendar.info.ControllerLectureInfo populateGrid
+SEVERE: Null pointer passed to populateGrid().
+Aug 14, 2019 4:46:51 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug 14, 2019 4:46:55 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.
+Aug 14, 2019 4:46:59 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
