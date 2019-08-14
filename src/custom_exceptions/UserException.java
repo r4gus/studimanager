@@ -21,6 +21,12 @@ import java.util.logging.Level;
 
 public class UserException extends Exception {
 
+    private String errorstatus;
+
+    public String getErrorstatus() {
+        return errorstatus;
+    }
+
     public UserException() {
 
         LoadUserMessageInfoWindow();
