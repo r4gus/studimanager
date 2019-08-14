@@ -1,12 +1,16 @@
 package custom_exceptions.InfoWindow;
 
 import custom_exceptions.UserException;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.net.URL;
@@ -22,6 +26,9 @@ public class ControllerMessageWindow implements Initializable {
 
     @FXML
     public VBox vBoxErrorMessage;
+
+    @FXML
+    public Button buttonUnderstood;
 
     private UserException userException;
     private final String filepathERROR = "custom_exceptions/InfoWindow/Icons/icons8-Error-48.png";
@@ -65,4 +72,12 @@ public class ControllerMessageWindow implements Initializable {
         vBoxErrorMessage.getChildren().add(labelMessagetext);
 
     }
+
+    @FXML
+    public void closeWindow()
+    {
+         Stage stage = (Stage) this.buttonUnderstood.getScene().getWindow();
+         stage.close();
+    }
+
 }

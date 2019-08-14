@@ -27,26 +27,31 @@ public class UserException extends Exception {
         return errorstatus;
     }
 
-    public UserException() {
+    public UserException(String status) {
 
+        this.errorstatus = status;
         LoadUserMessageInfoWindow();
     }
 
-    public UserException(String userMessage) {
+    public UserException(String status ,String userMessage ) {
         super(userMessage);
         MyLogger.LOGGER.log(Level.WARNING, userMessage, this.getStackTrace());
+        this.errorstatus = status;
         LoadUserMessageInfoWindow();
     }
 
-    public UserException(Throwable cause) {
+    public UserException(String status, Throwable cause) {
         super(cause);
         MyLogger.LOGGER.log(Level.WARNING, cause.toString(), this.getStackTrace());
+        this.errorstatus = status;
         LoadUserMessageInfoWindow();
     }
 
-    public UserException(String userMessage, Throwable cause) {
+    public UserException(String status, String userMessage, Throwable cause) {
         super(userMessage, cause);
         MyLogger.LOGGER.log(Level.WARNING, "msg:" + userMessage + "cause:" + cause.toString(), this.getStackTrace());
+        this.errorstatus = status;
+        LoadUserMessageInfoWindow();
     }
 
     private void LoadUserMessageInfoWindow() {
@@ -60,7 +65,7 @@ public class UserException extends Exception {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("MasterFehlermeldung");
+            stage.setTitle("Fehlermeldung");
             stage.show();
 
         } catch (IOException ex) {
