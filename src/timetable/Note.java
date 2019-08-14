@@ -1,5 +1,6 @@
 package timetable;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -13,7 +14,7 @@ import logging.MyLogger.*;
  *
  * @author David Sugar
  */
-public class Note {
+public class Note implements Serializable {
     private String title;
     private String body;
     private LocalDateTime expirationDate;

@@ -1,5 +1,6 @@
 package timetable;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -22,7 +23,7 @@ import logging.MyLogger;
  *
  * @author David Sugar
  */
-public class Timetable {
+public class Timetable implements Serializable {
     private static final int MIN_DAYS = 1;
     private static final int MAX_DAYS = 7;
     private static final int MIN_UNITS = 1;

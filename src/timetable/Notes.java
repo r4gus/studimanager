@@ -1,5 +1,7 @@
 package timetable;
 
+import java.io.Serializable;
+
 /**
  * Container class to store {@link Note} objects. The class inherits most of it's functionality
  * form {@link Container}, like {@link Container#add(Object)} or {@link Container#remove(Object)}.
@@ -7,7 +9,7 @@ package timetable;
  *
  * @author David Sugar
  */
-public class Notes extends Container<Note> {
+public class Notes extends Container<Note> implements Serializable {
     /**
      * A basic size function.
      *
