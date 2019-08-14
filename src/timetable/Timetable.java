@@ -2,9 +2,12 @@ package timetable;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.logging.Level;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import custom_exceptions.UserException;
+import javafx.util.Pair;
 import logging.MyLogger;
 
 /**
@@ -34,17 +37,17 @@ public class Timetable {
     private final int days;
     private final int unitsPerDay;
     private Lectures unit[][];
-    private LocalDateTime dateTime;
     private int semester;
     private Lectures LECTURES = new Lectures(); // used to keep record over all records
     private Lecturers LECTURERS = new Lecturers(); // used to keep record over all lecturers
     private Facilities FACILITIES = new Facilities(); // used to keep record over all facilities
+    private HashMap<Lecture, ArrayList<Pair<Integer, Integer>>> lectureMap = new HashMap(); // keep track of where lectures were added [ lecture -> (unit, day) ]
 
     /**
      * Should only be used for test purposes.
      */
-    public Timetable(int unitsPerDay, int semester) {
-        this(unitsPerDay, semester, 8, 0, 90, 15, 60, 13, 0, MAX_DAYS);
+    public Timetable(int unitsPerDay, int semester, int days) {
+        this(unitsPerDay, semester, 8, 0, 90, 15, 60, 13, 0, days);
     }
 
     /** This constructor should be used in most cases. It provides precise control over the construction of the
@@ -103,10 +106,15 @@ public class Timetable {
                 this.unit[j][i] = new Lectures(start, start.plusMinutes(DEFAULT_DURATION_M));
             }
 
-        dateTime = LocalDateTime.now();
-
-
         MyLogger.LOGGER.exiting(getClass().toString(), "Timetable");
+    }
+
+    public int getLectureMapSize() {
+        return this.lectureMap.size();
+    }
+
+    public HashMap<Lecture, ArrayList<Pair<Integer, Integer>>> getLectureMap() {
+        return this.lectureMap;
     }
 
     public Lectures getLECTURES() {
@@ -133,20 +141,20 @@ public class Timetable {
         return unit;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
-
     public int getSemester() {
         return semester;
     }
 
     public void setSemester(int semester) {
         this.semester = semester;
+    }
+
+    /**
+     * Get the today's date.
+     * @return The today's date as String.
+     */
+    public String getDate() {
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern("E dd.MM.yyyy"));
     }
 
     /**
@@ -231,6 +239,14 @@ public class Timetable {
         return null;
     }
 
+    /**
+     * Obtain a {@link Lecture} object from the specified unit.
+     * @param unit The unit to get the lecture from.
+     * @param day The day of the week
+     * @param i Index
+     * @return An {@link Lecture} object
+     * @throws UserException Thrown if a negative number or a number larger then or equal {@link #MAX_DAYS} or {@link #MAX_UNITS} is passed to 'day' and/ or 'unit'.
+     */
     public Lecture getLecture(int unit, int day, int i) throws UserException {
         if(unit < 0 || unit >= unitsPerDay || day < 0 || day >= days)
             throw new UserException("Index out of bounds");
@@ -238,6 +254,17 @@ public class Timetable {
         return getUnit()[unit][day].getElement(i);
     }
 
+    /**
+     * Add an {@link Lecture} object to the specified unit. Lectures are only added if it doesn't already exists.
+     * If you try to add it anyway an {@link UserException} is thrown. You can use {@link #lectureMap} to lookup
+     * all added lectures.
+     *
+     * @param unit The unit to add the lecture to
+     * @param day The day
+     * @param lecture The lecture to add
+     * @return true on success, false otherwise
+     * @throws UserException Contains a message for the user.
+     */
     public boolean addLecture(int unit, int day, Lecture lecture) throws UserException {
         if(unit < 0 || unit >= unitsPerDay || day < 0 || day >= days)
             throw new UserException("Index out of bounds");
@@ -245,7 +272,20 @@ public class Timetable {
         MyLogger.LOGGER.entering(getClass().toString(), "addLecture", lecture);
 
         try {
-            var x = getUnit()[unit][day].addLecture(lecture);
+            /* set lecture to display */
+            if(getUnit()[unit][day].getSize() == 0) {
+                getUnit()[unit][day].setHead(lecture);
+            }
+
+            boolean x = getUnit()[unit][day].addLecture(lecture);
+
+            /* add lecture and it's position to the hash map */
+            if(x) {
+                ArrayList<Pair<Integer, Integer>> lst = lectureMap.getOrDefault(lecture, new ArrayList<>());
+                lst.add(new Pair<>(unit, day));
+                lectureMap.put(lecture, lst);
+            }
+
             MyLogger.LOGGER.exiting(getClass().toString(), "addLecture", x);
             return x;
         } catch (IllegalArgumentException exc) {

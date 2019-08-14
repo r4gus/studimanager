@@ -30,12 +30,12 @@ class TaskListTest {
         f1 = new Task("Analysis");
         f2 = new Task("lineare Algebra");
         f3 = new Task("lineare Algebra");
-        f4 = new Task("Wahrscheinlichkeitstheorie", "WK berechnen", 0, false , localDate, localTime, localDate, true, localDateTime );
+   /*     f4 = new Task("Wahrscheinlichkeitstheorie", "WK berechnen", 0, false , localDate, localTime, localDate, true, localDateTime );
         f5 = new Task("Wahrscheinlichkeitstheorie", "WK berechnen_2", 1, false , localDate, localTime, localDate, true, localDateTime );
         f6 = new Task("Analysis", "Integrale", 1, false , localDate, localTime, localDate, true, localDateTime );
         f7 = new Task("Analysis", "Integrale berechnen", 2, false , localDate, localTime, localDate, true, localDateTime );
         f8 = new Task("lineare Algebra", "MAtrix berechnen", 3, false , localDate, localTime, localDate, true, localDateTime );
-
+    */
 
         try {
             taskList.addTask(f1);

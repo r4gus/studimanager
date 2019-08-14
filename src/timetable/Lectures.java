@@ -13,6 +13,7 @@ import logging.MyLogger;
 public class Lectures extends Container<Lecture> {
     private LocalTime from;  // start of the lecture
     private LocalTime to;    // end of the lecture
+    private Lecture head; // lecture to display inside the grid pane
 
     public Lectures() {
         from = null;
@@ -40,6 +41,14 @@ public class Lectures extends Container<Lecture> {
         this.to = to;
     }
 
+    public Lecture getHead() {
+        return head;
+    }
+
+    public void setHead(Lecture head) {
+        this.head = head;
+    }
+
     /**
      * Add an {@link Lecture} object to the <code>Lectures</code> container.
      * [Note: This method implements better argument checks via Exceptions and should be preferred over
@@ -63,5 +72,13 @@ public class Lectures extends Container<Lecture> {
 
         MyLogger.LOGGER.exiting(getClass().toString(), "addLecture");
         return this.add(o);
+    }
+
+    /**
+     * Get the start and end time of the unit/ lecture separated with an '-'.
+     * @return start and end time separated with an '-'
+     */
+    public String getTime() {
+        return this.from + "\n-\n" + this.to;
     }
 }

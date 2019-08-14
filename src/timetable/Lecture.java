@@ -226,4 +226,9 @@ public class Lecture {
     public int hashCode() {
         return Objects.hash(title, facility, lecturer, elective);
     }
+
+    @Override
+    public String toString() {
+        return title + "\n" + facility + "\n" + lecturer;
+    }
 }

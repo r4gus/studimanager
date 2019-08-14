@@ -1,0 +1,17 @@
+.button{
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-padding: 5;
+}
+
+.button:hover {
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+}
+
+.button:pressed {
+    -fx-cursor: hand;
+    -fx-background-color: lightgrey;
+}

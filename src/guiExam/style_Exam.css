@@ -1,0 +1,89 @@
+
+.anchorPaneExamen{
+        -fx-background-color: linear-gradient(#cecece 55%,  #424141 100%);
+}
+
+.hBox{
+        -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+        -fx-background-radius: 6;
+        -fx-background-color: linear-gradient(#563E27 10%, #424141 100%);
+}
+
+
+.button {
+        -fx-background-radius: 6;
+        -fx-background-color: #FFFFFF ;
+        -fx-font-family: Eras-Demi-ITC;
+        -fx-text-fill: #5e5e5e;
+        -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+        -fx-font-weight: bold;
+        -fx-font-size: 1.1em;
+}
+
+.button:hover{
+        -fx-background-color: #FFAA00;
+}
+
+.text-field{
+        -fx-background-radius: 6;
+        -fx-background-color: #FFFFFF ;
+        -fx-text-fill: #5e5e5e;
+        -fx-font-weight: bold;
+        -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+
+.choice-box, .combo-box{
+        -fx-background-radius: 6;
+        -fx-background-color: #FFFFFF ;
+        -fx-text-fill: #5e5e5e;
+        -fx-font-weight: bold;
+        -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+
+.table-view{
+        -fx-background-radius: 3;
+        -fx-font-weight: bold;
+        -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+
+
+.table-view .column-header-background .label {
+        -fx-background-color: transparent;
+        -fx-text-fill: #d22d2d;
+}
+
+.table-view .table-cell{
+        -fx-text-fill: white;
+}
+
+.table-row-cell{
+        -fx-background-color: -fx-table-cell-border-color, #999999;
+        -fx-background-insets: 0, 0 0 1 0;
+        -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:odd{
+        -fx-background-color: -fx-table-cell-border-color, #7E7E7E;
+        -fx-background-insets: 0, 0 0 1 0;
+        -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:selected {
+        -fx-background-color: #4c4c4c;
+        -fx-background-insets: 0;
+        -fx-background-radius: 1;
+}
+
+
+
+
+
+.labelUeberschriften{
+        -fx-background-radius: 3;
+        -fx-background-color: #FFFFFF ;
+        -fx-font-family: Eras-Demi-ITC;
+        -fx-text-fill: #5e5e5e;
+        -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+        -fx-font-weight: bold;
+        -fx-font-size: 1.1em;
+}

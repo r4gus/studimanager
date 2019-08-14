@@ -1,7 +1,6 @@
 package timetable.test;
 
 import custom_exceptions.UserException;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import timetable.Facility;
@@ -19,8 +18,8 @@ class TimetableTest {
 
     @BeforeEach
     void setUp() {
-        table = new Timetable(7, 2);    // use if you want a clean slate
-        table2 = new Timetable(7, 2);   // use if you need some predefined objects
+        table = new Timetable(7, 2, 7);    // use if you want a clean slate
+        table2 = new Timetable(7, 2, 7);   // use if you need some predefined objects
 
         f1 = table2.newFacility("G2", "0.23", "", "73434", "Aalen");
         f2 = table2.newFacility("G2", "0.23", "", "73434", "Aalen");
@@ -156,6 +155,7 @@ class TimetableTest {
         assertEquals("Algorithmen", table2.getUnit()[0][0].getElement(0).getTitle());
         assertEquals("OOP", table2.getUnit()[0][0].getElement(1).getTitle());
         assertEquals("Algorithmen", table2.getUnit()[2][4].getElement(0).getTitle());
+        assertEquals(2, table2.getLectureMapSize()); // one lecture was assigned to multiple units
     }
 
     @Test
