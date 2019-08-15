@@ -1,7 +1,11 @@
 package guiTodolist.Task;
 
+import guiTodolist.InfoTask.ControllerInfoTask;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -13,7 +17,11 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import todolist.Task;
+
+import java.io.IOException;
 
 /**
  * The <code>VBoxTaskTask</code> object represents the controller of the Gui CreateTask.
@@ -78,7 +86,7 @@ public class VBoxTask extends VBox {
         VBox vBox = generateBasicInformationBox();
         this.getChildren().add(vBox);
         HBox hBoxStatusElements = new HBox();
-        createNewInformationtoobar(this, hBoxStatusElements);
+        createNewInformationToolbar(this, hBoxStatusElements);
         addEventDragDetected(this, this.task);
     }
 
@@ -188,7 +196,7 @@ public class VBoxTask extends VBox {
      * @param hBoxStatusElements
      */
 
-    private void createNewInformationtoobar(VBox vBoxTask, HBox hBoxStatusElements) {
+    private void createNewInformationToolbar(VBox vBoxTask, HBox hBoxStatusElements) {
 
         vBoxTask.setMargin(hBoxStatusElements, new Insets(5, 10, 5, 10));
         hBoxStatusElements.setAlignment(Pos.CENTER);
@@ -197,6 +205,7 @@ public class VBoxTask extends VBox {
         Button buttonDelete = new Button(" - "); // Delete mit Icon
         addEventToDeleteButton(buttonDelete);
         Button buttonDetails = new Button(" i "); // mit Image
+        addEventShowTaskInfo(buttonDetails);
 
         ImageView imageViewDeadline = generateImageviewIcons("guiTodolist/Task/Icons/icons8-Deadline-48.png");
         ImageView imageViewFiles = generateImageviewIcons("guiTodolist/Task/Icons/icons8-dokumente-48.png");
@@ -219,6 +228,33 @@ public class VBoxTask extends VBox {
         buttonDelete.setOnAction(actionEvent -> {
 
             this.vBoxTasklist.getChildren().remove(this);
+        });
+    }
+
+    /**
+     * Opens a new window with detailed information about the task.
+     *
+     * @param buttonInfo to which the event should be added
+     */
+
+    private void addEventShowTaskInfo(Button buttonInfo) {
+        buttonInfo.setOnAction(actionEvent -> {
+            try {
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../InfoTask/layoutInfoTask.fxml"));
+                ControllerInfoTask controllerInfoTask = new ControllerInfoTask(this.task);
+                fxmlLoader.setController(controllerInfoTask);
+                Parent root = fxmlLoader.load();
+
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setTitle("Task Informationen");
+                stage.show();
+
+            } catch (IOException ex) {
+
+            }
         });
     }
 

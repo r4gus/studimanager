@@ -1,17 +1,16 @@
 package guiTodolist.Task;
 
-import guiTodolist.ControllerTodolist;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.input.*;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DataFormat;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import todolist.Task;
@@ -64,7 +63,6 @@ public class ControllerTask implements Initializable {
 
     private ObservableList<String> itemsChecklist = FXCollections.observableArrayList();
 
-    private ControllerTodolist controllerTodolist;
     private VBoxTasklist vboxTodoList;
     private Task currentTask;
 
@@ -72,12 +70,6 @@ public class ControllerTask implements Initializable {
     public ControllerTask(VBoxTasklist vboxTasklist) {
 
         this.vboxTodoList = vboxTasklist;
-    }
-
-    public ControllerTask(ControllerTodolist controllerTodolist, VBoxTasklist vboxTodoList) {
-
-        this.controllerTodolist = controllerTodolist;
-        this.vboxTodoList = vboxTodoList;
     }
 
 
@@ -188,7 +180,8 @@ public class ControllerTask implements Initializable {
         task.setProjectDescription(((textAreaDescription.getText().trim().isEmpty() ? null : textAreaDescription.getText())));
         task.setProjectStatus(0);
         task.setDone(false);
-        task.setNotes(textAreaNotes.getText().trim().isEmpty() ? null : new ArrayList<>(Arrays.asList(textAreaNotes.getText().split("\n"))));
+        task.setNotes(textAreaNotes.getText().trim().isEmpty() ? null : textAreaNotes.getText());
+
         if (listViewChecklist.getItems().size() >= 0) {
             ObservableList observableList = listViewChecklist.getItems();
             ArrayList<String> arrayList = new ArrayList<>();
@@ -204,3 +197,7 @@ public class ControllerTask implements Initializable {
 
 
 }
+
+
+
+

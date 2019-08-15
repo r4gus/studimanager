@@ -1,6 +1,5 @@
 package guiTodolist.Task;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -9,7 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.DataFormat;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.HBox;
@@ -96,33 +94,24 @@ public class VBoxTasklist extends VBox {
 
     private void addSetOnDragOverEvent(VBoxTasklist vBoxToDoList) {
 
-        vBoxToDoList.setOnDragOver(new EventHandler<DragEvent>() {
-            @Override
-            public void handle(DragEvent dragEvent) {
+        vBoxToDoList.setOnDragOver(dragEvent -> dragEvent.acceptTransferModes(TransferMode.ANY));
 
-                dragEvent.acceptTransferModes(TransferMode.ANY);
-            }
-        });
+        vBoxToDoList.setOnDragDropped(dragEvent -> {
 
-        vBoxToDoList.setOnDragDropped(new EventHandler<DragEvent>() {
-            @Override
-            public void handle(DragEvent dragEvent) {
+            Dragboard dragboard = dragEvent.getDragboard();
 
-                Dragboard dragboard = dragEvent.getDragboard();
+            Object o = dragboard.getContent(DataFormat.lookupMimeType("VBox"));
+            Task task = (Task) o;
 
-                Object o = dragboard.getContent(DataFormat.lookupMimeType("VBox"));
-                Task task = (Task) o;
+            /* alter Task von alter Liste finden    */
+            VBoxTasklist vBoxTasklistOLD = findTasklistwithID(task.getTaskListId());
+            VBoxTask vBoxTaskOLD = findVBoxTaskWithID(task.getTaskId(), vBoxTasklistOLD);
+            vBoxTasklistOLD.getChildren().remove(vBoxTaskOLD);
 
-                /* alter Task von alter Liste finden    */
-                VBoxTasklist vBoxTasklistOLD = findTasklistwithID(task.getTaskListId());
-                VBoxTask vBoxTaskOLD = findVBoxTaskWithID(task.getTaskId(), vBoxTasklistOLD);
-                vBoxTasklistOLD.getChildren().remove(vBoxTaskOLD);
-
-                VBoxTask vBoxTask = new VBoxTask(task, vBoxToDoList);
-                vBoxToDoList.getChildren().add(vBoxTask);
-                task.setTaskListId(vBoxToDoList.getTaskListID());
-                vBoxToDoList.setMargin(vBoxTask, new Insets(5, 10, 5, 10));
-            }
+            VBoxTask vBoxTask = new VBoxTask(task, vBoxToDoList);
+            vBoxToDoList.getChildren().add(vBoxTask);
+            task.setTaskListId(vBoxToDoList.getTaskListID());
+            vBoxToDoList.setMargin(vBoxTask, new Insets(5, 10, 5, 10));
         });
     }
 
