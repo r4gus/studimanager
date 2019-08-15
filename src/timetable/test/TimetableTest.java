@@ -1,6 +1,5 @@
 package timetable.test;
 
-import custom_exceptions.UserException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import timetable.Facility;
@@ -124,7 +123,7 @@ class TimetableTest {
         // add successfully a lecture
         try {
             assertTrue(table2.addLecture(0,0, l1));
-        } catch(UserException exc) {
+        } catch (IllegalArgumentException exc) {
             fail();
         }
 
@@ -132,7 +131,7 @@ class TimetableTest {
         try {
             table2.addLecture(0,0, l2);
             fail();
-        } catch (UserException exc) {
+        } catch (IllegalArgumentException exc) {
             assertTrue(true);
         }
 
@@ -140,7 +139,7 @@ class TimetableTest {
         try {
             table2.addLecture(0,0, null);
             fail();
-        } catch (UserException exc) {
+        } catch (IllegalArgumentException exc) {
             assertTrue(true);
         }
 
@@ -148,14 +147,14 @@ class TimetableTest {
         try {
             table2.addLecture(0,0, l3);
             table2.addLecture(2,4, l2);
-        } catch (UserException exc) {
+        } catch (IllegalArgumentException exc) {
             fail();
         }
 
         assertEquals("Algorithmen", table2.getUnit()[0][0].getElement(0).getTitle());
         assertEquals("OOP", table2.getUnit()[0][0].getElement(1).getTitle());
         assertEquals("Algorithmen", table2.getUnit()[2][4].getElement(0).getTitle());
-        assertEquals(2, table2.getLectureMapSize()); // one lecture was assigned to multiple units
+        assertEquals(2, table2.getLECTURES().getSize()); // one lecture was assigned to multiple units
     }
 
     @Test
@@ -165,7 +164,7 @@ class TimetableTest {
             assertTrue(table2.addLecture(0,0, l3));
             assertTrue(table2.addLecture(1,4, l2));
             assertTrue(table2.addLecture(0,6, l3));
-        } catch(UserException exc) {
+        } catch (IllegalArgumentException exc) {
             fail();
         }
 
@@ -174,14 +173,14 @@ class TimetableTest {
             assertEquals(l3, table2.getLecture(0,0, 1));
             assertEquals(l2, table2.getLecture(1,4, 0));
             assertEquals(l3, table2.getLecture(0,6, 0));
-        } catch (UserException exc) {
+        } catch (IllegalArgumentException exc) {
             fail();
         }
 
         try {
             table2.addLecture(0, 7, l1);
             fail();
-        } catch (UserException exc) {
+        } catch (IllegalArgumentException exc) {
             assertTrue(true);
         }
     }
