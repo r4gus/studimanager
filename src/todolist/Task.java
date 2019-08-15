@@ -25,7 +25,7 @@ public class Task implements Serializable {
     private int taskId;
     private int taskListId;
     private String projectDescription;
-    private ArrayList<String> notes = new ArrayList<>();
+    private String notes;
     private ArrayList<String> itemsChecklist = new ArrayList<>();
     private int projectStatus;
     private boolean isDone;
@@ -43,7 +43,7 @@ public class Task implements Serializable {
 
     }
 
-    public Task(String projectTitle, String projectDescription, ArrayList<String> notes, ArrayList<String> itemsChecklist , int projectStatus, LocalDate projectStart, LocalTime projectDuration, LocalDate deadline, boolean remindMe, LocalDateTime remindTime) {
+    public Task(String projectTitle, String projectDescription, String notes, ArrayList<String> itemsChecklist , int projectStatus, LocalDate projectStart, LocalTime projectDuration, LocalDate deadline, boolean remindMe, LocalDateTime remindTime) {
         this.projectTitle = projectTitle;
         this.taskId = currentTaskId;
         this.projectDescription = projectDescription;
@@ -91,11 +91,11 @@ public class Task implements Serializable {
         this.projectDescription = projectDescription;
     }
 
-    public ArrayList<String> getNotes() {
+    public String getNotes() {
         return notes;
     }
 
-    public void setNotes(ArrayList<String> notes) {
+    public void setNotes(String notes) {
         this.notes = notes;
     }
 

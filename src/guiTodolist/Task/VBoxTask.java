@@ -21,7 +21,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import todolist.Task;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 /**
