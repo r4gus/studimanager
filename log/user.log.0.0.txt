@@ -444,3 +444,27 @@ Aug. 14, 2019 7:55:39 NACHM. custom_exceptions.UserException <init>
 WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
 Aug. 14, 2019 7:55:53 NACHM. custom_exceptions.UserException <init>
 WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
+Aug. 15, 2019 3:12:13 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 15, 2019 3:12:23 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug. 15, 2019 3:12:25 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Aug. 15, 2019 3:12:27 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.
+Aug. 15, 2019 3:12:30 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 15, 2019 3:12:31 NACHM. custom_exceptions.UserException <init>
+WARNING: Sie müssen eine Klausurnummer in das Textfeld eingeben
+Aug. 15, 2019 3:12:33 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug. 15, 2019 3:12:35 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Aug. 15, 2019 3:12:37 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte Wählen Sie eine Klausur aus
+Aug. 15, 2019 3:12:41 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte Wählen Sie eine Klausur aus
+Aug. 15, 2019 3:12:49 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.
+Aug. 15, 2019 3:18:21 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.
