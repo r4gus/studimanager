@@ -1,0 +1,52 @@
+.button {
+    -fx-background-color: white;
+    -fx-border-width: 2;
+    -fx-border-color: black;
+    -fx-border-radius: 4;
+    -fx-text-fill: black;
+    -fx-padding: 8px 16px;
+    -fx-text-alignment: center;
+    -fx-content-display: inline-block;
+    -fx-font-size: 12px;
+    -fx-end-margin: 2px;
+    -fx-start-margin: 4px;
+    -fx-cursor: hand;
+    -fx-background-radius: 4;
+}
+
+.button:hover {
+    -fx-background-color: grey;
+}
+
+.button:pressed {
+
+}
+
+.edit-button {
+    -fx-border-color: blue;
+}
+
+.edit-button:hover {
+    -fx-background-color: blue;
+}
+
+.delete-button {
+    -fx-border-color: red;
+}
+
+.delete-button:hover {
+    -fx-background-color: red;
+}
+
+.add-button {
+    -fx-border-color: green;
+}
+
+.add-button:hover {
+    -fx-background-color: green;
+}
+
+.heading-background {
+    -fx-background-color: lightGrey;
+}
+
