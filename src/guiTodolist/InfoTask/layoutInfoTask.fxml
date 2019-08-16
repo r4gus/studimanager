@@ -74,7 +74,7 @@
             </Label>
             <HBox prefHeight="234.0" prefWidth="311.0" spacing="5.0">
                <children>
-                  <VBox fx:id="vBoxUncompletedTask" alignment="TOP_CENTER" prefHeight="234.0" prefWidth="153.0" spacing="10.0">
+                  <VBox fx:id="vBoxUncompletedTask" prefHeight="234.0" prefWidth="153.0" spacing="10.0">
                      <children>
                         <Label text="Ausstehnde Aufgaben:" />
                      </children>
@@ -82,7 +82,7 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </VBox>
-                  <VBox fx:id="vBoxCompletedTask" alignment="TOP_CENTER" prefHeight="234.0" prefWidth="156.0" spacing="10.0">
+                  <VBox fx:id="vBoxCompletedTask" prefHeight="234.0" prefWidth="156.0" spacing="10.0">
                      <children>
                         <Label text="Erledigte Aufgaben:" />
                      </children>
