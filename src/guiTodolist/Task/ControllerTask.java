@@ -13,18 +13,18 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import logging.MyLogger;
 import todolist.Task;
+import todolist.TaskCheckListItem;
 
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 
 /**
  * The <code>ControllerTask</code> object represents the controller of the Gui CreateTask.
- * This is one of the tabs of the TabPane.
  * In the controller the logic is separated from the Gui and its elements.
  *
  * @author Lukas Mendel
@@ -88,31 +88,36 @@ public class ControllerTask implements Initializable {
 
 
     /**
-     * generates a ToDoList with different functions e.g. adding a task etc.
+     * Adds a new entry to the checklist
      */
 
     public void addEntryToChecklist() {
 
+        MyLogger.LOGGER.entering(getClass().toString(), "addEntryToChecklist");
         itemsChecklist.add("o " + textFieldChecklistNewEntry.getText());
         textFieldChecklistNewEntry.clear();
+        MyLogger.LOGGER.exiting(getClass().toString(), "addEntryToChecklist");
     }
 
     /**
-     * generates a ToDoList with different functions e.g. adding a task etc.
+     * Removes a new entry to the checklist
      */
 
     public void deleteEntryToChecklist() {
 
+        MyLogger.LOGGER.entering(getClass().toString(), "deleteEntryToChecklist");
         itemsChecklist.remove(listViewChecklist.getSelectionModel().getSelectedItem());
+        MyLogger.LOGGER.exiting(getClass().toString(), "deleteEntryToChecklist");
     }
 
 
     /**
-     * generates a ToDoList with different functions e.g. adding a task etc.
+     * Adds a new file attachment to a list of file.
      */
 
     public void AddFileAttachmentToTask() {
 
+        MyLogger.LOGGER.entering(getClass().toString(), "AddFileAttachmentToTask");
         String filename = textFieldNewFileEntry.getText();
 
         FileChooser fileChooser = new FileChooser();
@@ -122,16 +127,19 @@ public class ControllerTask implements Initializable {
         File file = fileChooser.showOpenDialog(stageCreateTask);
 
         //....
-
+        MyLogger.LOGGER.exiting(getClass().toString(), "AddFileAttachmentToTask");
     }
 
 
     /**
-     * generates a Task with user-information e.g. task-heading.
+     * This method creates a task object as well as the corresponding Gui Task object.
+     * Furthermore, different references and IDs are exchanged in order to be able
+     * to create one of the tasks belonging to the corresponding task list or the objects behind it.
      */
 
     public void createTask() {
 
+        MyLogger.LOGGER.entering(getClass().toString(), "createTask");
         this.currentTask = createTaskObjekt();                  /* Object Task is created */
         VBoxTask vBoxnewTask = createNewGuiElemnts();               /* VboxTask will be created  */
         vBoxnewTask.setTaskID(this.currentTask.getTaskId());            /*  Add TaskID from Object */
@@ -139,26 +147,35 @@ public class ControllerTask implements Initializable {
         vboxTodoList.getChildren().add(vBoxnewTask);
         Stage stage = (Stage) this.buttonCreateTask.getScene().getWindow();
         stage.close();
+        MyLogger.LOGGER.exiting(getClass().toString(), "createTask");
     }
 
     /**
-     * generates a Task with different functions e.g. show basic information.
+     * This method creates the Gui object task and all associated functions,
+     * e.g. the drag and drop feature.
      */
 
     public VBoxTask createNewGuiElemnts() {
 
+        MyLogger.LOGGER.entering(getClass().toString(), "createNewGuiElemnts");
         VBoxTask vBoxTask = new VBoxTask(currentTask, vboxTodoList);
         addEventDragDetected(vBoxTask, this.currentTask);
         this.vboxTodoList.setMargin(vBoxTask, new Insets(5, 10, 5, 10));
+        MyLogger.LOGGER.exiting(getClass().toString(), "createNewGuiElemnts", vBoxTask);
         return vBoxTask;
+
     }
 
     /**
-     * Gives the object the function to be moved on the surface.
+     * This method allows Gui Task to drag as user from one ToDoList to another ToDoList.
+     *
+     * @param vBoxTask Gui object to add the new event to.
+     * @param task     Associated object behind the Gui object
      */
 
     public void addEventDragDetected(VBoxTask vBoxTask, Task task) {
 
+        MyLogger.LOGGER.entering(getClass().toString(), "addEventDragDetected", new Object[]{vBoxTask, task});
         vBoxTask.setOnDragDetected(mouseEvent -> {
             Dragboard dragboard = vBoxTask.startDragAndDrop(TransferMode.ANY);
             ClipboardContent clipboardContent = new ClipboardContent();
@@ -166,16 +183,18 @@ public class ControllerTask implements Initializable {
             clipboardContent.put(dataFormat, task);
             dragboard.setContent(clipboardContent);
         });
-
+        MyLogger.LOGGER.exiting(getClass().toString(), "addEventDragDetected");
     }
 
 
     /**
-     * generates a Task  Object with different Information. If no specifications were made, a zero reference is assigned to the object.
+     * Generates the task object based on the user input from the Gui.
+     * If nothing is entered in a field, the property of the object is set to null.
      */
 
     private Task createTaskObjekt() {
 
+        MyLogger.LOGGER.entering(getClass().toString(), "createTaskObjekt");
         Task task = new Task(textFieldHeadingTask.getText().trim().isEmpty() ? null : textFieldHeadingTask.getText());
         task.setProjectDescription(((textAreaDescription.getText().trim().isEmpty() ? null : textAreaDescription.getText())));
         task.setProjectStatus(0);
@@ -184,14 +203,15 @@ public class ControllerTask implements Initializable {
 
         if (listViewChecklist.getItems().size() >= 0) {
             ObservableList observableList = listViewChecklist.getItems();
-            ArrayList<String> arrayList = new ArrayList<>();
-            for (Object object:  observableList){
-                arrayList.add(object.toString());
+            ArrayList<TaskCheckListItem> arrayList = new ArrayList<>();
+            for (Object object : observableList) {
+                arrayList.add(new TaskCheckListItem(object.toString()));
             }
             task.setItemsChecklist(arrayList);
         }
         task.setDeadline(datePickerDueDate.getValue());
 
+        MyLogger.LOGGER.exiting(getClass().toString(), "createTaskObjekt", task);
         return task;
     }
 

@@ -4,16 +4,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import logging.MyLogger;
 import todolist.Task;
+import todolist.TaskCheckListItem;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
 /**
- * The <code>ControllerInfoTask</code> object represents the controller of the Gui CreateTask.
- * This is one of the tabs of the TabPane.
+ * The <code>ControllerInfoTask</code> object represents the controller of the Gui InfoTask.
  * In the controller the logic is separated from the Gui and its elements.
  *
  * @author Lukas Mendel
@@ -32,6 +34,12 @@ public class ControllerInfoTask implements Initializable {
 
     @FXML
     public Label labelNotes;
+
+    @FXML
+    public VBox vBoxUncompletedTask;
+
+    @FXML
+    public VBox vBoxCompletedTask;
 
     @FXML
     public Button ButtonCloseInfo;
@@ -58,17 +66,18 @@ public class ControllerInfoTask implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         inizializeTextLabels();
-        inizializeChecklist();
+        initializeChecklist();
 
     }
 
 
     /**
-     * Called to initialize a controller after its root element has been completely processed
+     * the method creates dynamically Gui elements based on a task object.
      */
 
     private void inizializeTextLabels() {
 
+        MyLogger.LOGGER.entering(getClass().toString(), "inizializeTextLabels");
         if (task.getProjectTitle() != null) {
             labelHeading.setText(task.getProjectTitle());
         } else {
@@ -92,28 +101,41 @@ public class ControllerInfoTask implements Initializable {
         } else {
             labelNotes.setText(NoENTRY);
         }
+        MyLogger.LOGGER.exiting(getClass().toString(), "inizializeTextLabels");
     }
 
 
     /**
-     * Called to initialize a controller after its root element has been completely processed
+     * the method creates dynamically Gui elements based on a task object.
      */
 
-    private void inizializeChecklist() {
+    private void initializeChecklist() {
 
+        MyLogger.LOGGER.entering(getClass().toString(), "initializeChecklist");
+        for (TaskCheckListItem t : task.getItemsChecklist()) {
 
+            Label labelCheckBox = new Label(t.getChecklistTaskName());
+            labelCheckBox.setWrapText(false);
 
-
+            if (t.isChecklistTaskCompleted())
+                vBoxCompletedTask.getChildren().add(labelCheckBox);
+            else
+                vBoxUncompletedTask.getChildren().add(labelCheckBox);
+        }
+        MyLogger.LOGGER.exiting(getClass().toString(), "initializeChecklist");
     }
 
-        /**
-         * Called to initialize a controller after its root element has been completely processed
-         */
+    /**
+     * This method contains the logic for the button "ButtonCloseInfo".
+     * The button closes the window.
+     */
 
     @FXML
     public void ButtonCloseInfo() {
 
+        MyLogger.LOGGER.entering(getClass().toString(), "ButtonCloseInfo");
         Stage stage = (Stage) this.ButtonCloseInfo.getScene().getWindow();
         stage.close();
+        MyLogger.LOGGER.exiting(getClass().toString(), "ButtonCloseInfo");
     }
 }

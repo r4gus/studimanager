@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import logging.MyLogger;
 import todolist.TaskList;
 
 import java.net.URL;
@@ -55,6 +56,7 @@ public class ControllerTodolist implements Initializable {
 
     public void createNewSection() {
 
+        MyLogger.LOGGER.entering(getClass().toString(), "createNewSection");
         try {
             if (textFieldHeaderToDoList.getText().trim().isEmpty()) {
                 throw new UserException("Info", "Bitte geben Sie einen Titel für die neue Tasklist ein");
@@ -68,6 +70,7 @@ public class ControllerTodolist implements Initializable {
         taskList.setHeading(textFieldHeaderToDoList.getText());
         textFieldHeaderToDoList.clear();
         new VBoxTasklist(taskList, this.hboxToDoLists);
+        MyLogger.LOGGER.exiting(getClass().toString(), "createNewSection");
     }
 
 }
