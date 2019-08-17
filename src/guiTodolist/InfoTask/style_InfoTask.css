@@ -9,20 +9,20 @@
     -fx-font-family: Eras-Demi-ITC;
     -fx-text-fill: #5e5e5e;
     -fx-font-weight: bold;
-    -fx-font-size: 1.1em;
+    -fx-font-size: 1.2em;
 }
 
 .textarea{
     -fx-font-family: Eras-Demi-ITC;
     -fx-font-weight: bold;
-    -fx-font-size: 1.1em;
+    -fx-font-size: 1.2em;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 
 .list-view{
     -fx-font-family: Eras-Demi-ITC;
     -fx-font-weight: bold;
-    -fx-font-size: 1.1em;
+    -fx-font-size: 1.2em;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 

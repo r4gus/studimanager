@@ -9,6 +9,7 @@ package todolist;
 
 import logging.MyLogger;
 
+import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -27,6 +28,7 @@ public class Task implements Serializable {
     private String projectDescription;
     private String notes;
     private ArrayList<TaskCheckListItem> itemsChecklist = new ArrayList<>();
+    private ArrayList<File> fileArrayList = new ArrayList<>();
     private int projectStatus;
     private boolean isDone;
     private LocalDate projectStart;
@@ -47,7 +49,7 @@ public class Task implements Serializable {
      * constructor
      */
 
-    public Task(String projectTitle, String projectDescription, String notes, ArrayList<TaskCheckListItem> itemsChecklist , int projectStatus, LocalDate projectStart, LocalTime projectDuration, LocalDate deadline, boolean remindMe, LocalDateTime remindTime) {
+    public Task(String projectTitle, String projectDescription, String notes, ArrayList<TaskCheckListItem> itemsChecklist , ArrayList<File> files , int projectStatus, LocalDate projectStart, LocalTime projectDuration, LocalDate deadline, boolean remindMe, LocalDateTime remindTime) {
 
         MyLogger.LOGGER.entering(getClass().toString(), "Task", new Object[]{projectTitle, projectDescription, notes, itemsChecklist , projectStatus, projectStart, projectDuration, deadline, remindMe, remindTime});
         this.projectTitle = projectTitle;
@@ -55,6 +57,7 @@ public class Task implements Serializable {
         this.projectDescription = projectDescription;
         this.notes = notes;
         this.itemsChecklist = itemsChecklist;
+        this.fileArrayList = files;
         this.projectStatus = projectStatus;
         this.isDone = false;
         this.projectStart = projectStart;
@@ -118,6 +121,10 @@ public class Task implements Serializable {
     public void setItemsChecklist(ArrayList<TaskCheckListItem> itemsChecklist) {
         this.itemsChecklist = itemsChecklist;
     }
+
+    public ArrayList<File> getFileArrayList() { return fileArrayList; }
+
+    public void setFileArrayList(ArrayList<File> fileArrayList) { this.fileArrayList = fileArrayList; }
 
     public int getProjectStatus() {
         return projectStatus;
