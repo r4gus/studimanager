@@ -20,6 +20,7 @@ import todolist.TaskCheckListItem;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -62,6 +63,7 @@ public class ControllerTask implements Initializable {
 
 
     private ObservableList<String> itemsChecklist = FXCollections.observableArrayList();
+    private ObservableList<File> filesList = FXCollections.observableArrayList();
 
     private VBoxTasklist vboxTodoList;
     private Task currentTask;
@@ -84,6 +86,7 @@ public class ControllerTask implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         listViewChecklist.setItems(itemsChecklist);
+        listViewFileAttachment.setItems(filesList);
     }
 
 
@@ -118,16 +121,33 @@ public class ControllerTask implements Initializable {
     public void AddFileAttachmentToTask() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "AddFileAttachmentToTask");
-        String filename = textFieldNewFileEntry.getText();
+        if (!textFieldNewFileEntry.getText().trim().isEmpty()) {
+            String filename = textFieldNewFileEntry.getText();
 
+        }
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Datei für Aufgabe auswählen");
         Stage stageCreateTask = (Stage) anchorPaneCreateTask.getScene().getWindow();
 
-        File file = fileChooser.showOpenDialog(stageCreateTask);
-
-        //....
+        List<File> files = fileChooser.showOpenMultipleDialog(null);                        /* Warum benötigt FileChoser ein Stage Objekt ??   */
+        ArrayList<File> filesTask = new ArrayList<>();
+        for ( File file : files ) {
+            //listViewFileAttachment.getItems().add(file.getName());
+            filesTask.add(file);
+        }
+        filesList.addAll(filesTask);
         MyLogger.LOGGER.exiting(getClass().toString(), "AddFileAttachmentToTask");
+    }
+
+    /**
+     * Removes a new entry to the checklist
+     */
+
+    public void deleteFileAttachmentToTask() {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "deleteFileAttachmentToTask");
+        filesList.remove(listViewFileAttachment.getSelectionModel().getSelectedItem());
+        MyLogger.LOGGER.exiting(getClass().toString(), "deleteFileAttachmentToTask");
     }
 
 
@@ -201,7 +221,7 @@ public class ControllerTask implements Initializable {
         task.setDone(false);
         task.setNotes(textAreaNotes.getText().trim().isEmpty() ? null : textAreaNotes.getText());
 
-        if (listViewChecklist.getItems().size() >= 0) {
+        if (listViewChecklist.getItems().size() > 0) {
             ObservableList observableList = listViewChecklist.getItems();
             ArrayList<TaskCheckListItem> arrayList = new ArrayList<>();
             for (Object object : observableList) {
@@ -209,6 +229,20 @@ public class ControllerTask implements Initializable {
             }
             task.setItemsChecklist(arrayList);
         }
+        if(listViewFileAttachment.getItems().size() > 0)
+        {
+            ObservableList observableList = listViewFileAttachment.getItems();
+            ArrayList<File> arrayList = new ArrayList<>();
+            for (Object o  : observableList) {
+                if( o instanceof File)
+                {
+                    File f = (File) o ;
+                    arrayList.add(f);
+                }
+            }
+        }
+
+
         task.setDeadline(datePickerDueDate.getValue());
 
         MyLogger.LOGGER.exiting(getClass().toString(), "createTaskObjekt", task);

@@ -321,6 +321,10 @@ public class VBoxTask extends VBox {
         if (this.task.getItemsChecklist().size() == 0) {
             checklist.setVisible(false);
         }
+        if(this.task.getFileArrayList().size() == 0) {
+            fileAttachment.setVisible(false);
+        }
+
         MyLogger.LOGGER.exiting(getClass().toString(), "createNewInformationtoobarVisibleCheck");
     }
 
