@@ -3,6 +3,7 @@ package guiTodolist.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -113,7 +114,7 @@ public class VBoxTasklist extends VBox {
                 task = (Task) o;
             }
             /* alter Task von alter Liste finden    */
-            VBoxTasklist vBoxTasklistOLD = findTasklistwithID(task.getTaskListId());
+            VBoxTasklist vBoxTasklistOLD = findTaskListWithID(task.getTaskListId());
             VBoxTask vBoxTaskOLD = findVBoxTaskWithID(task.getTaskId(), vBoxTasklistOLD);
             vBoxTasklistOLD.getChildren().remove(vBoxTaskOLD);
 
@@ -132,14 +133,14 @@ public class VBoxTasklist extends VBox {
      * @param taskListID Object with corresponding ID.
      */
 
-    private VBoxTasklist findTasklistwithID(int taskListID) {
+    private VBoxTasklist findTaskListWithID(int taskListID) {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "findTasklistwithID", new Object[]{taskListID});
+        MyLogger.LOGGER.entering(getClass().toString(), "findTaskListWithID", new Object[]{taskListID});
         for (Node node : this.hBoxToDoLists.getChildren()) {
             if (node instanceof VBoxTasklist) {
                 VBoxTasklist vBoxTasklist = (VBoxTasklist) node;
                 if (vBoxTasklist.getTaskListID() == taskListID) {
-                    MyLogger.LOGGER.exiting(getClass().toString(), "findTasklistwithID", vBoxTasklist);
+                    MyLogger.LOGGER.exiting(getClass().toString(), "findTaskListWithID", vBoxTasklist);
                     return vBoxTasklist;
                 }
             }
@@ -216,22 +217,40 @@ public class VBoxTasklist extends VBox {
 
         MyLogger.LOGGER.entering(getClass().toString(), "generateHBoxEditButton", new Object[]{buttonEditToDoList, todoList});
         ContextMenu contextMenuEditTask = new ContextMenu();
+        generateContextMenuItems(contextMenuEditTask, todoList);
 
+        buttonEditToDoList.setOnAction(actionEvent -> {
+            contextMenuEditTask.show(buttonEditToDoList, Side.BOTTOM, 0, 0);
+        });
+        MyLogger.LOGGER.exiting(getClass().toString(), "generateHBoxEditButton");
+    }
+
+
+    /**
+     * The method generates a context menu.
+     * The user can then edit his task list. E.g. add new tasks.
+     *
+     * @param contextMenuEditTask Context menu to which the individual entries with events are to be added
+     * @param todoList            List to which the button with context menu should be added.
+     */
+
+    private void generateContextMenuItems(ContextMenu contextMenuEditTask, VBox todoList) {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "generateContextMenuItems", new Object[]{contextMenuEditTask, todoList});
         MenuItem menuItemNewTask = new MenuItem("Neue Aufgabe");
         generateAddTaskFunction(menuItemNewTask, todoList);
-        MenuItem b = new MenuItem("Liste bearbeiten");
+        MenuItem menuItemEditList = new MenuItem("Liste bearbeiten");
         Menu menuItemSort = new Menu("Sortieren nach:");
         MenuItem subMmenuItemSortDate = new MenuItem("Nach Fälligkeitsdatum");
         MenuItem subMmenuItemSortAlphabet = new MenuItem("Alphabetisch");
+        MenuItem subMmenuItemSortPriority = new MenuItem("Nach Priorität");
         sortTasksAlphabeticalFunction(subMmenuItemSortAlphabet, todoList);
-        MenuItem subMmenuItemSortbla = new MenuItem("...");
-        menuItemSort.getItems().addAll(subMmenuItemSortDate, subMmenuItemSortAlphabet, subMmenuItemSortbla);
+        menuItemSort.getItems().addAll(subMmenuItemSortDate, subMmenuItemSortAlphabet, subMmenuItemSortPriority);
         MenuItem menuItemDeleteList = new MenuItem("Liste löschen");
         generateDeleteFunction(menuItemDeleteList, todoList);
         MenuItem e = new MenuItem("...");
-        contextMenuEditTask.getItems().addAll(menuItemNewTask, b, menuItemSort, menuItemDeleteList, e);
-        buttonEditToDoList.setContextMenu(contextMenuEditTask);
-        MyLogger.LOGGER.exiting(getClass().toString(), "generateHBoxEditButton");
+        contextMenuEditTask.getItems().addAll(menuItemNewTask, menuItemEditList, menuItemSort, menuItemDeleteList, e);
+        MyLogger.LOGGER.exiting(getClass().toString(), "generateContextMenuItems");
     }
 
 
