@@ -127,7 +127,6 @@ public class ControllerTask implements Initializable {
         }
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Datei für Aufgabe auswählen");
-        Stage stageCreateTask = (Stage) anchorPaneCreateTask.getScene().getWindow();
 
         List<File> files = fileChooser.showOpenMultipleDialog(null);                        /* Warum benötigt FileChoser ein Stage Objekt ??   */
         ArrayList<File> filesTask = new ArrayList<>();
