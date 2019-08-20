@@ -97,7 +97,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" layoutX="369.0" layoutY="391.0" prefHeight="182.0" prefWidth="356.0" spacing="10.0" styleClass="vBox" AnchorPane.rightAnchor="45.0">
+      <VBox fx:id="vBoxFileAttachment" alignment="TOP_CENTER" layoutX="369.0" layoutY="391.0" prefHeight="182.0" prefWidth="356.0" spacing="10.0" styleClass="vBox" AnchorPane.rightAnchor="45.0">
          <children>
             <Label styleClass="labelHeadings" text="Dateianhänge:">
                <VBox.margin>

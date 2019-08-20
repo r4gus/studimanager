@@ -220,7 +220,7 @@ public class VBoxTasklist extends VBox {
         generateContextMenuItems(contextMenuEditTask, todoList);
 
         buttonEditToDoList.setOnAction(actionEvent -> {
-            contextMenuEditTask.show(buttonEditToDoList, Side.BOTTOM, 0, 0);
+            contextMenuEditTask.show(buttonEditToDoList, Side.BOTTOM, -45, 5);
         });
         MyLogger.LOGGER.exiting(getClass().toString(), "generateHBoxEditButton");
     }

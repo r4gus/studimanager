@@ -1,8 +1,10 @@
 package guiTodolist.InfoTask;
 
+import javafx.application.HostServices;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -10,6 +12,7 @@ import logging.MyLogger;
 import todolist.Task;
 import todolist.TaskCheckListItem;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -42,6 +45,9 @@ public class ControllerInfoTask implements Initializable {
     public VBox vBoxCompletedTask;
 
     @FXML
+    public VBox vBoxFileAttachment;
+
+    @FXML
     public Button ButtonCloseInfo;
 
     private Task task;
@@ -67,6 +73,7 @@ public class ControllerInfoTask implements Initializable {
 
         inizializeTextLabels();
         initializeChecklist();
+        initializeFileAttachment();
 
     }
 
@@ -112,18 +119,42 @@ public class ControllerInfoTask implements Initializable {
     private void initializeChecklist() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "initializeChecklist");
-        for (TaskCheckListItem t : task.getItemsChecklist()) {
+        for (TaskCheckListItem itemChecklist : task.getItemsChecklist()) {
 
-            Label labelCheckBox = new Label(t.getChecklistTaskName());
+            Label labelCheckBox = new Label(itemChecklist.getChecklistTaskName());
             labelCheckBox.setWrapText(false);
 
-            if (t.isChecklistTaskCompleted())
+            if (itemChecklist.isChecklistTaskCompleted())
                 vBoxCompletedTask.getChildren().add(labelCheckBox);
             else
                 vBoxUncompletedTask.getChildren().add(labelCheckBox);
         }
         MyLogger.LOGGER.exiting(getClass().toString(), "initializeChecklist");
     }
+
+
+    /**
+     * the method creates dynamically Gui elements based on a task object.
+     */
+
+    private void initializeFileAttachment() {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "initializeFileAttachment");
+        for (File file: this.task.getFileArrayList()) {
+
+            Hyperlink hyperlinkFileAttachment = new Hyperlink(file.getName());
+            vBoxFileAttachment.getChildren().add(hyperlinkFileAttachment);
+            hyperlinkFileAttachment.setOnAction(ActionEvent -> {
+
+                // OpenDokument...
+
+            });
+
+        }
+
+        MyLogger.LOGGER.exiting(getClass().toString(), "initializeFileAttachment");
+    }
+
 
     /**
      * This method contains the logic for the button "ButtonCloseInfo".
