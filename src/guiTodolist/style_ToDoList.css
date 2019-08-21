@@ -23,7 +23,12 @@
 }
 
 
-
+.textarea{
+    -fx-font-family: Eras-Demi-ITC;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
 .button, .text-field {
     -fx-background-radius: 8;
     -fx-background-color: #FFFFFF ;
