@@ -110,9 +110,9 @@ public class ControllerExam implements Initializable {
         }
         if (selectedItems.size() == 0) {
             try {
-                throw new UserException("Bitte wählen Sie eine Klausur aus die Sie löschen möchten.");
+                throw new UserException("Info", "Bitte wählen Sie eine Klausur aus die Sie löschen möchten.");
             } catch (UserException e) {
-                showInformationAltertForUser(e.getMessage());
+
                 return;
             }
         }
@@ -158,9 +158,9 @@ public class ControllerExam implements Initializable {
         String examNumber = textfieldLectureNumber.getText();
         if (examNumber.trim().isEmpty()) {
             try {
-                throw new UserException("Sie müssen eine Klausurnummer in das Textfeld eingeben");
+                throw new UserException("Info" ,"Sie müssen eine Klausurnummer in das Textfeld eingeben");
             } catch (UserException e) {
-                showInformationAltertForUser(e.getMessage());
+
             }
 
         } else {
@@ -181,7 +181,7 @@ public class ControllerExam implements Initializable {
         try {
 
             if (stringChoiceBoxTableView.getValue() == null) {
-                throw new UserException("Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!");
+                throw new UserException( "Info" ,"Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!");
             }
             if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue1) && tableviewExams.getItems() != null) {
                 tableviewExams.getItems().clear();
@@ -190,24 +190,8 @@ public class ControllerExam implements Initializable {
             }
         } catch (UserException e) {
             /* remember Exception logs automatically */
-            showInformationAltertForUser(e.getMessage());
+
         }
-    }
-
-
-    /**
-     * This method displays an error message to the user with understandable content,
-     * so that the user can correct the error if necessary.
-     */
-
-    private void showInformationAltertForUser(String content) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("User Information");
-        alert.setHeaderText("Fehlermeldung:");
-        alert.setContentText(content);
-
-        // Das auszuwählende Element farblich hervorheben ??? oder anders kentlich machen ??
-        alert.showAndWait();
     }
 
 
@@ -231,9 +215,9 @@ public class ControllerExam implements Initializable {
 
         if (selectedItems.isEmpty()) {
             try {
-                throw new UserException("Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.");
+                throw new UserException("Info", "Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.");
             } catch (UserException e) {
-                showInformationAltertForUser(e.getMessage());
+
                 return;
             }
         }
@@ -262,9 +246,9 @@ public class ControllerExam implements Initializable {
         }
         if (selectedItems.isEmpty()) {
             try {
-                throw new UserException("Bitte Wählen Sie eine Klausur aus");
+                throw new UserException("Info", "Bitte Wählen Sie eine Klausur aus");
             } catch (UserException ex) {
-                showInformationAltertForUser(ex.getMessage());
+
             }
         }
         examsInsisted.addAll(selectedItems);
@@ -284,7 +268,6 @@ public class ControllerExam implements Initializable {
 
         if (tableviewExams.getSelectionModel().getSelectedItem() != null && tableviewExamsInsisted.getSelectionModel().getSelectedItem() != null) {
 
-            showInformationAltertForUser("Sie können immer nur eine Klausur bearbeiten! \nBitte wählen Sie jetzt die gewüschte Klausur aus, \ndie Sie bearbeiten möchten.");
             tableviewExams.getSelectionModel().clearSelection();
             tableviewExamsInsisted.getSelectionModel().clearSelection();
             return;
@@ -299,9 +282,9 @@ public class ControllerExam implements Initializable {
         }
         if (exam == null) {
             try {
-                throw new UserException("Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.");
+                throw new UserException("Info", "Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.");
             } catch (UserException e) {
-                showInformationAltertForUser(e.getMessage());
+
                 return;
             }
         }

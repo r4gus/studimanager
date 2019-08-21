@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorPaneCreateTask" prefHeight="649.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane fx:id="anchorPaneCreateTask" prefHeight="649.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" layoutX="130.0" layoutY="38.0" prefHeight="40.0" prefWidth="218.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="30.0">
          <children>
@@ -23,7 +23,7 @@
       <VBox alignment="CENTER" layoutX="55.0" layoutY="80.0" spacing="10.0" styleClass="vBox" AnchorPane.leftAnchor="45.0">
          <children>
             <Label text="Beschreibung:" />
-            <TextArea fx:id="textAreaDescription" prefHeight="93.0" prefWidth="340.0" promptText="Allgemeine Beschreibung der Aufgabe" styleClass="textarea" />
+            <TextArea fx:id="textAreaDescription" prefHeight="93.0" prefWidth="340.0" promptText="Allgemeine Beschreibung der Aufgabe" styleClass="textarea" wrapText="true" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -62,7 +62,7 @@
          </padding>
          <children>
             <Label text="Anmerkungen:" />
-            <TextArea fx:id="textAreaNotes" prefHeight="200.0" prefWidth="200.0" promptText="Allgemeine Notizen / Anmerkungen zu der Aufgabe" styleClass="textarea" />
+            <TextArea fx:id="textAreaNotes" prefHeight="200.0" prefWidth="200.0" promptText="Allgemeine Notizen / Anmerkungen zu der Aufgabe" styleClass="textarea" wrapText="true" />
          </children>
       </VBox>
       <VBox alignment="CENTER" layoutX="433.0" layoutY="353.0" prefHeight="197.0" prefWidth="328.0" spacing="10.0" styleClass="vBox" AnchorPane.rightAnchor="45.0">
@@ -74,7 +74,7 @@
             <ListView fx:id="listViewFileAttachment" prefHeight="200.0" prefWidth="200.0" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" text=" - " />
+                  <Button mnemonicParsing="false" onAction="#deleteFileAttachmentToTask" text=" - " />
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
                   <Button mnemonicParsing="false" onAction="#AddFileAttachmentToTask" text="+" />
                   <TextField fx:id="textFieldNewFileEntry" promptText="Dokumentenbezeichnung" />

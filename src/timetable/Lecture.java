@@ -1,5 +1,6 @@
 package timetable;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 import logging.MyLogger;
@@ -10,7 +11,7 @@ import logging.MyLogger;
  *
  * @author David Sugar
  */
-public class Lecture {
+public class Lecture implements Serializable {
     private String title;
     private Facility facility;
     private Lecturer lecturer;

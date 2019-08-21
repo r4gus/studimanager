@@ -2,6 +2,7 @@ package timetable;
 
 import logging.MyLogger;
 
+import java.io.Serializable;
 import java.util.logging.Level;
 
 /**
@@ -10,7 +11,7 @@ import java.util.logging.Level;
  *
  * @author David Sugar
  */
-public class Facilities extends Container<Facility> {
+public class Facilities extends Container<Facility> implements Serializable {
     /**
      * Add an {@link Facility} object to the Facilities container.
      * [Note: This method implements better argument checks via Exceptions and should be preferred over

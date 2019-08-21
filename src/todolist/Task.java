@@ -7,8 +7,9 @@ package todolist;
  * @author Lukas Mendel
  */
 
-import guiTodolist.Task.VBoxTask;
+import logging.MyLogger;
 
+import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -25,8 +26,9 @@ public class Task implements Serializable {
     private int taskId;
     private int taskListId;
     private String projectDescription;
-    private ArrayList<String> notes = new ArrayList<>();
-    private ArrayList<String> itemsChecklist = new ArrayList<>();
+    private String notes;
+    private ArrayList<TaskCheckListItem> itemsChecklist = new ArrayList<>();
+    private ArrayList<File> fileArrayList = new ArrayList<>();
     private int projectStatus;
     private boolean isDone;
     private LocalDate projectStart;
@@ -43,12 +45,19 @@ public class Task implements Serializable {
 
     }
 
-    public Task(String projectTitle, String projectDescription, ArrayList<String> notes, ArrayList<String> itemsChecklist , int projectStatus, LocalDate projectStart, LocalTime projectDuration, LocalDate deadline, boolean remindMe, LocalDateTime remindTime) {
+    /**
+     * constructor
+     */
+
+    public Task(String projectTitle, String projectDescription, String notes, ArrayList<TaskCheckListItem> itemsChecklist , ArrayList<File> files , int projectStatus, LocalDate projectStart, LocalTime projectDuration, LocalDate deadline, boolean remindMe, LocalDateTime remindTime) {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "Task", new Object[]{projectTitle, projectDescription, notes, itemsChecklist , projectStatus, projectStart, projectDuration, deadline, remindMe, remindTime});
         this.projectTitle = projectTitle;
         this.taskId = currentTaskId;
         this.projectDescription = projectDescription;
         this.notes = notes;
         this.itemsChecklist = itemsChecklist;
+        this.fileArrayList = files;
         this.projectStatus = projectStatus;
         this.isDone = false;
         this.projectStart = projectStart;
@@ -57,7 +66,13 @@ public class Task implements Serializable {
         this.remindMe = remindMe;
         this.remindTime = remindTime;
         this.currentTaskId++;
+        MyLogger.LOGGER.exiting(getClass().toString(), "Task");
     }
+
+
+    /**
+     * getter and setter of the different parameters
+     */
 
     public String getProjectTitle() {
         return projectTitle;
@@ -91,21 +106,25 @@ public class Task implements Serializable {
         this.projectDescription = projectDescription;
     }
 
-    public ArrayList<String> getNotes() {
+    public String getNotes() {
         return notes;
     }
 
-    public void setNotes(ArrayList<String> notes) {
+    public void setNotes(String notes) {
         this.notes = notes;
     }
 
-    public ArrayList<String> getItemsChecklist() {
+    public ArrayList<TaskCheckListItem> getItemsChecklist() {
         return itemsChecklist;
     }
 
-    public void setItemsChecklist(ArrayList<String> itemsChecklist) {
+    public void setItemsChecklist(ArrayList<TaskCheckListItem> itemsChecklist) {
         this.itemsChecklist = itemsChecklist;
     }
+
+    public ArrayList<File> getFileArrayList() { return fileArrayList; }
+
+    public void setFileArrayList(ArrayList<File> fileArrayList) { this.fileArrayList = fileArrayList; }
 
     public int getProjectStatus() {
         return projectStatus;

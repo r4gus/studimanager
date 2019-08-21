@@ -9,9 +9,13 @@
 .button:hover {
     -fx-border-color: transparent;
     -fx-cursor: hand;
+    -fx-background-color: grey;
 }
 
 .button:pressed {
     -fx-cursor: hand;
-    -fx-background-color: lightgrey;
+}
+
+.lecture-pane {
+    -fx-background-color: lightGrey;
 }

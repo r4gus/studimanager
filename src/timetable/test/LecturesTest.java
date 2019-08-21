@@ -20,28 +20,66 @@ class LecturesTest {
     }
 
     @Test
-    void addLecture() {
+    void addLectureTest() {
         assertEquals(0, lectures.getSize());
         // add lecture successfully
         assertTrue(lectures.addLecture(l1));
 
-        // expect exception
-        try {
-            assertTrue(lectures.addLecture(l2));    // object does already exist
-            fail();
-        } catch (IllegalArgumentException exc) {
-            assertEquals("The specified Lecture already exists!", exc.getMessage());
-        }
+        // expect false, object does already exist
+        assertFalse(lectures.addLecture(l2));    // object does already exist
 
         // expect exception
         try {
             assertTrue(lectures.addLecture(null));    // null pointer
             fail();
         } catch (IllegalArgumentException exc) {
-            assertEquals("null pointer passed!", exc.getMessage());
+            assertEquals("Invalid argument: null", exc.getMessage());
         }
 
         assertTrue(lectures.addLecture(l3));
         assertEquals(2, lectures.getSize());
+    }
+
+    @Test
+    void removeLectureTest() {
+        /*
+        ------------------- ADD SOME LECTURES ----------------------------
+         */
+        lectures.addLecture(l3);
+        lectures.addLecture(l1);
+
+        assertEquals(2, lectures.getSize());
+        assertEquals(l3, lectures.getHead());
+
+        /*
+        ------------------- DELETE A LECTURE ----------------------------
+         */
+        assertTrue(lectures.removeLecture(l3));
+
+        assertEquals(1, lectures.getSize());
+        assertEquals(l1, lectures.getElement(0));
+        assertEquals(l1, lectures.getHead());
+
+        /*
+        ------------------- CHECK IF NULL THROWS AN ERROR ----------------
+         */
+        try {
+            lectures.removeLecture(null);
+            fail();
+        } catch (IllegalArgumentException exc) {
+            assertEquals("Invalid argument: null", exc.getMessage());
+        }
+
+        assertEquals(1, lectures.getSize());
+
+        /*
+        -------------------- TRY TO DELETE AN NOT EXISTING OBJECT ---------
+         */
+
+        assertFalse(lectures.removeLecture(l3));
+        assertEquals(1, lectures.getSize());
+
+        lectures.removeLecture(l1);
+        assertNull(lectures.getHead());
     }
 }
