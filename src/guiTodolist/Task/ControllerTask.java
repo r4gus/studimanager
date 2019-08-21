@@ -6,10 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
-import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.DataFormat;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.TransferMode;
+import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -57,6 +54,8 @@ public class ControllerTask implements Initializable {
     public ListView listViewFileAttachment;
     @FXML
     public TextField textFieldNewFileEntry;
+    @FXML
+    public ComboBox comboboxPriority;
 
     @FXML
     public Button buttonCreateTask;
@@ -64,6 +63,7 @@ public class ControllerTask implements Initializable {
 
     private ObservableList<String> itemsChecklist = FXCollections.observableArrayList();
     private ObservableList<String> itemsFilesList = FXCollections.observableArrayList();
+    private ObservableList<String> itemsPriority = FXCollections.observableArrayList();
 
     private ArrayList<TaskCheckListItem> taskCheckListItems = new ArrayList<>();            // Umbauen Nach Vorlage File Attachment
     private ArrayList<File> taskFiles = new ArrayList<>();
@@ -90,6 +90,9 @@ public class ControllerTask implements Initializable {
 
         listViewChecklist.setItems(itemsChecklist);
         listViewFileAttachment.setItems(itemsFilesList);
+        itemsPriority.addAll("Hoch","Mittel","Niedrig");
+        comboboxPriority.setItems(itemsPriority);
+        comboboxPriority.getSelectionModel().select(2);
     }
 
 
@@ -202,9 +205,9 @@ public class ControllerTask implements Initializable {
 
         MyLogger.LOGGER.entering(getClass().toString(), "addEventDragDetected", new Object[]{vBoxTask, task});
         vBoxTask.setOnDragDetected(mouseEvent -> {
-            Dragboard dragboard = vBoxTask.startDragAndDrop(TransferMode.ANY);
+            Dragboard dragboard = vBoxTask.startDragAndDrop(TransferMode.MOVE);
             ClipboardContent clipboardContent = new ClipboardContent();
-            DataFormat dataFormat = new DataFormat("VBox");   // name an die ID des Objekts Binden...
+            DataFormat dataFormat = new DataFormat("VBox");
             clipboardContent.put(dataFormat, task);
             dragboard.setContent(clipboardContent);
         });
@@ -224,6 +227,7 @@ public class ControllerTask implements Initializable {
         task.setProjectDescription(((textAreaDescription.getText().trim().isEmpty() ? null : textAreaDescription.getText())));
         task.setDone(false);
         task.setNotes(textAreaNotes.getText().trim().isEmpty() ? null : textAreaNotes.getText());
+        task.setPriority(comboboxPriority.getSelectionModel().getSelectedItem().toString());
 
         if (listViewChecklist.getItems().size() > 0) {
             ObservableList observableList = listViewChecklist.getItems();

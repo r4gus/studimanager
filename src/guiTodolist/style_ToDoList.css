@@ -18,7 +18,8 @@
 
 .vBoxTask{
     -fx-background-radius: 6;
-    -fx-background-color: #DC143C ;
+    -fx-background-color: #1e90ff
+;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 
