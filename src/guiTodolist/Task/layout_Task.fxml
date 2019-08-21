@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorPaneCreateTask" prefHeight="759.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPaneCreateTask" prefHeight="779.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" layoutX="130.0" layoutY="38.0" prefHeight="40.0" prefWidth="218.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="30.0">
          <children>
@@ -23,10 +23,13 @@
       </HBox>
       <VBox layoutX="50.0" layoutY="100.0" spacing="15.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="229.0" prefWidth="350.0" spacing="10.0" styleClass="vBox">
+            <VBox alignment="CENTER" prefHeight="234.0" prefWidth="350.0" spacing="10.0" styleClass="vBox">
                <children>
-                  <Label text="Beschreibung:" />
-                  <TextArea fx:id="textAreaDescription" prefHeight="208.0" prefWidth="340.0" promptText="Allgemeine Beschreibung der Aufgabe" styleClass="textarea" wrapText="true" />
+                  <Label styleClass="label-h2" text="Beschreibung:" />
+                  <TextArea fx:id="textAreaDescription" prefHeight="208.0" prefWidth="340.0" promptText="Allgemeine Beschreibung der Aufgabe" styleClass="textarea" wrapText="true">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></TextArea>
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -34,40 +37,49 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="61.0" prefWidth="350.0" spacing="10.0" styleClass="vBox">
                <children>
-                  <Label text="Fälligkeitsdatum:" />
-                  <DatePicker fx:id="datePickerDueDate" />
+                  <Label styleClass="label-h2" text="Fälligkeitsdatum:" />
+                  <DatePicker fx:id="datePickerDueDate">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></DatePicker>
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="244.0" prefWidth="350.0" spacing="10.0" styleClass="vBox">
+            <VBox alignment="CENTER" prefHeight="249.0" prefWidth="350.0" spacing="10.0" styleClass="vBox">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <children>
-                  <Label text="Anmerkungen:" />
-                  <TextArea fx:id="textAreaNotes" prefHeight="200.0" prefWidth="200.0" promptText="Allgemeine Notizen / Anmerkungen zu der Aufgabe" styleClass="textarea" wrapText="true" />
+                  <Label styleClass="label-h2" text="Anmerkungen:" />
+                  <TextArea fx:id="textAreaNotes" prefHeight="200.0" prefWidth="200.0" promptText="Allgemeine Notizen / Anmerkungen zu der Aufgabe" styleClass="textarea" wrapText="true">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></TextArea>
                </children>
             </VBox>
          </children>
       </VBox>
       <Button fx:id="buttonCreateTask" layoutX="60.0" layoutY="326.0" mnemonicParsing="false" onAction="#createTask" text="Aufgabe erstellen" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="60.0" />
-      <VBox layoutX="432.0" layoutY="100.0" spacing="15.0">
+      <VBox alignment="TOP_CENTER" layoutX="432.0" layoutY="100.0" spacing="15.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="71.0" prefWidth="328.0" spacing="10.0" styleClass="vBox">
+            <VBox alignment="TOP_CENTER" prefHeight="67.0" prefWidth="328.0" spacing="10.0" styleClass="vBox">
                <children>
-                  <Label text="Priorität:">
+                  <Label styleClass="label-h2" text="Priorität:">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <ComboBox fx:id="comboboxPriority" prefWidth="150.0" />
+                  <ComboBox fx:id="comboboxPriority" prefWidth="150.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></ComboBox>
                </children>
             </VBox>
             <VBox alignment="CENTER" spacing="10.0" styleClass="vBox">
                <children>
-                  <Label text="Checklist:" />
+                  <Label styleClass="label-h2" text="Checklist:" />
                   <ListView fx:id="listViewChecklist" prefHeight="142.0" prefWidth="318.0" />
                   <HBox alignment="CENTER" spacing="10.0">
                      <children>
@@ -76,6 +88,9 @@
                         <Button mnemonicParsing="false" onAction="#addEntryToChecklist" text="+" />
                         <TextField fx:id="textFieldChecklistNewEntry" prefHeight="27.0" prefWidth="196.0" promptText="Neuer Eintrag der Checkliste" />
                      </children>
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding>
                   </HBox>
                </children>
                <padding>
@@ -87,7 +102,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <children>
-                  <Label text="Dateianhänge:" />
+                  <Label styleClass="label-h2" text="Dateianhänge:" />
                   <ListView fx:id="listViewFileAttachment" prefHeight="200.0" prefWidth="200.0" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
@@ -96,6 +111,9 @@
                         <Button mnemonicParsing="false" onAction="#AddFileAttachmentToTask" text="+" />
                         <TextField fx:id="textFieldNewFileEntry" promptText="Dokumentenbezeichnung" />
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
             </VBox>

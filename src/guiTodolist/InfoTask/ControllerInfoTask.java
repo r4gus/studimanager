@@ -1,11 +1,12 @@
 package guiTodolist.InfoTask;
 
-import javafx.application.HostServices;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import logging.MyLogger;
@@ -41,6 +42,12 @@ public class ControllerInfoTask implements Initializable {
     public Label labelNotes;
 
     @FXML
+    public Label labelPriority;
+
+    @FXML
+    public ImageView imageViewStatus;
+
+    @FXML
     public VBox vBoxUncompletedTask;
 
     @FXML
@@ -56,6 +63,9 @@ public class ControllerInfoTask implements Initializable {
 
     private static final String NoENTRY = "N.A. (kein Eintrag vorhanden)";
 
+    private String filepathHigh = "guiTodolist/Task/Icons/icons8-hohe-prio-48.png";
+    private String filepathMiddle = "guiTodolist/Task/Icons/icons8-mittlere-prio-48.png";
+    private String filepathLow = "guiTodolist/Task/Icons/icons8-niedrige-prio-48.png";
 
     public ControllerInfoTask(Task task) {
 
@@ -76,7 +86,7 @@ public class ControllerInfoTask implements Initializable {
         inizializeTextLabels();
         initializeChecklist();
         initializeFileAttachment();
-
+        initializePriority();
     }
 
 
@@ -92,23 +102,25 @@ public class ControllerInfoTask implements Initializable {
         } else {
             labelHeading.setText(NoENTRY);
         }
-
         if (task.getProjectDescription() != null) {
             labelDescription.setText(task.getProjectDescription());
         } else {
             labelDescription.setText(NoENTRY);
         }
-
         if (task.getDeadline() != null) {
             labelDate.setText(task.getDeadline().toString());
         } else {
             labelDate.setText(NoENTRY);
         }
-
         if (task.getNotes() != null) {
             labelNotes.setText(task.getNotes());
         } else {
             labelNotes.setText(NoENTRY);
+        }
+        if(task.getPriority() != null){
+            labelPriority.setText(task.getPriority());
+        }else {
+            labelPriority.setText(NoENTRY);
         }
         MyLogger.LOGGER.exiting(getClass().toString(), "inizializeTextLabels");
     }
@@ -124,6 +136,7 @@ public class ControllerInfoTask implements Initializable {
         for (TaskCheckListItem itemChecklist : task.getItemsChecklist()) {
 
             Label labelCheckBox = new Label(itemChecklist.getChecklistTaskName());
+            labelCheckBox.getStyleClass().add("label-h3");
             labelCheckBox.setWrapText(false);
 
             if (itemChecklist.isChecklistTaskCompleted())
@@ -145,6 +158,7 @@ public class ControllerInfoTask implements Initializable {
         for (File file : this.task.getFileArrayList()) {
 
             Hyperlink hyperlinkFileAttachment = new Hyperlink(file.getName());
+            hyperlinkFileAttachment.getStyleClass().add("label-h3");
             vBoxFileAttachment.getChildren().add(hyperlinkFileAttachment);
             hyperlinkFileAttachment.setOnAction(ActionEvent -> {
                 try {
@@ -157,6 +171,28 @@ public class ControllerInfoTask implements Initializable {
         }
 
         MyLogger.LOGGER.exiting(getClass().toString(), "initializeFileAttachment");
+    }
+
+
+    /**
+     * the method creates dynamically Gui elements based on a task object.
+     */
+
+    private void initializePriority() {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "initializePriority");
+        String filepath;
+        if (task.getPriority() == "Hoch") {
+            filepath = filepathHigh;
+        } else if (task.getPriority() == "Mittel") {
+            filepath = filepathMiddle;
+        } else {
+            filepath = filepathLow;
+        }
+        Image image = new Image(filepath);
+        imageViewStatus.setImage(image);
+
+        MyLogger.LOGGER.exiting(getClass().toString(), "initializePriority");
     }
 
 
