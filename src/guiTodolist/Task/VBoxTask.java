@@ -341,8 +341,13 @@ public class VBoxTask extends VBox {
         MyLogger.LOGGER.entering(getClass().toString(), "addEventDragDetected", new Object[]{vBoxTask, task });
         vBoxTask.setOnDragDetected(mouseEvent -> {
             Dragboard dragboard = vBoxTask.startDragAndDrop(TransferMode.ANY);
+
             ClipboardContent clipboardContent = new ClipboardContent();
-            DataFormat dataFormat = new DataFormat("VBox");   // name an die ID des Objekts Binden... + prüfen Ob Objekt bereits vorhanden Ist...
+
+            DataFormat dataFormat = DataFormat.lookupMimeType("VBox");
+            if(dataFormat == null) {
+                dataFormat = new DataFormat("VBox");   // name an die ID des Objekts Binden... + prüfen Ob Objekt bereits vorhanden Ist...
+            }
             clipboardContent.put(dataFormat, task);
             dragboard.setContent(clipboardContent);
         });
