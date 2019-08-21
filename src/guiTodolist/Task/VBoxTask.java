@@ -38,6 +38,10 @@ public class VBoxTask extends VBox {
     private int taskID;
     private VBoxTasklist vBoxTasklist;
 
+    private String filepathHigh = "guiTodolist/Task/Icons/icons8-hohe-prio-48.png";
+    private String filepathMiddle = "guiTodolist/Task/Icons/icons8-mittlere-prio-48.png";
+    private String filepathLow = "guiTodolist/Task/Icons/icons8-niedrige-prio-48.png";
+
     public VBoxTask(Task task, VBoxTasklist vBoxTasklist) {
 
         this.task = task;
@@ -105,7 +109,15 @@ public class VBoxTask extends VBox {
         VBox vBoxbasicInformation = new VBox();
         this.setMargin(vBoxbasicInformation, new Insets(8, 0, 10, 0));
         vBoxbasicInformation.setSpacing(5);
-        HBox hBoxPriority = generateHBoxPrio("Priorität: ", "guiTodolist/Task/Icons/icons8-mittlere-prio-48.png");
+        String filepath;
+        if (task.getPriority() == "Hoch") {
+            filepath = filepathHigh;
+        } else if (task.getPriority() == "Mittel") {
+            filepath = filepathMiddle;
+        } else {
+            filepath = filepathLow;
+        }
+        HBox hBoxPriority = generateHBoxPrio("Priorität: ", filepath);
         HBox hBoxDate = null;
         HBox hBoxProgressbar = null;
         if (task.getDeadline() != null) {
@@ -247,7 +259,7 @@ public class VBoxTask extends VBox {
 
         buttonDelete.setOnAction(actionEvent -> {
 
-            MyLogger.LOGGER.entering(getClass().toString(), "addEventToDeleteButton", new Object[]{buttonDelete });
+            MyLogger.LOGGER.entering(getClass().toString(), "addEventToDeleteButton", new Object[]{buttonDelete});
             this.vBoxTasklist.getChildren().remove(this);
             MyLogger.LOGGER.exiting(getClass().toString(), "addEventToDeleteButton");
         });
@@ -263,7 +275,7 @@ public class VBoxTask extends VBox {
         buttonInfo.setOnAction(actionEvent -> {
             try {
 
-                MyLogger.LOGGER.entering(getClass().toString(), "addEventShowTaskInfo", new Object[]{buttonInfo });
+                MyLogger.LOGGER.entering(getClass().toString(), "addEventShowTaskInfo", new Object[]{buttonInfo});
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../InfoTask/layoutInfoTask.fxml"));
                 ControllerInfoTask controllerInfoTask = new ControllerInfoTask(this.task);
                 fxmlLoader.setController(controllerInfoTask);
@@ -290,13 +302,13 @@ public class VBoxTask extends VBox {
 
     private ImageView generateImageviewIcons(String filepath) {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "generateImageviewIcons", new Object[]{filepath });
+        MyLogger.LOGGER.entering(getClass().toString(), "generateImageviewIcons", new Object[]{filepath});
         Image image = new Image(filepath);
         ImageView iv1 = new ImageView();
         iv1.setFitWidth(36);
         iv1.setFitHeight(36);
         iv1.setImage(image);
-        MyLogger.LOGGER.exiting(getClass().toString(), "generateImageviewIcons",  iv1);
+        MyLogger.LOGGER.exiting(getClass().toString(), "generateImageviewIcons", iv1);
         return iv1;
     }
 
@@ -311,7 +323,7 @@ public class VBoxTask extends VBox {
 
     private void createNewInformationtoobarVisibleCheck(ImageView deadline, ImageView fileAttachment, ImageView checklist, ImageView notes) {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "createNewInformationtoobarVisibleCheck", new Object[]{deadline, fileAttachment, checklist, notes });
+        MyLogger.LOGGER.entering(getClass().toString(), "createNewInformationtoobarVisibleCheck", new Object[]{deadline, fileAttachment, checklist, notes});
         if (this.task.getDeadline() == null) {
             deadline.setVisible(false);
         }
@@ -321,7 +333,7 @@ public class VBoxTask extends VBox {
         if (this.task.getItemsChecklist().size() == 0) {
             checklist.setVisible(false);
         }
-        if(this.task.getFileArrayList().size() == 0) {
+        if (this.task.getFileArrayList().size() == 0) {
             fileAttachment.setVisible(false);
         }
 
@@ -338,11 +350,16 @@ public class VBoxTask extends VBox {
 
     private void addEventDragDetected(VBoxTask vBoxTask, Task task) {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "addEventDragDetected", new Object[]{vBoxTask, task });
+        MyLogger.LOGGER.entering(getClass().toString(), "addEventDragDetected", new Object[]{vBoxTask, task});
         vBoxTask.setOnDragDetected(mouseEvent -> {
             Dragboard dragboard = vBoxTask.startDragAndDrop(TransferMode.ANY);
+
             ClipboardContent clipboardContent = new ClipboardContent();
-            DataFormat dataFormat = new DataFormat("VBox");   // name an die ID des Objekts Binden... + prüfen Ob Objekt bereits vorhanden Ist...
+
+            DataFormat dataFormat = DataFormat.lookupMimeType("VBox");
+            if (dataFormat == null) {
+                dataFormat = new DataFormat("VBox");
+            }
             clipboardContent.put(dataFormat, task);
             dragboard.setContent(clipboardContent);
         });

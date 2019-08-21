@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -13,26 +14,26 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="677.0" prefWidth="1042.0" styleClass="anchorPaneExamen" stylesheets="@style_Exam.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiExam.ControllerExam">
+<AnchorPane prefHeight="677.0" prefWidth="1042.0" styleClass="anchorPaneExamen" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiExam.ControllerExam">
    <children>
       <HBox alignment="CENTER" layoutX="34.0" layoutY="15.0" spacing="15.0" styleClass="hBox" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
          <children>
             <VBox alignment="CENTER" prefHeight="84.0" prefWidth="140.0" spacing="10.0">
                <children>
-                  <Button id="addExam" mnemonicParsing="false" onAction="#clickAddExam" prefHeight="25.0" prefWidth="140.0" styleClass="buttonMenu" text="Klausur hinzufügen" />
+                  <Button id="addExam" mnemonicParsing="false" onAction="#clickAddExam" prefHeight="25.0" prefWidth="140.0" text="Klausur hinzufügen" />
                   <TextField fx:id="textfieldLectureNumber" prefHeight="25.0" prefWidth="140.0" promptText="Fachnummer" />
                </children>
             </VBox>
             <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="0.0" />
             <VBox alignment="CENTER" prefHeight="76.0" prefWidth="140.0" spacing="10.0">
                <children>
-                  <Button id="deleteList" mnemonicParsing="false" onAction="#clickClearList" prefHeight="25.0" prefWidth="140.0" styleClass="buttonMenu" text="Liste Leeren" />
+                  <Button id="deleteList" mnemonicParsing="false" onAction="#clickClearList" prefHeight="25.0" prefWidth="140.0" text="Liste Leeren" />
                   <ChoiceBox fx:id="stringChoiceBoxTableView" prefHeight="25.0" prefWidth="140.0" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="76.0" prefWidth="140.0" spacing="10.0">
                <children>
-                  <Button id="deleteExam" mnemonicParsing="false" onAction="#clickDeleteExam" prefHeight="25.0" prefWidth="140.0" styleClass="buttonMenu" text="Klausur(en) löschen" />
+                  <Button id="deleteExam" mnemonicParsing="false" onAction="#clickDeleteExam" prefHeight="25.0" prefWidth="140.0" text="Klausur(en) löschen" />
                </children>
             </VBox>
             <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="0.0">
@@ -42,13 +43,13 @@
             </Separator>
             <VBox alignment="CENTER" prefHeight="76.0" prefWidth="140.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addElementToTableviewExamsInsisted" prefHeight="25.0" prefWidth="140.0" styleClass="buttonMenu" text="Klausur(en) bestanden" />
-                  <Button mnemonicParsing="false" onAction="#editExamObject" prefHeight="25.0" prefWidth="140.0" styleClass="buttonMenu" text="Klausur bearbeiten" />
+                  <Button mnemonicParsing="false" onAction="#addElementToTableviewExamsInsisted" prefHeight="25.0" prefWidth="140.0" text="Klausur(en) bestanden" />
+                  <Button mnemonicParsing="false" onAction="#editExamObject" prefHeight="25.0" prefWidth="140.0" text="Klausur bearbeiten" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="76.0" prefWidth="140.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#secondTrialExam" prefHeight="25.0" prefWidth="140.0" styleClass="buttonMenu" text="Klausur zweitversuch" />
+                  <Button mnemonicParsing="false" onAction="#secondTrialExam" prefHeight="25.0" prefWidth="140.0" text="Klausur zweitversuch" />
                </children>
             </VBox>
          </children>
@@ -68,7 +69,7 @@
       </TableView>
       <VBox alignment="CENTER" layoutX="3.0" layoutY="134.0" prefHeight="25.0" prefWidth="1042.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="134.0">
          <children>
-            <Label styleClass="labelUeberschriften" text="Anstehende Klausuren im aktuellen Semester:">
+            <Label styleClass="label-h2" text="Anstehende Klausuren im aktuellen Semester:">
                <font>
                   <Font size="14.0" />
                </font>
@@ -89,7 +90,7 @@
       </TableView>
       <VBox alignment="CENTER" layoutX="3.0" layoutY="417.0" prefHeight="32.0" prefWidth="1042.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="417.0">
          <children>
-            <Label styleClass="labelUeberschriften" text="bestandene Klausuren:">
+            <Label styleClass="label-h2" text="bestandene Klausuren:">
                <font>
                   <Font size="14.0" />
                </font>
@@ -103,4 +104,8 @@
          </children>
       </VBox>
    </children>
+   <stylesheets>
+      <URL value="@style_Exam.css" />
+      <URL value="@../main.css" />
+   </stylesheets>
 </AnchorPane>

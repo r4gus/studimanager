@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
 
 /**
  * Represents a timetable with n <code>days</code> and m <code>unitsPerDay</code>.
@@ -36,9 +37,9 @@ public class Timetable implements Serializable {
     private final int unitsPerDay;
     private Lectures unit[][];
     private int semester;
-    private static Lectures LECTURES = new Lectures(); // used to keep record over all records
-    private static Lecturers LECTURERS = new Lecturers(); // used to keep record over all lecturers
-    private static Facilities FACILITIES = new Facilities(); // used to keep record over all facilities
+    private Lectures LECTURES = new Lectures(); // used to keep record over all records
+    private Lecturers LECTURERS = new Lecturers(); // used to keep record over all lecturers
+    private Facilities FACILITIES = new Facilities(); // used to keep record over all facilities
 
     /**
      * Creates an object with default time settings
@@ -106,15 +107,15 @@ public class Timetable implements Serializable {
         MyLogger.LOGGER.exiting(getClass().toString(), "Timetable");
     }
 
-    public static Lectures getLECTURES() {
+    public Lectures getLECTURES() {
         return LECTURES;
     }
 
-    public static Lecturers getLECTURERS() {
+    public Lecturers getLECTURERS() {
         return LECTURERS;
     }
 
-    public static Facilities getFACILITIES() {
+    public Facilities getFACILITIES() {
         return FACILITIES;
     }
 
@@ -220,11 +221,11 @@ public class Timetable implements Serializable {
         return f;
     }
 
-    public boolean removeLecture(int unit, int day, Lecture l) throws UserException {
+    public boolean removeFromLECTURE(Lecture l) throws UserException {
         return false;
     }
 
-    public Lecture removeLecture(int unit, int day, int i) throws UserException {
+    public Lecture removeFromLECTURE(int i) throws UserException {
         return null;
     }
 
@@ -260,16 +261,12 @@ public class Timetable implements Serializable {
         MyLogger.LOGGER.entering(getClass().toString(), "addLecture", lecture);
 
         try {
-            /* set lecture to display on grid*/
-            if(getUnit()[unit][day].getSize() == 0) {
-                getUnit()[unit][day].setHead(lecture);  // the head is the lecture that gets later displayed representative
-            }                                           // for all lectures assigned to a unit
-
             boolean x = getUnit()[unit][day].addLecture(lecture);
 
             MyLogger.LOGGER.exiting(getClass().toString(), "addLecture", x);
             return x;
         } catch (IllegalArgumentException exc) {
+            MyLogger.LOGGER.log(Level.WARNING, exc.getMessage());
             throw exc;
         }
     }

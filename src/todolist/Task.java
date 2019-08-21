@@ -27,6 +27,7 @@ public class Task implements Serializable {
     private int taskListId;
     private String projectDescription;
     private String notes;
+    private String priority;
     private ArrayList<TaskCheckListItem> itemsChecklist = new ArrayList<>();
     private ArrayList<File> fileArrayList = new ArrayList<>();
     private int projectStatus;
@@ -49,12 +50,13 @@ public class Task implements Serializable {
      * constructor
      */
 
-    public Task(String projectTitle, String projectDescription, String notes, ArrayList<TaskCheckListItem> itemsChecklist , ArrayList<File> files , int projectStatus, LocalDate projectStart, LocalTime projectDuration, LocalDate deadline, boolean remindMe, LocalDateTime remindTime) {
+    public Task(String projectTitle, String projectDescription, String priority , String notes, ArrayList<TaskCheckListItem> itemsChecklist , ArrayList<File> files , int projectStatus, LocalDate projectStart, LocalTime projectDuration, LocalDate deadline, boolean remindMe, LocalDateTime remindTime) {
 
         MyLogger.LOGGER.entering(getClass().toString(), "Task", new Object[]{projectTitle, projectDescription, notes, itemsChecklist , projectStatus, projectStart, projectDuration, deadline, remindMe, remindTime});
         this.projectTitle = projectTitle;
         this.taskId = currentTaskId;
         this.projectDescription = projectDescription;
+        this.priority = priority;
         this.notes = notes;
         this.itemsChecklist = itemsChecklist;
         this.fileArrayList = files;
@@ -105,6 +107,10 @@ public class Task implements Serializable {
     public void setProjectDescription(String projectDescription) {
         this.projectDescription = projectDescription;
     }
+
+    public String getPriority() { return priority; }
+
+    public void setPriority(String priority) { this.priority = priority; }
 
     public String getNotes() {
         return notes;

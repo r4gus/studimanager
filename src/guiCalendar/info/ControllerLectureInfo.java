@@ -1,6 +1,8 @@
 package guiCalendar.info;
 
+import guiCalendar.Updatable;
 import guiCalendar.calendar.ControllerCalendar;
+import guiCalendar.create.lecture.NewLectureController;
 import guiCalendar.edit.ControllerLectureEdit;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -27,7 +29,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerLectureInfo implements Initializable {
+public class ControllerLectureInfo implements Initializable, Updatable {
 
     @FXML
     private ScrollPane li_scrollPane;
@@ -35,6 +37,8 @@ public class ControllerLectureInfo implements Initializable {
     private Lectures lectures;
 
     private static final String colHeadlines[] = {"Facility", "Lecturer", "Is Elective", "Notes"};
+
+    private Updatable parentController = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -45,27 +49,76 @@ public class ControllerLectureInfo implements Initializable {
 
         li_scrollPane.getStylesheets().add(getClass().getResource("infoCalendar.css").toExternalForm());
 
+        Button button = makeAddButton(lectures);
+
         /**
          * Run makeAddButton and makeLectureAccordion on the JavaFX Application Thread at some time in the future.
          * Gives the calling method time to set the lectures member using {@code #setLectures(Lectures)}.
          */
         Platform.runLater(() -> {
-            VBox vBox = new VBox();
-            vBox.setSpacing(10);
-
-            Button button = makeAddButton();
-            Accordion accordion = makeLectureAccordion(lectures);
-
-            vBox.getChildren().addAll(accordion, button);
-
-            li_scrollPane.setContent(vBox);
+            update();
         });
     }
 
-    private Button makeAddButton() {
-        Button button = new Button("add");
+    /**
+     * Add all content to the scenes root node.
+     * <p>
+     * Every time the scene is updated, the ControllerCalender scene is also updated.
+     */
+    public void update() {
+        MyLogger.LOGGER.entering(getClass().toString(), "update");
+
+        if (this.lectures != null) {
+            VBox vBox = new VBox();
+            vBox.setSpacing(10);
+
+            vBox.getChildren().addAll(makeLectureAccordion(lectures), makeAddButton(lectures));
+            li_scrollPane.setContent(vBox);
+
+            /*
+            -------------- UPDATE MAIN WINDOW -----------------------------------------
+             */
+            parentController.update();
+        }
+
+        MyLogger.LOGGER.exiting(getClass().toString(), "update");
+    }
+
+    private Button makeAddButton(Lectures unit) {
+        Button button = new Button("new");
 
         button.getStyleClass().addAll("add-button", "add-button:hover");
+
+        ControllerLectureInfo parent = this;
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/guiCalendar/create/lecture/layoutNewLecture.fxml"));
+                    Parent root = loader.load();
+
+                    // get controller
+                    NewLectureController newLectureController = loader.getController();
+                    // pass lecture object
+                    newLectureController.setUnit(unit);
+                    newLectureController.setParentController(parent);
+
+                    // show edit-form
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle("new");
+
+                    // prevent interaction with the primary stage until the new window is closed
+                    stage.initModality(Modality.WINDOW_MODAL);
+                    stage.initOwner(li_scrollPane.getScene().getWindow());
+                    stage.setResizable(false);
+                    // show window
+                    stage.show();
+                } catch (IOException exc) {
+                    exc.printStackTrace();
+                }
+            }
+        });
 
         return button;
     }
@@ -82,7 +135,7 @@ public class ControllerLectureInfo implements Initializable {
         Accordion accordion = new Accordion();
 
         for (Lecture lecture : lectures.getContainer()) {
-            TitledPane pane = new TitledPane(lecture.getTitle(), makeLectureGrid(lecture));
+            TitledPane pane = new TitledPane(lecture.getTitle(), makeLectureGrid(lecture, unit));
             accordion.getPanes().add(pane);
         }
 
@@ -95,7 +148,7 @@ public class ControllerLectureInfo implements Initializable {
      * @param lecture The {@code Lecture} object to process.
      * @return GridPane object.
      */
-    private GridPane makeLectureGrid(Lecture lecture) {
+    private GridPane makeLectureGrid(Lecture lecture, Lectures unit) {
         MyLogger.LOGGER.entering(getClass().toString(), "makeLectureGrid", lecture);
 
         GridPane gridPane = new GridPane();
@@ -118,6 +171,7 @@ public class ControllerLectureInfo implements Initializable {
         ################# ADD BUTTONS###################################
          */
         Button editButton = new Button("edit");
+        ControllerLectureInfo parent = this;
         editButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -129,6 +183,8 @@ public class ControllerLectureInfo implements Initializable {
                     ControllerLectureEdit controllerLectureEdit = loader.getController();
                     // pass lecture object
                     controllerLectureEdit.setLecture(lecture);
+                    controllerLectureEdit.setUnit(unit);
+                    controllerLectureEdit.setParentController(parent);
 
                     // show edit-form
                     Stage stage = new Stage();
@@ -138,6 +194,7 @@ public class ControllerLectureInfo implements Initializable {
                     // prevent interaction with the primary stage until the new window is closed
                     stage.initModality(Modality.WINDOW_MODAL);
                     stage.initOwner(gridPane.getScene().getWindow());    // must be adjusted
+                    stage.setResizable(false);
                     // show window
                     stage.show();
                 } catch (IOException exc) {
@@ -151,6 +208,24 @@ public class ControllerLectureInfo implements Initializable {
         hButtonBox.setPadding(new Insets(10, 10, 10, 0));
 
         Button deleteButton = new Button("delete");
+        deleteButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                try {
+                    if (!unit.removeLecture(lecture)) {
+                        /*
+                        error message
+                         */
+                    }
+                } catch (IllegalArgumentException exc) {
+                    /*
+                    error message
+                     */
+                } finally {
+                    update();
+                }
+            }
+        });
 
         editButton.getStyleClass().addAll("edit-button", "edit-button:hover");
         deleteButton.getStyleClass().addAll("delete-button", "delete-button:hover");
@@ -247,5 +322,9 @@ public class ControllerLectureInfo implements Initializable {
      */
     public void setLectures(Lectures lectures) {
         this.lectures = lectures;
+    }
+
+    public void setParentController(ControllerCalendar c) {
+        this.parentController = c;
     }
 }

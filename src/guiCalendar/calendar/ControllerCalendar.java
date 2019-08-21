@@ -1,5 +1,6 @@
 package guiCalendar.calendar;
 
+import guiCalendar.Updatable;
 import guiCalendar.info.ControllerLectureInfo;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -34,9 +35,9 @@ import java.util.ResourceBundle;
 /**
  * @author David Sugar
  */
-public class ControllerCalendar implements Initializable {
+public class ControllerCalendar implements Initializable, Updatable {
 
-    private Timetable timetable = null;
+    private static Timetable timetable = null;
 
     public final static String DAYS[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
@@ -50,6 +51,10 @@ public class ControllerCalendar implements Initializable {
     @FXML
     public AnchorPane tt_anchorPane;
 
+    public static Timetable getTimetable() {
+        return timetable;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         MyLogger.LOGGER.entering(getClass().toString(), "initialize",
@@ -59,11 +64,19 @@ public class ControllerCalendar implements Initializable {
         //this.load();
         sampleLectures();
 
+        /* load stylesheet */
+        tt_anchorPane.getStylesheets().add(getClass().getResource("guiCalendar.css").toExternalForm());
+
         COLUMN_PERCENTAGE_WIDTH = 100.0 / timetable.getDays();
         ROW_PERCENTAGE_HEIGHT = 100.0 / timetable.getUnitsPerDay();
 
-        /* load stylesheet */
-        tt_anchorPane.getStylesheets().add(getClass().getResource("guiCalendar.css").toExternalForm());
+        this.update();
+
+        MyLogger.LOGGER.exiting(getClass().toString(), "initialize");
+    }
+
+    public void update() {
+        MyLogger.LOGGER.entering(getClass().toString(), "update");
 
         GridPane gridPane = new GridPane();
         /* setup gridPane */
@@ -100,7 +113,7 @@ public class ControllerCalendar implements Initializable {
         tt_anchorPane.getChildren().add(scrollPane);
         tt_anchorPane.getChildren().add(date);
 
-        MyLogger.LOGGER.exiting(getClass().toString(), "initialize");
+        MyLogger.LOGGER.exiting(getClass().toString(), "update");
     }
 
     /**
@@ -194,6 +207,7 @@ public class ControllerCalendar implements Initializable {
         button.setTooltip(lectureTooltip);
 
         /* show all lectures assigned to a unit */
+        ControllerCalendar parent = this;
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -206,6 +220,7 @@ public class ControllerCalendar implements Initializable {
                     ControllerLectureInfo controllerLectureInfo = loader.getController();
                     // pass Lectures object
                     controllerLectureInfo.setLectures(unit);
+                    controllerLectureInfo.setParentController(parent);
 
                     // show info-page scene
                     Stage stage = new Stage();

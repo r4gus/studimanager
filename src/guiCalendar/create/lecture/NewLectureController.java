@@ -1,4 +1,4 @@
-package guiCalendar.edit;
+package guiCalendar.create.lecture;
 
 import guiCalendar.Updatable;
 import guiCalendar.calendar.ControllerCalendar;
@@ -29,16 +29,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * @author David Sugar
- */
-public class ControllerLectureEdit implements Initializable, Updatable {
-
-    @FXML
-    private GridPane edit_grid;
-
-    private Lecture lecture;
+public class NewLectureController implements Initializable, Updatable {
     private final Timetable timetable = ControllerCalendar.getTimetable();
+    @FXML
+    private GridPane newLecture_grid;
     private Lectures unit;
     private Updatable parentController = null;
 
@@ -49,23 +43,18 @@ public class ControllerLectureEdit implements Initializable, Updatable {
     private Lecturer preservedLecturer = null;
     /* ##################################################################### */
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        edit_grid.getStylesheets().add(getClass().getResource("../../main.css").toExternalForm());
+        newLecture_grid.getStylesheets().add(getClass().getResource("../create.css").toExternalForm());
 
-        adjustGridPane(edit_grid);
+        adjustGridPane(newLecture_grid);
 
         /**
          * Run {@code populateGrid} on the JavaFX Application Thread at some time in the future.
          * Gives the calling method time to set the lectures member using {@link #setLecture(Lecture)}
          */
         Platform.runLater(() -> {
-            preservedTitle = lecture.getTitle();
-            preservedElective = lecture.isElective();
-            preservedFacility = lecture.getFacility();
-            preservedLecturer = lecture.getLecturer();
             update();
         });
 
@@ -73,7 +62,7 @@ public class ControllerLectureEdit implements Initializable, Updatable {
     }
 
     public void update() {
-        makeForm(edit_grid, lecture);
+        makeForm(newLecture_grid, unit);
     }
 
     /**
@@ -93,9 +82,10 @@ public class ControllerLectureEdit implements Initializable, Updatable {
         MyLogger.LOGGER.exiting(getClass().toString(), "adjustGridPane");
     }
 
-    private void makeForm(GridPane gridPane, Lecture lecture) {
+    private void makeForm(GridPane gridPane, Lectures unit) {
+        MyLogger.LOGGER.entering(getClass().toString(), "makeForm", new Object[]{gridPane, unit});
 
-        Text sceneTitle = new Text("Edit: ...");
+        Text sceneTitle = new Text("New Lecture");
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         gridPane.add(sceneTitle, 0, 0, 2, 1);
 
@@ -105,7 +95,7 @@ public class ControllerLectureEdit implements Initializable, Updatable {
         Label lectureTitle = new Label("Title:");
         gridPane.add(lectureTitle, 0, 1);
         TextField titleField = new TextField();
-        titleField.setText(preservedTitle);
+        if (preservedTitle != null) titleField.setText(preservedTitle);
         gridPane.add(titleField, 1, 1);
 
         /*
@@ -128,10 +118,10 @@ public class ControllerLectureEdit implements Initializable, Updatable {
             Facility facility = timetable.getFACILITIES().getElement(i);                // as choices to the ComboBox
 
             facilityComboBox.getItems().add(facility);
-
         }
-        facilityComboBox.getSelectionModel().select(preservedFacility);
+        if (preservedFacility != null) facilityComboBox.getSelectionModel().select(preservedFacility);
         gridPane.add(facilityComboBox, 1, 3);
+
 
 
         /*
@@ -145,9 +135,8 @@ public class ControllerLectureEdit implements Initializable, Updatable {
             Lecturer lecturer = timetable.getLECTURERS().getElement(i);                 // as choices to the ComboBox
 
             lecturerComboBox.getItems().add(lecturer);
-
         }
-        lecturerComboBox.getSelectionModel().select(preservedLecturer);
+        if (preservedLecturer != null) lecturerComboBox.getSelectionModel().select(preservedLecturer);
         gridPane.add(lecturerComboBox, 1, 4);
 
 
@@ -155,9 +144,9 @@ public class ControllerLectureEdit implements Initializable, Updatable {
         ------------- SUBMIT BUTTON --------------------------------
          */
 
-        Button submitButton = new Button("submit");
+        Button createButton = new Button("create");
 
-        submitButton.setOnAction(new EventHandler<ActionEvent>() {
+        createButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 String title = null;
@@ -187,16 +176,16 @@ public class ControllerLectureEdit implements Initializable, Updatable {
                 }
 
                 /*
-                ------------------- UPDATE LECTURE --------------------------------
+                ------------------- CREATE LECTURE --------------------------------
                  */
 
-                lecture.setTitle(title);
-
-                lecture.setFacility(facility);
-
-                lecture.setLecturer(lecturer);
-
-                lecture.setElective(isElective);
+                try {
+                    unit.addLecture(timetable.newLecture(title, facility, lecturer, isElective, null));
+                } catch (IllegalArgumentException exc) {
+                    /*
+                    error message
+                     */
+                }
 
                 /*
                 ------------------ CLOSE WINDOW -----------------------------------
@@ -207,14 +196,14 @@ public class ControllerLectureEdit implements Initializable, Updatable {
                 stage.close();
             }
         });
-
-        gridPane.add(submitButton, 0, 5, 3, 1);
+        gridPane.add(createButton, 0, 5, 3, 1);
 
         /*
-        -------------------------- NEW FACILITY BUTTON ------------------------------
+        ---------------------------- NEW FACILITY BUTTON ---------------------------------
          */
         Button addFacilityButton = new Button("new");
         addFacilityButton.getStyleClass().addAll("add-button", "add-button:hover");
+
         Updatable parent = this;
         addFacilityButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -253,10 +242,12 @@ public class ControllerLectureEdit implements Initializable, Updatable {
         gridPane.add(addFacilityButton, 2, 3);
 
         /*
-        ------------------------ NEW LECTURER BUTTON --------------------------------------
+        --------------------- NEW LECTURER BUTTON --------------------------------
          */
+
         Button addLecturerButton = new Button("new");
         addLecturerButton.getStyleClass().addAll("add-button", "add-button:hover");
+
         addLecturerButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -295,6 +286,7 @@ public class ControllerLectureEdit implements Initializable, Updatable {
         gridPane.add(addLecturerButton, 2, 4);
 
 
+        MyLogger.LOGGER.exiting(getClass().toString(), "makeForm");
     }
 
     private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
@@ -304,10 +296,6 @@ public class ControllerLectureEdit implements Initializable, Updatable {
         alert.setContentText(message);
         alert.initOwner(owner);
         alert.show();
-    }
-
-    public void setLecture(Lecture lecture) {
-        this.lecture = lecture;
     }
 
     public void setUnit(Lectures unit) {
