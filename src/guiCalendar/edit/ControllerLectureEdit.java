@@ -53,7 +53,7 @@ public class ControllerLectureEdit implements Initializable, Updatable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        edit_grid.getStylesheets().add(getClass().getResource("edit.css").toExternalForm());
+        edit_grid.getStylesheets().add(getClass().getResource("../../main.css").toExternalForm());
 
         adjustGridPane(edit_grid);
 

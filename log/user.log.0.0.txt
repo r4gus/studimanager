@@ -702,3 +702,15 @@ Aug 18, 2019 11:02:00 PM timetable.Lecturers addLecturer
 WARNING: The specified Lecturer already exists!
 Aug 18, 2019 11:02:00 PM timetable.Lecturers addLecturer
 WARNING: The specified Lecturer already exists!
+Aug 21, 2019 10:52:55 AM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug 21, 2019 11:00:18 AM custom_exceptions.UserException <init>
+WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
+Aug 21, 2019 11:00:22 AM custom_exceptions.UserException <init>
+WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
+Aug 21, 2019 11:06:56 AM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Aug 21, 2019 11:49:53 AM custom_exceptions.UserException <init>
+WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
+Aug 21, 2019 11:52:17 AM custom_exceptions.UserException <init>
+WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein

@@ -1,0 +1,94 @@
+.button {
+    -fx-background-color: white;
+    -fx-border-width: 2;
+    -fx-border-color: black;
+    -fx-border-radius: 8;
+    -fx-text-fill: black;
+    -fx-padding: 4px 8px;
+    -fx-text-alignment: center;
+    -fx-content-display: inline-block;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-background-radius: 8;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: grey;
+}
+
+.button:pressed {
+
+}
+
+.edit-button {
+    -fx-border-color: blue;
+}
+
+.edit-button:hover {
+    -fx-background-color: blue;
+}
+
+.delete-button {
+    -fx-border-color: red;
+}
+
+.delete-button:hover {
+    -fx-background-color: red;
+}
+
+.add-button {
+    -fx-border-color: green;
+}
+
+.add-button:hover {
+    -fx-background-color: green;
+}
+
+.edit-button:hover, .add-button:hover, .delete-button:hover {
+    -fx-text-fill: white;
+}
+
+.label {
+    -fx-background-radius: 4;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+.label-h1 {
+    -fx-font-size: 21px;
+}
+
+.label-h2 {
+    -fx-font-size: 18px;
+}
+
+.label-h3 {
+    -fx-font-size: 15px;
+}
+
+.textarea, .text-field {
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-border-width: 2;
+    -fx-border-color: black;
+    -fx-border-radius: 2;
+    -fx-text-fill: black;
+    -fx-padding: 4px 8px;
+    -fx-content-display: inline-block;
+    -fx-background-radius: 2;
+}
+
+.choice-box, .combo-box{
+    -fx-background-radius: 8;
+    -fx-background-color: #FFFFFF ;
+    -fx-font-weight: bold;
+}
+
+.list-view {
+    -fx-font-size: 14px;
+}
+
+.background-color {
+    -fx-background-color: linear-gradient(#cecece 75%,  #1966FF 100%);
+}
