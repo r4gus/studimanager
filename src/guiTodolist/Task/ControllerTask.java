@@ -222,7 +222,6 @@ public class ControllerTask implements Initializable {
         MyLogger.LOGGER.entering(getClass().toString(), "createTaskObjekt");
         Task task = new Task(textFieldHeadingTask.getText().trim().isEmpty() ? null : textFieldHeadingTask.getText());
         task.setProjectDescription(((textAreaDescription.getText().trim().isEmpty() ? null : textAreaDescription.getText())));
-        task.setProjectStatus(0);
         task.setDone(false);
         task.setNotes(textAreaNotes.getText().trim().isEmpty() ? null : textAreaNotes.getText());
 

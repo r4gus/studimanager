@@ -12,7 +12,9 @@ import logging.MyLogger;
 import todolist.Task;
 import todolist.TaskCheckListItem;
 
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -140,16 +142,18 @@ public class ControllerInfoTask implements Initializable {
     private void initializeFileAttachment() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "initializeFileAttachment");
-        for (File file: this.task.getFileArrayList()) {
+        for (File file : this.task.getFileArrayList()) {
 
             Hyperlink hyperlinkFileAttachment = new Hyperlink(file.getName());
             vBoxFileAttachment.getChildren().add(hyperlinkFileAttachment);
             hyperlinkFileAttachment.setOnAction(ActionEvent -> {
+                try {
+                    Desktop.getDesktop().open(file);
 
-                // OpenDokument...
+                } catch (IOException ex) {                   //Fehlerbehandlung.... User informieren,dass datei... nicht mehr existiert...
 
+                }
             });
-
         }
 
         MyLogger.LOGGER.exiting(getClass().toString(), "initializeFileAttachment");

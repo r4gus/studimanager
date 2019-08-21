@@ -714,3 +714,7 @@ Aug 21, 2019 11:49:53 AM custom_exceptions.UserException <init>
 WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
 Aug 21, 2019 11:52:17 AM custom_exceptions.UserException <init>
 WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
+Aug. 21, 2019 1:01:29 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
+Aug. 21, 2019 1:28:42 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein

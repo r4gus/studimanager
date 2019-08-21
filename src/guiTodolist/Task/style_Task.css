@@ -1,28 +1,4 @@
 
-.label{
-    -fx-background-radius: 4;
-    -fx-background-color: #FFFFFF ;
-    -fx-font-family: Eras-Demi-ITC;
-    -fx-text-fill: #5e5e5e;
-    -fx-font-weight: bold;
-    -fx-font-size: 1.1em;
-    -fx-padding: 2px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
-}
-
-.textarea{
-    -fx-font-family: Eras-Demi-ITC;
-    -fx-font-weight: bold;
-    -fx-font-size: 1.1em;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
-}
-
-.list-view{
-    -fx-font-family: Eras-Demi-ITC;
-    -fx-font-weight: bold;
-    -fx-font-size: 1.1em;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
-}
 
 .vBox{
     -fx-background-radius: 4;
