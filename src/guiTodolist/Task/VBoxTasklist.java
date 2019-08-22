@@ -81,8 +81,8 @@ public class VBoxTasklist extends VBox {
 
         MyLogger.LOGGER.entering(getClass().toString(), "createNewSection");
         addSetOnDragOverEvent(this);
-        this.setPrefWidth(300);
-        this.setMinWidth(300);
+        this.setPrefWidth(350);
+        this.setMinWidth(350);
         hBoxToDoLists.setMargin(this, new Insets(10, 10, 10, 10));
 
         HBox hBoxHeading = generateHBoxHeading(this);

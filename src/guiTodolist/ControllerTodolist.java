@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import logging.MyLogger;
@@ -37,6 +39,8 @@ public class ControllerTodolist implements Initializable {
 
     private static final String pathControllerTask = "Task/layout_Task.fxml";
 
+    private final String filepathAddIcon = "guiTodolist/Task/Icons/icons8-hinzufuegen-48.png";
+
     /**
      * Called to initialize a controller after its root element has been completely processed
      *
@@ -47,6 +51,23 @@ public class ControllerTodolist implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        initButtonEdit();
+    }
+
+
+    /**
+     * add image to Button.
+     */
+
+    private void initButtonEdit(){
+
+        MyLogger.LOGGER.entering(getClass().toString(), "initButtonEdit");
+        ImageView imageView = new ImageView(new Image(this.filepathAddIcon));
+        imageView.setFitWidth(18);
+        imageView.setFitHeight(18);
+        this.buttonEditCanBan.setMaxWidth(20);
+        this.buttonEditCanBan.setGraphic(imageView);
+        MyLogger.LOGGER.exiting(getClass().toString(), "initButtonEdit");
     }
 
 

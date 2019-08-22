@@ -25,7 +25,7 @@
                </HBox.margin>
             </Button>
             <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <Button fx:id="buttonEditCanBan" mnemonicParsing="false" onAction="#createNewSection" prefHeight="25.0" prefWidth="67.0" text="+">
+            <Button fx:id="buttonEditCanBan" mnemonicParsing="false" onAction="#createNewSection" prefHeight="25.0" prefWidth="67.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>

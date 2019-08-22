@@ -38,9 +38,12 @@ public class VBoxTask extends VBox {
     private int taskID;
     private VBoxTasklist vBoxTasklist;
 
-    private String filepathHigh = "guiTodolist/Task/Icons/icons8-hohe-prio-48.png";
-    private String filepathMiddle = "guiTodolist/Task/Icons/icons8-mittlere-prio-48.png";
-    private String filepathLow = "guiTodolist/Task/Icons/icons8-niedrige-prio-48.png";
+    private final String filepathHigh = "guiTodolist/Task/Icons/icons8-hohe-prio-48.png";
+    private final String filepathMiddle = "guiTodolist/Task/Icons/icons8-mittlere-prio-48.png";
+    private final String filepathLow = "guiTodolist/Task/Icons/icons8-niedrige-prio-48.png";
+
+    private final String filepathDeleteIcon = "guiTodolist/Task/Icons/icons8-unwiederuflich-loeschen-48.png";
+    private final String filepathInfoIcon = "guiTodolist/Task/Icons/icons8-info-popup-48.png";
 
     public VBoxTask(Task task, VBoxTasklist vBoxTasklist) {
 
@@ -233,9 +236,11 @@ public class VBoxTask extends VBox {
         hBoxStatusElements.setAlignment(Pos.CENTER);
         hBoxStatusElements.setSpacing(10);
 
-        Button buttonDelete = new Button(" - "); // Delete mit Icon
+        Button buttonDelete = new Button(); // Delete mit Icon
+        addPictureToButton(buttonDelete, filepathDeleteIcon);
         addEventToDeleteButton(buttonDelete);
-        Button buttonDetails = new Button(" i "); // mit Image
+        Button buttonDetails = new Button(); // mit Image
+        addPictureToButton(buttonDetails, filepathInfoIcon );
         addEventShowTaskInfo(buttonDetails);
 
         ImageView imageViewDeadline = generateImageviewIcons("guiTodolist/Task/Icons/icons8-Deadline-48.png");
@@ -247,6 +252,25 @@ public class VBoxTask extends VBox {
         hBoxStatusElements.getChildren().addAll(buttonDelete, buttonDetails, imageViewDeadline, imageViewFiles, imageViewChecklist, imageViewNotes);
         this.getChildren().add(hBoxStatusElements);
         MyLogger.LOGGER.exiting(getClass().toString(), "createNewInformationToolbar");
+    }
+
+
+    /**
+     * allows you to add picture to the button.
+     *
+     * @param button   button to which the picture should be added
+     * @param filepath File path to the desired image
+     */
+
+    private void addPictureToButton(Button button, String filepath) {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "addPictureToButton");
+        ImageView imageView = new ImageView(new Image(filepath));
+        imageView.setFitWidth(18);
+        imageView.setFitHeight(18);
+        button.setMaxWidth(20);
+        button.setGraphic(imageView);
+        MyLogger.LOGGER.exiting(getClass().toString(), "addPictureToButton");
     }
 
     /**

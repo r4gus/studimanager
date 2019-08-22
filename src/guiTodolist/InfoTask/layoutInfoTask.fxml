@@ -136,6 +136,9 @@
                      </VBox.margin>
                   </Label>
                </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </VBox>
          </children>
       </VBox>
