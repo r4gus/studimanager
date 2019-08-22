@@ -65,15 +65,17 @@ public class ControllerTask implements Initializable {
     private ObservableList<String> itemsFilesList = FXCollections.observableArrayList();
     private ObservableList<String> itemsPriority = FXCollections.observableArrayList();
 
-    private ArrayList<TaskCheckListItem> taskCheckListItems = new ArrayList<>();            // Umbauen Nach Vorlage File Attachment
+    private ArrayList<TaskCheckListItem> taskCheckListItems = new ArrayList<>();
     private ArrayList<File> taskFiles = new ArrayList<>();
 
     private VBoxTasklist vboxTodoList;
     private Task currentTask;
+    private VBoxTask vBoxTask;
 
 
-    public ControllerTask(){
+    public ControllerTask(VBoxTask vBoxTask) {
 
+        this.vBoxTask = vBoxTask;
     }
 
     public ControllerTask(VBoxTasklist vboxTasklist) {
@@ -92,11 +94,86 @@ public class ControllerTask implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
         listViewChecklist.setItems(itemsChecklist);
         listViewFileAttachment.setItems(itemsFilesList);
-        itemsPriority.addAll("Hoch","Mittel","Niedrig");
+        itemsPriority.addAll("Hoch", "Mittel", "Niedrig");
         comboboxPriority.setItems(itemsPriority);
         comboboxPriority.getSelectionModel().select(2);
+
+        // Load information into Window...
+        if (this.vBoxTask != null) {
+            this.currentTask = vBoxTask.getTask();
+            initLeftSide();
+            initRightSide();
+            loadFileAttachments();
+        }
+
+
+    }
+
+
+    /**
+     * load Information into Gui
+     */
+
+    private void initLeftSide() {
+
+        if (this.currentTask.getProjectTitle() != null)
+            textFieldHeadingTask.setText(this.currentTask.getProjectTitle());
+        if (this.currentTask.getProjectDescription() != null)
+            textAreaDescription.setText(this.currentTask.getProjectDescription());
+        if (this.currentTask.getDeadline() != null)
+            datePickerDueDate.setValue(currentTask.getDeadline());
+        if (this.currentTask.getNotes() != null)                //Notes
+            textAreaNotes.setText(this.currentTask.getNotes());
+    }
+
+
+    /**
+     * load Information into Gui
+     */
+
+    private void initRightSide() {
+
+        String prio = "";
+        if (this.currentTask.getPriority() != null)
+            prio = this.currentTask.getPriority();
+        switch (prio) {
+            case "Hoch":
+                comboboxPriority.getSelectionModel().select(0);
+                ;
+                break;
+            case "Mittel":
+                comboboxPriority.getSelectionModel().select(1);
+                ;
+                break;
+            case "Niedrig":
+                comboboxPriority.getSelectionModel().select(2);
+                ;
+                break;
+        }
+
+        if (this.currentTask.getItemsChecklist() != null) {
+            for (TaskCheckListItem taskCheckListItem : this.currentTask.getItemsChecklist()) {
+
+//... noch unvollständig... Checkbox fehlt noch...
+            }
+        }
+    }
+
+
+    /**
+     * load Information into Gui
+     */
+
+    private void loadFileAttachments() {
+
+        for (File file : this.currentTask.getFileArrayList()) {
+
+            this.itemsFilesList.add(file.getName());
+            this.taskFiles.add(file);
+        }
     }
 
 
@@ -107,8 +184,12 @@ public class ControllerTask implements Initializable {
     public void addEntryToChecklist() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "addEntryToChecklist");
+
         itemsChecklist.add("o " + textFieldChecklistNewEntry.getText());
+        TaskCheckListItem taskCheckListItem = new TaskCheckListItem(textFieldChecklistNewEntry.getText());
+        taskCheckListItems.add(taskCheckListItem);
         textFieldChecklistNewEntry.clear();
+
         MyLogger.LOGGER.exiting(getClass().toString(), "addEntryToChecklist");
     }
 
@@ -119,7 +200,9 @@ public class ControllerTask implements Initializable {
     public void deleteEntryToChecklist() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "deleteEntryToChecklist");
-        itemsChecklist.remove(listViewChecklist.getSelectionModel().getSelectedItem());
+        int index = listViewChecklist.getSelectionModel().getSelectedIndex();
+        itemsChecklist.remove(index);
+        taskCheckListItems.remove(index);
         MyLogger.LOGGER.exiting(getClass().toString(), "deleteEntryToChecklist");
     }
 

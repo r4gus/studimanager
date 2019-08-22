@@ -1,6 +1,7 @@
 package guiTodolist.InfoTask;
 
 import guiTodolist.Task.ControllerTask;
+import guiTodolist.Task.VBoxTask;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -68,6 +69,7 @@ public class ControllerInfoTask implements Initializable {
     public Button buttonEditUsertask;
 
     private Task task;
+    private VBoxTask vBoxTask;
 
     private static final String NoENTRY = "N.A. (kein Eintrag vorhanden)";
 
@@ -78,6 +80,13 @@ public class ControllerInfoTask implements Initializable {
     public ControllerInfoTask(Task task) {
 
         this.task = task;
+
+    }
+
+    public ControllerInfoTask(Task task, VBoxTask vBoxTask){
+
+        this(task);
+        this.vBoxTask = vBoxTask;
     }
 
 
@@ -231,7 +240,7 @@ public class ControllerInfoTask implements Initializable {
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Task/layout_Task.fxml"));
-            ControllerTask controllerTask = new ControllerTask();
+            ControllerTask controllerTask = new ControllerTask(this.vBoxTask);
             fxmlLoader.setController(controllerTask);
             Parent root = fxmlLoader.load();
 

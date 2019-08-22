@@ -61,7 +61,7 @@
             </VBox>
          </children>
       </VBox>
-      <Button fx:id="buttonCreateTask" layoutX="60.0" layoutY="326.0" mnemonicParsing="false" onAction="#createTask" text="Aufgabe erstellen" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="60.0" />
+      <Button fx:id="buttonCreateTask" layoutX="60.0" layoutY="326.0" mnemonicParsing="false" onAction="#createTask" text="Aufgabe Speichern" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="60.0" />
       <VBox alignment="TOP_CENTER" layoutX="432.0" layoutY="100.0" spacing="15.0">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="67.0" prefWidth="328.0" spacing="10.0" styleClass="vBox">

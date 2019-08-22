@@ -56,12 +56,16 @@ public class VBoxTask extends VBox {
      * getter and setter methods of the variables
      */
 
-    public int getTaskID() {
+    public int getTaskID() {            //identisch mit ProjektStatus...
         return taskID;
-    }           // identisch mit Projekt status...
+    }
 
     public void setTaskID(int taskID) {
         this.taskID = taskID;
+    }
+
+    public Task getTask() {
+        return task;
     }
 
     /**
@@ -240,7 +244,7 @@ public class VBoxTask extends VBox {
         addPictureToButton(buttonDelete, filepathDeleteIcon);
         addEventToDeleteButton(buttonDelete);
         Button buttonDetails = new Button(); // mit Image
-        addPictureToButton(buttonDetails, filepathInfoIcon );
+        addPictureToButton(buttonDetails, filepathInfoIcon);
         addEventShowTaskInfo(buttonDetails);
 
         ImageView imageViewDeadline = generateImageviewIcons("guiTodolist/Task/Icons/icons8-Deadline-48.png");
@@ -301,7 +305,7 @@ public class VBoxTask extends VBox {
 
                 MyLogger.LOGGER.entering(getClass().toString(), "addEventShowTaskInfo", new Object[]{buttonInfo});
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../InfoTask/layoutInfoTask.fxml"));
-                ControllerInfoTask controllerInfoTask = new ControllerInfoTask(this.task);
+                ControllerInfoTask controllerInfoTask = new ControllerInfoTask(this.task, this);
                 fxmlLoader.setController(controllerInfoTask);
                 Parent root = fxmlLoader.load();
 
