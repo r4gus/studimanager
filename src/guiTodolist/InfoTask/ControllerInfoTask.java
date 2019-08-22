@@ -1,13 +1,18 @@
 package guiTodolist.InfoTask;
 
+import guiTodolist.Task.ControllerTask;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
 import todolist.Task;
@@ -58,6 +63,9 @@ public class ControllerInfoTask implements Initializable {
 
     @FXML
     public Button ButtonCloseInfo;
+
+    @FXML
+    public Button buttonEditUsertask;
 
     private Task task;
 
@@ -117,9 +125,9 @@ public class ControllerInfoTask implements Initializable {
         } else {
             labelNotes.setText(NoENTRY);
         }
-        if(task.getPriority() != null){
+        if (task.getPriority() != null) {
             labelPriority.setText(task.getPriority());
-        }else {
+        } else {
             labelPriority.setText(NoENTRY);
         }
         MyLogger.LOGGER.exiting(getClass().toString(), "inizializeTextLabels");
@@ -208,5 +216,37 @@ public class ControllerInfoTask implements Initializable {
         Stage stage = (Stage) this.ButtonCloseInfo.getScene().getWindow();
         stage.close();
         MyLogger.LOGGER.exiting(getClass().toString(), "ButtonCloseInfo");
+    }
+
+    /**
+     * This method contains the logic for the button "buttonEditTask".
+     * The button loads a new Window
+     */
+
+    @FXML
+    public void buttonEditTask() {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "buttonEditTask");
+
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Task/layout_Task.fxml"));
+            ControllerTask controllerTask = new ControllerTask();
+            fxmlLoader.setController(controllerTask);
+            Parent root = fxmlLoader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Edit Window");
+            stage.show();
+
+        } catch (IOException ioex) {
+
+        }
+        Stage stage = (Stage) this.buttonEditUsertask.getScene().getWindow();
+        stage.close();
+
+        MyLogger.LOGGER.exiting(getClass().toString(), "buttonEditTask");
     }
 }

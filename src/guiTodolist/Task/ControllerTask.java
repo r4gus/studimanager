@@ -72,6 +72,10 @@ public class ControllerTask implements Initializable {
     private Task currentTask;
 
 
+    public ControllerTask(){
+
+    }
+
     public ControllerTask(VBoxTasklist vboxTasklist) {
 
         this.vboxTodoList = vboxTasklist;

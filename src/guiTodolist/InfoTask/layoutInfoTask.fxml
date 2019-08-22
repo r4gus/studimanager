@@ -66,7 +66,7 @@
             <HBox alignment="CENTER" prefHeight="23.0" prefWidth="311.0" spacing="10.0">
                <children>
                   <Button fx:id="ButtonCloseInfo" mnemonicParsing="false" onAction="#ButtonCloseInfo" text="Info Schließen" />
-                  <Button mnemonicParsing="false" text="Task bearbeiten" />
+                  <Button fx:id="buttonEditUsertask" mnemonicParsing="false" onAction="#buttonEditTask" text="Task bearbeiten" />
                </children>
                <padding>
                   <Insets bottom="15.0" top="15.0" />
