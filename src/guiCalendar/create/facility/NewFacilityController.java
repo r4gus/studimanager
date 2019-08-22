@@ -36,7 +36,7 @@ public class NewFacilityController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        newFacility_grid.getStylesheets().add(getClass().getResource("../create.css").toExternalForm());
+        newFacility_grid.getStylesheets().add(getClass().getResource("../../../main.css").toExternalForm());
 
         adjustGridPane(newFacility_grid);
 

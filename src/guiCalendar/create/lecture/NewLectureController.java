@@ -46,7 +46,7 @@ public class NewLectureController implements Initializable, Updatable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        newLecture_grid.getStylesheets().add(getClass().getResource("../create.css").toExternalForm());
+        newLecture_grid.getStylesheets().add(getClass().getResource("../../../main.css").toExternalForm());
 
         adjustGridPane(newLecture_grid);
 

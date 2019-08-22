@@ -271,4 +271,12 @@ public class Timetable implements Serializable {
         }
     }
 
+    public void store() {
+
+    }
+
+    public void load() {
+
+    }
+
 }

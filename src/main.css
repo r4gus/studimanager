@@ -14,7 +14,7 @@
 }
 
 .button:hover {
-    -fx-background-color: grey;
+    -fx-background-color: lightgrey;
 }
 
 .button:pressed {
@@ -90,5 +90,13 @@
 }
 
 .background-color {
-    -fx-background-color: linear-gradient(#cecece 75%,  #1966FF 100%);
+    -fx-background-color: linear-gradient(#1966FF 1%,  #FFFFFF 18%);
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
 }

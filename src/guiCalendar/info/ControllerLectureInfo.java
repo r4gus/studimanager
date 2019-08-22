@@ -34,6 +34,8 @@ public class ControllerLectureInfo implements Initializable, Updatable {
     @FXML
     private ScrollPane li_scrollPane;
 
+    @FXML AnchorPane li_anchorPane;
+
     private Lectures lectures;
 
     private static final String colHeadlines[] = {"Facility", "Lecturer", "Is Elective", "Notes"};
@@ -47,9 +49,9 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         AnchorPane.setLeftAnchor(li_scrollPane, 8.0);
         AnchorPane.setRightAnchor(li_scrollPane, 8.0);
 
-        li_scrollPane.getStylesheets().add(getClass().getResource("infoCalendar.css").toExternalForm());
+        li_scrollPane.getStylesheets().add(getClass().getResource("../../main.css").toExternalForm());
 
-        Button button = makeAddButton(lectures);
+        li_anchorPane.getStyleClass().add("background-color");
 
         /**
          * Run makeAddButton and makeLectureAccordion on the JavaFX Application Thread at some time in the future.
@@ -276,13 +278,20 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             TreeItem<String> t_firstName = new TreeItem<>("First Name: " + lecture.getLecturer().getFirstName());
             TreeItem<String> t_lastName = new TreeItem<>("Last Name: " + lecture.getLecturer().getLastName());
             TreeItem<String> t_email = new TreeItem<>("E-Mail: " + lecture.getLecturer().getEmail());
-            TreeItem<String> t_facility = new TreeItem<>("Facility : " + lecture.getLecturer().getFacility().toString());
-            TreeItem<String> tt_building = new TreeItem<>("Building: " + lecture.getLecturer().getFacility().getBuilding());
-            TreeItem<String> tt_room = new TreeItem<>("Room: " + lecture.getLecturer().getFacility().getRoom());
-            TreeItem<String> tt_street = new TreeItem<>("Street: " + lecture.getLecturer().getFacility().getStreet());
-            TreeItem<String> tt_zipcode = new TreeItem<>("Zip-Code: " + lecture.getLecturer().getFacility().getZipcode());
-            TreeItem<String> tt_city = new TreeItem<>("City: " + lecture.getLecturer().getFacility().getCity());
-            t_facility.getChildren().addAll(tt_building, tt_room, tt_street, tt_zipcode, tt_city);
+
+            TreeItem<String> t_facility;
+            if(lecture.getLecturer().getFacility() != null) {
+                t_facility = new TreeItem<>("Facility : " + lecture.getLecturer().getFacility().toString());
+                TreeItem<String> tt_building = new TreeItem<>("Building: " + lecture.getLecturer().getFacility().getBuilding());
+                TreeItem<String> tt_room = new TreeItem<>("Room: " + lecture.getLecturer().getFacility().getRoom());
+                TreeItem<String> tt_street = new TreeItem<>("Street: " + lecture.getLecturer().getFacility().getStreet());
+                TreeItem<String> tt_zipcode = new TreeItem<>("Zip-Code: " + lecture.getLecturer().getFacility().getZipcode());
+                TreeItem<String> tt_city = new TreeItem<>("City: " + lecture.getLecturer().getFacility().getCity());
+                t_facility.getChildren().addAll(tt_building, tt_room, tt_street, tt_zipcode, tt_city);
+            } else {
+                t_facility = new TreeItem<>("Facility :");
+            }
+
             lecturerRootItem.getChildren().addAll(t_firstName, t_lastName, t_email, t_facility);
             lecturer.setRoot(lecturerRootItem);
         } else {
