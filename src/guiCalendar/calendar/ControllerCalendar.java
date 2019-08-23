@@ -59,8 +59,8 @@ public class ControllerCalendar implements Initializable, Updatable {
                 new Object[]{url, resourceBundle});
 
         /* load timetable */
-        //timetable = Timetable.load();
-        sampleLectures();
+        timetable = Timetable.load();
+        //sampleLectures();
 
         /* load stylesheet */
         tt_anchorPane.getStylesheets().add(getClass().getResource("guicalendar.css").toExternalForm());
@@ -72,9 +72,6 @@ public class ControllerCalendar implements Initializable, Updatable {
         ROW_PERCENTAGE_HEIGHT = 100.0 / timetable.getUnitsPerDay();
 
         this.update();
-
-        timetable.storeX();
-        timetable.loadX();
 
         MyLogger.LOGGER.exiting(getClass().toString(), "initialize");
     }

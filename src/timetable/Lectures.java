@@ -14,8 +14,11 @@ import java.util.logging.Level;
  * @author David Sugar
  */
 public class Lectures extends Container<Lecture> implements Serializable {
+    @JsonIgnore
     private LocalTime from;  // start of the lecture
+    @JsonIgnore
     private LocalTime to;    // end of the lecture
+    @JsonIgnore
     private Lecture head; // lecture to display inside the grid pane
 
     public Lectures() {
@@ -77,7 +80,6 @@ public class Lectures extends Container<Lecture> implements Serializable {
         if (this.getSize() == 0) {
             this.setHead(o);  // the head is the lecture that gets later displayed representative
         }                                           // for all lectures assigned to a unit
-
 
         MyLogger.LOGGER.exiting(getClass().toString(), "addLecture");
         return this.add(o);

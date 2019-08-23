@@ -6,6 +6,9 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 import java.io.IOException;
 
+/**
+ * @author David Sugar
+ */
 public class TimetableSerializer extends StdSerializer<Timetable> {
 
     protected TimetableSerializer(Class<Timetable> t) {

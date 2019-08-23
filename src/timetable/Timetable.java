@@ -258,8 +258,8 @@ public class Timetable implements Serializable {
      * @param unit The unit to add the lecture to
      * @param day The day
      * @param lecture The lecture to add
-     * @return true on success, false otherwise
-     * @throws IllegalArgumentException Thrown if {@code #lecture} is null or if index is out of bounds.
+     * @return true on success, false otherwise (for example if null has been passed as argument)
+     * @throws IllegalArgumentException Thrown if {@code #lecture} if index is out of bounds.
      */
     public boolean addLecture(int unit, int day, Lecture lecture) throws IllegalArgumentException {
         if(unit < 0 || unit >= unitsPerDay || day < 0 || day >= days)
@@ -274,31 +274,16 @@ public class Timetable implements Serializable {
             return x;
         } catch (IllegalArgumentException exc) {
             MyLogger.LOGGER.log(Level.WARNING, exc.getMessage());
-            throw exc;
+            return false;
         }
     }
 
     public void store() {
         ObjectMapper objectMapper = new ObjectMapper();
-
-        try (FileOutputStream fout = new FileOutputStream(PATH)) {
-            try {
-                objectMapper.writerWithDefaultPrettyPrinter().writeValue(fout, this);
-            } catch (JsonProcessingException exc) {
-                exc.printStackTrace();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public void storeX() {
-        ObjectMapper objectMapper = new ObjectMapper();
         TimetableSerializer timetableSerializer = new TimetableSerializer(Timetable.class);
 
         SimpleModule module = new SimpleModule("TimetableSerializer",
-                new Version(2, 1, 3, null, null, null));
+                new Version(0, 1, 0, null, null, null));
         module.addSerializer(Timetable.class, timetableSerializer);
 
         objectMapper.registerModule(module);
@@ -319,29 +304,8 @@ public class Timetable implements Serializable {
         ObjectMapper objectMapper = new ObjectMapper();
         Timetable timetable = null;
 
-        try(FileInputStream fin = new FileInputStream(PATH)) {
-            try {
-                timetable = objectMapper.readValue(fin, Timetable.class);
-            } catch (JsonProcessingException exc) {
-                exc.printStackTrace();
-            }
-        } catch (FileNotFoundException exc) {
-            /*
-            let the user choose a file
-             */
-        } catch (IOException exc) {
-            exc.printStackTrace();
-        }
-
-        return timetable;
-    }
-
-    public static Timetable loadX() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        Timetable timetable = null;
-
         SimpleModule module = new SimpleModule("TimetableDeserializer",
-                new Version(3, 1, 8, null, null, null));
+                new Version(0, 1, 0, null, null, null));
         module.addDeserializer(Timetable.class, new TimetableDeserializer(Timetable.class));
 
         objectMapper.registerModule(module);
