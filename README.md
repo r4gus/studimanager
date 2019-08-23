@@ -49,13 +49,12 @@ __jackson-annotations__ ( Group ID must be: **com.fasterxml.jackson.core**).
 A step by step series of examples that tell you how to get a development env running
 
 ##### IntelliJ
-Open Intellij
-
-###### 1. Add the required libraries
+Open Intellij and create a new project:
 ```
 New Project -> Project from Version Controll -> Git -> enter URL: https://github.com/r4gus/studimanager -> clone
 ```
 
+###### 1. Add the required libraries
 In the newly created project go to: __File -> Project Structure -> Libraries -> + -> java__
 and enter:
 
