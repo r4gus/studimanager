@@ -61,7 +61,7 @@ public class ControllerTask implements Initializable {
     public Button buttonCreateTask;
 
 
-    private ObservableList<String> itemsChecklist = FXCollections.observableArrayList();
+    private ObservableList<CheckBox> itemsChecklist = FXCollections.observableArrayList();
     private ObservableList<String> itemsFilesList = FXCollections.observableArrayList();
     private ObservableList<String> itemsPriority = FXCollections.observableArrayList();
 
@@ -157,7 +157,9 @@ public class ControllerTask implements Initializable {
         if (this.currentTask.getItemsChecklist() != null) {
             for (TaskCheckListItem taskCheckListItem : this.currentTask.getItemsChecklist()) {
 
-//... noch unvollständig... Checkbox fehlt noch...
+                CheckBox checkBoxItem = new CheckBox(taskCheckListItem.getChecklistTaskName());
+                checkBoxItem.setSelected(taskCheckListItem.isChecklistTaskCompleted());
+                itemsChecklist.add(checkBoxItem);
             }
         }
     }
@@ -185,7 +187,8 @@ public class ControllerTask implements Initializable {
 
         MyLogger.LOGGER.entering(getClass().toString(), "addEntryToChecklist");
 
-        itemsChecklist.add("o " + textFieldChecklistNewEntry.getText());
+        CheckBox checkBoxItem = new CheckBox(textFieldChecklistNewEntry.getText());
+        itemsChecklist.add(checkBoxItem);
         TaskCheckListItem taskCheckListItem = new TaskCheckListItem(textFieldChecklistNewEntry.getText());
         taskCheckListItems.add(taskCheckListItem);
         textFieldChecklistNewEntry.clear();
@@ -320,7 +323,12 @@ public class ControllerTask implements Initializable {
             ObservableList observableList = listViewChecklist.getItems();
             ArrayList<TaskCheckListItem> arrayList = new ArrayList<>();
             for (Object object : observableList) {
-                arrayList.add(new TaskCheckListItem(object.toString()));
+                CheckBox checkBox = (CheckBox) object;
+                TaskCheckListItem taskCheckListItem = new TaskCheckListItem(checkBox.getText());
+                if (checkBox.isSelected()) {
+                    taskCheckListItem.setChecklistTaskCompleted(true);
+                }
+                arrayList.add(taskCheckListItem);
             }
             task.setItemsChecklist(arrayList);
         }

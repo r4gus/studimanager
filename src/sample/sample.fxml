@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" stylesheets="@../main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -56,17 +56,17 @@
               <tabs>
                 <Tab text="Vorlesungsplan">
                   <content>
-                    <fx:include source="../guiCalendar/calendar/layoutCalendar.fxml"/>
+                    <fx:include source="../guiCalendar/calendar/layoutCalendar.fxml" />
                   </content>
                 </Tab>
                 <Tab text="Klausuren - Übersicht">
                   <content>
-                      <fx:include source="../guiExam/layoutExam.fxml"/>
+                      <fx:include source="../guiExam/layoutExam.fxml" />
                   </content>
                 </Tab>
                   <Tab text="Task - ToDoList">
                     <content>
-                      <fx:include source="../guiTodolist/layoutTodolist.fxml"/>
+                      <fx:include source="../guiTodolist/layoutTodolist.fxml" />
                     </content>
                   </Tab>
               </tabs>

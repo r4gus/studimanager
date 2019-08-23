@@ -1,20 +1,17 @@
 .button {
-    -fx-background-color: white;
-    -fx-border-width: 2;
-    -fx-border-color: black;
-    -fx-border-radius: 8;
-    -fx-text-fill: black;
-    -fx-padding: 4px 8px;
-    -fx-text-alignment: center;
-    -fx-content-display: inline-block;
-    -fx-font-size: 14px;
-    -fx-cursor: hand;
-    -fx-background-radius: 8;
+
     -fx-font-weight: bold;
+    -fx-border-color: lightgrey;
+    -fx-background-color: transparent;
+    -fx-border-weight: 1px;
+    -fx-border-radius: 2;
+    -fx-cursor: hand;
 }
 
 .button:hover {
-    -fx-background-color: grey;
+
+    -fx-border-color: grey;
+    -fx-border-weight: 1px;
 }
 
 .button:pressed {
@@ -70,8 +67,8 @@
 .textarea, .text-field {
     -fx-font-size: 14px;
     -fx-background-color: white;
-    -fx-border-width: 2;
-    -fx-border-color: black;
+    -fx-border-width: 1;
+    -fx-border-color: lightgrey;
     -fx-border-radius: 2;
     -fx-text-fill: black;
     -fx-padding: 4px 8px;
@@ -80,15 +77,71 @@
 }
 
 .choice-box, .combo-box{
-    -fx-background-radius: 8;
-    -fx-background-color: #FFFFFF ;
+    -fx-background-radius: 2;
+    -fx-background-color: white;
     -fx-font-weight: bold;
+    -fx-border-radius: 2px;
+    -fx-border-color: lightgrey;
 }
+
+.combo-box .list-cell:hover{
+    -fx-background-color: #1966FF;
+}
+
+.combo-box-popup .list-cell:selected{
+    -fx-background-color: #1966FF;
+}
+
 
 .list-view {
     -fx-font-size: 14px;
+
 }
 
 .background-color {
-    -fx-background-color: linear-gradient(#cecece 75%,  #1966FF 100%);
+    -fx-background-color: linear-gradient(#1966FF 1%,  #FFFFFF 18%);
 }
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: #1966FF;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #939393;
+}
+
+.tab .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+
+.menu:hover, .menu:showing{
+    -fx-background-color: #1966FF;
+}
+
+.context-menu {
+    -fx-background-color: white;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+    -fx-border-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+    -fx-border-color: lightgrey;
+    /*    -fx-padding: 0.666667em 0.083333em 0.666667em 0.083333em;  8 1 8 1 */
+    -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; /* 4 1 8 1 */
+}
+
+.menu-item:focused {
+    -fx-background-color: #1966FF;
+    -fx-text-fill: #FAFAFA;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: white;
+    -fx-background-color: #1966FF;
+}
+.menu-item .label{
+    -fx-background-color: white;
+}
+

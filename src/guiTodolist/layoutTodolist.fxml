@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane fx:id="anchorPaneToDoList" prefHeight="559.0" prefWidth="813.0" styleClass="anchorPaneToDoList" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiTodolist.ControllerTodolist">
+<AnchorPane fx:id="anchorPaneToDoList" prefHeight="559.0" prefWidth="813.0" styleClass="background-color" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiTodolist.ControllerTodolist">
    <children>
       <HBox alignment="CENTER" layoutX="379.0" layoutY="59.0" prefHeight="47.0" prefWidth="513.0" styleClass="hBox" stylesheets="@style_ToDoList.css" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="25.0">
          <children>

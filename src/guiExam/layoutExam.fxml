@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="677.0" prefWidth="1042.0" styleClass="anchorPaneExamen" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiExam.ControllerExam">
+<AnchorPane prefHeight="677.0" prefWidth="1042.0" styleClass="background-color" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiExam.ControllerExam">
    <children>
       <HBox alignment="CENTER" layoutX="34.0" layoutY="15.0" spacing="15.0" styleClass="hBox" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
          <children>
