@@ -786,3 +786,43 @@ Aug 23, 2019 11:29:46 PM timetable.Lecturers addLecturer
 WARNING: The specified Lecturer already exists!
 Aug 23, 2019 11:29:46 PM timetable.Lecturers addLecturer
 WARNING: The specified Lecturer already exists!
+Aug 23, 2019 11:37:10 PM timetable.Lectures addLecture
+WARNING: Invalid argument: null
+Aug 23, 2019 11:37:10 PM timetable.Lectures removeLecture
+WARNING: Invalid argument: null
+Aug 23, 2019 11:37:10 PM timetable.Lectures addLecture
+WARNING: Invalid argument: null
+Aug 23, 2019 11:37:10 PM timetable.Timetable addLecture
+WARNING: Invalid argument: null
+Aug 23, 2019 11:37:10 PM timetable.Facilities addFacility
+WARNING: null pointer passed!
+Aug 23, 2019 11:37:10 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Aug 23, 2019 11:37:10 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Aug 23, 2019 11:37:10 PM timetable.Lecturers addLecturer
+WARNING: null pointer passed!
+Aug 23, 2019 11:37:10 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Aug 23, 2019 11:37:10 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Aug 23, 2019 11:38:18 PM timetable.Lectures addLecture
+WARNING: Invalid argument: null
+Aug 23, 2019 11:38:18 PM timetable.Lectures removeLecture
+WARNING: Invalid argument: null
+Aug 23, 2019 11:38:18 PM timetable.Lectures addLecture
+WARNING: Invalid argument: null
+Aug 23, 2019 11:38:18 PM timetable.Timetable addLecture
+WARNING: Invalid argument: null
+Aug 23, 2019 11:38:18 PM timetable.Facilities addFacility
+WARNING: null pointer passed!
+Aug 23, 2019 11:38:18 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Aug 23, 2019 11:38:18 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Aug 23, 2019 11:38:18 PM timetable.Lecturers addLecturer
+WARNING: null pointer passed!
+Aug 23, 2019 11:38:18 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Aug 23, 2019 11:38:18 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
