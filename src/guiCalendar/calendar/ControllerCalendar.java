@@ -12,10 +12,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -62,7 +59,7 @@ public class ControllerCalendar implements Initializable, Updatable {
                 new Object[]{url, resourceBundle});
 
         /* load timetable */
-        //this.load();
+        //timetable = Timetable.load();
         sampleLectures();
 
         /* load stylesheet */
@@ -76,13 +73,14 @@ public class ControllerCalendar implements Initializable, Updatable {
 
         this.update();
 
+        timetable.storeX();
+        timetable.loadX();
+
         MyLogger.LOGGER.exiting(getClass().toString(), "initialize");
     }
 
     public void update() {
         MyLogger.LOGGER.entering(getClass().toString(), "update");
-
-
 
         GridPane gridPane = new GridPane();
         /* setup gridPane */
@@ -91,10 +89,6 @@ public class ControllerCalendar implements Initializable, Updatable {
         /* object for displaying time and date */
         Text date = new Text(timetable.getDate());
         date.setFont(new Font(BIG_FONT_SIZE));
-
-
-
-
 
 
         /* anchor date */
@@ -129,22 +123,6 @@ public class ControllerCalendar implements Initializable, Updatable {
         }
 
         MyLogger.LOGGER.exiting(getClass().toString(), "update");
-    }
-
-    /**
-     * Loads and deserializes an object 'T' from a file specified in {@link #PATH}.
-     * Then stores that object in {@link #timetable}.
-     */
-    private void load() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(PATH))) {
-            timetable = (Timetable) ois.readObject();
-        } catch (IOException | ClassNotFoundException exc) {
-            System.err.println(exc.getMessage());
-        }
-    }
-
-    private void store() {
-
     }
 
     private void sampleLectures() {
@@ -192,7 +170,11 @@ public class ControllerCalendar implements Initializable, Updatable {
 
                 // add a button to each inner cell of the grid pane
                 Button button = makeButton(unit, day);
-                button.getStyleClass().addAll("lecture-button");
+
+                button.getStyleClass().add("lecture-button");
+                button.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);  // fill whole cell
+
                 gridPane.add(button, day + 1, u + 1);
             }
         }
@@ -206,16 +188,15 @@ public class ControllerCalendar implements Initializable, Updatable {
         VBox vBox;
         Button button = new Button();
 
-        button.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-        button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);  // fill whole cell
-
         // get information about all lectures assigned to this unit as tooltip
-        String infoString = "";
-        for (Lecture l : unit.getContainer()) {
-            infoString += l.getTitle() + "\n";
+        if(unit.getSize() > 0) {
+            String toolTip = "";
+            for (Lecture l : unit.getContainer()) {
+                toolTip += l.getTitle() + "\n";
+            }
+            Tooltip lectureTooltip = new Tooltip(toolTip);
+            button.setTooltip(lectureTooltip);
         }
-        Tooltip lectureTooltip = new Tooltip(infoString);
-        button.setTooltip(lectureTooltip);
 
         /* show all lectures assigned to a unit */
         ControllerCalendar parent = this;
@@ -252,39 +233,43 @@ public class ControllerCalendar implements Initializable, Updatable {
         // display lecture information if possible
         if (head != null) {
 
+            vBox = new VBox(3);
+            vBox.setAlignment(Pos.CENTER);
+
             // get text-info's about the lecture
-            Text title = new Text(head.getTitle());
+            Label title = new Label(head.getTitle());
+            title.setStyle("-fx-font-size: 14px");
+            vBox.getChildren().add(title);
 
-            Text room;
-            if (head.getFacility() != null) room = new Text(head.getFacility().toString());
-            else room = new Text("");
-            room.setStyle("-fx-font-weight: normal");
+            Label room;
+            if (head.getFacility() != null) {
+                room = new Label(head.getFacility().toString());
+                room.setStyle("-fx-font-weight: normal; -fx-font-size: 10px");
+                vBox.getChildren().add(room);
+            }
 
-            Text lect;
-            if (head.getLecturer() != null) lect = new Text(head.getLecturer().toString());
-            else lect = new Text("");
-            lect.setStyle("-fx-font-weight: normal");
+            Label lect;
+            if (head.getLecturer() != null) {
+                lect = new Label(head.getLecturer().toString());
+                lect.setStyle("-fx-font-weight: normal; -fx-font-size: 10px");
+                vBox.getChildren().add(lect);
+            }
 
             // get the count of lectures assigned to the specified unit
             int lecture_count = unit.getSize();
 
             // place the text inside a VBox
-            Text count;
+            Label count;
             if (lecture_count > 1) {
                 // shows how many elements the unit contains
-                count = new Text("+ " + (lecture_count - 1));
+                count = new Label("+ " + (lecture_count - 1));
                 count.setStyle("-fx-font-size: 11");
-                count.setFill(Color.BLUE);
-
-            } else {
-                count = new Text("");
+                count.setTextFill(Color.BLUE);
+                vBox.getChildren().add(count);
             }
-            vBox = new VBox(3, title, room, lect, count);
 
-            vBox.setAlignment(Pos.CENTER);
 
             button.setGraphic(vBox);                                // add vBox to button
-
         }
 
         return button;
@@ -302,6 +287,8 @@ public class ControllerCalendar implements Initializable, Updatable {
         gridPane.setVgap(5); // vertical space between elements
         gridPane.setHgap(5); // horizontal space between elements
         gridPane.setAlignment(Pos.TOP_LEFT); // alignment of the GridPane
+        gridPane.setMinSize(1000.0, 700.0);
+        gridPane.setMaxSize(1300.0, 910.0);
 
         //gridPane.setGridLinesVisible(true);
 

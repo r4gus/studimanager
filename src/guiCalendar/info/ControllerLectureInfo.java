@@ -229,7 +229,6 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             }
         });
 
-        editButton.getStyleClass().addAll("edit-button", "edit-button:hover");
         deleteButton.getStyleClass().addAll("delete-button", "delete-button:hover");
 
         hButtonBox.getChildren().addAll(editButton, deleteButton);

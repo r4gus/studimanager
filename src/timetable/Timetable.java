@@ -1,9 +1,14 @@
 package timetable;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.Version;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import custom_exceptions.UserException;
 import logging.MyLogger;
 
-import java.io.Serializable;
+import java.io.*;
+import java.sql.Time;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -40,6 +45,8 @@ public class Timetable implements Serializable {
     private Lectures LECTURES = new Lectures(); // used to keep record over all records
     private Lecturers LECTURERS = new Lecturers(); // used to keep record over all lecturers
     private Facilities FACILITIES = new Facilities(); // used to keep record over all facilities
+
+    private static final String PATH = "files/timetable.json";
 
     /**
      * Creates an object with default time settings
@@ -272,11 +279,87 @@ public class Timetable implements Serializable {
     }
 
     public void store() {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try (FileOutputStream fout = new FileOutputStream(PATH)) {
+            try {
+                objectMapper.writerWithDefaultPrettyPrinter().writeValue(fout, this);
+            } catch (JsonProcessingException exc) {
+                exc.printStackTrace();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    public void load() {
+    public void storeX() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        TimetableSerializer timetableSerializer = new TimetableSerializer(Timetable.class);
+
+        SimpleModule module = new SimpleModule("TimetableSerializer",
+                new Version(2, 1, 3, null, null, null));
+        module.addSerializer(Timetable.class, timetableSerializer);
+
+        objectMapper.registerModule(module);
+
+        try (FileOutputStream fout = new FileOutputStream(PATH)) {
+            try {
+                objectMapper.writerWithDefaultPrettyPrinter().writeValue(fout, this);
+            } catch (JsonProcessingException exc) {
+                exc.printStackTrace();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
+    public static Timetable load() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        Timetable timetable = null;
+
+        try(FileInputStream fin = new FileInputStream(PATH)) {
+            try {
+                timetable = objectMapper.readValue(fin, Timetable.class);
+            } catch (JsonProcessingException exc) {
+                exc.printStackTrace();
+            }
+        } catch (FileNotFoundException exc) {
+            /*
+            let the user choose a file
+             */
+        } catch (IOException exc) {
+            exc.printStackTrace();
+        }
+
+        return timetable;
+    }
+
+    public static Timetable loadX() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        Timetable timetable = null;
+
+        SimpleModule module = new SimpleModule("TimetableDeserializer",
+                new Version(3, 1, 8, null, null, null));
+        module.addDeserializer(Timetable.class, new TimetableDeserializer(Timetable.class));
+
+        objectMapper.registerModule(module);
+
+        try(FileInputStream fin = new FileInputStream(PATH)) {
+            try {
+                timetable = objectMapper.readValue(fin, Timetable.class);
+            } catch (JsonProcessingException exc) {
+                exc.printStackTrace();
+            }
+        } catch (FileNotFoundException exc) {
+            /*
+            let the user choose a file
+             */
+        } catch (IOException exc) {
+            exc.printStackTrace();
+        }
+
+        return timetable;
+    }
 }

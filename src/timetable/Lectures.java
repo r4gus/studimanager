@@ -1,5 +1,6 @@
 package timetable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import logging.MyLogger;
 
 import java.io.Serializable;
@@ -117,6 +118,7 @@ public class Lectures extends Container<Lecture> implements Serializable {
      * Get the start and end time of the unit/ lecture separated with an '-'.
      * @return start and end time separated with an '-'
      */
+    @JsonIgnore
     public String getTime() {
         return this.from + "\n-\n" + this.to;
     }

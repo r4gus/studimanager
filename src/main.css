@@ -1,32 +1,19 @@
 .button {
-    -fx-background-color: white;
-    -fx-border-width: 2;
-    -fx-border-color: black;
-    -fx-border-radius: 8;
-    -fx-text-fill: black;
-    -fx-padding: 4px 8px;
-    -fx-text-alignment: center;
-    -fx-content-display: inline-block;
-    -fx-font-size: 14px;
-    -fx-cursor: hand;
-    -fx-background-radius: 8;
     -fx-font-weight: bold;
+    -fx-border-color: lightgrey;
+    -fx-background-color: transparent;
+    -fx-border-width: 1px;
+    -fx-border-radius: 2;
+    -fx-cursor: hand;
 }
 
 .button:hover {
-    -fx-background-color: lightgrey;
+    -fx-border-color: grey;
+    -fx-border-width: 1px;
 }
 
 .button:pressed {
 
-}
-
-.edit-button {
-    -fx-border-color: blue;
-}
-
-.edit-button:hover {
-    -fx-background-color: blue;
 }
 
 .delete-button {
@@ -47,6 +34,10 @@
 
 .edit-button:hover, .add-button:hover, .delete-button:hover {
     -fx-text-fill: white;
+}
+
+.lecture-button {
+    -fx-padding: 5, 5;
 }
 
 .label {
@@ -70,8 +61,8 @@
 .textarea, .text-field {
     -fx-font-size: 14px;
     -fx-background-color: white;
-    -fx-border-width: 2;
-    -fx-border-color: black;
+    -fx-border-width: 1;
+    -fx-border-color: lightgrey;
     -fx-border-radius: 2;
     -fx-text-fill: black;
     -fx-padding: 4px 8px;
@@ -80,9 +71,19 @@
 }
 
 .choice-box, .combo-box{
-    -fx-background-radius: 8;
-    -fx-background-color: #FFFFFF ;
+    -fx-background-radius: 2;
+    -fx-background-color: white;
     -fx-font-weight: bold;
+    -fx-border-radius: 2;
+    -fx-border-color: lightgrey;
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: #1966FF;
+}
+
+.combo-box-popup .list-cell:selected {
+    -fx-background-color: #1966FF;
 }
 
 .list-view {
@@ -100,3 +101,19 @@
 .scroll-pane > .viewport {
     -fx-background-color: transparent;
 }
+
+.tab-pane .tab:selected {
+    -fx-background-color: #1966FF;
+    -fx-border-radius: 2;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #939393;
+}
+
+.tab .tab-label {
+    -fx-text-alignment: center;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
