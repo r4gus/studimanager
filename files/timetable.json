@@ -1,0 +1,245 @@
+{
+  "semester" : 2,
+  "days" : 6,
+  "unitsPerDay" : 7,
+  "units" : [ [ {
+    "container" : [ {
+      "title" : "Algorithmen",
+      "facility" : {
+        "building" : "G2",
+        "room" : "0.23",
+        "street" : "",
+        "zipcode" : "73434",
+        "city" : "Aalen"
+      },
+      "lecturer" : {
+        "firstName" : "Max",
+        "lastName" : "Mustermann",
+        "email" : "mustermann@hs-aalen.de",
+        "facility" : {
+          "building" : "G2",
+          "room" : "0.23",
+          "street" : "",
+          "zipcode" : "73434",
+          "city" : "Aalen"
+        }
+      },
+      "elective" : false,
+      "notes" : {
+        "container" : [ {
+          "title" : "Finish the paper before Friday",
+          "body" : "Do what you've been told!",
+          "expirationDate" : null,
+          "important" : true
+        }, {
+          "title" : "Eat more vegetables!",
+          "body" : "One apple a day keeps the doctor away.",
+          "expirationDate" : null,
+          "important" : true
+        } ]
+      }
+    }, {
+      "title" : "OOP",
+      "facility" : {
+        "building" : "G1",
+        "room" : "1.44",
+        "street" : "",
+        "zipcode" : "73434",
+        "city" : "Aalen"
+      },
+      "lecturer" : {
+        "firstName" : "Maya",
+        "lastName" : "Mustermann",
+        "email" : "musterfrau@gmx.de",
+        "facility" : {
+          "building" : "G1",
+          "room" : "1.44",
+          "street" : "",
+          "zipcode" : "73434",
+          "city" : "Aalen"
+        }
+      },
+      "elective" : true,
+      "notes" : {
+        "container" : [ ]
+      }
+    } ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  } ], [ {
+    "container" : [ {
+      "title" : "Algorithmen",
+      "facility" : {
+        "building" : "G2",
+        "room" : "0.23",
+        "street" : "",
+        "zipcode" : "73434",
+        "city" : "Aalen"
+      },
+      "lecturer" : {
+        "firstName" : "Max",
+        "lastName" : "Mustermann",
+        "email" : "mustermann@hs-aalen.de",
+        "facility" : {
+          "building" : "G2",
+          "room" : "0.23",
+          "street" : "",
+          "zipcode" : "73434",
+          "city" : "Aalen"
+        }
+      },
+      "elective" : false,
+      "notes" : {
+        "container" : [ {
+          "title" : "Finish the paper before Friday",
+          "body" : "Do what you've been told!",
+          "expirationDate" : null,
+          "important" : true
+        }, {
+          "title" : "Eat more vegetables!",
+          "body" : "One apple a day keeps the doctor away.",
+          "expirationDate" : null,
+          "important" : true
+        } ]
+      }
+    } ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ {
+      "title" : "OOP",
+      "facility" : {
+        "building" : "G1",
+        "room" : "1.44",
+        "street" : "",
+        "zipcode" : "73434",
+        "city" : "Aalen"
+      },
+      "lecturer" : {
+        "firstName" : "Maya",
+        "lastName" : "Mustermann",
+        "email" : "musterfrau@gmx.de",
+        "facility" : {
+          "building" : "G1",
+          "room" : "1.44",
+          "street" : "",
+          "zipcode" : "73434",
+          "city" : "Aalen"
+        }
+      },
+      "elective" : true,
+      "notes" : {
+        "container" : [ ]
+      }
+    } ]
+  }, {
+    "container" : [ ]
+  } ], [ {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  } ], [ {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ {
+      "title" : "Algorithmen",
+      "facility" : {
+        "building" : "G2",
+        "room" : "0.23",
+        "street" : "",
+        "zipcode" : "73434",
+        "city" : "Aalen"
+      },
+      "lecturer" : {
+        "firstName" : "Max",
+        "lastName" : "Mustermann",
+        "email" : "mustermann@hs-aalen.de",
+        "facility" : {
+          "building" : "G2",
+          "room" : "0.23",
+          "street" : "",
+          "zipcode" : "73434",
+          "city" : "Aalen"
+        }
+      },
+      "elective" : false,
+      "notes" : {
+        "container" : [ {
+          "title" : "Finish the paper before Friday",
+          "body" : "Do what you've been told!",
+          "expirationDate" : null,
+          "important" : true
+        }, {
+          "title" : "Eat more vegetables!",
+          "body" : "One apple a day keeps the doctor away.",
+          "expirationDate" : null,
+          "important" : true
+        } ]
+      }
+    } ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  } ], [ {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  } ], [ {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  } ], [ {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  }, {
+    "container" : [ ]
+  } ] ]
+}
