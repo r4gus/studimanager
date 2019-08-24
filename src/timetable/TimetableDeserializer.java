@@ -2,16 +2,15 @@ package timetable;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import java.io.IOException;
 
 /**
+ * Deserializer for the {@link Timetable} class that facilitates the {@code Jackson}(JasonParser).
  * @author David Sugar
  */
 public class TimetableDeserializer extends StdDeserializer<Timetable> {
@@ -20,35 +19,21 @@ public class TimetableDeserializer extends StdDeserializer<Timetable> {
         super(vc);
     }
 
-    @Override
+    /**
+     * Custom deserializer Method for the {@code Timetable} class that is used by the {@link Timetable#load(String)} method to
+     * retrieve data from a {@code Jason} file to build a {@code Timetable} object.
+     *
+     * @param jsonParser
+     * @param deserializationContext
+     * @return Timetable object on success, null otherwise.
+     * @throws IOException
+     * @throws JsonProcessingException
+     */
     public Timetable deserialize(JsonParser jsonParser,
                                  DeserializationContext deserializationContext)
             throws IOException, JsonProcessingException
     {
         Timetable timetable = null;
-
-        /*
-        while (!jsonParser.isClosed()) {
-            JsonToken jsonToken = jsonParser.nextToken();
-
-            if (JsonToken.FIELD_NAME.equals(jsonToken)) {
-                String fieldName = jsonParser.getCurrentName();
-                System.out.println(fieldName);
-
-                jsonToken = jsonParser.nextToken();
-
-                if ("semester".equals(fieldName)) {
-                    System.out.println(" - " + jsonParser.getValueAsInt());
-                } else if ("days".equals(fieldName)) {
-                    System.out.println(" - " + jsonParser.getValueAsInt());
-                } else if ("unitsPerDay".equals(fieldName)) {
-                    System.out.println(" - " + jsonParser.getValueAsInt());
-                } else if ("units".equals(fieldName)) {
-                    System.out.println(" fuck fuck fuck ");
-                }
-            }
-        }
-        */
 
         ObjectCodec oc = jsonParser.getCodec();
         JsonNode node = oc.readTree(jsonParser);
@@ -60,7 +45,28 @@ public class TimetableDeserializer extends StdDeserializer<Timetable> {
         final int days          = node.get("days").asInt();
         final int unitsPerDays  = node.get("unitsPerDay").asInt();
 
-        timetable = new Timetable(unitsPerDays, semester, days);
+        JsonNode begin = node.get("begin");
+        final int begin_h = begin.get("hour").asInt();
+        final int begin_m = begin.get("minute").asInt();
+
+        JsonNode lunch = node.get("lunch");
+        final int lunch_h = lunch.get("hour").asInt();
+        final int lunch_m = lunch.get("minute").asInt();
+
+        final long durationInMin = node.get("durationInMin").asLong();
+        final long breakTime = node.get("breakTime").asLong();
+        final long lunchTime = node.get("lunchTime").asLong();
+
+        timetable = new Timetable(  unitsPerDays,
+                                    semester,
+                                    begin_h,
+                                    begin_m,
+                                    durationInMin,
+                                    breakTime,
+                                    lunchTime,
+                                    lunch_h,
+                                    lunch_m,
+                                    days);
 
         /*
         ---------------- ADD LECTURES ----------------------------------
@@ -74,7 +80,6 @@ public class TimetableDeserializer extends StdDeserializer<Timetable> {
 
         for(final JsonNode row: units) {                        // iterate over rows
             for(final JsonNode unit: row) {                     // iterate over each unit of a row
-                System.out.println("[" + i + "][" + j + "]:");
 
                 final JsonNode lectures  = unit.get("container");   // get the lectures of each unit
 
@@ -146,12 +151,6 @@ public class TimetableDeserializer extends StdDeserializer<Timetable> {
                      */
                     timetable.addLecture(i, j, newLecture);
 
-                    /*
-                    System.out.println("    " + newLecture + ":" +
-                            "\n         facility: " + facility + "\n        lecturer:" + lecturer +
-                            "\n         elective: " + elective +
-                            "\n         notes:" + newLecture.getNotes());
-                     */
                 }
 
                 j += 1;

@@ -826,3 +826,23 @@ Aug 23, 2019 11:38:18 PM timetable.Lecturers addLecturer
 WARNING: The specified Lecturer already exists!
 Aug 23, 2019 11:38:18 PM timetable.Lecturers addLecturer
 WARNING: The specified Lecturer already exists!
+Aug 24, 2019 2:05:59 AM timetable.Lectures addLecture
+WARNING: Invalid argument: null
+Aug 24, 2019 2:05:59 AM timetable.Lectures removeLecture
+WARNING: Invalid argument: null
+Aug 24, 2019 2:05:59 AM timetable.Lectures addLecture
+WARNING: Invalid argument: null
+Aug 24, 2019 2:05:59 AM timetable.Timetable addLecture
+WARNING: Invalid argument: null
+Aug 24, 2019 2:06:00 AM timetable.Facilities addFacility
+WARNING: null pointer passed!
+Aug 24, 2019 2:06:00 AM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Aug 24, 2019 2:06:00 AM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Aug 24, 2019 2:06:00 AM timetable.Lecturers addLecturer
+WARNING: null pointer passed!
+Aug 24, 2019 2:06:00 AM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Aug 24, 2019 2:06:00 AM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!

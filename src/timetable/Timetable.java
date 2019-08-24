@@ -1,14 +1,15 @@
 package timetable;
 
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.Version;
+import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import custom_exceptions.UserException;
 import logging.MyLogger;
 
 import java.io.*;
-import java.sql.Time;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -46,7 +47,6 @@ public class Timetable implements Serializable {
     private Lecturers LECTURERS = new Lecturers(); // used to keep record over all lecturers
     private Facilities FACILITIES = new Facilities(); // used to keep record over all facilities
 
-    private static final String PATH = "files/timetable.json";
 
     /**
      * Creates an object with default time settings
@@ -144,6 +144,26 @@ public class Timetable implements Serializable {
 
     public void setSemester(int semester) {
         this.semester = semester;
+    }
+
+    public LocalTime getDEFAULT_BEGIN() {
+        return DEFAULT_BEGIN;
+    }
+
+    public long getDEFAULT_DURATION_M() {
+        return DEFAULT_DURATION_M;
+    }
+
+    public long getDEFAULT_BREAK_TIME() {
+        return DEFAULT_BREAK_TIME;
+    }
+
+    public long getDEFAULT_LUNCH_TIME() {
+        return DEFAULT_LUNCH_TIME;
+    }
+
+    public LocalTime getDEFAULT_LUNCH_AT() {
+        return DEFAULT_LUNCH_AT;
     }
 
     /**
@@ -278,7 +298,16 @@ public class Timetable implements Serializable {
         }
     }
 
-    public void store() {
+    /**
+     * Store the current Timetable object data at the specified location. It can later be retrieved by calling
+     * the {@code load()} method.
+     * @param path Place to store the data on the system
+     */
+    public void store(String path) {
+        storeJson(path);
+    }
+
+    public void storeJson(String path) {
         ObjectMapper objectMapper = new ObjectMapper();
         TimetableSerializer timetableSerializer = new TimetableSerializer(Timetable.class);
 
@@ -288,7 +317,7 @@ public class Timetable implements Serializable {
 
         objectMapper.registerModule(module);
 
-        try (FileOutputStream fout = new FileOutputStream(PATH)) {
+        try (FileOutputStream fout = new FileOutputStream(path)) {
             try {
                 objectMapper.writerWithDefaultPrettyPrinter().writeValue(fout, this);
             } catch (JsonProcessingException exc) {
@@ -297,10 +326,24 @@ public class Timetable implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    public static Timetable load() {
+    /**
+     * Loads data that has previously been stored by the {@code store()} method.
+     * @param path File to retrieve the data from
+     * @return Timetable object on success, null otherwise
+     */
+    public static Timetable load(String path) {
+        return loadJson(path);
+    }
+
+    /**
+     * Calls a custom deserializer {@link TimetableDeserializer#deserialize(JsonParser, DeserializationContext)}
+     * method to retrieve data from a json file.
+     * @param path Path to the Json file
+     * @return Timetable object on success, null otherwise
+     */
+    public static Timetable loadJson(String path) {
         ObjectMapper objectMapper = new ObjectMapper();
         Timetable timetable = null;
 
@@ -310,7 +353,7 @@ public class Timetable implements Serializable {
 
         objectMapper.registerModule(module);
 
-        try(FileInputStream fin = new FileInputStream(PATH)) {
+        try(FileInputStream fin = new FileInputStream(path)) {
             try {
                 timetable = objectMapper.readValue(fin, Timetable.class);
             } catch (JsonProcessingException exc) {

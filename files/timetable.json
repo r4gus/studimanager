@@ -2,6 +2,21 @@
   "semester" : 2,
   "days" : 6,
   "unitsPerDay" : 7,
+  "begin" : {
+    "hour" : 8,
+    "minute" : 0,
+    "second" : 0,
+    "nano" : 0
+  },
+  "lunch" : {
+    "hour" : 13,
+    "minute" : 0,
+    "second" : 0,
+    "nano" : 0
+  },
+  "durationInMin" : 90,
+  "breakTime" : 15,
+  "lunchTime" : 60,
   "units" : [ [ {
     "container" : [ {
       "title" : "Algorithmen",

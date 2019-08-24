@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -24,9 +23,7 @@ import logging.MyLogger;
 import sample.Main;
 import timetable.*;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -39,12 +36,13 @@ public class ControllerCalendar implements Initializable, Updatable {
 
     public final static String DAYS[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
+    public static final String PATH = "files/timetable.json";
+
     public static final int BIG_FONT_SIZE = 22;
     public static final int MEDIUM_FONT_SIZE = 16;
     public static final int SMALL_FONT_SIZE = 12;
     private double COLUMN_PERCENTAGE_WIDTH = 100.0;
     private double ROW_PERCENTAGE_HEIGHT = 100.0;
-    private final static String PATH = "files/timetable.ser";
 
     @FXML
     public AnchorPane tt_anchorPane;
@@ -59,7 +57,7 @@ public class ControllerCalendar implements Initializable, Updatable {
                 new Object[]{url, resourceBundle});
 
         /* load timetable */
-        timetable = Timetable.load();
+        timetable = Timetable.load(PATH);
         //sampleLectures();
 
         /* load stylesheet */
