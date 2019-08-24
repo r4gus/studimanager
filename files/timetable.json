@@ -82,7 +82,32 @@
   }, {
     "container" : [ ]
   }, {
-    "container" : [ ]
+    "container" : [ {
+      "title" : "Rechnerarchitektur",
+      "facility" : {
+        "building" : "G2",
+        "room" : "0.23",
+        "street" : "",
+        "zipcode" : "73434",
+        "city" : "Aalen"
+      },
+      "lecturer" : {
+        "firstName" : "Mathias",
+        "lastName" : "Meyer",
+        "email" : "",
+        "facility" : {
+          "building" : "Hauptgebäude",
+          "room" : "111",
+          "street" : "",
+          "zipcode" : "",
+          "city" : "Stuttgart"
+        }
+      },
+      "elective" : true,
+      "notes" : {
+        "container" : [ ]
+      }
+    } ]
   }, {
     "container" : [ ]
   }, {
@@ -152,6 +177,31 @@
           "street" : "",
           "zipcode" : "73434",
           "city" : "Aalen"
+        }
+      },
+      "elective" : true,
+      "notes" : {
+        "container" : [ ]
+      }
+    }, {
+      "title" : "Rechnerarchitektur",
+      "facility" : {
+        "building" : "G2",
+        "room" : "0.23",
+        "street" : "",
+        "zipcode" : "73434",
+        "city" : "Aalen"
+      },
+      "lecturer" : {
+        "firstName" : "Mathias",
+        "lastName" : "Meyer",
+        "email" : "",
+        "facility" : {
+          "building" : "Hauptgebäude",
+          "room" : "111",
+          "street" : "",
+          "zipcode" : "",
+          "city" : "Stuttgart"
         }
       },
       "elective" : true,

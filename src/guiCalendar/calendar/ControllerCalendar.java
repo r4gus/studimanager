@@ -23,6 +23,7 @@ import logging.MyLogger;
 import sample.Main;
 import timetable.*;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -57,8 +58,17 @@ public class ControllerCalendar implements Initializable, Updatable {
                 new Object[]{url, resourceBundle});
 
         /* load timetable */
-        timetable = Timetable.load(PATH);
-        //sampleLectures();
+        try {
+            timetable = Timetable.load(PATH);
+        } catch (FileNotFoundException exc) {
+            /*
+            welcome window
+             */
+        } catch (IOException exc) {
+            /*
+            general error
+             */
+        }
 
         /* load stylesheet */
         tt_anchorPane.getStylesheets().add(getClass().getResource("guicalendar.css").toExternalForm());
@@ -72,6 +82,14 @@ public class ControllerCalendar implements Initializable, Updatable {
         this.update();
 
         MyLogger.LOGGER.exiting(getClass().toString(), "initialize");
+    }
+
+    /**
+     *
+     * @return
+     */
+    private Timetable welcomeWindow() {
+        return null;
     }
 
     public void update() {

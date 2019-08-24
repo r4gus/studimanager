@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import timetable.*;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,10 +55,18 @@ class TimetableDeserializerTest {
 
     @Test
     void deserialize() {
-        timetable.store("files/test.json");    // serialize that shit
+        try {
+            timetable.store("files/test.json");    // serialize that shit
+        } catch (IOException exc) {
+            fail();
+        }
 
         // check if everything got parsed the right way
-        timetable = Timetable.loadJson("files/test.json");
+        try {
+            timetable = Timetable.loadJson("files/test.json");
+        } catch (IOException exc) {
+            fail();
+        }
 
         /*
         ------------------ BASIC TIMETABLE SETTINGS ----------------------

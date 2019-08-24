@@ -1,10 +1,12 @@
 package timetable;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import custom_exceptions.UserException;
 import logging.MyLogger;
@@ -302,12 +304,27 @@ public class Timetable implements Serializable {
      * Store the current Timetable object data at the specified location. It can later be retrieved by calling
      * the {@code load()} method.
      * @param path Place to store the data on the system
+     * @throws IOException Either because a problem occurred while parsing the specified object or because the file
+     * couldn't be opened.
      */
-    public void store(String path) {
-        storeJson(path);
+    public void store(String path) throws IOException {
+        try {
+            storeJson(path);
+        } catch (IOException exc) {
+            throw exc;
+        }
     }
+    
+    /**
+     * Calls a custom serializer {@link TimetableSerializer#serialize(Timetable, JsonGenerator, SerializerProvider)}
+     * method to store a {@code Timetable} objects data in a Json file at the specified location.
+     * @param path Destination
+     * @throws IOException Either because a problem occurred while parsing the specified object or because the file
+     * couldn't be opened.
+     */
+    public void storeJson(String path) throws IOException {
+        MyLogger.LOGGER.entering(getClass().toString(), "storeJson", path);
 
-    public void storeJson(String path) {
         ObjectMapper objectMapper = new ObjectMapper();
         TimetableSerializer timetableSerializer = new TimetableSerializer(Timetable.class);
 
@@ -318,23 +335,30 @@ public class Timetable implements Serializable {
         objectMapper.registerModule(module);
 
         try (FileOutputStream fout = new FileOutputStream(path)) {
-            try {
-                objectMapper.writerWithDefaultPrettyPrinter().writeValue(fout, this);
-            } catch (JsonProcessingException exc) {
-                exc.printStackTrace();
-            }
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(fout, this);
+        } catch (JsonProcessingException exc) {
+            MyLogger.LOGGER.log(Level.SEVERE, exc.getMessage() + "\nSpecified Path: " + path);
+            throw exc;
         } catch (IOException e) {
-            e.printStackTrace();
+            MyLogger.LOGGER.log(Level.WARNING, e.getMessage() + "\nSpecified Path: " + path);
+            throw e;
         }
+
+        MyLogger.LOGGER.exiting(getClass().toString(), "storeJson");
     }
 
     /**
      * Loads data that has previously been stored by the {@code store()} method.
      * @param path File to retrieve the data from
      * @return Timetable object on success, null otherwise
+     * @throws IOException if the specified file couldn't be found or because of an parsing error
      */
-    public static Timetable load(String path) {
-        return loadJson(path);
+    public static Timetable load(String path) throws IOException {
+        try {
+            return loadJson(path);
+        } catch (IOException exc) {
+            throw exc;
+        }
     }
 
     /**
@@ -342,8 +366,9 @@ public class Timetable implements Serializable {
      * method to retrieve data from a json file.
      * @param path Path to the Json file
      * @return Timetable object on success, null otherwise
+     * @throws IOException if the specified file couldn't be found or because of an parsing error
      */
-    public static Timetable loadJson(String path) {
+    public static Timetable loadJson(String path) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         Timetable timetable = null;
 
@@ -354,17 +379,13 @@ public class Timetable implements Serializable {
         objectMapper.registerModule(module);
 
         try(FileInputStream fin = new FileInputStream(path)) {
-            try {
-                timetable = objectMapper.readValue(fin, Timetable.class);
-            } catch (JsonProcessingException exc) {
-                exc.printStackTrace();
-            }
-        } catch (FileNotFoundException exc) {
-            /*
-            let the user choose a file
-             */
+            timetable = objectMapper.readValue(fin, Timetable.class);
+        } catch (JsonProcessingException exc) {
+            MyLogger.LOGGER.log(Level.SEVERE, exc.getMessage() + "\nSpecified Path: " + path);
+            throw exc;
         } catch (IOException exc) {
-            exc.printStackTrace();
+            MyLogger.LOGGER.log(Level.WARNING, exc.getMessage() + "\nSpecified Path: " + path);
+            throw exc;
         }
 
         return timetable;
