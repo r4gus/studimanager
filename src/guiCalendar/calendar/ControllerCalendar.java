@@ -2,6 +2,7 @@ package guiCalendar.calendar;
 
 import guiCalendar.Updatable;
 import guiCalendar.info.ControllerLectureInfo;
+import guiCalendar.welcome_screen.ControllerWelcomeScreen;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -48,27 +49,12 @@ public class ControllerCalendar implements Initializable, Updatable {
     @FXML
     public AnchorPane tt_anchorPane;
 
-    public static Timetable getTimetable() {
-        return timetable;
-    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         MyLogger.LOGGER.entering(getClass().toString(), "initialize",
                 new Object[]{url, resourceBundle});
-
-        /* load timetable */
-        try {
-            timetable = Timetable.load(PATH);
-        } catch (FileNotFoundException exc) {
-            /*
-            welcome window
-             */
-        } catch (IOException exc) {
-            /*
-            general error
-             */
-        }
 
         /* load stylesheet */
         tt_anchorPane.getStylesheets().add(getClass().getResource("guicalendar.css").toExternalForm());
@@ -82,14 +68,6 @@ public class ControllerCalendar implements Initializable, Updatable {
         this.update();
 
         MyLogger.LOGGER.exiting(getClass().toString(), "initialize");
-    }
-
-    /**
-     *
-     * @return
-     */
-    private Timetable welcomeWindow() {
-        return null;
     }
 
     public void update() {
@@ -362,5 +340,13 @@ public class ControllerCalendar implements Initializable, Updatable {
         }
 
         MyLogger.LOGGER.exiting(getClass().toString(), "setTime");
+    }
+
+    public static void setTimetable(Timetable timetable) {
+        ControllerCalendar.timetable = timetable;
+    }
+
+    public static Timetable getTimetable() {
+        return timetable;
     }
 }

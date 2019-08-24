@@ -846,3 +846,39 @@ Aug 24, 2019 2:06:00 AM timetable.Lecturers addLecturer
 WARNING: The specified Lecturer already exists!
 Aug 24, 2019 2:06:00 AM timetable.Lecturers addLecturer
 WARNING: The specified Lecturer already exists!
+Aug 24, 2019 11:46:26 PM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Aug 24, 2019 11:55:31 PM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Aug 24, 2019 11:57:05 PM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Aug 24, 2019 11:57:36 PM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Aug 25, 2019 12:06:36 AM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Aug 25, 2019 12:08:08 AM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Aug 25, 2019 12:32:17 AM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Aug 25, 2019 12:33:54 AM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Aug 25, 2019 12:58:24 AM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Aug 25, 2019 1:03:27 AM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Aug 25, 2019 1:07:26 AM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Aug 25, 2019 1:09:47 AM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
