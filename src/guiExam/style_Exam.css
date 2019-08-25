@@ -6,7 +6,7 @@
 .hBox{
         -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
         -fx-background-radius: 6;
-        -fx-background-color: linear-gradient(#121b74 30%, #614ad3 100%);
+        -fx-background-color: linear-gradient(#cecece 30%, #BDBDBD 100%);
 }
 
 

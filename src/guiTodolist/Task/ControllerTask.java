@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -58,12 +60,24 @@ public class ControllerTask implements Initializable {
     public ComboBox comboboxPriority;
 
     @FXML
+    public Button buttonAddChecklistEntry;
+    @FXML
+    public Button buttonDeleteChecklistEntry;
+    @FXML
+    public Button buttonAddFileAttachment;
+    @FXML
+    public Button buttonDeleteFileAttachment;
+
+    @FXML
     public Button buttonCreateTask;
 
 
     private ObservableList<CheckBox> itemsChecklist = FXCollections.observableArrayList();
     private ObservableList<String> itemsFilesList = FXCollections.observableArrayList();
     private ObservableList<String> itemsPriority = FXCollections.observableArrayList();
+
+    private final String filepathAddIcon = "guiTodolist/Task/Icons/icons8-hinzufuegen-48.png";
+    private final String filepathDeleteIcon = "guiTodolist/Task/Icons/icons8-unwiederuflich-loeschen-48.png";
 
     private ArrayList<TaskCheckListItem> taskCheckListItems = new ArrayList<>();
     private ArrayList<File> taskFiles = new ArrayList<>();
@@ -100,6 +114,11 @@ public class ControllerTask implements Initializable {
         itemsPriority.addAll("Hoch", "Mittel", "Niedrig");
         comboboxPriority.setItems(itemsPriority);
         comboboxPriority.getSelectionModel().select(2);
+
+        initButtonAddPicture(buttonAddChecklistEntry, filepathAddIcon);
+        initButtonAddPicture(buttonDeleteChecklistEntry, filepathDeleteIcon);
+        initButtonAddPicture(buttonAddFileAttachment, filepathAddIcon);
+        initButtonAddPicture(buttonDeleteFileAttachment, filepathDeleteIcon);
 
         // Load information into Window...
         if (this.vBoxTask != null) {
@@ -246,6 +265,23 @@ public class ControllerTask implements Initializable {
         this.taskFiles.remove(index);
 
         MyLogger.LOGGER.exiting(getClass().toString(), "deleteFileAttachmentToTask");
+    }
+
+
+
+    /**
+     * add image to Button.
+     */
+
+    private void initButtonAddPicture(Button button, String filepathAddIcon){
+
+        MyLogger.LOGGER.entering(getClass().toString(), "initButtonAddPicture");
+        ImageView imageView = new ImageView(new Image(filepathAddIcon));
+        imageView.setFitWidth(18);
+        imageView.setFitHeight(18);
+        button.setMaxWidth(20);
+        button.setGraphic(imageView);
+        MyLogger.LOGGER.exiting(getClass().toString(), "initButtonAddPicture");
     }
 
 

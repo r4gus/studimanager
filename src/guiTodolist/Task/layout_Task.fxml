@@ -83,9 +83,9 @@
                   <ListView fx:id="listViewChecklist" prefHeight="142.0" prefWidth="318.0" />
                   <HBox alignment="CENTER" spacing="10.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#deleteEntryToChecklist" text=" - " />
+                        <Button fx:id="buttonDeleteChecklistEntry" mnemonicParsing="false" onAction="#deleteEntryToChecklist" styleClass="delete-button" />
                         <Separator orientation="VERTICAL" prefHeight="10.0" />
-                        <Button mnemonicParsing="false" onAction="#addEntryToChecklist" text="+" />
+                        <Button fx:id="buttonAddChecklistEntry" mnemonicParsing="false" onAction="#addEntryToChecklist" styleClass="add-button" />
                         <TextField fx:id="textFieldChecklistNewEntry" prefHeight="27.0" prefWidth="196.0" promptText="Neuer Eintrag der Checkliste" />
                      </children>
                      <padding>
@@ -106,9 +106,9 @@
                   <ListView fx:id="listViewFileAttachment" prefHeight="200.0" prefWidth="200.0" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#deleteFileAttachmentToTask" text=" - " />
+                        <Button fx:id="buttonDeleteFileAttachment" mnemonicParsing="false" onAction="#deleteFileAttachmentToTask" styleClass="delete-button" />
                         <Separator orientation="VERTICAL" prefHeight="200.0" />
-                        <Button mnemonicParsing="false" onAction="#AddFileAttachmentToTask" text="+" />
+                        <Button fx:id="buttonAddFileAttachment" mnemonicParsing="false" onAction="#AddFileAttachmentToTask" styleClass="add-button" />
                         <TextField fx:id="textFieldNewFileEntry" promptText="Dokumentenbezeichnung" />
                      </children>
                      <VBox.margin>
