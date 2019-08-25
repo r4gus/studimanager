@@ -94,6 +94,7 @@ public class VBoxTask extends VBox {
         this.setAlignment(Pos.CENTER);
 
         Label labelHeading = new Label(task.getProjectTitle());
+        labelHeading.getStyleClass().add("label-h3");
         labelHeading.setPadding(new Insets(2, 10, 2, 10));
         this.setMargin(labelHeading, new Insets(5, 10, 5, 10));
         this.getChildren().add(labelHeading);
@@ -249,6 +250,7 @@ public class VBoxTask extends VBox {
         hBoxStatusElements.setSpacing(10);
 
         Button buttonDelete = new Button(); // Delete mit Icon
+        buttonDelete.getStyleClass().add("delete-button");
         addPictureToButton(buttonDelete, filepathDeleteIcon);
         addEventToDeleteButton(buttonDelete);
         Button buttonDetails = new Button(); // mit Image

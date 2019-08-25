@@ -155,7 +155,7 @@ public class ControllerInfoTask implements Initializable {
         MyLogger.LOGGER.entering(getClass().toString(), "initializeChecklist");
         for (TaskCheckListItem itemChecklist : task.getItemsChecklist()) {
 
-            Label labelCheckBox = new Label(itemChecklist.getChecklistTaskName());
+            Label labelCheckBox = new Label("o " + itemChecklist.getChecklistTaskName());
             labelCheckBox.getStyleClass().add("label-h3");
             labelCheckBox.setWrapText(false);
 

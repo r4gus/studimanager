@@ -1,9 +1,5 @@
 
 
-.anchorPaneToDoList{
-    -fx-background-color: linear-gradient( #D8D8D8 1% , #6E6E6E 15% , #B90707 60% , #6E6E6E 100%);
-}
-
 .hBox{
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
     -fx-background-radius: 6;
@@ -13,13 +9,12 @@
 .vBox{
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
     -fx-background-radius: 6;
-    -fx-background-color: linear-gradient(#ff8080 10%, #ff1a1a 100%);
+    -fx-background-color: #FFFFFF;
 }
 
 .vBoxTask{
     -fx-background-radius: 6;
-    -fx-background-color: #1e90ff
-;
+    -fx-background-color: linear-gradient(#cecece 30%, #BDBDBD 100%);
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 
