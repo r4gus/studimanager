@@ -221,7 +221,7 @@ public class ControllerTask implements Initializable {
 
     public void deleteEntryToChecklist() {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "deleteEntryToChecklist");
+        MyLogger.LOGGER.entering(getClass().toString(), "deleteEntryToChecklist");          /* Exception Handling  */
         int index = listViewChecklist.getSelectionModel().getSelectedIndex();
         itemsChecklist.remove(index);
         taskCheckListItems.remove(index);
@@ -235,13 +235,14 @@ public class ControllerTask implements Initializable {
 
     public void AddFileAttachmentToTask() {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "AddFileAttachmentToTask");
+        MyLogger.LOGGER.entering(getClass().toString(), "AddFileAttachmentToTask");         /* Exception Handling  */
         if (!textFieldNewFileEntry.getText().trim().isEmpty()) {
 
             String filename = textFieldNewFileEntry.getText();
         }
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Datei für Aufgabe auswählen");
+
 
         List<File> files = fileChooser.showOpenMultipleDialog(null);
         for (File file : files) {
@@ -256,7 +257,7 @@ public class ControllerTask implements Initializable {
      * Removes a new entry to the checklist
      */
 
-    public void deleteFileAttachmentToTask() {
+    public void deleteFileAttachmentToTask() {                                                          /* Exception Handling  */
 
         MyLogger.LOGGER.entering(getClass().toString(), "deleteFileAttachmentToTask");
 
@@ -272,7 +273,7 @@ public class ControllerTask implements Initializable {
      * add image to Button.
      */
 
-    private void initButtonAddPicture(Button button, String filepathAddIcon) {
+    private void initButtonAddPicture(Button button, String filepathAddIcon) {                          /* Exception Handling  */
 
         MyLogger.LOGGER.entering(getClass().toString(), "initButtonAddPicture");
         ImageView imageView = new ImageView(new Image(filepathAddIcon));
