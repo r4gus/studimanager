@@ -344,7 +344,10 @@ public class ControllerTask implements Initializable {
         vBoxTask.setOnDragDetected(mouseEvent -> {
             Dragboard dragboard = vBoxTask.startDragAndDrop(TransferMode.MOVE);
             ClipboardContent clipboardContent = new ClipboardContent();
-            DataFormat dataFormat = new DataFormat("VBox");
+            DataFormat dataFormat = DataFormat.lookupMimeType("VBox");
+            if (dataFormat == null) {
+                dataFormat = new DataFormat("VBox");
+            }
             clipboardContent.put(dataFormat, task);
             dragboard.setContent(clipboardContent);
         });
