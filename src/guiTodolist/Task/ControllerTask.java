@@ -87,14 +87,16 @@ public class ControllerTask implements Initializable {
     private VBoxTask vBoxTask;
 
 
-    public ControllerTask(VBoxTask vBoxTask) {
-
-        this.vBoxTask = vBoxTask;
-    }
 
     public ControllerTask(VBoxTasklist vboxTasklist) {
 
         this.vboxTodoList = vboxTasklist;
+    }
+
+    public ControllerTask(VBoxTask vBoxTask , VBoxTasklist vBoxTasklist) {
+
+        this(vBoxTasklist);
+        this.vBoxTask = vBoxTask;
     }
 
 
@@ -120,15 +122,13 @@ public class ControllerTask implements Initializable {
         initButtonAddPicture(buttonAddFileAttachment, filepathAddIcon);
         initButtonAddPicture(buttonDeleteFileAttachment, filepathDeleteIcon);
 
-        // Load information into Window...
+        // Load information into Window.
         if (this.vBoxTask != null) {
             this.currentTask = vBoxTask.getTask();
             initLeftSide();
             initRightSide();
             loadFileAttachments();
         }
-
-
     }
 
 
@@ -179,6 +179,7 @@ public class ControllerTask implements Initializable {
                 CheckBox checkBoxItem = new CheckBox(taskCheckListItem.getChecklistTaskName());
                 checkBoxItem.setSelected(taskCheckListItem.isChecklistTaskCompleted());
                 itemsChecklist.add(checkBoxItem);
+                taskCheckListItems.add(taskCheckListItem);
             }
         }
     }
@@ -205,7 +206,6 @@ public class ControllerTask implements Initializable {
     public void addEntryToChecklist() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "addEntryToChecklist");
-
         CheckBox checkBoxItem = new CheckBox(textFieldChecklistNewEntry.getText());
         itemsChecklist.add(checkBoxItem);
         TaskCheckListItem taskCheckListItem = new TaskCheckListItem(textFieldChecklistNewEntry.getText());
@@ -268,12 +268,11 @@ public class ControllerTask implements Initializable {
     }
 
 
-
     /**
      * add image to Button.
      */
 
-    private void initButtonAddPicture(Button button, String filepathAddIcon){
+    private void initButtonAddPicture(Button button, String filepathAddIcon) {
 
         MyLogger.LOGGER.entering(getClass().toString(), "initButtonAddPicture");
         ImageView imageView = new ImageView(new Image(filepathAddIcon));
@@ -285,8 +284,16 @@ public class ControllerTask implements Initializable {
     }
 
 
+    private void updateVBoxTask() {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "updateVBoxTask");
+        vboxTodoList.getChildren().remove(this.vBoxTask);     /* remove VBox From ToDoList */
+        MyLogger.LOGGER.exiting(getClass().toString(), "updateVBoxTask");
+    }
+
+
     /**
-     * This method creates a task object as well as the corresponding Gui Task object.
+     * This method creates/ updates a task object as well as the corresponding Gui Task object.
      * Furthermore, different references and IDs are exchanged in order to be able
      * to create one of the tasks belonging to the corresponding task list or the objects behind it.
      */
@@ -294,6 +301,9 @@ public class ControllerTask implements Initializable {
     public void createTask() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "createTask");
+        if (vBoxTask != null) {
+            updateVBoxTask();
+        }
         this.currentTask = createTaskObjekt();                  /* Object Task is created */
         VBoxTask vBoxnewTask = createNewGuiElemnts();               /* VboxTask will be created  */
         vBoxnewTask.setTaskID(this.currentTask.getTaskId());            /*  Add TaskID from Object */
