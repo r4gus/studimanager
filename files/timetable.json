@@ -175,7 +175,7 @@
           "city" : "Stuttgart"
         }
       },
-      "elective" : false,
+      "elective" : true,
       "notes" : {
         "container" : [ ]
       }
