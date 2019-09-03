@@ -38,8 +38,6 @@ public class ControllerCalendar implements Initializable, Updatable {
 
     public final static String DAYS[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
-    public static final String PATH = "files/timetable.json";
-
     public static final int BIG_FONT_SIZE = 22;
     public static final int MEDIUM_FONT_SIZE = 16;
     public static final int SMALL_FONT_SIZE = 12;

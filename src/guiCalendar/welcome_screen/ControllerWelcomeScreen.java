@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import logging.MyLogger;
 import sample.Controller;
 import sample.Main;
 import timetable.Timetable;
@@ -23,6 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 /**
  * @author David Sugar
@@ -92,6 +94,17 @@ public class ControllerWelcomeScreen implements Initializable {
                         ControllerCalendar.setTimetable(timetable);
 
                         /*
+                        ----------------- UPDATE timetablePath IN CONFIG_FILE ----------------
+                         */
+                        Main.getConfig().setTimetablePath(selectedFile.getPath());
+                        try {
+                            Main.getConfig().store();
+                        } catch (IOException e) {
+                            MyLogger.LOGGER.log(Level.SEVERE, "Couldn't update config data." +
+                                    "\nClass: " + getClass().toString() + "\nMethod: handle()" + "\n" + e.getMessage());
+                        }
+
+                        /*
                         --------------- Show primary stage ------------------------------------
                          */
                         Parent root = FXMLLoader.load(getClass().getResource("../../sample/" + Main.fxml));
@@ -115,7 +128,6 @@ public class ControllerWelcomeScreen implements Initializable {
 
                         choose another one or create a new timetable
                          */
-                        System.out.println("IOException: Can't open file");
                     }
                 }
             }

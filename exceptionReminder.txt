@@ -1,0 +1,2 @@
+> Main: load timetable, load config
+> WelcomeScreen

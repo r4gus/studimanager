@@ -34,7 +34,7 @@ public class Controller implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
-                    ControllerCalendar.getTimetable().store(ControllerCalendar.PATH);
+                    ControllerCalendar.getTimetable().store(Main.getConfig().getTimetablePath());
                     /*
                     visual notification: FILE SAVED
                      */
