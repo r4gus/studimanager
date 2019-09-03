@@ -95,7 +95,7 @@ public class ControllerLectureEdit implements Initializable, Updatable {
 
     private void makeForm(GridPane gridPane, Lecture lecture) {
 
-        Text sceneTitle = new Text("Edit: ...");
+        Text sceneTitle = new Text("Edit:");
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         gridPane.add(sceneTitle, 0, 0, 2, 1);
 

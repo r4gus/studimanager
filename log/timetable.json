@@ -224,7 +224,57 @@
   }, {
     "container" : [ ]
   } ], [ {
-    "container" : [ ]
+    "container" : [ {
+      "title" : "Mathe II",
+      "facility" : {
+        "building" : "Hauptgebäude",
+        "room" : "111",
+        "street" : "",
+        "zipcode" : "",
+        "city" : "Stuttgart"
+      },
+      "lecturer" : {
+        "firstName" : "Maya",
+        "lastName" : "Mustermann",
+        "email" : "musterfrau@gmx.de",
+        "facility" : {
+          "building" : "G1",
+          "room" : "1.44",
+          "street" : "",
+          "zipcode" : "73434",
+          "city" : "Aalen"
+        }
+      },
+      "elective" : true,
+      "notes" : {
+        "container" : [ ]
+      }
+    }, {
+      "title" : "Lineare Algebra",
+      "facility" : {
+        "building" : "G1",
+        "room" : "1.44",
+        "street" : "",
+        "zipcode" : "73434",
+        "city" : "Aalen"
+      },
+      "lecturer" : {
+        "firstName" : "Max",
+        "lastName" : "Mustermann",
+        "email" : "mustermann@hs-aalen.de",
+        "facility" : {
+          "building" : "G2",
+          "room" : "0.23",
+          "street" : "",
+          "zipcode" : "73434",
+          "city" : "Aalen"
+        }
+      },
+      "elective" : false,
+      "notes" : {
+        "container" : [ ]
+      }
+    } ]
   }, {
     "container" : [ ]
   }, {
@@ -285,7 +335,32 @@
   } ], [ {
     "container" : [ ]
   }, {
-    "container" : [ ]
+    "container" : [ {
+      "title" : "Machine Learning",
+      "facility" : {
+        "building" : "G130-4",
+        "room" : "22.5",
+        "street" : "Merklinstraße 33",
+        "zipcode" : "93939",
+        "city" : "Aalen"
+      },
+      "lecturer" : {
+        "firstName" : "Fritz",
+        "lastName" : "Lungerer",
+        "email" : "fritz.lungerer@hsa.com",
+        "facility" : {
+          "building" : "G130-4",
+          "room" : "22.5",
+          "street" : "Merklinstraße 33",
+          "zipcode" : "93939",
+          "city" : "Aalen"
+        }
+      },
+      "elective" : true,
+      "notes" : {
+        "container" : [ ]
+      }
+    } ]
   }, {
     "container" : [ ]
   }, {

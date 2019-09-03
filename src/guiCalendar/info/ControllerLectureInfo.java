@@ -86,13 +86,12 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         MyLogger.LOGGER.exiting(getClass().toString(), "update");
     }
 
-    private Button makeAddButton(Lectures unit) {
-        Button button = new Button("new");
-
-        button.getStyleClass().addAll("add-button", "add-button:hover");
+    private MenuButton makeAddButton(Lectures unit) {
+        MenuItem newButton = new MenuItem("new");
+        MenuItem existingButton = new MenuItem("existing");
 
         ControllerLectureInfo parent = this;
-        button.setOnAction(new EventHandler<ActionEvent>() {
+        newButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
@@ -122,7 +121,11 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             }
         });
 
-        return button;
+        MenuButton menuButton = new MenuButton("add", null, newButton, existingButton);
+
+        menuButton.getStyleClass().addAll("add-button", "add-button:hover");
+
+        return menuButton;
     }
 
     /**

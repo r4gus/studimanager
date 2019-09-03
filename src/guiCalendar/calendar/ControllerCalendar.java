@@ -183,7 +183,7 @@ public class ControllerCalendar implements Initializable, Updatable {
         if(unit.getSize() > 0) {
             String toolTip = "";
             for (Lecture l : unit.getContainer()) {
-                toolTip += l.getTitle() + "\n";
+                toolTip += l.getTitle() + ": " + l.getFacility() + "\n";
             }
             Tooltip lectureTooltip = new Tooltip(toolTip);
             button.setTooltip(lectureTooltip);

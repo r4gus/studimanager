@@ -308,11 +308,7 @@ public class Timetable implements Serializable {
      * couldn't be opened.
      */
     public void store(String path) throws IOException {
-        try {
-            storeJson(path);
-        } catch (IOException exc) {
-            throw exc;
-        }
+        storeJson(path);
     }
     
     /**
