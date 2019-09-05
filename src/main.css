@@ -1,0 +1,147 @@
+.button {
+
+    -fx-font-weight: bold;
+    -fx-border-color: lightgrey;
+    -fx-background-color: transparent;
+    -fx-border-weight: 1px;
+    -fx-border-radius: 2;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+
+    -fx-border-color: grey;
+    -fx-border-weight: 1px;
+}
+
+.button:pressed {
+
+}
+
+.edit-button {
+    -fx-border-color: blue;
+}
+
+.edit-button:hover {
+    -fx-background-color: blue;
+}
+
+.delete-button {
+    -fx-border-color: red;
+}
+
+.delete-button:hover {
+    -fx-background-color: red;
+}
+
+.add-button {
+    -fx-border-color: green;
+}
+
+.add-button:hover {
+    -fx-background-color: green;
+}
+
+.edit-button:hover, .add-button:hover, .delete-button:hover {
+    -fx-text-fill: white;
+}
+
+.label {
+    -fx-background-radius: 4;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+.label-h1 {
+    -fx-font-size: 21px;
+}
+
+.label-h2 {
+    -fx-font-size: 18px;
+}
+
+.label-h3 {
+    -fx-font-size: 15px;
+}
+
+.textarea, .text-field {
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-border-width: 1;
+    -fx-border-color: lightgrey;
+    -fx-border-radius: 2;
+    -fx-text-fill: black;
+    -fx-padding: 4px 8px;
+    -fx-content-display: inline-block;
+    -fx-background-radius: 2;
+}
+
+.choice-box, .combo-box{
+    -fx-background-radius: 2;
+    -fx-background-color: white;
+    -fx-font-weight: bold;
+    -fx-border-radius: 2px;
+    -fx-border-color: lightgrey;
+}
+
+.combo-box .list-cell:hover{
+    -fx-background-color: #1966FF;
+}
+
+.combo-box-popup .list-cell:selected{
+    -fx-background-color: #1966FF;
+}
+
+
+.list-view {
+    -fx-font-size: 14px;
+
+}
+
+.background-color {
+    -fx-background-color: linear-gradient(#1966FF 1%,  #FFFFFF 18%);
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: #1966FF;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #939393;
+}
+
+.tab .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+
+.menu:hover, .menu:showing{
+    -fx-background-color: #1966FF;
+}
+
+.context-menu {
+    -fx-background-color: white;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+    -fx-border-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+    -fx-border-color: lightgrey;
+    /*    -fx-padding: 0.666667em 0.083333em 0.666667em 0.083333em;  8 1 8 1 */
+    -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; /* 4 1 8 1 */
+}
+
+.menu-item:focused {
+    -fx-background-color: #1966FF;
+    -fx-text-fill: #FAFAFA;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: white;
+    -fx-background-color: #1966FF;
+}
+.menu-item .label{
+    -fx-background-color: white;
+}
+

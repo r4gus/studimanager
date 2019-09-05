@@ -1,18 +1,28 @@
 package guiTodolist.InfoTask;
 
-import javafx.application.HostServices;
+import guiTodolist.Task.ControllerTask;
+import guiTodolist.Task.VBoxTask;
+import guiTodolist.Task.VBoxTasklist;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
 import todolist.Task;
 import todolist.TaskCheckListItem;
 
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -39,6 +49,12 @@ public class ControllerInfoTask implements Initializable {
     public Label labelNotes;
 
     @FXML
+    public Label labelPriority;
+
+    @FXML
+    public ImageView imageViewStatus;
+
+    @FXML
     public VBox vBoxUncompletedTask;
 
     @FXML
@@ -50,14 +66,30 @@ public class ControllerInfoTask implements Initializable {
     @FXML
     public Button ButtonCloseInfo;
 
+    @FXML
+    public Button buttonEditUsertask;
+
     private Task task;
+    private VBoxTask vBoxTask;
+    private VBoxTasklist vBoxTasklist;
 
     private static final String NoENTRY = "N.A. (kein Eintrag vorhanden)";
 
+    private String filepathHigh = "guiTodolist/Task/Icons/icons8-hohe-prio-48.png";
+    private String filepathMiddle = "guiTodolist/Task/Icons/icons8-mittlere-prio-48.png";
+    private String filepathLow = "guiTodolist/Task/Icons/icons8-niedrige-prio-48.png";
 
     public ControllerInfoTask(Task task) {
 
         this.task = task;
+
+    }
+
+    public ControllerInfoTask(Task task, VBoxTask vBoxTask, VBoxTasklist vBoxTasklist){
+
+        this(task);
+        this.vBoxTask = vBoxTask;
+        this.vBoxTasklist = vBoxTasklist;
     }
 
 
@@ -74,7 +106,7 @@ public class ControllerInfoTask implements Initializable {
         inizializeTextLabels();
         initializeChecklist();
         initializeFileAttachment();
-
+        initializePriority();
     }
 
 
@@ -90,23 +122,25 @@ public class ControllerInfoTask implements Initializable {
         } else {
             labelHeading.setText(NoENTRY);
         }
-
         if (task.getProjectDescription() != null) {
             labelDescription.setText(task.getProjectDescription());
         } else {
             labelDescription.setText(NoENTRY);
         }
-
         if (task.getDeadline() != null) {
             labelDate.setText(task.getDeadline().toString());
         } else {
             labelDate.setText(NoENTRY);
         }
-
         if (task.getNotes() != null) {
             labelNotes.setText(task.getNotes());
         } else {
             labelNotes.setText(NoENTRY);
+        }
+        if (task.getPriority() != null) {
+            labelPriority.setText(task.getPriority());
+        } else {
+            labelPriority.setText(NoENTRY);
         }
         MyLogger.LOGGER.exiting(getClass().toString(), "inizializeTextLabels");
     }
@@ -121,7 +155,8 @@ public class ControllerInfoTask implements Initializable {
         MyLogger.LOGGER.entering(getClass().toString(), "initializeChecklist");
         for (TaskCheckListItem itemChecklist : task.getItemsChecklist()) {
 
-            Label labelCheckBox = new Label(itemChecklist.getChecklistTaskName());
+            Label labelCheckBox = new Label("o " + itemChecklist.getChecklistTaskName());
+            labelCheckBox.getStyleClass().add("label-h3");
             labelCheckBox.setWrapText(false);
 
             if (itemChecklist.isChecklistTaskCompleted())
@@ -140,19 +175,44 @@ public class ControllerInfoTask implements Initializable {
     private void initializeFileAttachment() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "initializeFileAttachment");
-        for (File file: this.task.getFileArrayList()) {
+        for (File file : this.task.getFileArrayList()) {
 
             Hyperlink hyperlinkFileAttachment = new Hyperlink(file.getName());
+            hyperlinkFileAttachment.getStyleClass().add("label-h3");
             vBoxFileAttachment.getChildren().add(hyperlinkFileAttachment);
             hyperlinkFileAttachment.setOnAction(ActionEvent -> {
+                try {
+                    Desktop.getDesktop().open(file);
 
-                // OpenDokument...
+                } catch (IOException ex) {                   //Fehlerbehandlung.... User informieren,dass datei... nicht mehr existiert...
 
+                }
             });
-
         }
 
         MyLogger.LOGGER.exiting(getClass().toString(), "initializeFileAttachment");
+    }
+
+
+    /**
+     * the method creates dynamically Gui elements based on a task object.
+     */
+
+    private void initializePriority() {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "initializePriority");
+        String filepath;
+        if (task.getPriority() == "Hoch") {
+            filepath = filepathHigh;
+        } else if (task.getPriority() == "Mittel") {
+            filepath = filepathMiddle;
+        } else {
+            filepath = filepathLow;
+        }
+        Image image = new Image(filepath);
+        imageViewStatus.setImage(image);
+
+        MyLogger.LOGGER.exiting(getClass().toString(), "initializePriority");
     }
 
 
@@ -168,5 +228,37 @@ public class ControllerInfoTask implements Initializable {
         Stage stage = (Stage) this.ButtonCloseInfo.getScene().getWindow();
         stage.close();
         MyLogger.LOGGER.exiting(getClass().toString(), "ButtonCloseInfo");
+    }
+
+    /**
+     * This method contains the logic for the button "buttonEditTask".
+     * The button loads a new Window
+     */
+
+    @FXML
+    public void buttonEditTask() {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "buttonEditTask");
+
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Task/layout_Task.fxml"));
+            ControllerTask controllerTask = new ControllerTask(this.vBoxTask, this.vBoxTasklist);
+            fxmlLoader.setController(controllerTask);
+            Parent root = fxmlLoader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Edit Window");
+            stage.show();
+
+        } catch (IOException ioException) {
+
+        }
+        Stage stage = (Stage) this.buttonEditUsertask.getScene().getWindow();
+        stage.close();
+
+        MyLogger.LOGGER.exiting(getClass().toString(), "buttonEditTask");
     }
 }

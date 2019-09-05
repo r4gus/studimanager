@@ -6,10 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
-import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.DataFormat;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.TransferMode;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -57,24 +56,47 @@ public class ControllerTask implements Initializable {
     public ListView listViewFileAttachment;
     @FXML
     public TextField textFieldNewFileEntry;
+    @FXML
+    public ComboBox comboboxPriority;
+
+    @FXML
+    public Button buttonAddChecklistEntry;
+    @FXML
+    public Button buttonDeleteChecklistEntry;
+    @FXML
+    public Button buttonAddFileAttachment;
+    @FXML
+    public Button buttonDeleteFileAttachment;
 
     @FXML
     public Button buttonCreateTask;
 
 
-    private ObservableList<String> itemsChecklist = FXCollections.observableArrayList();
+    private ObservableList<CheckBox> itemsChecklist = FXCollections.observableArrayList();
     private ObservableList<String> itemsFilesList = FXCollections.observableArrayList();
+    private ObservableList<String> itemsPriority = FXCollections.observableArrayList();
 
-    private ArrayList<TaskCheckListItem> taskCheckListItems = new ArrayList<>();            // Umbauen Nach Vorlage File Attachment
+    private final String filepathAddIcon = "guiTodolist/Task/Icons/icons8-hinzufuegen-48.png";
+    private final String filepathDeleteIcon = "guiTodolist/Task/Icons/icons8-unwiederuflich-loeschen-48.png";
+
+    private ArrayList<TaskCheckListItem> taskCheckListItems = new ArrayList<>();
     private ArrayList<File> taskFiles = new ArrayList<>();
 
     private VBoxTasklist vboxTodoList;
     private Task currentTask;
+    private VBoxTask vBoxTask;
+
 
 
     public ControllerTask(VBoxTasklist vboxTasklist) {
 
         this.vboxTodoList = vboxTasklist;
+    }
+
+    public ControllerTask(VBoxTask vBoxTask , VBoxTasklist vBoxTasklist) {
+
+        this(vBoxTasklist);
+        this.vBoxTask = vBoxTask;
     }
 
 
@@ -88,8 +110,92 @@ public class ControllerTask implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
         listViewChecklist.setItems(itemsChecklist);
         listViewFileAttachment.setItems(itemsFilesList);
+        itemsPriority.addAll("Hoch", "Mittel", "Niedrig");
+        comboboxPriority.setItems(itemsPriority);
+        comboboxPriority.getSelectionModel().select(2);
+
+        initButtonAddPicture(buttonAddChecklistEntry, filepathAddIcon);
+        initButtonAddPicture(buttonDeleteChecklistEntry, filepathDeleteIcon);
+        initButtonAddPicture(buttonAddFileAttachment, filepathAddIcon);
+        initButtonAddPicture(buttonDeleteFileAttachment, filepathDeleteIcon);
+
+        // Load information into Window.
+        if (this.vBoxTask != null) {
+            this.currentTask = vBoxTask.getTask();
+            initLeftSide();
+            initRightSide();
+            loadFileAttachments();
+        }
+    }
+
+
+    /**
+     * load Information into Gui
+     */
+
+    private void initLeftSide() {
+
+        if (this.currentTask.getProjectTitle() != null)
+            textFieldHeadingTask.setText(this.currentTask.getProjectTitle());
+        if (this.currentTask.getProjectDescription() != null)
+            textAreaDescription.setText(this.currentTask.getProjectDescription());
+        if (this.currentTask.getDeadline() != null)
+            datePickerDueDate.setValue(currentTask.getDeadline());
+        if (this.currentTask.getNotes() != null)                //Notes
+            textAreaNotes.setText(this.currentTask.getNotes());
+    }
+
+
+    /**
+     * load Information into Gui
+     */
+
+    private void initRightSide() {
+
+        String prio = "";
+        if (this.currentTask.getPriority() != null)
+            prio = this.currentTask.getPriority();
+        switch (prio) {
+            case "Hoch":
+                comboboxPriority.getSelectionModel().select(0);
+                ;
+                break;
+            case "Mittel":
+                comboboxPriority.getSelectionModel().select(1);
+                ;
+                break;
+            case "Niedrig":
+                comboboxPriority.getSelectionModel().select(2);
+                ;
+                break;
+        }
+
+        if (this.currentTask.getItemsChecklist() != null) {
+            for (TaskCheckListItem taskCheckListItem : this.currentTask.getItemsChecklist()) {
+
+                CheckBox checkBoxItem = new CheckBox(taskCheckListItem.getChecklistTaskName());
+                checkBoxItem.setSelected(taskCheckListItem.isChecklistTaskCompleted());
+                itemsChecklist.add(checkBoxItem);
+                taskCheckListItems.add(taskCheckListItem);
+            }
+        }
+    }
+
+
+    /**
+     * load Information into Gui
+     */
+
+    private void loadFileAttachments() {
+
+        for (File file : this.currentTask.getFileArrayList()) {
+
+            this.itemsFilesList.add(file.getName());
+            this.taskFiles.add(file);
+        }
     }
 
 
@@ -100,8 +206,12 @@ public class ControllerTask implements Initializable {
     public void addEntryToChecklist() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "addEntryToChecklist");
-        itemsChecklist.add("o " + textFieldChecklistNewEntry.getText());
+        CheckBox checkBoxItem = new CheckBox(textFieldChecklistNewEntry.getText());
+        itemsChecklist.add(checkBoxItem);
+        TaskCheckListItem taskCheckListItem = new TaskCheckListItem(textFieldChecklistNewEntry.getText());
+        taskCheckListItems.add(taskCheckListItem);
         textFieldChecklistNewEntry.clear();
+
         MyLogger.LOGGER.exiting(getClass().toString(), "addEntryToChecklist");
     }
 
@@ -111,8 +221,10 @@ public class ControllerTask implements Initializable {
 
     public void deleteEntryToChecklist() {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "deleteEntryToChecklist");
-        itemsChecklist.remove(listViewChecklist.getSelectionModel().getSelectedItem());
+        MyLogger.LOGGER.entering(getClass().toString(), "deleteEntryToChecklist");          /* Exception Handling  */
+        int index = listViewChecklist.getSelectionModel().getSelectedIndex();
+        itemsChecklist.remove(index);
+        taskCheckListItems.remove(index);
         MyLogger.LOGGER.exiting(getClass().toString(), "deleteEntryToChecklist");
     }
 
@@ -123,13 +235,14 @@ public class ControllerTask implements Initializable {
 
     public void AddFileAttachmentToTask() {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "AddFileAttachmentToTask");
+        MyLogger.LOGGER.entering(getClass().toString(), "AddFileAttachmentToTask");         /* Exception Handling  */
         if (!textFieldNewFileEntry.getText().trim().isEmpty()) {
 
             String filename = textFieldNewFileEntry.getText();
         }
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Datei für Aufgabe auswählen");
+
 
         List<File> files = fileChooser.showOpenMultipleDialog(null);
         for (File file : files) {
@@ -144,7 +257,7 @@ public class ControllerTask implements Initializable {
      * Removes a new entry to the checklist
      */
 
-    public void deleteFileAttachmentToTask() {
+    public void deleteFileAttachmentToTask() {                                                          /* Exception Handling  */
 
         MyLogger.LOGGER.entering(getClass().toString(), "deleteFileAttachmentToTask");
 
@@ -157,7 +270,31 @@ public class ControllerTask implements Initializable {
 
 
     /**
-     * This method creates a task object as well as the corresponding Gui Task object.
+     * add image to Button.
+     */
+
+    private void initButtonAddPicture(Button button, String filepathAddIcon) {                          /* Exception Handling  */
+
+        MyLogger.LOGGER.entering(getClass().toString(), "initButtonAddPicture");
+        ImageView imageView = new ImageView(new Image(filepathAddIcon));
+        imageView.setFitWidth(18);
+        imageView.setFitHeight(18);
+        button.setMaxWidth(20);
+        button.setGraphic(imageView);
+        MyLogger.LOGGER.exiting(getClass().toString(), "initButtonAddPicture");
+    }
+
+
+    private void updateVBoxTask() {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "updateVBoxTask");
+        vboxTodoList.getChildren().remove(this.vBoxTask);     /* remove VBox From ToDoList */
+        MyLogger.LOGGER.exiting(getClass().toString(), "updateVBoxTask");
+    }
+
+
+    /**
+     * This method creates/ updates a task object as well as the corresponding Gui Task object.
      * Furthermore, different references and IDs are exchanged in order to be able
      * to create one of the tasks belonging to the corresponding task list or the objects behind it.
      */
@@ -165,6 +302,9 @@ public class ControllerTask implements Initializable {
     public void createTask() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "createTask");
+        if (vBoxTask != null) {
+            updateVBoxTask();
+        }
         this.currentTask = createTaskObjekt();                  /* Object Task is created */
         VBoxTask vBoxnewTask = createNewGuiElemnts();               /* VboxTask will be created  */
         vBoxnewTask.setTaskID(this.currentTask.getTaskId());            /*  Add TaskID from Object */
@@ -202,9 +342,12 @@ public class ControllerTask implements Initializable {
 
         MyLogger.LOGGER.entering(getClass().toString(), "addEventDragDetected", new Object[]{vBoxTask, task});
         vBoxTask.setOnDragDetected(mouseEvent -> {
-            Dragboard dragboard = vBoxTask.startDragAndDrop(TransferMode.ANY);
+            Dragboard dragboard = vBoxTask.startDragAndDrop(TransferMode.MOVE);
             ClipboardContent clipboardContent = new ClipboardContent();
-            DataFormat dataFormat = new DataFormat("VBox");   // name an die ID des Objekts Binden...
+            DataFormat dataFormat = DataFormat.lookupMimeType("VBox");
+            if (dataFormat == null) {
+                dataFormat = new DataFormat("VBox");
+            }
             clipboardContent.put(dataFormat, task);
             dragboard.setContent(clipboardContent);
         });
@@ -222,15 +365,20 @@ public class ControllerTask implements Initializable {
         MyLogger.LOGGER.entering(getClass().toString(), "createTaskObjekt");
         Task task = new Task(textFieldHeadingTask.getText().trim().isEmpty() ? null : textFieldHeadingTask.getText());
         task.setProjectDescription(((textAreaDescription.getText().trim().isEmpty() ? null : textAreaDescription.getText())));
-        task.setProjectStatus(0);
         task.setDone(false);
         task.setNotes(textAreaNotes.getText().trim().isEmpty() ? null : textAreaNotes.getText());
+        task.setPriority(comboboxPriority.getSelectionModel().getSelectedItem().toString());
 
         if (listViewChecklist.getItems().size() > 0) {
             ObservableList observableList = listViewChecklist.getItems();
             ArrayList<TaskCheckListItem> arrayList = new ArrayList<>();
             for (Object object : observableList) {
-                arrayList.add(new TaskCheckListItem(object.toString()));
+                CheckBox checkBox = (CheckBox) object;
+                TaskCheckListItem taskCheckListItem = new TaskCheckListItem(checkBox.getText());
+                if (checkBox.isSelected()) {
+                    taskCheckListItem.setChecklistTaskCompleted(true);
+                }
+                arrayList.add(taskCheckListItem);
             }
             task.setItemsChecklist(arrayList);
         }

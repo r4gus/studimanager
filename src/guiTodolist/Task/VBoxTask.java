@@ -21,6 +21,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
 import todolist.Task;
+import todolist.TaskCheckListItem;
 
 import java.io.IOException;
 
@@ -38,6 +39,13 @@ public class VBoxTask extends VBox {
     private int taskID;
     private VBoxTasklist vBoxTasklist;
 
+    private final String filepathHigh = "guiTodolist/Task/Icons/icons8-hohe-prio-48.png";
+    private final String filepathMiddle = "guiTodolist/Task/Icons/icons8-mittlere-prio-48.png";
+    private final String filepathLow = "guiTodolist/Task/Icons/icons8-niedrige-prio-48.png";
+
+    private final String filepathDeleteIcon = "guiTodolist/Task/Icons/icons8-unwiederuflich-loeschen-48.png";
+    private final String filepathInfoIcon = "guiTodolist/Task/Icons/icons8-info-popup-48.png";
+
     public VBoxTask(Task task, VBoxTasklist vBoxTasklist) {
 
         this.task = task;
@@ -49,12 +57,16 @@ public class VBoxTask extends VBox {
      * getter and setter methods of the variables
      */
 
-    public int getTaskID() {
+    public int getTaskID() {            //identisch mit ProjektStatus...
         return taskID;
-    }           // identisch mit Projekt status...
+    }
 
     public void setTaskID(int taskID) {
         this.taskID = taskID;
+    }
+
+    public Task getTask() {
+        return task;
     }
 
     /**
@@ -82,6 +94,7 @@ public class VBoxTask extends VBox {
         this.setAlignment(Pos.CENTER);
 
         Label labelHeading = new Label(task.getProjectTitle());
+        labelHeading.getStyleClass().add("label-h3");
         labelHeading.setPadding(new Insets(2, 10, 2, 10));
         this.setMargin(labelHeading, new Insets(5, 10, 5, 10));
         this.getChildren().add(labelHeading);
@@ -105,7 +118,15 @@ public class VBoxTask extends VBox {
         VBox vBoxbasicInformation = new VBox();
         this.setMargin(vBoxbasicInformation, new Insets(8, 0, 10, 0));
         vBoxbasicInformation.setSpacing(5);
-        HBox hBoxPriority = generateHBoxPrio("Priorität: ", "guiTodolist/Task/Icons/icons8-mittlere-prio-48.png");
+        String filepath;
+        if (task.getPriority() == "Hoch") {
+            filepath = filepathHigh;
+        } else if (task.getPriority() == "Mittel") {
+            filepath = filepathMiddle;
+        } else {
+            filepath = filepathLow;
+        }
+        HBox hBoxPriority = generateHBoxPrio("Priorität: ", filepath);
         HBox hBoxDate = null;
         HBox hBoxProgressbar = null;
         if (task.getDeadline() != null) {
@@ -134,12 +155,19 @@ public class VBoxTask extends VBox {
     private HBox generateProgressBar() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "generateProgressBar");
-        int anzhahlAufgaben = task.getItemsChecklist().size();
-        String verhaeltnis = "Checklist 0 /" + anzhahlAufgaben;
+        double anzahlAufgaben = task.getItemsChecklist().size();
+        double anzahlErledigteAufgaben = 0;
+        for (TaskCheckListItem taskCheckListItem : task.getItemsChecklist()) {
+            if(taskCheckListItem.isChecklistTaskCompleted()){
+                anzahlErledigteAufgaben++;
+            }
+        }
+        String verhaeltnis = "Checklist " + ((int) anzahlErledigteAufgaben) + " / " + ((int) anzahlAufgaben);
         HBox hBox = hBox(verhaeltnis);
         hBox.setSpacing(37);
         ProgressBar progressBarList = new ProgressBar();
-        progressBarList.setProgress(0);
+        double proz = (anzahlErledigteAufgaben / anzahlAufgaben);
+        progressBarList.setProgress(anzahlErledigteAufgaben/anzahlAufgaben);
         progressBarList.setPrefWidth(93);
         hBox.getChildren().add(progressBarList);
         MyLogger.LOGGER.exiting(getClass().toString(), "generateProgressBar", hBox);
@@ -221,9 +249,12 @@ public class VBoxTask extends VBox {
         hBoxStatusElements.setAlignment(Pos.CENTER);
         hBoxStatusElements.setSpacing(10);
 
-        Button buttonDelete = new Button(" - "); // Delete mit Icon
+        Button buttonDelete = new Button(); // Delete mit Icon
+        buttonDelete.getStyleClass().add("delete-button");
+        addPictureToButton(buttonDelete, filepathDeleteIcon);
         addEventToDeleteButton(buttonDelete);
-        Button buttonDetails = new Button(" i "); // mit Image
+        Button buttonDetails = new Button(); // mit Image
+        addPictureToButton(buttonDetails, filepathInfoIcon);
         addEventShowTaskInfo(buttonDetails);
 
         ImageView imageViewDeadline = generateImageviewIcons("guiTodolist/Task/Icons/icons8-Deadline-48.png");
@@ -237,6 +268,25 @@ public class VBoxTask extends VBox {
         MyLogger.LOGGER.exiting(getClass().toString(), "createNewInformationToolbar");
     }
 
+
+    /**
+     * allows you to add picture to the button.
+     *
+     * @param button   button to which the picture should be added
+     * @param filepath File path to the desired image
+     */
+
+    private void addPictureToButton(Button button, String filepath) {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "addPictureToButton");
+        ImageView imageView = new ImageView(new Image(filepath));
+        imageView.setFitWidth(18);
+        imageView.setFitHeight(18);
+        button.setMaxWidth(20);
+        button.setGraphic(imageView);
+        MyLogger.LOGGER.exiting(getClass().toString(), "addPictureToButton");
+    }
+
     /**
      * allows you to delete the element.
      *
@@ -247,7 +297,7 @@ public class VBoxTask extends VBox {
 
         buttonDelete.setOnAction(actionEvent -> {
 
-            MyLogger.LOGGER.entering(getClass().toString(), "addEventToDeleteButton", new Object[]{buttonDelete });
+            MyLogger.LOGGER.entering(getClass().toString(), "addEventToDeleteButton", new Object[]{buttonDelete});
             this.vBoxTasklist.getChildren().remove(this);
             MyLogger.LOGGER.exiting(getClass().toString(), "addEventToDeleteButton");
         });
@@ -263,9 +313,9 @@ public class VBoxTask extends VBox {
         buttonInfo.setOnAction(actionEvent -> {
             try {
 
-                MyLogger.LOGGER.entering(getClass().toString(), "addEventShowTaskInfo", new Object[]{buttonInfo });
+                MyLogger.LOGGER.entering(getClass().toString(), "addEventShowTaskInfo", new Object[]{buttonInfo});
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../InfoTask/layoutInfoTask.fxml"));
-                ControllerInfoTask controllerInfoTask = new ControllerInfoTask(this.task);
+                ControllerInfoTask controllerInfoTask = new ControllerInfoTask(this.task, this, this.vBoxTasklist);
                 fxmlLoader.setController(controllerInfoTask);
                 Parent root = fxmlLoader.load();
 
@@ -290,13 +340,13 @@ public class VBoxTask extends VBox {
 
     private ImageView generateImageviewIcons(String filepath) {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "generateImageviewIcons", new Object[]{filepath });
+        MyLogger.LOGGER.entering(getClass().toString(), "generateImageviewIcons", new Object[]{filepath});
         Image image = new Image(filepath);
         ImageView iv1 = new ImageView();
         iv1.setFitWidth(36);
         iv1.setFitHeight(36);
         iv1.setImage(image);
-        MyLogger.LOGGER.exiting(getClass().toString(), "generateImageviewIcons",  iv1);
+        MyLogger.LOGGER.exiting(getClass().toString(), "generateImageviewIcons", iv1);
         return iv1;
     }
 
@@ -311,7 +361,7 @@ public class VBoxTask extends VBox {
 
     private void createNewInformationtoobarVisibleCheck(ImageView deadline, ImageView fileAttachment, ImageView checklist, ImageView notes) {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "createNewInformationtoobarVisibleCheck", new Object[]{deadline, fileAttachment, checklist, notes });
+        MyLogger.LOGGER.entering(getClass().toString(), "createNewInformationtoobarVisibleCheck", new Object[]{deadline, fileAttachment, checklist, notes});
         if (this.task.getDeadline() == null) {
             deadline.setVisible(false);
         }
@@ -321,7 +371,7 @@ public class VBoxTask extends VBox {
         if (this.task.getItemsChecklist().size() == 0) {
             checklist.setVisible(false);
         }
-        if(this.task.getFileArrayList().size() == 0) {
+        if (this.task.getFileArrayList().size() == 0) {
             fileAttachment.setVisible(false);
         }
 
@@ -338,11 +388,16 @@ public class VBoxTask extends VBox {
 
     private void addEventDragDetected(VBoxTask vBoxTask, Task task) {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "addEventDragDetected", new Object[]{vBoxTask, task });
+        MyLogger.LOGGER.entering(getClass().toString(), "addEventDragDetected", new Object[]{vBoxTask, task});
         vBoxTask.setOnDragDetected(mouseEvent -> {
             Dragboard dragboard = vBoxTask.startDragAndDrop(TransferMode.ANY);
+
             ClipboardContent clipboardContent = new ClipboardContent();
-            DataFormat dataFormat = new DataFormat("VBox");   // name an die ID des Objekts Binden... + prüfen Ob Objekt bereits vorhanden Ist...
+
+            DataFormat dataFormat = DataFormat.lookupMimeType("VBox");
+            if (dataFormat == null) {
+                dataFormat = new DataFormat("VBox");
+            }
             clipboardContent.put(dataFormat, task);
             dragboard.setContent(clipboardContent);
         });

@@ -81,8 +81,8 @@ public class VBoxTasklist extends VBox {
 
         MyLogger.LOGGER.entering(getClass().toString(), "createNewSection");
         addSetOnDragOverEvent(this);
-        this.setPrefWidth(300);
-        this.setMinWidth(300);
+        this.setPrefWidth(350);
+        this.setMinWidth(350);
         hBoxToDoLists.setMargin(this, new Insets(10, 10, 10, 10));
 
         HBox hBoxHeading = generateHBoxHeading(this);
@@ -184,9 +184,10 @@ public class VBoxTasklist extends VBox {
         MyLogger.LOGGER.entering(getClass().toString(), "generateHBoxHeading", new Object[]{todoList});
         HBox hBoxHeading = new HBox();                                      /*  add List controls and heading */
         Label labelHeading = new Label(this.taskList.getHeading());
-        VBox vBoxTest = new VBox();
-        vBoxTest.getChildren().addAll(labelHeading);
-        vBoxTest.setAlignment(Pos.CENTER);
+        labelHeading.getStyleClass().add("label-h1");
+        VBox vBoxHeading = new VBox();
+        vBoxHeading.getChildren().addAll(labelHeading);
+        vBoxHeading.setAlignment(Pos.CENTER);
         labelHeading.setPadding(new Insets(2, 10, 2, 10));
         Button buttonEditList = new Button("...");
         generateHBoxEditButton(buttonEditList, todoList);
