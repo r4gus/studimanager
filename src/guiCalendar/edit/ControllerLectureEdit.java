@@ -23,6 +23,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import logging.MyLogger;
+import sample.Main;
 import timetable.*;
 
 import java.io.IOException;

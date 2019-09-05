@@ -70,7 +70,7 @@
     -fx-background-radius: 2;
 }
 
-.choice-box, .combo-box{
+.choice-box, .combo-box {
     -fx-background-radius: 2;
     -fx-background-color: white;
     -fx-font-weight: bold;

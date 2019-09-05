@@ -1,6 +1,5 @@
 package guiCalendar.calendar;
 
-import config.Language;
 import guiCalendar.Updatable;
 import guiCalendar.info.ControllerLectureInfo;
 import guiCalendar.welcome_screen.ControllerWelcomeScreen;
@@ -37,8 +36,7 @@ public class ControllerCalendar implements Initializable, Updatable {
 
     private static Timetable timetable = null;
 
-    public final static String DAYS[][] = {{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"},
-            {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"}};
+    public final static String DAYS[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
     public static final int BIG_FONT_SIZE = 22;
     public static final int MEDIUM_FONT_SIZE = 16;
@@ -208,16 +206,7 @@ public class ControllerCalendar implements Initializable, Updatable {
                     // show info-page scene
                     Stage stage = new Stage();
                     stage.setScene(new Scene(root));
-
-                    int i;
-                    switch (Main.getConfig().getLanguage()) {
-                        case GERMAN:
-                            i = 1;
-                            break;
-                        default:
-                            i = 0;
-                    }
-                    stage.setTitle(ControllerCalendar.DAYS[i][day] + " - " +
+                    stage.setTitle(ControllerCalendar.DAYS[day] + " - " +
                             unit.getFrom());
 
                     // prevents interaction with the primary stage until the new window is closed.
@@ -319,23 +308,14 @@ public class ControllerCalendar implements Initializable, Updatable {
      * @param gridPane The {@link GridPane} to add the elements to.
      * @param days String array holding "Monday", "Tuesday", ...
      */
-    private void setDays(GridPane gridPane, String days[][]) {
+    private void setDays(GridPane gridPane, String days[]) {
         MyLogger.LOGGER.entering(getClass().toString(), "setDays");
-        int i;
 
-        switch (Main.getConfig().getLanguage()) {
-            case GERMAN:
-                i = 1;
-                break;
-            default:
-                i = 0;
-        }
-
-        for(int j = 0; j < timetable.getDays(); j++) {
-            Text t = new Text(days[i][j]);
+        for(int i = 0; i < timetable.getDays(); i++) {
+            Text t = new Text(days[i]);
             t.setFont(new Font(BIG_FONT_SIZE)); // set font size
             GridPane.setHalignment(t, HPos.CENTER); // center node (text object)
-            gridPane.add(t, j+1, 0);  // add to gridPane
+            gridPane.add(t, i+1, 0);  // add to gridPane
         }
 
         MyLogger.LOGGER.exiting(getClass().toString(), "setDays");

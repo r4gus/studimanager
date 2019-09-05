@@ -70,6 +70,7 @@ public class NewFacilityController implements Initializable {
     }
 
     private void makeForm(GridPane gridPane) {
+
         MyLogger.LOGGER.entering(getClass().toString(), "makeForm", gridPane);
 
         Text sceneTitle = new Text("New Facility");
