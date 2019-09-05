@@ -110,7 +110,10 @@
 
 .scroll-pane {
     -fx-background-color: transparent;
-    -fx-background-color: linear-gradient(#1966FF 1%,  #FFFFFF 18%);
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
 }
 
 .tab-pane .tab:selected
