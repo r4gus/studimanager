@@ -104,25 +104,31 @@
                            <children>
                               <Label style="-fx-text-fill: #ff0000;" styleClass="label-h3" text="Offene Aufgaben:">
                                  <VBox.margin>
-                                    <Insets left="20.0" />
+                                    <Insets left="10.0" />
                                  </VBox.margin>
                               </Label>
                            </children>
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
                         </VBox>
                         <VBox fx:id="vBoxCompletedTask" prefWidth="200.0" spacing="10.0">
                            <children>
                               <Label style="-fx-text-fill: #04B45F;" styleClass="label-h3" text="Erledigte Aufgaben:">
                                  <VBox.margin>
-                                    <Insets left="20.0" />
+                                    <Insets left="10.0" />
                                  </VBox.margin>
                               </Label>
                            </children>
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
                         </VBox>
                      </children>
                   </HBox>

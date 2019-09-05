@@ -2,6 +2,7 @@ package guiTodolist.InfoTask;
 
 import guiTodolist.Task.ControllerTask;
 import guiTodolist.Task.VBoxTask;
+import guiTodolist.Task.VBoxTasklist;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -70,6 +71,7 @@ public class ControllerInfoTask implements Initializable {
 
     private Task task;
     private VBoxTask vBoxTask;
+    private VBoxTasklist vBoxTasklist;
 
     private static final String NoENTRY = "N.A. (kein Eintrag vorhanden)";
 
@@ -83,10 +85,11 @@ public class ControllerInfoTask implements Initializable {
 
     }
 
-    public ControllerInfoTask(Task task, VBoxTask vBoxTask){
+    public ControllerInfoTask(Task task, VBoxTask vBoxTask, VBoxTasklist vBoxTasklist){
 
         this(task);
         this.vBoxTask = vBoxTask;
+        this.vBoxTasklist = vBoxTasklist;
     }
 
 
@@ -152,7 +155,7 @@ public class ControllerInfoTask implements Initializable {
         MyLogger.LOGGER.entering(getClass().toString(), "initializeChecklist");
         for (TaskCheckListItem itemChecklist : task.getItemsChecklist()) {
 
-            Label labelCheckBox = new Label(itemChecklist.getChecklistTaskName());
+            Label labelCheckBox = new Label("o " + itemChecklist.getChecklistTaskName());
             labelCheckBox.getStyleClass().add("label-h3");
             labelCheckBox.setWrapText(false);
 
@@ -240,7 +243,7 @@ public class ControllerInfoTask implements Initializable {
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Task/layout_Task.fxml"));
-            ControllerTask controllerTask = new ControllerTask(this.vBoxTask);
+            ControllerTask controllerTask = new ControllerTask(this.vBoxTask, this.vBoxTasklist);
             fxmlLoader.setController(controllerTask);
             Parent root = fxmlLoader.load();
 
@@ -250,7 +253,7 @@ public class ControllerInfoTask implements Initializable {
             stage.setTitle("Edit Window");
             stage.show();
 
-        } catch (IOException ioex) {
+        } catch (IOException ioException) {
 
         }
         Stage stage = (Stage) this.buttonEditUsertask.getScene().getWindow();

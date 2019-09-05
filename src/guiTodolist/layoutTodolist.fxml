@@ -9,15 +9,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane fx:id="anchorPaneToDoList" prefHeight="559.0" prefWidth="813.0" styleClass="anchorPaneToDoList" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiTodolist.ControllerTodolist">
+<AnchorPane fx:id="anchorPaneToDoList" prefHeight="559.0" prefWidth="813.0" styleClass="background-color" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiTodolist.ControllerTodolist">
    <children>
-      <HBox alignment="CENTER" layoutX="379.0" layoutY="59.0" prefHeight="47.0" prefWidth="513.0" styleClass="hBox" stylesheets="@style_ToDoList.css" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="25.0">
+      <HBox alignment="CENTER" layoutX="379.0" layoutY="59.0" prefHeight="47.0" prefWidth="513.0" stylesheets="@style_ToDoList.css" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="25.0">
          <children>
             <Label styleClass="label-h1" text="Canban Board" />
          </children>
       </HBox>
-      <HBox fx:id="hboxToDoLists" layoutX="116.0" layoutY="265.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="hBox" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="140.0" />
-      <HBox alignment="CENTER_LEFT" layoutX="50.0" layoutY="88.0" prefHeight="35.0" prefWidth="713.0" spacing="10.0" styleClass="hBox" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="95.0">
+      <HBox fx:id="hboxToDoLists" layoutX="116.0" layoutY="265.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="140.0" />
+      <HBox alignment="CENTER_LEFT" layoutX="50.0" layoutY="88.0" prefHeight="35.0" prefWidth="713.0" spacing="10.0" style="-fx-background-color: #FFFFFF;" styleClass="hBox" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="95.0">
          <children>
             <Button mnemonicParsing="false" text="Edit Board">
                <HBox.margin>
@@ -25,12 +25,12 @@
                </HBox.margin>
             </Button>
             <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <Button fx:id="buttonEditCanBan" mnemonicParsing="false" onAction="#createNewSection" prefHeight="25.0" prefWidth="67.0">
+            <Button fx:id="buttonEditCanBan" mnemonicParsing="false" onAction="#createNewSection" prefHeight="25.0" prefWidth="67.0" styleClass="add-button">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
             </Button>
-            <TextField fx:id="textFieldHeaderToDoList" prefHeight="25.0" prefWidth="129.0" promptText="Listenbezeichnung" />
+            <TextField fx:id="textFieldHeaderToDoList" prefHeight="30.0" prefWidth="140.0" promptText="Listenbezeichnung" />
          </children>
       </HBox>
    </children>

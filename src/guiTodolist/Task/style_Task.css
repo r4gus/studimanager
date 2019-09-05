@@ -2,6 +2,6 @@
 
 .vBox{
     -fx-background-radius: 4;
-    -fx-background-color: #1E90FF;
+    -fx-background-color: #BDBDBD;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }

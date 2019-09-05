@@ -21,6 +21,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
 import todolist.Task;
+import todolist.TaskCheckListItem;
 
 import java.io.IOException;
 
@@ -93,6 +94,7 @@ public class VBoxTask extends VBox {
         this.setAlignment(Pos.CENTER);
 
         Label labelHeading = new Label(task.getProjectTitle());
+        labelHeading.getStyleClass().add("label-h3");
         labelHeading.setPadding(new Insets(2, 10, 2, 10));
         this.setMargin(labelHeading, new Insets(5, 10, 5, 10));
         this.getChildren().add(labelHeading);
@@ -153,12 +155,19 @@ public class VBoxTask extends VBox {
     private HBox generateProgressBar() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "generateProgressBar");
-        int anzhahlAufgaben = task.getItemsChecklist().size();
-        String verhaeltnis = "Checklist 0 /" + anzhahlAufgaben;
+        double anzahlAufgaben = task.getItemsChecklist().size();
+        double anzahlErledigteAufgaben = 0;
+        for (TaskCheckListItem taskCheckListItem : task.getItemsChecklist()) {
+            if(taskCheckListItem.isChecklistTaskCompleted()){
+                anzahlErledigteAufgaben++;
+            }
+        }
+        String verhaeltnis = "Checklist " + ((int) anzahlErledigteAufgaben) + " / " + ((int) anzahlAufgaben);
         HBox hBox = hBox(verhaeltnis);
         hBox.setSpacing(37);
         ProgressBar progressBarList = new ProgressBar();
-        progressBarList.setProgress(0);
+        double proz = (anzahlErledigteAufgaben / anzahlAufgaben);
+        progressBarList.setProgress(anzahlErledigteAufgaben/anzahlAufgaben);
         progressBarList.setPrefWidth(93);
         hBox.getChildren().add(progressBarList);
         MyLogger.LOGGER.exiting(getClass().toString(), "generateProgressBar", hBox);
@@ -241,6 +250,7 @@ public class VBoxTask extends VBox {
         hBoxStatusElements.setSpacing(10);
 
         Button buttonDelete = new Button(); // Delete mit Icon
+        buttonDelete.getStyleClass().add("delete-button");
         addPictureToButton(buttonDelete, filepathDeleteIcon);
         addEventToDeleteButton(buttonDelete);
         Button buttonDetails = new Button(); // mit Image
@@ -305,7 +315,7 @@ public class VBoxTask extends VBox {
 
                 MyLogger.LOGGER.entering(getClass().toString(), "addEventShowTaskInfo", new Object[]{buttonInfo});
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../InfoTask/layoutInfoTask.fxml"));
-                ControllerInfoTask controllerInfoTask = new ControllerInfoTask(this.task, this);
+                ControllerInfoTask controllerInfoTask = new ControllerInfoTask(this.task, this, this.vBoxTasklist);
                 fxmlLoader.setController(controllerInfoTask);
                 Parent root = fxmlLoader.load();
 
