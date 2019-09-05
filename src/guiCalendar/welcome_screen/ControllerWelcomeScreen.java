@@ -13,6 +13,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import logging.MyLogger;
@@ -45,22 +48,30 @@ public class ControllerWelcomeScreen implements Initializable {
         welcome_grid.setAlignment(Pos.CENTER);
 
         FileChooser fileChooser = new FileChooser();
+        /*
+        ########################## TITLE #####################################
+         */
+        Text sceneTitle = new Text(Main.getTimetableBundle().getString("Welcome"));
+        sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 22));
+        sceneTitle.setStyle("-fx-font-weight: bold");
+        welcome_grid.add(sceneTitle, 0, 0, 2, 1);
+
 
         /*
         ##################### NEW TIMETABLE ###################################
          */
-        Label newTimetableTitle = new Label("Create a new Timetable:");
-        welcome_grid.add(newTimetableTitle, 0,0);
-        Button newTimetableButton = new Button("new");
-        welcome_grid.add(newTimetableButton, 1, 0);
+        Label newTimetableTitle = new Label(Main.getTimetableBundle().getString("ChoiceNew") + ":");
+        welcome_grid.add(newTimetableTitle, 0,1);
+        Button newTimetableButton = new Button(Main.getTimetableBundle().getString("New"));
+        welcome_grid.add(newTimetableButton, 1, 1);
 
         /*
         ###################### IMPORT #########################################
          */
-        Label importTimetableTitle = new Label("Open existing Timetable:");
-        welcome_grid.add(importTimetableTitle, 0, 1);
-        Button importTimetableButton = new Button("open");
-        welcome_grid.add(importTimetableButton, 1, 1);
+        Label importTimetableTitle = new Label(Main.getTimetableBundle().getString("ChoiceOpen") + ":");
+        welcome_grid.add(importTimetableTitle, 0, 2);
+        Button importTimetableButton = new Button(Main.getTimetableBundle().getString("Open"));
+        welcome_grid.add(importTimetableButton, 1, 2);
 
         /*
         ###################### BUTTON EVENTS #################################

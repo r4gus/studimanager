@@ -23,7 +23,7 @@ public class Config {
 
     private String timetablePath = "files/timetable.json";
 
-    private Language language = Language.ENGLISH;   // used to specify the preferred language
+    private Language language = Language.EN;   // used to specify the preferred language
 
     @JsonCreator
     public Config(@JsonProperty("timetablePath") String timetablePath,

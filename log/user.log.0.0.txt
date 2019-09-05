@@ -752,3 +752,28 @@ Aug. 25, 2019 1:14:04 NACHM. custom_exceptions.UserException <init>
 WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
 Sep 05, 2019 3:33:59 PM custom_exceptions.UserException <init>
 WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
+Sep 05, 2019 3:41:33 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 05, 2019 3:41:41 PM timetable.Timetable loadJson
+SEVERE: Unexpected character ('#' (code 35)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: (FileInputStream); line: 1, column: 2]
+Specified Path: /home/sugar/IdeaProjects/studimanager/README.md
+Sep 05, 2019 3:42:29 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 05, 2019 6:04:52 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 05, 2019 6:11:36 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 05, 2019 6:12:19 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 05, 2019 6:12:32 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 05, 2019 6:13:44 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json

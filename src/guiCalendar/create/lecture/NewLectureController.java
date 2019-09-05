@@ -23,6 +23,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import logging.MyLogger;
+import sample.Main;
 import timetable.*;
 
 import java.io.IOException;
@@ -85,14 +86,14 @@ public class NewLectureController implements Initializable, Updatable {
     private void makeForm(GridPane gridPane, Lectures unit) {
         MyLogger.LOGGER.entering(getClass().toString(), "makeForm", new Object[]{gridPane, unit});
 
-        Text sceneTitle = new Text("New Lecture");
+        Text sceneTitle = new Text(Main.getTimetableBundle().getString("New") + " " + Main.getTimetableBundle().getString("Lecture"));
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         gridPane.add(sceneTitle, 0, 0, 2, 1);
 
         /*
         -------------- TITLE -------------------------------------
          */
-        Label lectureTitle = new Label("Title:");
+        Label lectureTitle = new Label(Main.getTimetableBundle().getString("Title") + ":");
         gridPane.add(lectureTitle, 0, 1);
         TextField titleField = new TextField();
         if (preservedTitle != null) titleField.setText(preservedTitle);
@@ -101,16 +102,16 @@ public class NewLectureController implements Initializable, Updatable {
         /*
         -------------- ELECTIVE --------------------------------
          */
-        Label lectureIsElective = new Label("Elective:");
+        Label lectureIsElective = new Label(Main.getTimetableBundle().getString("Elective") + ":");
         gridPane.add(lectureIsElective, 0, 2);
-        CheckBox isElectiveBox = new CheckBox("yes");
+        CheckBox isElectiveBox = new CheckBox(Main.getTimetableBundle().getString("Yes"));
         isElectiveBox.setSelected(preservedElective);
         gridPane.add(isElectiveBox, 1, 2);
 
         /*
         ------------- FACILITY ---------------------------------
          */
-        Label lectureFacility = new Label("Facility:");
+        Label lectureFacility = new Label(Main.getTimetableBundle().getString("Facility") + ":");
         gridPane.add(lectureFacility, 0, 3);
 
         ComboBox<Facility> facilityComboBox = new ComboBox<>();
@@ -127,7 +128,7 @@ public class NewLectureController implements Initializable, Updatable {
         /*
         -------------- LECTURER --------------------------------
          */
-        Label lectureLecturer = new Label("Lecturer:");
+        Label lectureLecturer = new Label(Main.getTimetableBundle().getString("Lecturer") + ":");
         gridPane.add(lectureLecturer, 0, 4);
 
         ComboBox<Lecturer> lecturerComboBox = new ComboBox<>();
@@ -144,7 +145,7 @@ public class NewLectureController implements Initializable, Updatable {
         ------------- SUBMIT BUTTON --------------------------------
          */
 
-        Button createButton = new Button("create");
+        Button createButton = new Button(Main.getTimetableBundle().getString("Create"));
 
         createButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -201,7 +202,7 @@ public class NewLectureController implements Initializable, Updatable {
         /*
         ---------------------------- NEW FACILITY BUTTON ---------------------------------
          */
-        Button addFacilityButton = new Button("new");
+        Button addFacilityButton = new Button(Main.getTimetableBundle().getString("New"));
         addFacilityButton.getStyleClass().addAll("add-button", "add-button:hover");
 
         Updatable parent = this;
@@ -227,7 +228,7 @@ public class NewLectureController implements Initializable, Updatable {
                     // show info-page scene
                     Stage stage = new Stage();
                     stage.setScene(new Scene(root));
-                    stage.setTitle("new facility");
+                    stage.setTitle(Main.getTimetableBundle().getString("New") + " " + Main.getTimetableBundle().getString("Facility"));
 
                     // prevents interaction with the primary stage until the new window is closed.
                     stage.initModality(Modality.WINDOW_MODAL);
@@ -245,7 +246,7 @@ public class NewLectureController implements Initializable, Updatable {
         --------------------- NEW LECTURER BUTTON --------------------------------
          */
 
-        Button addLecturerButton = new Button("new");
+        Button addLecturerButton = new Button(Main.getTimetableBundle().getString("New"));
         addLecturerButton.getStyleClass().addAll("add-button", "add-button:hover");
 
         addLecturerButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -270,7 +271,7 @@ public class NewLectureController implements Initializable, Updatable {
                     // show info-page scene
                     Stage stage = new Stage();
                     stage.setScene(new Scene(root));
-                    stage.setTitle("new lecturer");
+                    stage.setTitle(Main.getTimetableBundle().getString("New") + " " + Main.getTimetableBundle().getString("Lecturer"));
 
                     // prevents interaction with the primary stage until the new window is closed.
                     stage.initModality(Modality.WINDOW_MODAL);

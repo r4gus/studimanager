@@ -36,9 +36,9 @@ public class ControllerCalendar implements Initializable, Updatable {
 
     private static Timetable timetable = null;
 
-    public final static String DAYS[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+    private final static String DAYS[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
-    public static final int BIG_FONT_SIZE = 22;
+    private static final int BIG_FONT_SIZE = 22;
     public static final int MEDIUM_FONT_SIZE = 16;
     public static final int SMALL_FONT_SIZE = 12;
     private double COLUMN_PERCENTAGE_WIDTH = 100.0;
@@ -189,7 +189,7 @@ public class ControllerCalendar implements Initializable, Updatable {
 
         /* show all lectures assigned to a unit */
         ControllerCalendar parent = this;
-        button.setOnAction(new EventHandler<ActionEvent>() {
+        button.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
@@ -312,7 +312,7 @@ public class ControllerCalendar implements Initializable, Updatable {
         MyLogger.LOGGER.entering(getClass().toString(), "setDays");
 
         for(int i = 0; i < timetable.getDays(); i++) {
-            Text t = new Text(days[i]);
+            Text t = new Text(Main.getTimetableBundle().getString(days[i]));
             t.setFont(new Font(BIG_FONT_SIZE)); // set font size
             GridPane.setHalignment(t, HPos.CENTER); // center node (text object)
             gridPane.add(t, i+1, 0);  // add to gridPane

@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import timetable.Timetable;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -20,17 +22,21 @@ public class Main extends Application {
 
     public static final String fxml = "sample.fxml";
 
+    private static final String RESOURCE_BUNDLE_PATH = "files/";
+
     public static final int WIDTH = 1000;
 
     public static final int HEIGHT = 700;
 
     public static final String TITLE = "Studimanager";
 
+    private static ResourceBundle timetableBundle;
+
     private static Config config;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Timetable timetable = null;
+        Timetable timetable;
         setPrimaryStage(primaryStage);
 
         /* ################## LOAD CONFIG DATA ########################################################## */
@@ -45,6 +51,15 @@ public class Main extends Application {
                 something really bad happened. Contact the developers.
                  */
             }
+        }
+
+        /* ########################### LOAD LANGUAGE-RESOURCE-BUNDLE #################################### */
+        switch (Main.getConfig().getLanguage()) {
+            case DE:
+                timetableBundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle", new Locale("de", "DE"));
+                break;
+            default:
+                timetableBundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle");
         }
 
         /* #################### OPEN APPLICATION ######################################################## */
@@ -94,6 +109,14 @@ public class Main extends Application {
 
     public static void setConfig(Config config) {
         Main.config = config;
+    }
+
+    public static ResourceBundle getTimetableBundle() {
+        return timetableBundle;
+    }
+
+    public static void setTimetableBundle(ResourceBundle timetableBundle) {
+        Main.timetableBundle = timetableBundle;
     }
 }
 

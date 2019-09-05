@@ -13,11 +13,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ConfigTest {
     private static final String PATH = "config/testConfig.json";
-    Config config;
+    private Config config;
 
     @BeforeEach
     void setUp() {
-        config = new Config("files/timetableTest.json", Language.GERMAN);
+        config = new Config("files/timetableTest.json", Language.DE);
     }
 
     @AfterEach
@@ -45,7 +45,7 @@ class ConfigTest {
         }
 
         assertEquals("files/timetableTest.json", config.getTimetablePath());
-        assertEquals(Language.GERMAN, config.getLanguage());
+        assertEquals(Language.DE, config.getLanguage());
     }
 
     @Test
@@ -69,6 +69,6 @@ class ConfigTest {
         }
 
         assertEquals("files/timetableTest.json", config.getTimetablePath());
-        assertEquals(Language.ENGLISH, config.getLanguage());
+        assertEquals(Language.EN, config.getLanguage());
     }
 }

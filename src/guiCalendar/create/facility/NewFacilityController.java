@@ -20,6 +20,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import logging.MyLogger;
+import sample.Main;
 import timetable.Lecture;
 import timetable.Timetable;
 
@@ -73,14 +74,14 @@ public class NewFacilityController implements Initializable {
 
         MyLogger.LOGGER.entering(getClass().toString(), "makeForm", gridPane);
 
-        Text sceneTitle = new Text("New Facility");
+        Text sceneTitle = new Text(Main.getTimetableBundle().getString("New") + " " + Main.getTimetableBundle().getString("Facility"));
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         gridPane.add(sceneTitle, 0, 0, 2, 1);
 
         /*
         -------------- BUILDING -------------------------------------
          */
-        Label buildingTitle = new Label("Building:");
+        Label buildingTitle = new Label(Main.getTimetableBundle().getString("Building") + ":");
         gridPane.add(buildingTitle, 0, 1);
         TextField buildingTextfield = new TextField();
         gridPane.add(buildingTextfield, 1, 1);
@@ -88,7 +89,7 @@ public class NewFacilityController implements Initializable {
         /*
         -------------- ROOM --------------------------------
          */
-        Label roomTitle = new Label("Room:");
+        Label roomTitle = new Label(Main.getTimetableBundle().getString("Room") + ":");
         gridPane.add(roomTitle, 0, 2);
         TextField roomTextfield = new TextField();
         gridPane.add(roomTextfield, 1, 2);
@@ -96,7 +97,7 @@ public class NewFacilityController implements Initializable {
         /*
         ------------- STREET ---------------------------------
          */
-        Label streetTitle = new Label("Street:");
+        Label streetTitle = new Label(Main.getTimetableBundle().getString("Street") + ":");
         gridPane.add(streetTitle, 0, 3);
         TextField streetTextfield = new TextField();
         gridPane.add(streetTextfield, 1, 3);
@@ -104,7 +105,7 @@ public class NewFacilityController implements Initializable {
         /*
         ---------------- Zip-Code -----------------------------
          */
-        Label zipCodeTitle = new Label("Zip-Code:");
+        Label zipCodeTitle = new Label(Main.getTimetableBundle().getString("ZipCode") + ":");
         gridPane.add(zipCodeTitle, 0, 4);
         TextField zipCodeTextfield = new TextField();
         gridPane.add(zipCodeTextfield, 1, 4);
@@ -112,7 +113,7 @@ public class NewFacilityController implements Initializable {
         /*
         ---------------- CITY -----------------------------
          */
-        Label cityTitle = new Label("City:");
+        Label cityTitle = new Label(Main.getTimetableBundle().getString("City") + ":");
         gridPane.add(cityTitle, 0, 5);
         TextField cityTextfield = new TextField();
         gridPane.add(cityTextfield, 1, 5);
@@ -121,7 +122,7 @@ public class NewFacilityController implements Initializable {
         ------------- SUBMIT BUTTON --------------------------------
          */
 
-        Button createButton = new Button("create");
+        Button createButton = new Button(Main.getTimetableBundle().getString("Create"));
 
         createButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override

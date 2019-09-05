@@ -40,7 +40,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
 
     private Lectures lectures;
 
-    private static final String colHeadlines[] = {"Facility", "Lecturer", "Is Elective", "Notes"};
+    private static final String colHeadlines[] = {"Facility", "Lecturer", "Elective", "Notes"};
 
     private Updatable parentController = null;
 
@@ -89,8 +89,8 @@ public class ControllerLectureInfo implements Initializable, Updatable {
     }
 
     private MenuButton makeAddButton(Lectures unit) {
-        MenuItem newButton = new MenuItem("new");
-        MenuItem existingButton = new MenuItem("existing");
+        MenuItem newButton = new MenuItem(Main.getTimetableBundle().getString("New"));
+        MenuItem existingButton = new MenuItem(Main.getTimetableBundle().getString("Existing"));
 
         ControllerLectureInfo parent = this;
         newButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -109,7 +109,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
                     // show edit-form
                     Stage stage = new Stage();
                     stage.setScene(new Scene(root));
-                    stage.setTitle("new");
+                    stage.setTitle(Main.getTimetableBundle().getString("New"));
 
                     // prevent interaction with the primary stage until the new window is closed
                     stage.initModality(Modality.WINDOW_MODAL);
@@ -123,7 +123,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             }
         });
 
-        MenuButton menuButton = new MenuButton("add", null, newButton, existingButton);
+        MenuButton menuButton = new MenuButton(Main.getTimetableBundle().getString("Add"), null, newButton, existingButton);
 
         menuButton.getStyleClass().addAll("add-button", "add-button:hover");
 
@@ -177,7 +177,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         /*
         ################# ADD BUTTONS###################################
          */
-        Button editButton = new Button("edit");
+        Button editButton = new Button(Main.getTimetableBundle().getString("Edit"));
         ControllerLectureInfo parent = this;
         editButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -196,7 +196,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
                     // show edit-form
                     Stage stage = new Stage();
                     stage.setScene(new Scene(root));
-                    stage.setTitle("edit");
+                    stage.setTitle(Main.getTimetableBundle().getString("Edit"));
 
                     // prevent interaction with the primary stage until the new window is closed
                     stage.initModality(Modality.WINDOW_MODAL);
@@ -214,7 +214,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         hButtonBox.setSpacing(5.0);
         hButtonBox.setPadding(new Insets(10, 10, 10, 0));
 
-        Button deleteButton = new Button("delete");
+        Button deleteButton = new Button(Main.getTimetableBundle().getString("Delete"));
         deleteButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -245,7 +245,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
          */
         // set headings for the grid
         for (int i = 0; i < colHeadlines.length; i++) {
-            Text t = new Text(colHeadlines[i]);
+            Text t = new Text(Main.getTimetableBundle().getString(colHeadlines[i]));
             Pane p = new Pane();
 
             t.setFont(new Font(ControllerCalendar.MEDIUM_FONT_SIZE));
@@ -263,15 +263,15 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         TreeView<String> facility = new TreeView<String>();
         if (lecture.getFacility() != null) {
             TreeItem<String> facilityRootItem = new TreeItem<>(lecture.getFacility().toString());
-            TreeItem<String> t_building = new TreeItem<>("Building: " + lecture.getFacility().getBuilding());
-            TreeItem<String> t_room = new TreeItem<>( "Room: " + lecture.getFacility().getRoom());
-            TreeItem<String> t_street = new TreeItem<>("Street: " + lecture.getFacility().getStreet());
-            TreeItem<String> t_zipcode = new TreeItem<>("Zip-Code: " + lecture.getFacility().getZipcode());
-            TreeItem<String> t_city = new TreeItem<>("City: " + lecture.getFacility().getCity());
+            TreeItem<String> t_building = new TreeItem<>(Main.getTimetableBundle().getString("Building") + ": " + lecture.getFacility().getBuilding());
+            TreeItem<String> t_room = new TreeItem<>(Main.getTimetableBundle().getString("Room") + ": " + lecture.getFacility().getRoom());
+            TreeItem<String> t_street = new TreeItem<>(Main.getTimetableBundle().getString("Street") + ": " + lecture.getFacility().getStreet());
+            TreeItem<String> t_zipcode = new TreeItem<>(Main.getTimetableBundle().getString("ZipCode") + ": " + lecture.getFacility().getZipcode());
+            TreeItem<String> t_city = new TreeItem<>(Main.getTimetableBundle().getString("City") + ": " + lecture.getFacility().getCity());
             facilityRootItem.getChildren().addAll(t_building, t_room, t_street, t_zipcode, t_city);
             facility.setRoot(facilityRootItem);
         } else {
-            TreeItem<String> facilityRootItem = new TreeItem<>("no facility assigned to this lecture");
+            TreeItem<String> facilityRootItem = new TreeItem<>(Main.getTimetableBundle().getString("NoFacilityMsg"));
             facility.setRoot(facilityRootItem);
         }
 
@@ -279,37 +279,37 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         TreeView<String> lecturer = new TreeView<>();
         if (lecture.getLecturer() != null) {
             TreeItem<String> lecturerRootItem = new TreeItem<>(lecture.getLecturer().toString());
-            TreeItem<String> t_firstName = new TreeItem<>("First Name: " + lecture.getLecturer().getFirstName());
-            TreeItem<String> t_lastName = new TreeItem<>("Last Name: " + lecture.getLecturer().getLastName());
-            TreeItem<String> t_email = new TreeItem<>("E-Mail: " + lecture.getLecturer().getEmail());
+            TreeItem<String> t_firstName = new TreeItem<>(Main.getTimetableBundle().getString("FirstName") + ": " + lecture.getLecturer().getFirstName());
+            TreeItem<String> t_lastName = new TreeItem<>(Main.getTimetableBundle().getString("LastName") + ": " + lecture.getLecturer().getLastName());
+            TreeItem<String> t_email = new TreeItem<>(Main.getTimetableBundle().getString("EMail") + ": " + lecture.getLecturer().getEmail());
 
             TreeItem<String> t_facility;
             if(lecture.getLecturer().getFacility() != null) {
-                t_facility = new TreeItem<>("Facility : " + lecture.getLecturer().getFacility().toString());
-                TreeItem<String> tt_building = new TreeItem<>("Building: " + lecture.getLecturer().getFacility().getBuilding());
-                TreeItem<String> tt_room = new TreeItem<>("Room: " + lecture.getLecturer().getFacility().getRoom());
-                TreeItem<String> tt_street = new TreeItem<>("Street: " + lecture.getLecturer().getFacility().getStreet());
-                TreeItem<String> tt_zipcode = new TreeItem<>("Zip-Code: " + lecture.getLecturer().getFacility().getZipcode());
-                TreeItem<String> tt_city = new TreeItem<>("City: " + lecture.getLecturer().getFacility().getCity());
+                t_facility = new TreeItem<>(Main.getTimetableBundle().getString("Facility") + ": " + lecture.getLecturer().getFacility().toString());
+                TreeItem<String> tt_building = new TreeItem<>(Main.getTimetableBundle().getString("Building")  + ": " + lecture.getLecturer().getFacility().getBuilding());
+                TreeItem<String> tt_room = new TreeItem<>(Main.getTimetableBundle().getString("Room") + ": " + lecture.getLecturer().getFacility().getRoom());
+                TreeItem<String> tt_street = new TreeItem<>(Main.getTimetableBundle().getString("Street") + ": " + lecture.getLecturer().getFacility().getStreet());
+                TreeItem<String> tt_zipcode = new TreeItem<>(Main.getTimetableBundle().getString("ZipCode") + ": " + lecture.getLecturer().getFacility().getZipcode());
+                TreeItem<String> tt_city = new TreeItem<>(Main.getTimetableBundle().getString("City") + ": " + lecture.getLecturer().getFacility().getCity());
                 t_facility.getChildren().addAll(tt_building, tt_room, tt_street, tt_zipcode, tt_city);
             } else {
-                t_facility = new TreeItem<>("Facility :");
+                t_facility = new TreeItem<>(Main.getTimetableBundle().getString("Facility") + ":");
             }
 
             lecturerRootItem.getChildren().addAll(t_firstName, t_lastName, t_email, t_facility);
             lecturer.setRoot(lecturerRootItem);
         } else {
-            TreeItem<String> lecturerRootItem = new TreeItem<>("no lecturer assigned to this lecture");
+            TreeItem<String> lecturerRootItem = new TreeItem<>(Main.getTimetableBundle().getString("NoLecturerMsg"));
             lecturer.setRoot(lecturerRootItem);
         }
 
         // elective
-        Text elective = (lecture.isElective() ? new Text("true") : new Text("false"));
+        Text elective = (lecture.isElective() ? new Text(Main.getTimetableBundle().getString("True")) : new Text(Main.getTimetableBundle().getString("False")));
         gridPane.setHalignment(elective, HPos.CENTER);
 
         // notes
         TreeView<String> notes = new TreeView<>();
-        TreeItem<String> notesRootItem = new TreeItem<>("Notes");
+        TreeItem<String> notesRootItem = new TreeItem<>(Main.getTimetableBundle().getString("Notes"));
         for (int j = 0; j < lecture.getNotes().size(); j++) {
             Note note = lecture.getNotes().getElement(j);
 
