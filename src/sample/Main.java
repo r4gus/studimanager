@@ -30,7 +30,7 @@ public class Main extends Application {
 
     public static final String TITLE = "Studimanager";
 
-    private static ResourceBundle timetableBundle;
+    private static ResourceBundle bundle;
 
     private static Config config;
 
@@ -56,10 +56,13 @@ public class Main extends Application {
         /* ########################### LOAD LANGUAGE-RESOURCE-BUNDLE #################################### */
         switch (Main.getConfig().getLanguage()) {
             case DE:
-                timetableBundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle", new Locale("de", "DE"));
+                bundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle", new Locale("de", "DE"));
+                break;
+            case FR:
+                bundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle", new Locale("fr", "FR"));
                 break;
             default:
-                timetableBundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle");
+                bundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle");
         }
 
         /* #################### OPEN APPLICATION ######################################################## */
@@ -111,12 +114,12 @@ public class Main extends Application {
         Main.config = config;
     }
 
-    public static ResourceBundle getTimetableBundle() {
-        return timetableBundle;
+    public static ResourceBundle getBundle() {
+        return bundle;
     }
 
-    public static void setTimetableBundle(ResourceBundle timetableBundle) {
-        Main.timetableBundle = timetableBundle;
+    public static void setBundle(ResourceBundle bundle) {
+        Main.bundle = bundle;
     }
 }
 

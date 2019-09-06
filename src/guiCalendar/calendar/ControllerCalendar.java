@@ -2,7 +2,6 @@ package guiCalendar.calendar;
 
 import guiCalendar.Updatable;
 import guiCalendar.info.ControllerLectureInfo;
-import guiCalendar.welcome_screen.ControllerWelcomeScreen;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -24,7 +23,6 @@ import logging.MyLogger;
 import sample.Main;
 import timetable.*;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -312,7 +310,7 @@ public class ControllerCalendar implements Initializable, Updatable {
         MyLogger.LOGGER.entering(getClass().toString(), "setDays");
 
         for(int i = 0; i < timetable.getDays(); i++) {
-            Text t = new Text(Main.getTimetableBundle().getString(days[i]));
+            Text t = new Text(Main.getBundle().getString(days[i]));
             t.setFont(new Font(BIG_FONT_SIZE)); // set font size
             GridPane.setHalignment(t, HPos.CENTER); // center node (text object)
             gridPane.add(t, i+1, 0);  // add to gridPane

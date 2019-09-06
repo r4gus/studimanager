@@ -1,11 +1,6 @@
 package config.gui;
 
 import config.Language;
-import guiCalendar.Updatable;
-import guiCalendar.calendar.ControllerCalendar;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -17,11 +12,8 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import logging.MyLogger;
 import sample.Main;
-import timetable.Lecture;
-import timetable.Timetable;
 
 import java.io.File;
 import java.io.IOException;
@@ -67,14 +59,14 @@ public class ConfigController implements Initializable {
 
         MyLogger.LOGGER.entering(getClass().toString(), "makeForm", gridPane);
 
-        Text sceneTitle = new Text(Main.getTimetableBundle().getString("Settings"));
+        Text sceneTitle = new Text(Main.getBundle().getString("Settings"));
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         gridPane.add(sceneTitle, 0, 0, 2, 1);
 
         /*
         -------------- LANGUAGE -------------------------------------
          */
-        Label languageTitle = new Label(Main.getTimetableBundle().getString("Language"));
+        Label languageTitle = new Label(Main.getBundle().getString("Language"));
         gridPane.add(languageTitle, 0, 1);
 
         ComboBox languageSelect = new ComboBox();
@@ -86,7 +78,7 @@ public class ConfigController implements Initializable {
         /*
         --------------- Timetable PATH ----------------------------------------
          */
-        Label timetablePathTitle = new Label(Main.getTimetableBundle().getString("Path"));
+        Label timetablePathTitle = new Label(Main.getBundle().getString("Path"));
         gridPane.add(timetablePathTitle, 0, 2);
 
         TextField pathField = new TextField();
@@ -94,7 +86,7 @@ public class ConfigController implements Initializable {
         gridPane.add(pathField, 1, 2);
 
         FileChooser fileChooser = new FileChooser();
-        Button choose = new Button(Main.getTimetableBundle().getString("Choose"));
+        Button choose = new Button(Main.getBundle().getString("Choose"));
         choose.setOnAction(e -> {
             File selectedFile = fileChooser.showOpenDialog(config_grid.getScene().getWindow());
             pathField.setText(selectedFile.getPath());
@@ -104,7 +96,7 @@ public class ConfigController implements Initializable {
         /*
         ---------------- APPLY CHANGES ---------------------------------------------
          */
-        Button apply = new Button(Main.getTimetableBundle().getString("Apply"));
+        Button apply = new Button(Main.getBundle().getString("Apply"));
         apply.setOnAction(e -> {
             try {
                 /* ############# update config class ################################# */
@@ -119,8 +111,8 @@ public class ConfigController implements Initializable {
                 stage.close();
 
                 /* ################# show info message ############################### */
-                showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), Main.getTimetableBundle().getString("Success"),
-                        Main.getTimetableBundle().getString("RestartMsg"));
+                showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), Main.getBundle().getString("Success"),
+                        Main.getBundle().getString("RestartMsg"));
             } catch (IOException exc) {
                 MyLogger.LOGGER.log(Level.SEVERE, exc.getMessage() + "\nIn: src.config.gui.ConfigController" +
                         "\nWhile: Clicking the apply button");

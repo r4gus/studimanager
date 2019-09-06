@@ -19,7 +19,6 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import logging.MyLogger;
-import sample.Controller;
 import sample.Main;
 import timetable.Timetable;
 
@@ -51,7 +50,7 @@ public class ControllerWelcomeScreen implements Initializable {
         /*
         ########################## TITLE #####################################
          */
-        Text sceneTitle = new Text(Main.getTimetableBundle().getString("Welcome"));
+        Text sceneTitle = new Text(Main.getBundle().getString("Welcome"));
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 22));
         sceneTitle.setStyle("-fx-font-weight: bold");
         welcome_grid.add(sceneTitle, 0, 0, 2, 1);
@@ -60,17 +59,17 @@ public class ControllerWelcomeScreen implements Initializable {
         /*
         ##################### NEW TIMETABLE ###################################
          */
-        Label newTimetableTitle = new Label(Main.getTimetableBundle().getString("ChoiceNew") + ":");
+        Label newTimetableTitle = new Label(Main.getBundle().getString("ChoiceNew") + ":");
         welcome_grid.add(newTimetableTitle, 0,1);
-        Button newTimetableButton = new Button(Main.getTimetableBundle().getString("New"));
+        Button newTimetableButton = new Button(Main.getBundle().getString("New"));
         welcome_grid.add(newTimetableButton, 1, 1);
 
         /*
         ###################### IMPORT #########################################
          */
-        Label importTimetableTitle = new Label(Main.getTimetableBundle().getString("ChoiceOpen") + ":");
+        Label importTimetableTitle = new Label(Main.getBundle().getString("ChoiceOpen") + ":");
         welcome_grid.add(importTimetableTitle, 0, 2);
-        Button importTimetableButton = new Button(Main.getTimetableBundle().getString("Open"));
+        Button importTimetableButton = new Button(Main.getBundle().getString("Open"));
         welcome_grid.add(importTimetableButton, 1, 2);
 
         /*

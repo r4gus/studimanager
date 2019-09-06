@@ -102,6 +102,43 @@ Follow these instructions to run the automated tests:
 Right Click on test -> Run Tests in 'mypackage.test'
 ```
 
+## Internationalization
+This program supports multiple languages through __property__ files. All files can be found at __src.config.i18n.Resource
+Bundle'TimetableResourceBundle'__. To add support for a new language follow these steps:
+
+1. Copy and rename an existing file. The naming convention is __TimetableResourceBundle_xx_XX.properties__.
+For example, to support Italian name the file: ```TimetableResourceBundle_it_IT.properties```
+2. Translate all values of the key-value pairs depending on the language.
+3. Add the __language-code__ to   ```src.config.Language```
+4. Add a new case to the switch statement in ```sample.Main``` and don't forget the ```break```
+
+### Example
+
+The program should support Italian:
+#### 1. Copy and rename an existing file:
+```
+TimetableResourceBundle_it_IT.porperties
+```
+
+#### 2. Translate values into Italian
+```
+True=true -> True=vera
+...
+```
+
+#### 3. Add IT to src.config.Language
+```
+public enum Language {
+    EN, DE, FR, IT
+}
+```
+
+#### 4. Add new case to the switch statement in Main
+```
+bundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle", new Locale("it", "IT"));
+break;
+```
+
 ## Deployment
 
 Add additional notes about how to deploy this on a live system

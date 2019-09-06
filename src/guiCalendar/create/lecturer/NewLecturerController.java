@@ -20,7 +20,6 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import logging.MyLogger;
 import sample.Main;
 import timetable.Facility;
@@ -88,14 +87,14 @@ public class NewLecturerController implements Initializable, Updatable {
     private void makeForm(GridPane gridPane) {
         MyLogger.LOGGER.entering(getClass().toString(), "makeForm", gridPane);
 
-        Text sceneTitle = new Text(Main.getTimetableBundle().getString("New") + " " + Main.getTimetableBundle().getString("Lecturer"));
+        Text sceneTitle = new Text(Main.getBundle().getString("New") + " " + Main.getBundle().getString("Lecturer"));
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         gridPane.add(sceneTitle, 0, 0, 2, 1);
 
         /*
         -------------- FIRST NAME -------------------------------------
          */
-        Label firstNameTitle = new Label(Main.getTimetableBundle().getString("FirstName") + ":");
+        Label firstNameTitle = new Label(Main.getBundle().getString("FirstName") + ":");
         gridPane.add(firstNameTitle, 0, 1);
         TextField firstNameTextfield = new TextField();
         if (preservedFirstName != null) firstNameTextfield.setText(preservedFirstName);
@@ -104,7 +103,7 @@ public class NewLecturerController implements Initializable, Updatable {
         /*
         -------------- LAST NAME --------------------------------
          */
-        Label lastNameTitle = new Label(Main.getTimetableBundle().getString("LastName") + ":");
+        Label lastNameTitle = new Label(Main.getBundle().getString("LastName") + ":");
         gridPane.add(lastNameTitle, 0, 2);
         TextField lastNameTextfield = new TextField();
         if (preservedLastName != null) lastNameTextfield.setText(preservedLastName);
@@ -113,7 +112,7 @@ public class NewLecturerController implements Initializable, Updatable {
         /*
         -------------- E-MAIL --------------------------------
          */
-        Label emailTitle = new Label(Main.getTimetableBundle().getString("EMail") + ":");
+        Label emailTitle = new Label(Main.getBundle().getString("EMail") + ":");
         gridPane.add(emailTitle, 0, 3);
         TextField emailTextfield = new TextField();
         if (preservedEmail != null) emailTextfield.setText(preservedEmail);
@@ -123,7 +122,7 @@ public class NewLecturerController implements Initializable, Updatable {
         /*
         ------------- FACILITY ---------------------------------
          */
-        Label facilityTitle = new Label(Main.getTimetableBundle().getString("Facility") + ":");
+        Label facilityTitle = new Label(Main.getBundle().getString("Facility") + ":");
         gridPane.add(facilityTitle, 0, 4);
 
         ComboBox<Facility> facilityComboBox = new ComboBox<>();
@@ -142,7 +141,7 @@ public class NewLecturerController implements Initializable, Updatable {
         ------------- SUBMIT BUTTON --------------------------------
          */
 
-        Button createButton = new Button(Main.getTimetableBundle().getString("Create"));
+        Button createButton = new Button(Main.getBundle().getString("Create"));
 
         createButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -189,7 +188,7 @@ public class NewLecturerController implements Initializable, Updatable {
         /*
         ---------------------------- NEW FACILITY BUTTON ---------------------------------
          */
-        Button addFacilityButton = new Button(Main.getTimetableBundle().getString("New"));
+        Button addFacilityButton = new Button(Main.getBundle().getString("New"));
         addFacilityButton.getStyleClass().addAll("add-button", "add-button:hover");
 
         Updatable parent = this;
@@ -215,7 +214,7 @@ public class NewLecturerController implements Initializable, Updatable {
                     // show info-page scene
                     Stage stage = new Stage();
                     stage.setScene(new Scene(root));
-                    stage.setTitle(Main.getTimetableBundle().getString("New") + " " + Main.getTimetableBundle().getString("Facility"));
+                    stage.setTitle(Main.getBundle().getString("New") + " " + Main.getBundle().getString("Facility"));
 
                     // prevents interaction with the primary stage until the new window is closed.
                     stage.initModality(Modality.WINDOW_MODAL);
