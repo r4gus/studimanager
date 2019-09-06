@@ -31,6 +31,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static message.Alert.showAlert;
+
 public class NewLecturerController implements Initializable, Updatable {
     private final Timetable timetable = ControllerCalendar.getTimetable();
     @FXML
@@ -228,15 +230,6 @@ public class NewLecturerController implements Initializable, Updatable {
         gridPane.add(addFacilityButton, 2, 4);
 
         MyLogger.LOGGER.exiting(getClass().toString(), "makeForm");
-    }
-
-    private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.initOwner(owner);
-        alert.show();
     }
 
     public void setParentController(Updatable c) {

@@ -27,6 +27,8 @@ import timetable.Timetable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static message.Alert.showAlert;
+
 public class NewFacilityController implements Initializable {
     private final Timetable timetable = ControllerCalendar.getTimetable();
     @FXML
@@ -172,16 +174,6 @@ public class NewFacilityController implements Initializable {
 
         MyLogger.LOGGER.exiting(getClass().toString(), "makeForm");
     }
-
-    private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.initOwner(owner);
-        alert.show();
-    }
-
 
     public void setParentController(Updatable c) {
         this.parentController = c;

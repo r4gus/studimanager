@@ -21,7 +21,6 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import logging.MyLogger;
 import sample.Main;
 import timetable.*;
@@ -170,7 +169,7 @@ public class ControllerLectureEdit implements Initializable, Updatable {
                 ------------- GET VALUES ----------------------------------------------
                  */
                 if (titleField.getText().isEmpty()) {
-                    showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error",
+                    message.Alert.showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error",
                             "Please enter a title");
                     return;
                 } else {
@@ -296,15 +295,6 @@ public class ControllerLectureEdit implements Initializable, Updatable {
         gridPane.add(addLecturerButton, 2, 4);
 
 
-    }
-
-    private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.initOwner(owner);
-        alert.show();
     }
 
     public void setLecture(Lecture lecture) {

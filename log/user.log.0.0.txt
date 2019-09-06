@@ -777,3 +777,12 @@ Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
 Sep 05, 2019 6:13:44 PM timetable.Timetable loadJson
 WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
 Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 05, 2019 8:05:30 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 05, 2019 8:19:11 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 06, 2019 2:52:05 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json

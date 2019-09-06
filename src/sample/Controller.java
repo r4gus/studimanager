@@ -2,13 +2,19 @@ package sample;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import guiCalendar.calendar.ControllerCalendar;
+import guiCalendar.create.lecture.NewLectureController;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.FileNotFoundException;
@@ -20,6 +26,9 @@ public class Controller implements Initializable {
 
     @FXML
     public MenuItem saveButton;
+
+    @FXML
+    public MenuItem settingsButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -50,6 +59,30 @@ public class Controller implements Initializable {
                     /*
                     general error message
                      */
+                }
+            }
+        });
+
+        settingsButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/config/gui/layoutConfig.fxml"));
+                    Parent root = loader.load();
+
+                    // show settings
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle(Main.getTimetableBundle().getString("Settings"));
+
+                    // prevent interaction with the primary stage until the new window is closed
+                    stage.initModality(Modality.WINDOW_MODAL);
+                    stage.initOwner(Main.getPrimaryStage());
+                    stage.setResizable(false);
+                    // show window
+                    stage.show();
+                } catch (IOException exc) {
+                    exc.printStackTrace();
                 }
             }
         });
