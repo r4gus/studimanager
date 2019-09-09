@@ -31,9 +31,9 @@ import java.util.logging.Level;
  */
 public class Timetable implements Serializable {
     private static final int MIN_DAYS = 1;
-    private static final int MAX_DAYS = 7;
+    public static final int MAX_DAYS = 7;
     private static final int MIN_UNITS = 1;
-    private static final int MAX_UNITS = 16;
+    public static final int MAX_UNITS = 16;
     private static final int MIN_SEMESTER = 1;
     private final LocalTime DEFAULT_BEGIN;
     private final long DEFAULT_DURATION_M;

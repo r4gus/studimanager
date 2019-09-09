@@ -1,6 +1,7 @@
 package guiCalendar.welcome_screen;
 
 import guiCalendar.calendar.ControllerCalendar;
+import guiCalendar.create.timetable.TimetableController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
 import sample.Main;
@@ -78,6 +80,27 @@ public class ControllerWelcomeScreen implements Initializable {
         newTimetableButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../create/timetable/layoutTimetable.fxml"));
+                    Parent root = loader.load();
+
+                    /* assign this stage as parent (this stage should only be closed after the successful creation of a new timetable)*/
+                    TimetableController timetableController = loader.getController();
+                    timetableController.setParent((Stage) welcome_grid.getScene().getWindow());
+
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle(Main.getBundle().getString("New") + " " + Main.getBundle().getString("Timetable"));
+
+                    // prevent interaction with the primary stage until the new window is closed
+                    stage.initModality(Modality.WINDOW_MODAL);
+                    stage.initOwner(welcome_grid.getScene().getWindow());
+                    stage.setResizable(false);
+                    // show window
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
             }
         });
@@ -112,6 +135,7 @@ public class ControllerWelcomeScreen implements Initializable {
                         } catch (IOException e) {
                             MyLogger.LOGGER.log(Level.SEVERE, "Couldn't update config data." +
                                     "\nClass: " + getClass().toString() + "\nMethod: handle()" + "\n" + e.getMessage());
+                            e.printStackTrace();
                         }
 
                         /*
