@@ -44,20 +44,10 @@ class LectureTest {
         assertEquals(3, l2.getNotes().size());
 
         // try to add note twice
-        try {
-            l2.addNote(n3);
-            fail();
-        } catch (IllegalArgumentException exc) {
-            assertTrue(true);
-        }
+        assertFalse(l2.addNote(n3));
 
         // try to add null
-        try {
-            l2.addNote(null);
-            fail();
-        } catch (IllegalArgumentException exc) {
-            assertTrue(true);
-        }
+        assertFalse(l2.addNote(null));
 
         // no change in state
         assertEquals(3, l2.getNotes().size());

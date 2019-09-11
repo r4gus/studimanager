@@ -18,13 +18,15 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import logging.MyLogger;
+import sample.Main;
 import timetable.Lecture;
 import timetable.Timetable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static message.Alert.showAlert;
 
 public class NewFacilityController implements Initializable {
     private final Timetable timetable = ControllerCalendar.getTimetable();
@@ -36,7 +38,7 @@ public class NewFacilityController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        newFacility_grid.getStylesheets().add(getClass().getResource("../create.css").toExternalForm());
+        newFacility_grid.getStylesheets().add(getClass().getResource("../../../main.css").toExternalForm());
 
         adjustGridPane(newFacility_grid);
 
@@ -70,16 +72,17 @@ public class NewFacilityController implements Initializable {
     }
 
     private void makeForm(GridPane gridPane) {
+
         MyLogger.LOGGER.entering(getClass().toString(), "makeForm", gridPane);
 
-        Text sceneTitle = new Text("New Facility");
+        Text sceneTitle = new Text(Main.getBundle().getString("New") + " " + Main.getBundle().getString("Facility"));
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         gridPane.add(sceneTitle, 0, 0, 2, 1);
 
         /*
         -------------- BUILDING -------------------------------------
          */
-        Label buildingTitle = new Label("Building:");
+        Label buildingTitle = new Label(Main.getBundle().getString("Building") + ":");
         gridPane.add(buildingTitle, 0, 1);
         TextField buildingTextfield = new TextField();
         gridPane.add(buildingTextfield, 1, 1);
@@ -87,7 +90,7 @@ public class NewFacilityController implements Initializable {
         /*
         -------------- ROOM --------------------------------
          */
-        Label roomTitle = new Label("Room:");
+        Label roomTitle = new Label(Main.getBundle().getString("Room") + ":");
         gridPane.add(roomTitle, 0, 2);
         TextField roomTextfield = new TextField();
         gridPane.add(roomTextfield, 1, 2);
@@ -95,7 +98,7 @@ public class NewFacilityController implements Initializable {
         /*
         ------------- STREET ---------------------------------
          */
-        Label streetTitle = new Label("Street:");
+        Label streetTitle = new Label(Main.getBundle().getString("Street") + ":");
         gridPane.add(streetTitle, 0, 3);
         TextField streetTextfield = new TextField();
         gridPane.add(streetTextfield, 1, 3);
@@ -103,7 +106,7 @@ public class NewFacilityController implements Initializable {
         /*
         ---------------- Zip-Code -----------------------------
          */
-        Label zipCodeTitle = new Label("Zip-Code:");
+        Label zipCodeTitle = new Label(Main.getBundle().getString("ZipCode") + ":");
         gridPane.add(zipCodeTitle, 0, 4);
         TextField zipCodeTextfield = new TextField();
         gridPane.add(zipCodeTextfield, 1, 4);
@@ -111,7 +114,7 @@ public class NewFacilityController implements Initializable {
         /*
         ---------------- CITY -----------------------------
          */
-        Label cityTitle = new Label("City:");
+        Label cityTitle = new Label(Main.getBundle().getString("City") + ":");
         gridPane.add(cityTitle, 0, 5);
         TextField cityTextfield = new TextField();
         gridPane.add(cityTextfield, 1, 5);
@@ -120,7 +123,7 @@ public class NewFacilityController implements Initializable {
         ------------- SUBMIT BUTTON --------------------------------
          */
 
-        Button createButton = new Button("create");
+        Button createButton = new Button(Main.getBundle().getString("Create"));
 
         createButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -170,16 +173,6 @@ public class NewFacilityController implements Initializable {
 
         MyLogger.LOGGER.exiting(getClass().toString(), "makeForm");
     }
-
-    private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.initOwner(owner);
-        alert.show();
-    }
-
 
     public void setParentController(Updatable c) {
         this.parentController = c;

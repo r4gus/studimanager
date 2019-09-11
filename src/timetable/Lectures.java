@@ -1,5 +1,6 @@
 package timetable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import logging.MyLogger;
 
 import java.io.Serializable;
@@ -13,8 +14,11 @@ import java.util.logging.Level;
  * @author David Sugar
  */
 public class Lectures extends Container<Lecture> implements Serializable {
+    @JsonIgnore
     private LocalTime from;  // start of the lecture
+    @JsonIgnore
     private LocalTime to;    // end of the lecture
+    @JsonIgnore
     private Lecture head; // lecture to display inside the grid pane
 
     public Lectures() {
@@ -77,7 +81,6 @@ public class Lectures extends Container<Lecture> implements Serializable {
             this.setHead(o);  // the head is the lecture that gets later displayed representative
         }                                           // for all lectures assigned to a unit
 
-
         MyLogger.LOGGER.exiting(getClass().toString(), "addLecture");
         return this.add(o);
     }
@@ -117,6 +120,7 @@ public class Lectures extends Container<Lecture> implements Serializable {
      * Get the start and end time of the unit/ lecture separated with an '-'.
      * @return start and end time separated with an '-'
      */
+    @JsonIgnore
     public String getTime() {
         return this.from + "\n-\n" + this.to;
     }

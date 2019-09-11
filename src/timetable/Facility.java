@@ -22,11 +22,21 @@ public class Facility implements Serializable {
                 building, room, street, zipcode, city
         });
 
-        this.building = building;
-        this.room = room;
-        this.street = street;
-        this.zipcode = zipcode;
-        this.city = city;
+        if(building == null) this.building = "";
+        else this.building = building;
+
+
+        if(room == null) this.room= "";
+        else this.room = room;
+
+        if(street == null) this.street = "";
+        else this.street = street;
+
+        if(zipcode == null) this.zipcode = "";
+        else this.zipcode = zipcode;
+
+        if(city == null) this.city = "";
+        else this.city = city;
 
         MyLogger.LOGGER.exiting(getClass().toString(), "Facility");
     }

@@ -1,9 +1,17 @@
 package timetable;
 
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.Version;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import custom_exceptions.UserException;
 import logging.MyLogger;
 
-import java.io.Serializable;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -23,9 +31,9 @@ import java.util.logging.Level;
  */
 public class Timetable implements Serializable {
     private static final int MIN_DAYS = 1;
-    private static final int MAX_DAYS = 7;
+    public static final int MAX_DAYS = 7;
     private static final int MIN_UNITS = 1;
-    private static final int MAX_UNITS = 16;
+    public static final int MAX_UNITS = 16;
     private static final int MIN_SEMESTER = 1;
     private final LocalTime DEFAULT_BEGIN;
     private final long DEFAULT_DURATION_M;
@@ -40,6 +48,7 @@ public class Timetable implements Serializable {
     private Lectures LECTURES = new Lectures(); // used to keep record over all records
     private Lecturers LECTURERS = new Lecturers(); // used to keep record over all lecturers
     private Facilities FACILITIES = new Facilities(); // used to keep record over all facilities
+
 
     /**
      * Creates an object with default time settings
@@ -137,6 +146,26 @@ public class Timetable implements Serializable {
 
     public void setSemester(int semester) {
         this.semester = semester;
+    }
+
+    public LocalTime getDEFAULT_BEGIN() {
+        return DEFAULT_BEGIN;
+    }
+
+    public long getDEFAULT_DURATION_M() {
+        return DEFAULT_DURATION_M;
+    }
+
+    public long getDEFAULT_BREAK_TIME() {
+        return DEFAULT_BREAK_TIME;
+    }
+
+    public long getDEFAULT_LUNCH_TIME() {
+        return DEFAULT_LUNCH_TIME;
+    }
+
+    public LocalTime getDEFAULT_LUNCH_AT() {
+        return DEFAULT_LUNCH_AT;
     }
 
     /**
@@ -251,8 +280,8 @@ public class Timetable implements Serializable {
      * @param unit The unit to add the lecture to
      * @param day The day
      * @param lecture The lecture to add
-     * @return true on success, false otherwise
-     * @throws IllegalArgumentException Thrown if {@code #lecture} is null or if index is out of bounds.
+     * @return true on success, false otherwise (for example if null has been passed as argument)
+     * @throws IllegalArgumentException Thrown if {@code #lecture} if index is out of bounds.
      */
     public boolean addLecture(int unit, int day, Lecture lecture) throws IllegalArgumentException {
         if(unit < 0 || unit >= unitsPerDay || day < 0 || day >= days)
@@ -267,8 +296,94 @@ public class Timetable implements Serializable {
             return x;
         } catch (IllegalArgumentException exc) {
             MyLogger.LOGGER.log(Level.WARNING, exc.getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Store the current Timetable object data at the specified location. It can later be retrieved by calling
+     * the {@code load()} method.
+     * @param path Place to store the data on the system
+     * @throws IOException Either because a problem occurred while parsing the specified object or because the file
+     * couldn't be opened.
+     */
+    public void store(String path) throws IOException {
+        storeJson(path);
+    }
+    
+    /**
+     * Calls a custom serializer {@link TimetableSerializer#serialize(Timetable, JsonGenerator, SerializerProvider)}
+     * method to store a {@code Timetable} objects data in a Json file at the specified location.
+     * @param path Destination
+     * @throws IOException Either because a problem occurred while parsing the specified object or because the file
+     * couldn't be opened.
+     */
+    public void storeJson(String path) throws IOException {
+        MyLogger.LOGGER.entering(getClass().toString(), "storeJson", path);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        TimetableSerializer timetableSerializer = new TimetableSerializer(Timetable.class);
+
+        SimpleModule module = new SimpleModule("TimetableSerializer",
+                new Version(0, 1, 0, null, null, null));
+        module.addSerializer(Timetable.class, timetableSerializer);
+
+        objectMapper.registerModule(module);
+
+        try (FileOutputStream fout = new FileOutputStream(path)) {
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(fout, this);
+        } catch (JsonProcessingException exc) {
+            MyLogger.LOGGER.log(Level.SEVERE, exc.getMessage() + "\nSpecified Path: " + path);
+            throw exc;
+        } catch (IOException e) {
+            MyLogger.LOGGER.log(Level.WARNING, e.getMessage() + "\nSpecified Path: " + path);
+            throw e;
+        }
+
+        MyLogger.LOGGER.exiting(getClass().toString(), "storeJson");
+    }
+
+    /**
+     * Loads data that has previously been stored by the {@code store()} method.
+     * @param path File to retrieve the data from
+     * @return Timetable object on success, null otherwise
+     * @throws IOException if the specified file couldn't be found or because of an parsing error
+     */
+    public static Timetable load(String path) throws IOException {
+        try {
+            return loadJson(path);
+        } catch (IOException exc) {
             throw exc;
         }
     }
 
+    /**
+     * Calls a custom deserializer {@link TimetableDeserializer#deserialize(JsonParser, DeserializationContext)}
+     * method to retrieve data from a json file.
+     * @param path Path to the Json file
+     * @return Timetable object on success, null otherwise
+     * @throws IOException if the specified file couldn't be found or because of an parsing error
+     */
+    public static Timetable loadJson(String path) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        Timetable timetable = null;
+
+        SimpleModule module = new SimpleModule("TimetableDeserializer",
+                new Version(0, 1, 0, null, null, null));
+        module.addDeserializer(Timetable.class, new TimetableDeserializer(Timetable.class));
+
+        objectMapper.registerModule(module);
+
+        try(FileInputStream fin = new FileInputStream(path)) {
+            timetable = objectMapper.readValue(fin, Timetable.class);
+        } catch (JsonProcessingException exc) {
+            MyLogger.LOGGER.log(Level.SEVERE, exc.getMessage() + "\nSpecified Path: " + path);
+            throw exc;
+        } catch (IOException exc) {
+            MyLogger.LOGGER.log(Level.WARNING, exc.getMessage() + "\nSpecified Path: " + path);
+            throw exc;
+        }
+
+        return timetable;
+    }
 }

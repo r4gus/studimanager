@@ -131,12 +131,7 @@ class TimetableTest {
         assertFalse(table2.addLecture(0, 0, l2));
 
         // try to add null
-        try {
-            table2.addLecture(0,0, null);
-            fail();
-        } catch (IllegalArgumentException exc) {
-            assertTrue(true);
-        }
+        assertFalse(table2.addLecture(0,0, null));
 
         // add successfully two other lectures
         try {

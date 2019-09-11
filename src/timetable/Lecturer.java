@@ -23,9 +23,15 @@ public class Lecturer implements Serializable {
                 firstName, lastName, email, facility
         });
 
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+        if( firstName == null ) this.firstName = "";
+        else this.firstName = firstName;
+
+        if(lastName == null) this.lastName = "";
+        else this.lastName = lastName;
+
+        if(email == null) this.email = "";
+        else this.email = email;
+
         this.facility = facility;
 
         MyLogger.LOGGER.exiting(getClass().toString(), "Lecturer");
