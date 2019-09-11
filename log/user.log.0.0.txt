@@ -750,3 +750,7 @@ Aug. 23, 2019 9:20:07 VORM. custom_exceptions.UserException <init>
 WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
 Aug. 25, 2019 1:14:04 NACHM. custom_exceptions.UserException <init>
 WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
+Aug. 26, 2019 7:56:52 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
+Aug. 30, 2019 11:40:25 VORM. custom_exceptions.UserException <init>
+WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
