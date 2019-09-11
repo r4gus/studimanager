@@ -352,32 +352,7 @@
   }, {
     "container" : [ ]
   }, {
-    "container" : [ {
-      "title" : "Fucking Late Man",
-      "facility" : {
-        "building" : "Hauptgebäude",
-        "room" : "111",
-        "street" : "",
-        "zipcode" : "",
-        "city" : "Stuttgart"
-      },
-      "lecturer" : {
-        "firstName" : "Mathias",
-        "lastName" : "Meyer",
-        "email" : "",
-        "facility" : {
-          "building" : "Hauptgebäude",
-          "room" : "111",
-          "street" : "",
-          "zipcode" : "",
-          "city" : "Stuttgart"
-        }
-      },
-      "elective" : false,
-      "notes" : {
-        "container" : [ ]
-      }
-    } ]
+    "container" : [ ]
   }, {
     "container" : [ ]
   }, {

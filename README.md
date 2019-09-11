@@ -65,9 +65,9 @@ and enter:
 Also add the following libraries the same way:
 
 ```
-/home/sugar/Documents/jackson/jackson-annotations-2.10.0.pr1.jar
-/home/sugar/Documents/jackson/jackson-core-2.10.0.pr1.jar
-/home/sugar/Documents/jackson/jackson-databind-2.10.0.pr1.jar
+/path/to/jackson/jackson-annotations-2.10.0.pr1.jar
+/path/to/jackson/jackson-core-2.10.0.pr1.jar
+/path/to/jackson/jackson-databind-2.10.0.pr1.jar
 ```
 
 ---
