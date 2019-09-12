@@ -954,3 +954,69 @@ Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
 Sep 09, 2019 11:47:38 AM timetable.Timetable loadJson
 WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
 Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 12, 2019 10:16:39 AM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 10:16:54 AM timetable.Timetable loadJson
+SEVERE: Unexpected character ('<' (code 60)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: (FileInputStream); line: 1, column: 2]
+Specified Path: /home/sugar/IdeaProjects/studimanager/studimanager.iml
+Sep 12, 2019 10:22:52 AM custom_exceptions.UserException <init>
+WARNING: Bitte geben Sie einen Titel für die neue Tasklist ein
+Sep 12, 2019 10:28:38 AM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 12, 2019 10:43:34 AM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 12:43:17 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 12:53:47 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 12:54:20 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 12:55:02 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 1:48:28 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 1:59:00 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 2:06:11 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 2:07:12 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 2:07:46 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 2:08:06 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 2:08:28 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 2:20:24 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 2:21:26 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 2:22:58 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 2:52:02 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 3:04:40 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 3:07:26 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json

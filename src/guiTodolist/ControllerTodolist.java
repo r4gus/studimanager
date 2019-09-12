@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import logging.MyLogger;
 import todolist.TaskList;
+import todolist.TaskListCollection;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,6 +41,8 @@ public class ControllerTodolist implements Initializable {
     private static final String pathControllerTask = "Task/layout_Task.fxml";
 
     private final String filepathAddIcon = "guiTodolist/Task/Icons/icons8-hinzufuegen-48.png";
+
+    private static TaskListCollection taskListCollection = null;
 
     /**
      * Called to initialize a controller after its root element has been completely processed
@@ -94,4 +97,11 @@ public class ControllerTodolist implements Initializable {
         MyLogger.LOGGER.exiting(getClass().toString(), "createNewSection");
     }
 
+    public static TaskListCollection getTaskListCollection() {
+        return taskListCollection;
+    }
+
+    public static void setTaskListCollection(TaskListCollection taskListCollection) {
+        ControllerTodolist.taskListCollection = taskListCollection;
+    }
 }

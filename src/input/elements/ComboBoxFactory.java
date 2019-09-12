@@ -1,8 +1,8 @@
-package guiCalendar.factory;
+package input.elements;
 
 import javafx.scene.control.ComboBox;
 
-public class IntComboBoxFactory {
+public class ComboBoxFactory {
     public static ComboBox<Integer> getIntComboBox(int minVal, int maxVal) throws IllegalArgumentException {
         if(minVal < 0 || maxVal < minVal)
             throw new IllegalArgumentException("minVal must be 0 or greater and minVal < maxVal");
