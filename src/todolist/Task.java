@@ -76,6 +76,16 @@ public class Task implements Serializable {
      * getter and setter of the different parameters
      */
 
+
+    public static int getCurrentTaskId() {
+        return currentTaskId;
+    }
+
+    public static void setCurrentTaskId(int currentTaskId) {
+        Task.currentTaskId = currentTaskId;
+    }
+
+
     public String getProjectTitle() {
         return projectTitle;
     }

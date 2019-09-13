@@ -78,9 +78,59 @@
       "notes" : {
         "container" : [ ]
       }
+    }, {
+      "title" : "Lineare Algebra",
+      "facility" : {
+        "building" : "G1",
+        "room" : "1.44",
+        "street" : "",
+        "zipcode" : "73434",
+        "city" : "Aalen"
+      },
+      "lecturer" : {
+        "firstName" : "Max",
+        "lastName" : "Mustermann",
+        "email" : "mustermann@hs-aalen.de",
+        "facility" : {
+          "building" : "G2",
+          "room" : "0.23",
+          "street" : "",
+          "zipcode" : "73434",
+          "city" : "Aalen"
+        }
+      },
+      "elective" : false,
+      "notes" : {
+        "container" : [ ]
+      }
     } ]
   }, {
-    "container" : [ ]
+    "container" : [ {
+      "title" : "Rechnerarchitektur 2",
+      "facility" : {
+        "building" : "G2",
+        "room" : "2.41",
+        "street" : "",
+        "zipcode" : "",
+        "city" : ""
+      },
+      "lecturer" : {
+        "firstName" : "Mathias",
+        "lastName" : "Meyer",
+        "email" : "",
+        "facility" : {
+          "building" : "Hauptgebäude",
+          "room" : "111",
+          "street" : "",
+          "zipcode" : "",
+          "city" : "Stuttgart"
+        }
+      },
+      "elective" : true,
+      "notes" : {
+        "container" : [ ]
+      }
+    } ]
   }, {
     "container" : [ {
       "title" : "Rechnerarchitektur",
@@ -352,32 +402,7 @@
   }, {
     "container" : [ ]
   }, {
-    "container" : [ {
-      "title" : "Fucking Late Man",
-      "facility" : {
-        "building" : "Hauptgebäude",
-        "room" : "111",
-        "street" : "",
-        "zipcode" : "",
-        "city" : "Stuttgart"
-      },
-      "lecturer" : {
-        "firstName" : "Mathias",
-        "lastName" : "Meyer",
-        "email" : "",
-        "facility" : {
-          "building" : "Hauptgebäude",
-          "room" : "111",
-          "street" : "",
-          "zipcode" : "",
-          "city" : "Stuttgart"
-        }
-      },
-      "elective" : false,
-      "notes" : {
-        "container" : [ ]
-      }
-    } ]
+    "container" : [ ]
   }, {
     "container" : [ ]
   }, {

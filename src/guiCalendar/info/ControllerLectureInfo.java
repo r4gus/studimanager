@@ -3,6 +3,7 @@ package guiCalendar.info;
 import guiCalendar.Updatable;
 import guiCalendar.calendar.ControllerCalendar;
 import guiCalendar.create.lecture.NewLectureController;
+import guiCalendar.create.lecture.SelectLectureController;
 import guiCalendar.edit.ControllerLectureEdit;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -119,6 +120,33 @@ public class ControllerLectureInfo implements Initializable, Updatable {
                 } catch (IOException exc) {
                     exc.printStackTrace();
                 }
+            }
+        });
+
+        existingButton.setOnAction(e -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/guiCalendar/create/lecture/layoutSelectLecture.fxml"));
+                Parent root = loader.load();
+
+                // get controller
+                SelectLectureController selectLectureController = loader.getController();
+                // pass lecture object
+                selectLectureController.setUnit(unit);
+                selectLectureController.setParentController(parent);
+
+                // show edit-form
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle(Main.getBundle().getString("Select"));
+
+                // prevent interaction with the primary stage until the new window is closed
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(li_scrollPane.getScene().getWindow());
+                stage.setResizable(false);
+                // show window
+                stage.show();
+            } catch (IOException exc) {
+                exc.printStackTrace();
             }
         });
 

@@ -2,6 +2,7 @@ package guiExam;
 
 import custom_exceptions.UserException;
 import exam.Exam;
+import exam.ExamList;
 import guiExam.EditWindow.ControllerEditWindow;
 import guiExam.EditWindowExamResult.ControllerEditWindowExamResult;
 import javafx.beans.property.SimpleStringProperty;
@@ -83,6 +84,8 @@ public class ControllerExam implements Initializable {
 
     private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2,5", true, false));
     private ObservableList<String> observableListChoiceBox = FXCollections.observableArrayList(ControllerExam.choiceBoxValue1, ControllerExam.choiceBoxValue2);
+
+    private static ExamList examList = null;
 
 
     /**
@@ -374,5 +377,13 @@ public class ControllerExam implements Initializable {
         tableviewExams.setItems(exams);
         tableviewExamsInsisted.setItems(examsInsisted);
         stringChoiceBoxTableView.setItems(observableListChoiceBox);
+    }
+
+    public static ExamList getExamList() {
+        return examList;
+    }
+
+    public static void setExamList(ExamList examList) {
+        ControllerExam.examList = examList;
     }
 }
