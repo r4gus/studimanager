@@ -299,6 +299,8 @@ public class VBoxTask extends VBox {
 
             MyLogger.LOGGER.entering(getClass().toString(), "addEventToDeleteButton", new Object[]{buttonDelete});
             this.vBoxTasklist.getChildren().remove(this);
+            this.vBoxTasklist.getTaskList().deleteTask(this.task);
+
             MyLogger.LOGGER.exiting(getClass().toString(), "addEventToDeleteButton");
         });
     }

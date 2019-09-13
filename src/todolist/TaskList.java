@@ -39,23 +39,9 @@ public class TaskList {
      * @param task Element Task which should be added to the ArrayList
      */
 
-    public void addTask(Task task) throws UserException {
+    public void addTask(Task task) {
 
         MyLogger.LOGGER.entering(getClass().toString(), "addTask", new Object[]{task});
-        for (Task e : tasks) {
-
-            try {
-
-                if (task.equals(e)) {
-                    throw new IllegalArgumentException("Eintrag ist bereits vorhanden");
-                }
-            } catch (IllegalArgumentException exception) {
-
-                MyLogger.LOGGER.log(Level.WARNING, exception.getMessage(), exception);
-                throw new UserException("Die Aufgabe mit dieser Nummer" + task.getTaskId() +  "exisitert bereits");
-            }
-
-        }
         tasks.add(task);
         MyLogger.LOGGER.exiting(getClass().toString(), "addTask");
     }
@@ -64,17 +50,14 @@ public class TaskList {
     /**
      * the method deletes an element Task from the arrayList in TaskList.
      *
-     * @param index index indicates which element should be deleted from ArrayList
+     * @param task Object which should be deleted from ArrayList
      */
 
-    public void deleteTask(int index) {
+    public void deleteTask(Task task) {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "deleteTask", new Object[]{index});
-        if (tasks.size() > index) {
-            tasks.remove(index);
-        } else {
-            throw new IllegalArgumentException("Index out of Bounds");
-        }
+        MyLogger.LOGGER.entering(getClass().toString(), "deleteTask", new Object[]{task});
+        this.tasks.remove(task);
+
         MyLogger.LOGGER.exiting(getClass().toString(), "deleteTask");
 
     }

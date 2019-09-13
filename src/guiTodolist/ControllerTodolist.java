@@ -42,7 +42,8 @@ public class ControllerTodolist implements Initializable {
 
     private final String filepathAddIcon = "guiTodolist/Task/Icons/icons8-hinzufuegen-48.png";
 
-    private static TaskListCollection taskListCollection = null;
+    // Muss später wieder auf Null gesetzt werden, Wenn Objekt geliefert wird...!!!!
+    private static TaskListCollection taskListCollection = new TaskListCollection();
 
     /**
      * Called to initialize a controller after its root element has been completely processed
@@ -92,8 +93,9 @@ public class ControllerTodolist implements Initializable {
         }
         TaskList taskList = new TaskList();
         taskList.setHeading(textFieldHeaderToDoList.getText());
+        this.taskListCollection.add(taskList);
         textFieldHeaderToDoList.clear();
-        new VBoxTasklist(taskList, this.hboxToDoLists);
+        new VBoxTasklist(this.taskListCollection ,taskList, this.hboxToDoLists);
         MyLogger.LOGGER.exiting(getClass().toString(), "createNewSection");
     }
 

@@ -82,7 +82,7 @@ public class ControllerTask implements Initializable {
     private ArrayList<TaskCheckListItem> taskCheckListItems = new ArrayList<>();
     private ArrayList<File> taskFiles = new ArrayList<>();
 
-    private VBoxTasklist vboxTodoList;
+    private VBoxTasklist vboxTaskList;
     private Task currentTask;
     private VBoxTask vBoxTask;
 
@@ -90,7 +90,7 @@ public class ControllerTask implements Initializable {
 
     public ControllerTask(VBoxTasklist vboxTasklist) {
 
-        this.vboxTodoList = vboxTasklist;
+        this.vboxTaskList = vboxTasklist;
     }
 
     public ControllerTask(VBoxTask vBoxTask , VBoxTasklist vBoxTasklist) {
@@ -288,7 +288,7 @@ public class ControllerTask implements Initializable {
     private void updateVBoxTask() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "updateVBoxTask");
-        vboxTodoList.getChildren().remove(this.vBoxTask);     /* remove VBox From ToDoList */
+        vboxTaskList.getChildren().remove(this.vBoxTask);     /* remove VBox From ToDoList */
         MyLogger.LOGGER.exiting(getClass().toString(), "updateVBoxTask");
     }
 
@@ -305,11 +305,12 @@ public class ControllerTask implements Initializable {
         if (vBoxTask != null) {
             updateVBoxTask();
         }
-        this.currentTask = createTaskObjekt();                  /* Object Task is created */
-        VBoxTask vBoxnewTask = createNewGuiElemnts();               /* VboxTask will be created  */
-        vBoxnewTask.setTaskID(this.currentTask.getTaskId());            /*  Add TaskID from Object */
-        currentTask.setTaskListId(vboxTodoList.getTaskListID());            /* Add TaskList-ID to Object from taskList */
-        vboxTodoList.getChildren().add(vBoxnewTask);
+        this.currentTask = createTaskObjekt();               /* Object Task is created */
+        this.vboxTaskList.getTaskList().addTask(currentTask);   /* Object Task is add to TaskList */
+        VBoxTask vBoxNewTask = createNewGuiElemnts();               /* VboxTask will be created  */
+        vBoxNewTask.setTaskID(this.currentTask.getTaskId());            /*  Add TaskID from Object */
+        currentTask.setTaskListId(vboxTaskList.getTaskListID());            /* Add TaskList-ID to Object from taskList */
+        vboxTaskList.getChildren().add(vBoxNewTask);
         Stage stage = (Stage) this.buttonCreateTask.getScene().getWindow();
         stage.close();
         MyLogger.LOGGER.exiting(getClass().toString(), "createTask");
@@ -323,9 +324,9 @@ public class ControllerTask implements Initializable {
     public VBoxTask createNewGuiElemnts() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "createNewGuiElemnts");
-        VBoxTask vBoxTask = new VBoxTask(currentTask, vboxTodoList);
+        VBoxTask vBoxTask = new VBoxTask(currentTask, vboxTaskList);
         addEventDragDetected(vBoxTask, this.currentTask);
-        this.vboxTodoList.setMargin(vBoxTask, new Insets(5, 10, 5, 10));
+        this.vboxTaskList.setMargin(vBoxTask, new Insets(5, 10, 5, 10));
         MyLogger.LOGGER.exiting(getClass().toString(), "createNewGuiElemnts", vBoxTask);
         return vBoxTask;
 

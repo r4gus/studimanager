@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import logging.MyLogger;
 import todolist.Task;
 import todolist.TaskList;
+import todolist.TaskListCollection;
 
 import java.io.IOException;
 
@@ -32,6 +33,7 @@ public class VBoxTasklist extends VBox {
 
 
     private HBox hBoxToDoLists;
+    private TaskListCollection taskListCollection;
     private TaskList taskList;
     private int taskListID;
 
@@ -40,8 +42,9 @@ public class VBoxTasklist extends VBox {
     private static final String pathControllerTask = "layout_Task.fxml";
 
 
-    public VBoxTasklist(TaskList taskList, HBox hBoxToDoLists) {
+    public VBoxTasklist(TaskListCollection taskListCollection ,TaskList taskList, HBox hBoxToDoLists) {
 
+        this.taskListCollection = taskListCollection;
         this.taskList = taskList;
         this.hBoxToDoLists = hBoxToDoLists;
         initVBoxTaskList();
@@ -58,6 +61,9 @@ public class VBoxTasklist extends VBox {
         this.taskListID = taskListID;
     }
 
+    public TaskList getTaskList() {
+        return taskList;
+    }
 
     /**
      * Generates a graphic element task-list, which can contain graphic tasks.
@@ -267,6 +273,7 @@ public class VBoxTasklist extends VBox {
         MyLogger.LOGGER.entering(getClass().toString(), "generateDeleteFunction", new Object[]{menuItem, todoList});
         menuItem.setOnAction(actionEvent -> {
 
+            this.taskListCollection.remove(this.taskList);
             hBoxToDoLists.getChildren().remove(todoList);
         });
         MyLogger.LOGGER.exiting(getClass().toString(), "generateDeleteFunction");
