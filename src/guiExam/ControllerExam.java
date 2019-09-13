@@ -209,7 +209,7 @@ public class ControllerExam implements Initializable {
 
     private void removeExam(ObservableList<Exam> exams) {
 
-        for (Exam exam: exams) {
+        for (Exam exam : exams) {
 
             this.examList.deleteExam(exam);
         }
@@ -338,6 +338,17 @@ public class ControllerExam implements Initializable {
 
 
     /**
+     * loads data from ExamList into corseponding lists
+     */
+
+    private void loadDataIntoLists() {
+
+        exams = examList.getExamWithSpecalProperties("upc");
+        examsInsisted = examList.getExamWithSpecalProperties("pas");
+    }
+
+
+    /**
      * Called to initialize a controller after its root element has been completely processed
      *
      * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
@@ -347,6 +358,8 @@ public class ControllerExam implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        if(examList != null)
+            loadDataIntoLists();
 
         tableviewExams.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableviewExams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
