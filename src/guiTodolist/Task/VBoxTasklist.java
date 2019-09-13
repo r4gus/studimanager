@@ -123,8 +123,10 @@ public class VBoxTasklist extends VBox {
             VBoxTasklist vBoxTasklistOLD = findTaskListWithID(task.getTaskListId());
             VBoxTask vBoxTaskOLD = findVBoxTaskWithID(task.getTaskId(), vBoxTasklistOLD);
             vBoxTasklistOLD.getChildren().remove(vBoxTaskOLD);
+            vBoxTasklistOLD.getTaskList().deleteTask(vBoxTaskOLD.getTask());        /*  Delete old Task from old TaskList */
 
             VBoxTask vBoxTask = new VBoxTask(task, vBoxToDoList);
+            this.taskList.addTask(task);                            /*  add new Task to new TaskList */
             vBoxToDoList.getChildren().add(vBoxTask);
             task.setTaskListId(vBoxToDoList.getTaskListID());
             vBoxToDoList.setMargin(vBoxTask, new Insets(5, 10, 5, 10));

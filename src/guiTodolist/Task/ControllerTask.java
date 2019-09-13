@@ -304,6 +304,7 @@ public class ControllerTask implements Initializable {
         MyLogger.LOGGER.entering(getClass().toString(), "createTask");
         if (vBoxTask != null) {
             updateVBoxTask();
+            this.vboxTaskList.getTaskList().deleteTask(currentTask);   /* Object Task is removed to TaskList */
         }
         this.currentTask = createTaskObjekt();               /* Object Task is created */
         this.vboxTaskList.getTaskList().addTask(currentTask);   /* Object Task is add to TaskList */
