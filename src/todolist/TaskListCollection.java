@@ -12,4 +12,8 @@ public class TaskListCollection {
     public boolean remove(TaskList taskList) {
         return taskLists.remove(taskList);
     }
+
+    public ArrayList<TaskList> getTaskLists() {
+        return taskLists;
+    }
 }

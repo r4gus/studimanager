@@ -56,6 +56,22 @@ public class ControllerTodolist implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         initButtonEdit();
+        if (taskListCollection.getTaskLists().size() > 0) {
+            initStoredDataForGui();
+        }
+    }
+
+
+    /**
+     * init Graphical Objects from Json File
+     */
+
+    private void initStoredDataForGui() {            //Muss noch fertiggestellt werden
+
+        for (TaskList taskList : this.taskListCollection.getTaskLists()) {
+
+            new VBoxTasklist(this.taskListCollection, taskList, this.hboxToDoLists);
+        }
     }
 
 
@@ -63,7 +79,7 @@ public class ControllerTodolist implements Initializable {
      * add image to Button.
      */
 
-    private void initButtonEdit(){
+    private void initButtonEdit() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "initButtonEdit");
         ImageView imageView = new ImageView(new Image(this.filepathAddIcon));
@@ -82,20 +98,11 @@ public class ControllerTodolist implements Initializable {
     public void createNewSection() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "createNewSection");
-        try {
-            if (textFieldHeaderToDoList.getText().trim().isEmpty()) {
-                throw new UserException("Info", "Bitte geben Sie einen Titel für die neue Tasklist ein");
-            }
-
-        } catch (UserException e) {
-            /* Exception logs automatically and creates InfoWindow For User */
-            return;
-        }
         TaskList taskList = new TaskList();
         taskList.setHeading(textFieldHeaderToDoList.getText());
         this.taskListCollection.add(taskList);
         textFieldHeaderToDoList.clear();
-        new VBoxTasklist(this.taskListCollection ,taskList, this.hboxToDoLists);
+        new VBoxTasklist(this.taskListCollection, taskList, this.hboxToDoLists);
         MyLogger.LOGGER.exiting(getClass().toString(), "createNewSection");
     }
 
