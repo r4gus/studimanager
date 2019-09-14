@@ -1,9 +1,10 @@
 package input.elements.textfield;
 
+import javafx.beans.NamedArg;
 import javafx.scene.control.TextFormatter;
 
 public class IntTextField extends TemplateTextField {
-    public IntTextField(int len, boolean zero) {
+    public IntTextField(@NamedArg("length") int len,@NamedArg("zero") boolean zero) {
         super();
 
         String regex = "(^$|[";

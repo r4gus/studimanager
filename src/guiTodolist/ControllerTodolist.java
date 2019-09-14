@@ -1,11 +1,10 @@
 package guiTodolist;
 
-import custom_exceptions.UserException;
 import guiTodolist.Task.VBoxTasklist;
+import input.elements.textfield.AlphaNumTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -33,7 +32,7 @@ public class ControllerTodolist implements Initializable {
     @FXML
     public Button buttonEditCanBan;
     @FXML
-    public TextField textFieldHeaderToDoList;
+    public AlphaNumTextField textFieldHeaderToDoList;
 
     @FXML
     public HBox hboxToDoLists;
@@ -97,6 +96,12 @@ public class ControllerTodolist implements Initializable {
 
     public void createNewSection() {
 
+        if(textFieldHeaderToDoList.getText().trim().length() == 0)
+        {
+            textFieldHeaderToDoList.showError("Textfeld darf nicht leer sein");
+            textFieldHeaderToDoList.clear();
+            return;
+        }
         MyLogger.LOGGER.entering(getClass().toString(), "createNewSection");
         TaskList taskList = new TaskList();
         taskList.setHeading(textFieldHeaderToDoList.getText());
