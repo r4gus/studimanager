@@ -1,5 +1,6 @@
 package guiTodolist.Task;
 
+import input.elements.textfield.AlphaNumTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -37,7 +38,7 @@ public class ControllerTask implements Initializable {
     public AnchorPane anchorPaneCreateTask;
 
     @FXML
-    public TextField textFieldHeadingTask;
+    public AlphaNumTextField textFieldHeadingTask;
 
     @FXML
     public TextArea textAreaDescription;
@@ -50,12 +51,10 @@ public class ControllerTask implements Initializable {
     @FXML
     public ListView listViewChecklist;
     @FXML
-    public TextField textFieldChecklistNewEntry;
+    public AlphaNumTextField textFieldChecklistNewEntry;
 
     @FXML
     public ListView listViewFileAttachment;
-    @FXML
-    public TextField textFieldNewFileEntry;
     @FXML
     public ComboBox comboboxPriority;
 
@@ -87,13 +86,12 @@ public class ControllerTask implements Initializable {
     private VBoxTask vBoxTask;
 
 
-
     public ControllerTask(VBoxTasklist vboxTasklist) {
 
         this.vboxTaskList = vboxTasklist;
     }
 
-    public ControllerTask(VBoxTask vBoxTask , VBoxTasklist vBoxTasklist) {
+    public ControllerTask(VBoxTask vBoxTask, VBoxTasklist vBoxTasklist) {
 
         this(vBoxTasklist);
         this.vBoxTask = vBoxTask;
@@ -206,6 +204,12 @@ public class ControllerTask implements Initializable {
     public void addEntryToChecklist() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "addEntryToChecklist");
+
+        if (textFieldChecklistNewEntry.getText().trim().isEmpty())
+        {
+            textFieldChecklistNewEntry.showError("Textfeld darf nicht leer sein");
+            return;
+        }
         CheckBox checkBoxItem = new CheckBox(textFieldChecklistNewEntry.getText());
         itemsChecklist.add(checkBoxItem);
         TaskCheckListItem taskCheckListItem = new TaskCheckListItem(textFieldChecklistNewEntry.getText());
@@ -222,6 +226,8 @@ public class ControllerTask implements Initializable {
     public void deleteEntryToChecklist() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "deleteEntryToChecklist");          /* Exception Handling  */
+        if(listViewChecklist.getSelectionModel().getSelectedIndex() == -1 )
+            return;
         int index = listViewChecklist.getSelectionModel().getSelectedIndex();
         itemsChecklist.remove(index);
         taskCheckListItems.remove(index);
@@ -236,10 +242,7 @@ public class ControllerTask implements Initializable {
     public void AddFileAttachmentToTask() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "AddFileAttachmentToTask");         /* Exception Handling  */
-        if (!textFieldNewFileEntry.getText().trim().isEmpty()) {
 
-            String filename = textFieldNewFileEntry.getText();
-        }
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Datei für Aufgabe auswählen");
 
@@ -260,7 +263,8 @@ public class ControllerTask implements Initializable {
     public void deleteFileAttachmentToTask() {                                                          /* Exception Handling  */
 
         MyLogger.LOGGER.entering(getClass().toString(), "deleteFileAttachmentToTask");
-
+        if(listViewChecklist.getSelectionModel().getSelectedIndex() == -1 )
+            return;
         int index = listViewFileAttachment.getSelectionModel().getSelectedIndex();
         this.itemsFilesList.remove(index);
         this.taskFiles.remove(index);
@@ -302,6 +306,10 @@ public class ControllerTask implements Initializable {
     public void createTask() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "createTask");
+        if (textFieldHeadingTask.getText().trim().isEmpty()) {
+            textFieldHeadingTask.showError("Textfeld dar nicht leer sein");
+            return;
+        }
         if (vBoxTask != null) {
             updateVBoxTask();
             this.vboxTaskList.getTaskList().deleteTask(currentTask);   /* Object Task is removed to TaskList */

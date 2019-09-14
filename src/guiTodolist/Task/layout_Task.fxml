@@ -14,11 +14,17 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import input.elements.textfield.AlphaNumTextField?>
+<?import java.lang.Integer?>
 <AnchorPane fx:id="anchorPaneCreateTask" prefHeight="779.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" layoutX="130.0" layoutY="38.0" prefHeight="40.0" prefWidth="218.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="30.0">
          <children>
-            <TextField fx:id="textFieldHeadingTask" promptText="Task Überschrift" />
+            <AlphaNumTextField fx:id="textFieldHeadingTask" promptText="Task Überschrift" >
+               <length>
+                  <Integer fx:value= "20" />
+               </length>
+            </AlphaNumTextField>
          </children>
       </HBox>
       <VBox layoutX="50.0" layoutY="100.0" spacing="15.0">
@@ -83,10 +89,14 @@
                   <ListView fx:id="listViewChecklist" prefHeight="142.0" prefWidth="318.0" />
                   <HBox alignment="CENTER" spacing="10.0">
                      <children>
-                        <Button fx:id="buttonDeleteChecklistEntry" mnemonicParsing="false" onAction="#deleteEntryToChecklist" styleClass="delete-button" />
-                        <Separator orientation="VERTICAL" prefHeight="10.0" />
                         <Button fx:id="buttonAddChecklistEntry" mnemonicParsing="false" onAction="#addEntryToChecklist" styleClass="add-button" />
-                        <TextField fx:id="textFieldChecklistNewEntry" prefHeight="27.0" prefWidth="196.0" promptText="Neuer Eintrag der Checkliste" />
+                        <AlphaNumTextField fx:id="textFieldChecklistNewEntry" prefHeight="27.0" prefWidth="196.0" promptText="Neuer Eintrag der Checkliste" >
+                           <length>
+                              <Integer fx:value= "20" />
+                           </length>
+                        </AlphaNumTextField>
+                        <Separator orientation="VERTICAL" prefHeight="10.0" />
+                        <Button fx:id="buttonDeleteChecklistEntry" mnemonicParsing="false" onAction="#deleteEntryToChecklist" styleClass="delete-button" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" />
@@ -106,10 +116,9 @@
                   <ListView fx:id="listViewFileAttachment" prefHeight="200.0" prefWidth="200.0" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <Button fx:id="buttonDeleteFileAttachment" mnemonicParsing="false" onAction="#deleteFileAttachmentToTask" styleClass="delete-button" />
-                        <Separator orientation="VERTICAL" prefHeight="200.0" />
                         <Button fx:id="buttonAddFileAttachment" mnemonicParsing="false" onAction="#AddFileAttachmentToTask" styleClass="add-button" />
-                        <TextField fx:id="textFieldNewFileEntry" promptText="Dokumentenbezeichnung" />
+                        <Separator orientation="VERTICAL" maxHeight="30" />
+                        <Button fx:id="buttonDeleteFileAttachment" mnemonicParsing="false" onAction="#deleteFileAttachmentToTask" styleClass="delete-button" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="10.0" />

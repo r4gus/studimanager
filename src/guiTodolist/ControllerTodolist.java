@@ -99,7 +99,6 @@ public class ControllerTodolist implements Initializable {
         if(textFieldHeaderToDoList.getText().trim().length() == 0)
         {
             textFieldHeaderToDoList.showError("Textfeld darf nicht leer sein");
-            textFieldHeaderToDoList.clear();
             return;
         }
         MyLogger.LOGGER.entering(getClass().toString(), "createNewSection");
