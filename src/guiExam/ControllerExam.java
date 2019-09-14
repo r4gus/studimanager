@@ -5,6 +5,7 @@ import exam.Exam;
 import exam.ExamList;
 import guiExam.EditWindow.ControllerEditWindow;
 import guiExam.EditWindowExamResult.ControllerEditWindowExamResult;
+import input.elements.textfield.IntTextField;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,7 +35,7 @@ import java.util.ResourceBundle;
 public class ControllerExam implements Initializable {
 
     @FXML
-    public TextField textfieldLectureNumber;
+    public IntTextField textfieldLectureNumber;
     @FXML
     public TableView<Exam> tableviewExams;
     @FXML
@@ -70,7 +71,7 @@ public class ControllerExam implements Initializable {
 
 
     @FXML
-    public ChoiceBox<String> stringChoiceBoxTableView;
+    public input.elements.combobox.ComboBox<String> stringChoiceBoxTableView;
 
     private static final String choiceBoxValue1 = "Aktuelle Klausuren";
     private static final String choiceBoxValue2 = "Bestandene Klausuren";
@@ -158,6 +159,11 @@ public class ControllerExam implements Initializable {
 
     public void clickAddExam(ActionEvent actionEvent) {
 
+        if(textfieldLectureNumber.getText().trim().isEmpty())
+        {
+            textfieldLectureNumber.showError("Texrfeld darf nicht leer sein");
+            return;
+        }
         String examNumber = textfieldLectureNumber.getText();
         addExam(examNumber);
         textfieldLectureNumber.clear();
@@ -173,20 +179,16 @@ public class ControllerExam implements Initializable {
 
     public void clickClearList(ActionEvent actionEvent) {
 
-        try {
 
             if (stringChoiceBoxTableView.getValue() == null) {
-                throw new UserException("Info", "Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!");
+                stringChoiceBoxTableView.showError("Sie müssen einen Eintrag auswählen");
+                return;
             }
             if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue1) && tableviewExams.getItems() != null) {
                 tableviewExams.getItems().clear();
             } else if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue2) && tableviewExamsInsisted.getItems() != null) {
                 tableviewExamsInsisted.getItems().clear();
             }
-        } catch (UserException e) {
-            /* remember Exception logs automatically */
-
-        }
     }
 
 

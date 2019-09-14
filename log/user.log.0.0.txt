@@ -1032,3 +1032,5 @@ Specified Path: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.js
 Sep. 14, 2019 10:37:19 VORM. timetable.Timetable loadJson
 WARNING: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json (Das System kann die angegebene Datei nicht finden)
 Specified Path: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json
+Sep. 14, 2019 12:39:58 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!

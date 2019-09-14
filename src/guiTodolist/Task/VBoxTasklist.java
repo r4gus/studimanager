@@ -257,8 +257,7 @@ public class VBoxTasklist extends VBox {
         menuItemSort.getItems().addAll(subMmenuItemSortDate, subMmenuItemSortAlphabet, subMmenuItemSortPriority);
         MenuItem menuItemDeleteList = new MenuItem("Liste löschen");
         generateDeleteFunction(menuItemDeleteList, todoList);
-        MenuItem e = new MenuItem("...");
-        contextMenuEditTask.getItems().addAll(menuItemNewTask, menuItemEditList, menuItemSort, menuItemDeleteList, e);
+        contextMenuEditTask.getItems().addAll(menuItemNewTask, menuItemEditList, menuItemSort, menuItemDeleteList);
         MyLogger.LOGGER.exiting(getClass().toString(), "generateContextMenuItems");
     }
 
