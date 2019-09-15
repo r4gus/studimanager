@@ -286,6 +286,7 @@ public class VBoxTasklist extends VBox {
         MenuItem subMmenuItemSortAlphabet = new MenuItem("Alphabetisch");
         MenuItem subMmenuItemSortPriority = new MenuItem("Nach Priorität");
         sortTasksAlphabeticalFunction(subMmenuItemSortAlphabet, todoList);
+        sortTasksAfterPriorityFunction(subMmenuItemSortPriority, todoList);
         menuItemSort.getItems().addAll(subMmenuItemSortDate, subMmenuItemSortAlphabet, subMmenuItemSortPriority);
         MenuItem menuItemDeleteList = new MenuItem("Liste löschen");
         generateDeleteFunction(menuItemDeleteList, todoList);
@@ -310,6 +311,68 @@ public class VBoxTasklist extends VBox {
             hBoxToDoLists.getChildren().remove(todoList);
         });
         MyLogger.LOGGER.exiting(getClass().toString(), "generateDeleteFunction");
+    }
+
+
+
+    /**
+     * This event allows you to sort task lists.
+     *
+     * @param menuItem The parameter contains the corresponding element to which the event is to be assigned.
+     * @param todoList Task list in which the tasks are to be re-sorted.
+     */
+
+    private void sortTasksAfterPriorityFunction(MenuItem menuItem, VBox todoList) {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "sortTasksAfterPriorityFunction", new Object[]{menuItem, todoList});
+        menuItem.setOnAction(actionEvent -> {
+
+            ArrayList<Task> unsortedTaskList = this.taskList.getTasks();
+            ArrayList<VBoxTask> unsortedVBoxList = this.vBoxTaskArrayList;
+            ArrayList<String> unsortedTaskTitles = new ArrayList<>();
+
+            for (Task task : unsortedTaskList) {
+                unsortedTaskTitles.add(task.getProjectTitle());
+            }
+
+            ArrayList<VBoxTask> sortedVBoxList = new ArrayList<>();
+            ArrayList<Task> sortedTaskList = new ArrayList<>();
+
+            for (int p = 0; p < 3; p++)
+            {
+                for (int i = 0; i < unsortedTaskList.size(); i++)
+                {
+                    if(p == 0){
+                        if(unsortedTaskList.get(i).getPriority().equals("Hoch"))
+                        {
+                            sortedTaskList.add(unsortedTaskList.get(i));
+                            sortedVBoxList.add(unsortedVBoxList.get(i));
+                        }
+                    }
+                    if(p == 1){
+                        if(unsortedTaskList.get(i).getPriority().equals("Mittel"))
+                        {
+                            sortedTaskList.add(unsortedTaskList.get(i));
+                            sortedVBoxList.add(unsortedVBoxList.get(i));
+                        }
+                    }
+                    if(p == 2){
+                        if(unsortedTaskList.get(i).getPriority().equals("Niedrig"))
+                        {
+                            sortedTaskList.add(unsortedTaskList.get(i));
+                            sortedVBoxList.add(unsortedVBoxList.get(i));
+                        }
+                    }
+                }
+            }
+            this.taskList.setTasks(sortedTaskList);
+            this.vBoxTaskArrayList = sortedVBoxList;
+            this.getChildren().removeAll(sortedVBoxList);
+            for (VBoxTask vBoxTask: sortedVBoxList) {
+                this.getChildren().add(vBoxTask);
+            }
+        });
+        MyLogger.LOGGER.exiting(getClass().toString(), "sortTasksAfterPriorityFunction");
     }
 
 
