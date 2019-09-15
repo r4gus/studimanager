@@ -111,9 +111,9 @@ public class ControllerTask implements Initializable {
 
         listViewChecklist.setItems(itemsChecklist);
         listViewFileAttachment.setItems(itemsFilesList);
-        itemsPriority.addAll("Hoch", "Mittel", "Niedrig");
+        itemsPriority.addAll("Niedrig", "Mittel", "Hoch");
         comboboxPriority.setItems(itemsPriority);
-        comboboxPriority.getSelectionModel().select(2);
+        comboboxPriority.getSelectionModel().select(1);
 
         initButtonAddPicture(buttonAddChecklistEntry, filepathAddIcon);
         initButtonAddPicture(buttonDeleteChecklistEntry, filepathDeleteIcon);
