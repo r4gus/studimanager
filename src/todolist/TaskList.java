@@ -93,8 +93,33 @@ public class TaskList {
                 taskList.add(e);
             }
         }
-        MyLogger.LOGGER.exiting(getClass().toString(), "getExamWithSpecalProperties", new Object[]{taskList});
+        MyLogger.LOGGER.exiting(getClass().toString(), "getExamWithSpecalProperties", taskList);
         return taskList;
+    }
+
+    /**
+     * the method returns a list of all elements in the Array
+     *
+     */
+
+    public ArrayList<Task> getTasks() {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "getTasks");
+        MyLogger.LOGGER.exiting(getClass().toString(), "getTasks", tasks);
+        return this.tasks;
+    }
+
+    /**
+     * the method sets a list of all elements in the Array
+     *
+     */
+
+    public void setTasks(ArrayList<Task> arrayList) {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "setTasks", new Object[]{tasks});
+        tasks = arrayList;
+        MyLogger.LOGGER.exiting(getClass().toString(), "setTasks");
+
     }
 
 

@@ -24,6 +24,7 @@ import todolist.Task;
 import todolist.TaskCheckListItem;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * The <code>VBoxTaskTask</code> object represents the controller of the Gui CreateTask.
@@ -119,9 +120,9 @@ public class VBoxTask extends VBox {
         this.setMargin(vBoxbasicInformation, new Insets(8, 0, 10, 0));
         vBoxbasicInformation.setSpacing(5);
         String filepath;
-        if (task.getPriority() == "Hoch") {
+        if (task.getPriority().equals("Hoch")) {
             filepath = filepathHigh;
-        } else if (task.getPriority() == "Mittel") {
+        } else if (task.getPriority().equals("Mittel") ) {
             filepath = filepathMiddle;
         } else {
             filepath = filepathLow;
@@ -300,6 +301,7 @@ public class VBoxTask extends VBox {
             MyLogger.LOGGER.entering(getClass().toString(), "addEventToDeleteButton", new Object[]{buttonDelete});
             this.vBoxTasklist.getChildren().remove(this);
             this.vBoxTasklist.getTaskList().deleteTask(this.task);
+            this.vBoxTasklist.deleteVBoxTask(this);
 
             MyLogger.LOGGER.exiting(getClass().toString(), "addEventToDeleteButton");
         });
@@ -404,5 +406,21 @@ public class VBoxTask extends VBox {
             dragboard.setContent(clipboardContent);
         });
         MyLogger.LOGGER.exiting(getClass().toString(), "addEventDragDetected");
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VBoxTask vBoxTask = (VBoxTask) o;
+        return taskID == vBoxTask.taskID &&
+                Objects.equals(task, vBoxTask.task) &&
+                Objects.equals(vBoxTasklist, vBoxTask.vBoxTasklist);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(task, taskID, vBoxTasklist);
     }
 }

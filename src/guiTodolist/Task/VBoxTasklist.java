@@ -21,6 +21,8 @@ import todolist.TaskList;
 import todolist.TaskListCollection;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * The <code>ControllerTask</code> object represents the controller of the Gui CreateTask.
@@ -36,13 +38,14 @@ public class VBoxTasklist extends VBox {
     private TaskListCollection taskListCollection;
     private TaskList taskList;
     private int taskListID;
+    private ArrayList<VBoxTask> vBoxTaskArrayList = new ArrayList<>();
 
     private static int currentTaskListId = 0;
 
     private static final String pathControllerTask = "layout_Task.fxml";
 
 
-    public VBoxTasklist(TaskListCollection taskListCollection ,TaskList taskList, HBox hBoxToDoLists) {
+    public VBoxTasklist(TaskListCollection taskListCollection, TaskList taskList, HBox hBoxToDoLists) {
 
         this.taskListCollection = taskListCollection;
         this.taskList = taskList;
@@ -63,6 +66,24 @@ public class VBoxTasklist extends VBox {
 
     public TaskList getTaskList() {
         return taskList;
+    }
+
+    public ArrayList<VBoxTask> getvBoxTaskArrayList() {
+        return vBoxTaskArrayList;
+    }
+
+    public void setvBoxTaskArrayList(ArrayList<VBoxTask> vBoxTaskArrayList) {
+        this.vBoxTaskArrayList = vBoxTaskArrayList;
+    }
+
+    public void addVBoxTask(VBoxTask vBoxTask){
+
+        this.vBoxTaskArrayList.add(vBoxTask);
+    }
+
+    public void deleteVBoxTask(VBoxTask vBoxTask)
+    {
+        this.vBoxTaskArrayList.remove(vBoxTask);
     }
 
     /**
@@ -119,13 +140,24 @@ public class VBoxTasklist extends VBox {
             if (o instanceof Task) {
                 task = (Task) o;
             }
+            /* Vergleichen Ob Task bereits vorhanden ist */
+            for (Task taskCompare: this.taskList.getTasks() ) {
+
+                if (task.equals(taskCompare))
+                {
+                    return;
+                }
+            }
+
             /* alter Task von alter Liste finden    */
             VBoxTasklist vBoxTasklistOLD = findTaskListWithID(task.getTaskListId());
             VBoxTask vBoxTaskOLD = findVBoxTaskWithID(task.getTaskId(), vBoxTasklistOLD);
             vBoxTasklistOLD.getChildren().remove(vBoxTaskOLD);
             vBoxTasklistOLD.getTaskList().deleteTask(vBoxTaskOLD.getTask());        /*  Delete old Task from old TaskList */
+            vBoxTasklistOLD.deleteVBoxTask(vBoxTaskOLD);                            /* Delete VBox from VBoxTaskArrayList in old VBoxTaskList */
 
             VBoxTask vBoxTask = new VBoxTask(task, vBoxToDoList);
+            this.vBoxTaskArrayList.add(vBoxTask);                   /* add VBoxArrayList new Vboxtask */
             this.taskList.addTask(task);                            /*  add new Task to new TaskList */
             vBoxToDoList.getChildren().add(vBoxTask);
             task.setTaskListId(vBoxToDoList.getTaskListID());
@@ -293,9 +325,56 @@ public class VBoxTasklist extends VBox {
         MyLogger.LOGGER.entering(getClass().toString(), "sortTasksAlphabeticalFunction", new Object[]{menuItem, todoList});
         menuItem.setOnAction(actionEvent -> {
 
+            ArrayList<Task> unsortedTaskList = this.taskList.getTasks();
+            ArrayList<VBoxTask> unsortedVBoxList = this.vBoxTaskArrayList;
+            ArrayList<String> unsortedTaskTitles = new ArrayList<>();
+
+            for (Task task : unsortedTaskList) {
+                unsortedTaskTitles.add(task.getProjectTitle());
+            }
+            Collections.sort(unsortedTaskTitles);
+
+            ArrayList<VBoxTask> sortedVBoxList = new ArrayList<>();
+            ArrayList<Task> sortedTaskList = new ArrayList<>();
+            for (String projectTitle : unsortedTaskTitles) {
+
+                int index = findTaskObject( unsortedTaskList , projectTitle);
+                sortedVBoxList.add(unsortedVBoxList.get(index));
+                sortedTaskList.add(unsortedTaskList.get(index));
+            }
+
+            this.taskList.setTasks(sortedTaskList);
+            this.vBoxTaskArrayList = sortedVBoxList;
+            this.getChildren().removeAll(sortedVBoxList);
+            for (VBoxTask vBoxTask: sortedVBoxList) {
+                this.getChildren().add(vBoxTask);
+            }
+
 
         });
         MyLogger.LOGGER.exiting(getClass().toString(), "sortTasksAlphabeticalFunction");
+    }
+
+
+    /**
+     * This method find an Object in an ArrayList and returns index
+     *
+     * @param list         which you will find in the List.
+     * @param projectTitle list of tasks.
+     */
+
+    private int findTaskObject(ArrayList<Task> list, String projectTitle) {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "findTaskObject", new Object[]{list, projectTitle});
+        int index = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getProjectTitle().equals(projectTitle)) {
+                index = i;
+                break;
+            }
+        }
+        MyLogger.LOGGER.exiting(getClass().toString(), "findTaskObject", index);
+        return index;
     }
 
     /**

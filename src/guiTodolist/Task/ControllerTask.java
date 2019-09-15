@@ -293,6 +293,7 @@ public class ControllerTask implements Initializable {
 
         MyLogger.LOGGER.entering(getClass().toString(), "updateVBoxTask");
         vboxTaskList.getChildren().remove(this.vBoxTask);     /* remove VBox From ToDoList */
+        vboxTaskList.deleteVBoxTask(this.vBoxTask);
         MyLogger.LOGGER.exiting(getClass().toString(), "updateVBoxTask");
     }
 
@@ -320,6 +321,7 @@ public class ControllerTask implements Initializable {
         vBoxNewTask.setTaskID(this.currentTask.getTaskId());            /*  Add TaskID from Object */
         currentTask.setTaskListId(vboxTaskList.getTaskListID());            /* Add TaskList-ID to Object from taskList */
         vboxTaskList.getChildren().add(vBoxNewTask);
+        vboxTaskList.getvBoxTaskArrayList().add(vBoxNewTask);                              /* Add VboxTask to VboxTaskList  */
         Stage stage = (Stage) this.buttonCreateTask.getScene().getWindow();
         stage.close();
         MyLogger.LOGGER.exiting(getClass().toString(), "createTask");
