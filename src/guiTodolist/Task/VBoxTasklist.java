@@ -21,6 +21,7 @@ import todolist.TaskList;
 import todolist.TaskListCollection;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -76,13 +77,12 @@ public class VBoxTasklist extends VBox {
         this.vBoxTaskArrayList = vBoxTaskArrayList;
     }
 
-    public void addVBoxTask(VBoxTask vBoxTask){
+    public void addVBoxTask(VBoxTask vBoxTask) {
 
         this.vBoxTaskArrayList.add(vBoxTask);
     }
 
-    public void deleteVBoxTask(VBoxTask vBoxTask)
-    {
+    public void deleteVBoxTask(VBoxTask vBoxTask) {
         this.vBoxTaskArrayList.remove(vBoxTask);
     }
 
@@ -141,10 +141,9 @@ public class VBoxTasklist extends VBox {
                 task = (Task) o;
             }
             /* Vergleichen Ob Task bereits vorhanden ist */
-            for (Task taskCompare: this.taskList.getTasks() ) {
+            for (Task taskCompare : this.taskList.getTasks()) {
 
-                if (task.equals(taskCompare))
-                {
+                if (task.equals(taskCompare)) {
                     return;
                 }
             }
@@ -285,6 +284,7 @@ public class VBoxTasklist extends VBox {
         MenuItem subMmenuItemSortDate = new MenuItem("Nach Fälligkeitsdatum");
         MenuItem subMmenuItemSortAlphabet = new MenuItem("Alphabetisch");
         MenuItem subMmenuItemSortPriority = new MenuItem("Nach Priorität");
+        sortTasksAfterDateFunction(subMmenuItemSortDate, todoList);
         sortTasksAlphabeticalFunction(subMmenuItemSortAlphabet, todoList);
         sortTasksAfterPriorityFunction(subMmenuItemSortPriority, todoList);
         menuItemSort.getItems().addAll(subMmenuItemSortDate, subMmenuItemSortAlphabet, subMmenuItemSortPriority);
@@ -314,6 +314,61 @@ public class VBoxTasklist extends VBox {
     }
 
 
+    /**
+     * This event allows you to sort task lists.
+     *
+     * @param menuItem The parameter contains the corresponding element to which the event is to be assigned.
+     * @param todoList Task list in which the tasks are to be re-sorted.
+     */
+
+    private void sortTasksAfterDateFunction(MenuItem menuItem, VBox todoList) {
+
+        MyLogger.LOGGER.entering(getClass().toString(), "sortTasksAfterDateFunction", new Object[]{menuItem, todoList});
+        menuItem.setOnAction(actionEvent -> {
+
+            ArrayList<Task> unsortedTaskList = this.taskList.getTasks();
+            ArrayList<VBoxTask> unsortedVBoxList = this.vBoxTaskArrayList;
+            ArrayList<LocalDate> unsortedTaskDates = new ArrayList<>();
+
+            for (Task task : unsortedTaskList) {
+                if(task.getDeadline() != null)
+                unsortedTaskDates.add(task.getDeadline());
+            }
+            Collections.sort(unsortedTaskDates);
+
+            ArrayList<VBoxTask> sortedVBoxList = new ArrayList<>();
+            ArrayList<Task> sortedTaskList = new ArrayList<>();
+
+            for (int p = 0; p < unsortedTaskDates.size(); p++) {
+                for (int i = 0; i < unsortedTaskList.size(); i++) {
+
+                    if(unsortedTaskDates.get(p).equals(unsortedTaskList.get(i).getDeadline()))
+                    {
+                        sortedTaskList.add(unsortedTaskList.get(i));
+                        sortedVBoxList.add(unsortedVBoxList.get(i));
+                    }
+                }
+            }
+            int counter = 0;
+            for (Task task: unsortedTaskList) {
+                if(task.getDeadline() == null)
+                {
+                    sortedTaskList.add(unsortedTaskList.get(counter));
+                    sortedVBoxList.add(unsortedVBoxList.get(counter));
+                }
+                counter++;
+            }
+
+            this.taskList.setTasks(sortedTaskList);
+            this.vBoxTaskArrayList = sortedVBoxList;
+            this.getChildren().removeAll(sortedVBoxList);
+            for (VBoxTask vBoxTask : sortedVBoxList) {
+                this.getChildren().add(vBoxTask);
+            }
+        });
+        MyLogger.LOGGER.exiting(getClass().toString(), "sortTasksAfterDateFunction");
+    }
+
 
     /**
      * This event allows you to sort task lists.
@@ -338,27 +393,22 @@ public class VBoxTasklist extends VBox {
             ArrayList<VBoxTask> sortedVBoxList = new ArrayList<>();
             ArrayList<Task> sortedTaskList = new ArrayList<>();
 
-            for (int p = 0; p < 3; p++)
-            {
-                for (int i = 0; i < unsortedTaskList.size(); i++)
-                {
-                    if(p == 0){
-                        if(unsortedTaskList.get(i).getPriority().equals("Hoch"))
-                        {
+            for (int p = 0; p < 3; p++) {
+                for (int i = 0; i < unsortedTaskList.size(); i++) {
+                    if (p == 0) {
+                        if (unsortedTaskList.get(i).getPriority().equals("Hoch")) {
                             sortedTaskList.add(unsortedTaskList.get(i));
                             sortedVBoxList.add(unsortedVBoxList.get(i));
                         }
                     }
-                    if(p == 1){
-                        if(unsortedTaskList.get(i).getPriority().equals("Mittel"))
-                        {
+                    if (p == 1) {
+                        if (unsortedTaskList.get(i).getPriority().equals("Mittel")) {
                             sortedTaskList.add(unsortedTaskList.get(i));
                             sortedVBoxList.add(unsortedVBoxList.get(i));
                         }
                     }
-                    if(p == 2){
-                        if(unsortedTaskList.get(i).getPriority().equals("Niedrig"))
-                        {
+                    if (p == 2) {
+                        if (unsortedTaskList.get(i).getPriority().equals("Niedrig")) {
                             sortedTaskList.add(unsortedTaskList.get(i));
                             sortedVBoxList.add(unsortedVBoxList.get(i));
                         }
@@ -368,7 +418,7 @@ public class VBoxTasklist extends VBox {
             this.taskList.setTasks(sortedTaskList);
             this.vBoxTaskArrayList = sortedVBoxList;
             this.getChildren().removeAll(sortedVBoxList);
-            for (VBoxTask vBoxTask: sortedVBoxList) {
+            for (VBoxTask vBoxTask : sortedVBoxList) {
                 this.getChildren().add(vBoxTask);
             }
         });
@@ -401,7 +451,7 @@ public class VBoxTasklist extends VBox {
             ArrayList<Task> sortedTaskList = new ArrayList<>();
             for (String projectTitle : unsortedTaskTitles) {
 
-                int index = findTaskObject( unsortedTaskList , projectTitle);
+                int index = findTaskObject(unsortedTaskList, projectTitle);
                 sortedVBoxList.add(unsortedVBoxList.get(index));
                 sortedTaskList.add(unsortedTaskList.get(index));
             }
@@ -409,7 +459,7 @@ public class VBoxTasklist extends VBox {
             this.taskList.setTasks(sortedTaskList);
             this.vBoxTaskArrayList = sortedVBoxList;
             this.getChildren().removeAll(sortedVBoxList);
-            for (VBoxTask vBoxTask: sortedVBoxList) {
+            for (VBoxTask vBoxTask : sortedVBoxList) {
                 this.getChildren().add(vBoxTask);
             }
 

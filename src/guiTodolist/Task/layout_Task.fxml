@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import java.lang.Integer?>
 <?import java.net.URL?>
-<AnchorPane fx:id="anchorPaneCreateTask" prefHeight="779.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPaneCreateTask" prefHeight="779.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" layoutX="130.0" layoutY="38.0" prefHeight="40.0" prefWidth="218.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="30.0">
          <children>
@@ -19,7 +19,7 @@
       </HBox>
       <VBox layoutX="50.0" layoutY="100.0" spacing="15.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="234.0" prefWidth="350.0" spacing="10.0" styleClass="vBox">
+            <VBox alignment="CENTER" prefHeight="234.0" prefWidth="400.0" spacing="10.0" styleClass="vBox">
                <children>
                   <Label styleClass="label-h2" text="Beschreibung:" />
                   <TextArea fx:id="textAreaDescription" prefHeight="208.0" prefWidth="340.0" promptText="Allgemeine Beschreibung der Aufgabe" styleClass="textarea" wrapText="true">
@@ -31,7 +31,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="61.0" prefWidth="350.0" spacing="10.0" styleClass="vBox">
+            <VBox alignment="CENTER" prefHeight="61.0" prefWidth="400.0" spacing="10.0" styleClass="vBox">
                <children>
                   <Label styleClass="label-h2" text="Fälligkeitsdatum:" />
                   <DatePicker fx:id="datePickerDueDate">
@@ -43,7 +43,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="249.0" prefWidth="350.0" spacing="10.0" styleClass="vBox">
+            <VBox alignment="CENTER" prefHeight="249.0" prefWidth="400.0" spacing="10.0" styleClass="vBox">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -58,9 +58,9 @@
          </children>
       </VBox>
       <Button fx:id="buttonCreateTask" layoutX="60.0" layoutY="326.0" mnemonicParsing="false" onAction="#createTask" text="Aufgabe Speichern" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="60.0" />
-      <VBox alignment="TOP_CENTER" layoutX="432.0" layoutY="100.0" spacing="15.0">
+      <VBox alignment="TOP_CENTER" layoutX="480.0" layoutY="100.0" spacing="15.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="67.0" prefWidth="328.0" spacing="10.0" styleClass="vBox">
+            <VBox alignment="TOP_CENTER" prefHeight="67.0" prefWidth="400.0" spacing="10.0" styleClass="vBox">
                <children>
                   <Label styleClass="label-h2" text="Priorität:">
                      <VBox.margin>
