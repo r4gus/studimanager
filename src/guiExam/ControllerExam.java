@@ -19,6 +19,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import sample.Main;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,6 +35,15 @@ import java.util.ResourceBundle;
 
 public class ControllerExam implements Initializable {
 
+    @FXML
+    public Label heading1;
+    @FXML
+    public Label heading2;
+
+    @FXML
+    public Button buttonAddExam;
+    @FXML
+    public Button buttonDeleteList;
     @FXML
     public IntTextField textfieldLectureNumber;
     @FXML
@@ -73,8 +83,8 @@ public class ControllerExam implements Initializable {
     @FXML
     public input.elements.combobox.ComboBox<String> stringChoiceBoxTableView;
 
-    private static final String choiceBoxValue1 = "Aktuelle Klausuren";
-    private static final String choiceBoxValue2 = "Bestandene Klausuren";
+    private static final String choiceBoxValue1 = Main.getBundle().getString("choiceBoxValue1");
+    private static final String choiceBoxValue2 = Main.getBundle().getString("choiceBoxValue2");
 
     private static final String pathControllerEditWindowLesson = "EditWindow/layoutEditWindow.fxml";
     private static final String pathControllerEditWindowLessonInsisted = "EditWindowExamResult/layoutEditWindowExamResult.fxml";
@@ -363,39 +373,66 @@ public class ControllerExam implements Initializable {
         if(examList != null)
             loadDataIntoLists();
 
+        heading1.setText(Main.getBundle().getString("heading1"));
+        heading2.setText(Main.getBundle().getString("heading2"));
+
+        buttonAddExam.setText(Main.getBundle().getString("buttonAddExam"));
+        textfieldLectureNumber.setPromptText(Main.getBundle().getString("colSubjectNumber"));
+        buttonDeleteList.setText(Main.getBundle().getString("buttonDeleteList"));
+
         tableviewExams.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableviewExams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         colSubjectNumber.setCellValueFactory((new PropertyValueFactory<Exam, String>("subjectNumber")));
         colSubjectNumber.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colSubjectNumber.setText(Main.getBundle().getString("colSubjectNumber"));
         coltechnicalName.setCellValueFactory(new PropertyValueFactory<Exam, String>("technicalName"));
         coltechnicalName.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        coltechnicalName.setText(Main.getBundle().getString("coltechnicalName"));
         colSemester.setCellValueFactory(new PropertyValueFactory<Exam, String>("semester"));
         colSemester.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colSemester.setText(Main.getBundle().getString("colSemester"));
         colDate.setCellValueFactory(new PropertyValueFactory<Exam, String>("date"));
         colDate.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colDate.setText(Main.getBundle().getString("colDate"));
+
         colBegin.setCellValueFactory(new PropertyValueFactory<Exam, String>("begin"));
         colBegin.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colBegin.setText(Main.getBundle().getString("colBegin"));
+
         colDuration.setCellValueFactory(new PropertyValueFactory<Exam, String>("duration"));
         colDuration.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colDuration.setText(Main.getBundle().getString("colDuration"));
+
         colBuilding.setCellValueFactory(new PropertyValueFactory<Exam, String>("building"));
         colBuilding.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colBuilding.setText(Main.getBundle().getString("colBuilding"));
+
         colRoomNumber.setCellValueFactory(new PropertyValueFactory<Exam, String>("roomNumber"));
         colRoomNumber.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colRoomNumber.setText(Main.getBundle().getString("colRoomNumber"));
+
         colTrialNumber.setCellValueFactory(new PropertyValueFactory<Exam, String>("trialNumber"));
         colTrialNumber.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colTrialNumber.setText(Main.getBundle().getString("colTrialNumber"));
 
         tableviewExamsInsisted.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableviewExamsInsisted.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         colSubjectNumberInsisted.setCellValueFactory((new PropertyValueFactory<Exam, String>("subjectNumber")));
         colSubjectNumberInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colSubjectNumberInsisted.setText(Main.getBundle().getString("colSubjectNumber"));
         coltechnicalNameInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("technicalName"));
         coltechnicalNameInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        coltechnicalNameInsisted.setText(Main.getBundle().getString("coltechnicalName"));
         colMarkInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("mark"));
         colMarkInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colMarkInsisted.setText(Main.getBundle().getString("colMarkInsisted"));
         colModulMarkInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("modulMark"));
         colModulMarkInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colModulMarkInsisted.setText(Main.getBundle().getString("colModulMarkInsisted"));
         colTrialsInsisted.setCellValueFactory(new PropertyValueFactory<Exam, String>("trialNumber"));
         colTrialsInsisted.setMaxWidth(1f * Integer.MAX_VALUE * 50);
+        colTrialsInsisted.setText(Main.getBundle().getString("colTrialsInsisted"));
+
 
         tableviewExams.setItems(exams);
         tableviewExamsInsisted.setItems(examsInsisted);

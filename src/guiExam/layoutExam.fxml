@@ -14,8 +14,8 @@
          <children>
             <VBox alignment="CENTER" prefHeight="84.0" prefWidth="145.0" spacing="10.0">
                <children>
-                  <Button id="addExam" mnemonicParsing="false" onAction="#clickAddExam" prefHeight="25.0" prefWidth="140.0" text="Klausur hinzufügen" />
-                  <IntTextField fx:id="textfieldLectureNumber" prefHeight="25.0" prefWidth="140.0" promptText="Fachnummer" >
+                  <Button fx:id="buttonAddExam" id="addExam" mnemonicParsing="false" onAction="#clickAddExam" prefHeight="25.0" prefWidth="140.0" />
+                  <IntTextField fx:id="textfieldLectureNumber" prefHeight="25.0" prefWidth="140.0">
                      <length>
                         <Integer fx:value="5" />
                      </length>
@@ -25,7 +25,7 @@
             <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="0.0" />
             <VBox alignment="CENTER" prefHeight="76.0" prefWidth="145.0" spacing="10.0">
                <children>
-                  <Button id="deleteList" mnemonicParsing="false" onAction="#clickClearList" prefHeight="25.0" prefWidth="140.0" text="Liste Leeren" />
+                  <Button fx:id="buttonDeleteList" id="deleteList" mnemonicParsing="false" onAction="#clickClearList" prefHeight="25.0" prefWidth="140.0" />
                   <ComboBox fx:id="stringChoiceBoxTableView" prefHeight="25.0" prefWidth="140.0" />
                </children>
             </VBox>
@@ -54,20 +54,20 @@
       </HBox>
       <TableView fx:id="tableviewExams" layoutX="117.0" layoutY="184.0" prefHeight="200.0" prefWidth="762.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
         <columns>
-            <TableColumn fx:id="colSubjectNumber" text="Fachnummer" />
-            <TableColumn fx:id="coltechnicalName" text="Fachbezeichung" />
-            <TableColumn fx:id="colSemester" text="Semester" />
-            <TableColumn fx:id="colDate" text="Datum" />
-            <TableColumn fx:id="colBegin" text="Beginn" />
-            <TableColumn fx:id="colDuration" text="Dauer" />
-            <TableColumn fx:id="colBuilding" text="Gebäude" />
-            <TableColumn fx:id="colRoomNumber" text="Raumnummer" />
-            <TableColumn fx:id="colTrialNumber" text="Versuch Nr:" />
+            <TableColumn fx:id="colSubjectNumber"/>
+            <TableColumn fx:id="coltechnicalName"/>
+            <TableColumn fx:id="colSemester"/>
+            <TableColumn fx:id="colDate"/>
+            <TableColumn fx:id="colBegin"/>
+            <TableColumn fx:id="colDuration"/>
+            <TableColumn fx:id="colBuilding"/>
+            <TableColumn fx:id="colRoomNumber"/>
+            <TableColumn fx:id="colTrialNumber"/>
         </columns>
       </TableView>
       <VBox alignment="CENTER" layoutX="3.0" layoutY="134.0" prefHeight="25.0" prefWidth="1042.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="134.0">
          <children>
-            <Label styleClass="label-h2" text="Anstehende Klausuren im aktuellen Semester:">
+            <Label fx:id="heading1" styleClass="label-h2" >
                <font>
                   <Font size="14.0" />
                </font>
@@ -79,16 +79,16 @@
       </VBox>
       <TableView fx:id="tableviewExamsInsisted" layoutX="113.0" layoutY="463.0" prefHeight="200.0" prefWidth="768.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
          <columns>
-             <TableColumn fx:id="colSubjectNumberInsisted" text="Fachnummer" />
-             <TableColumn fx:id="coltechnicalNameInsisted" prefWidth="103.0" text="Fachbezeichung" />
-            <TableColumn fx:id="colMarkInsisted" prefWidth="87.0" text="Note" />
-            <TableColumn fx:id="colModulMarkInsisted" prefWidth="96.0" text="Modulnote" />
-            <TableColumn fx:id="colTrialsInsisted" prefWidth="121.0" text="Anzahl der Versuche" />
+             <TableColumn fx:id="colSubjectNumberInsisted"/>
+             <TableColumn fx:id="coltechnicalNameInsisted" prefWidth="103.0"  />
+            <TableColumn fx:id="colMarkInsisted" prefWidth="87.0" />
+            <TableColumn fx:id="colModulMarkInsisted" prefWidth="96.0" />
+            <TableColumn fx:id="colTrialsInsisted" prefWidth="121.0" />
          </columns>
       </TableView>
       <VBox alignment="CENTER" layoutX="3.0" layoutY="417.0" prefHeight="32.0" prefWidth="1042.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="417.0">
          <children>
-            <Label styleClass="label-h2" text="bestandene Klausuren:">
+            <Label fx:id="heading2" styleClass="label-h2">
                <font>
                   <Font size="14.0" />
                </font>
