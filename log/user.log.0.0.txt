@@ -1020,3 +1020,36 @@ Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
 Sep 12, 2019 3:07:26 PM timetable.Timetable loadJson
 WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
 Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 10:31:41 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 10:35:56 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 10:42:37 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 10:43:26 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 10:44:41 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 12, 2019 10:44:51 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 13, 2019 7:23:13 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 20, 2019 11:02:55 AM config.Config loadJson
+WARNING: config/config.json (No such file or directory)
+Specified Path: config/config.json
+Sep 20, 2019 11:10:34 AM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Sep 20, 2019 11:13:29 AM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Sep 20, 2019 11:15:50 AM timetable.Timetable loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json

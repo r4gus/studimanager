@@ -4,6 +4,8 @@ import guiCalendar.Updatable;
 import guiCalendar.calendar.ControllerCalendar;
 import guiCalendar.create.facility.NewFacilityController;
 import guiCalendar.create.lecturer.NewLecturerController;
+import input.elements.combobox.ComboBox;
+import input.elements.textfield.TextField;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -104,6 +106,7 @@ public class ControllerLectureEdit implements Initializable, Updatable {
          */
         Label lectureTitle = new Label(Main.getBundle().getString("Title") + ":");
         gridPane.add(lectureTitle, 0, 1);
+
         TextField titleField = new TextField();
         titleField.setText(preservedTitle);
         gridPane.add(titleField, 1, 1);
@@ -123,7 +126,7 @@ public class ControllerLectureEdit implements Initializable, Updatable {
         Label lectureFacility = new Label(Main.getBundle().getString("Facility") + ":");
         gridPane.add(lectureFacility, 0, 3);
 
-        ComboBox<Facility> facilityComboBox = new ComboBox<>();
+        input.elements.combobox.ComboBox<Facility> facilityComboBox = new input.elements.combobox.ComboBox<>();
         for (int i = 0; i < timetable.getFACILITIES().getSize(); i++) {                  // add already existing facilities
             Facility facility = timetable.getFACILITIES().getElement(i);                // as choices to the ComboBox
 
@@ -169,8 +172,7 @@ public class ControllerLectureEdit implements Initializable, Updatable {
                 ------------- GET VALUES ----------------------------------------------
                  */
                 if (titleField.getText().isEmpty()) {
-                    message.Alert.showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error",
-                            "Please enter a title");
+                    titleField.showError(Main.getBundle().getString("EnterTitle"));
                     return;
                 } else {
                     title = titleField.getText();

@@ -4,6 +4,7 @@ import guiCalendar.Updatable;
 import guiCalendar.calendar.ControllerCalendar;
 import guiCalendar.create.facility.NewFacilityController;
 import guiCalendar.create.lecturer.NewLecturerController;
+import input.elements.combobox.ComboBox;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -98,7 +99,7 @@ public class SelectLectureController implements Initializable {
         select.setPrefSize(70, 65);
         select.setOnAction(e -> {
             if(lectureComboBox.getSelectionModel().isEmpty()) {
-                lectureComboBox.setStyle("-fx-border-color: red");
+                lectureComboBox.showError(Main.getBundle().getString("EnterLecture"));
             } else {
                 try {
                     unit.addLecture(lectureComboBox.getSelectionModel().getSelectedItem());
@@ -107,8 +108,10 @@ public class SelectLectureController implements Initializable {
                     Stage stage = (Stage) gridPane.getScene().getWindow();
                     stage.close();
                 } catch (IllegalArgumentException exc) {
-                    exc.printStackTrace();
-                    System.err.println("Lecture does already exist");
+                    /*
+                    perfect use case for a small info box:
+                    lecture does already exist!
+                     */
                 }
             }
         });
