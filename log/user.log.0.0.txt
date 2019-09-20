@@ -1080,6 +1080,9 @@ SEVERE: Can not start an object, expecting field name (context: Object)
 Specified Path: files/timetable.json
 Sep 20, 2019 4:00:57 PM custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Sep 20, 2019 4:41:23 PM serializer.SerializerIO loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
 Sep. 20, 2019 4:39:21 NACHM. serializer.SerializerIO loadJson
 WARNING: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json (Das System kann die angegebene Datei nicht finden)
 Specified Path: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json
