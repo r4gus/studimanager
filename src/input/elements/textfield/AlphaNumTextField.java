@@ -1,9 +1,10 @@
 package input.elements.textfield;
 
+import javafx.beans.NamedArg;
 import javafx.scene.control.TextFormatter;
 
 public class AlphaNumTextField extends TemplateTextField {
-    public AlphaNumTextField(int len) {
+    public AlphaNumTextField(@NamedArg("length") int len) {
         super();
 
         String regex = "(^[a-zA-Z0-9äöüß_. ]{0," + len + "}$)";

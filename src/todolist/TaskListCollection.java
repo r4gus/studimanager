@@ -20,6 +20,10 @@ public class TaskListCollection {
         return taskLists.remove(taskList);
     }
 
+    public ArrayList<TaskList> getTaskLists() {
+        return taskLists;
+    }
+
     /**
      * Store the config data in a {@code Json} file at the specified {@code path}.
      * @param path Path to store the Json file at.

@@ -1,5 +1,6 @@
 package guiTodolist.Task;
 
+import input.elements.textfield.AlphaNumTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -37,7 +38,7 @@ public class ControllerTask implements Initializable {
     public AnchorPane anchorPaneCreateTask;
 
     @FXML
-    public TextField textFieldHeadingTask;
+    public AlphaNumTextField textFieldHeadingTask;
 
     @FXML
     public TextArea textAreaDescription;
@@ -50,12 +51,10 @@ public class ControllerTask implements Initializable {
     @FXML
     public ListView listViewChecklist;
     @FXML
-    public TextField textFieldChecklistNewEntry;
+    public AlphaNumTextField textFieldChecklistNewEntry;
 
     @FXML
     public ListView listViewFileAttachment;
-    @FXML
-    public TextField textFieldNewFileEntry;
     @FXML
     public ComboBox comboboxPriority;
 
@@ -82,18 +81,17 @@ public class ControllerTask implements Initializable {
     private ArrayList<TaskCheckListItem> taskCheckListItems = new ArrayList<>();
     private ArrayList<File> taskFiles = new ArrayList<>();
 
-    private VBoxTasklist vboxTodoList;
+    private VBoxTasklist vboxTaskList;
     private Task currentTask;
     private VBoxTask vBoxTask;
 
 
-
     public ControllerTask(VBoxTasklist vboxTasklist) {
 
-        this.vboxTodoList = vboxTasklist;
+        this.vboxTaskList = vboxTasklist;
     }
 
-    public ControllerTask(VBoxTask vBoxTask , VBoxTasklist vBoxTasklist) {
+    public ControllerTask(VBoxTask vBoxTask, VBoxTasklist vBoxTasklist) {
 
         this(vBoxTasklist);
         this.vBoxTask = vBoxTask;
@@ -113,9 +111,9 @@ public class ControllerTask implements Initializable {
 
         listViewChecklist.setItems(itemsChecklist);
         listViewFileAttachment.setItems(itemsFilesList);
-        itemsPriority.addAll("Hoch", "Mittel", "Niedrig");
+        itemsPriority.addAll("Niedrig", "Mittel", "Hoch");
         comboboxPriority.setItems(itemsPriority);
-        comboboxPriority.getSelectionModel().select(2);
+        comboboxPriority.getSelectionModel().select(1);
 
         initButtonAddPicture(buttonAddChecklistEntry, filepathAddIcon);
         initButtonAddPicture(buttonDeleteChecklistEntry, filepathDeleteIcon);
@@ -206,6 +204,11 @@ public class ControllerTask implements Initializable {
     public void addEntryToChecklist() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "addEntryToChecklist");
+
+        if (textFieldChecklistNewEntry.getText().trim().isEmpty()) {
+            textFieldChecklistNewEntry.showError("Textfeld darf nicht leer sein");
+            return;
+        }
         CheckBox checkBoxItem = new CheckBox(textFieldChecklistNewEntry.getText());
         itemsChecklist.add(checkBoxItem);
         TaskCheckListItem taskCheckListItem = new TaskCheckListItem(textFieldChecklistNewEntry.getText());
@@ -222,6 +225,8 @@ public class ControllerTask implements Initializable {
     public void deleteEntryToChecklist() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "deleteEntryToChecklist");          /* Exception Handling  */
+        if (listViewChecklist.getSelectionModel().getSelectedIndex() == -1)
+            return;
         int index = listViewChecklist.getSelectionModel().getSelectedIndex();
         itemsChecklist.remove(index);
         taskCheckListItems.remove(index);
@@ -236,10 +241,7 @@ public class ControllerTask implements Initializable {
     public void AddFileAttachmentToTask() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "AddFileAttachmentToTask");         /* Exception Handling  */
-        if (!textFieldNewFileEntry.getText().trim().isEmpty()) {
 
-            String filename = textFieldNewFileEntry.getText();
-        }
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Datei für Aufgabe auswählen");
 
@@ -260,7 +262,8 @@ public class ControllerTask implements Initializable {
     public void deleteFileAttachmentToTask() {                                                          /* Exception Handling  */
 
         MyLogger.LOGGER.entering(getClass().toString(), "deleteFileAttachmentToTask");
-
+        if (listViewChecklist.getSelectionModel().getSelectedIndex() == -1)
+            return;
         int index = listViewFileAttachment.getSelectionModel().getSelectedIndex();
         this.itemsFilesList.remove(index);
         this.taskFiles.remove(index);
@@ -285,11 +288,14 @@ public class ControllerTask implements Initializable {
     }
 
 
-    private void updateVBoxTask() {
+    private int updateVBoxTask() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "updateVBoxTask");
-        vboxTodoList.getChildren().remove(this.vBoxTask);     /* remove VBox From ToDoList */
-        MyLogger.LOGGER.exiting(getClass().toString(), "updateVBoxTask");
+        int index = vboxTaskList.getChildren().indexOf(this.vBoxTask);
+        vboxTaskList.getChildren().remove(this.vBoxTask);     /* remove VBox From ToDoList */
+        vboxTaskList.deleteVBoxTask(this.vBoxTask);
+        MyLogger.LOGGER.exiting(getClass().toString(), "updateVBoxTask", index);
+        return index;
     }
 
 
@@ -302,14 +308,26 @@ public class ControllerTask implements Initializable {
     public void createTask() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "createTask");
-        if (vBoxTask != null) {
-            updateVBoxTask();
+        if (textFieldHeadingTask.getText().trim().isEmpty()) {
+            textFieldHeadingTask.showError("Textfeld dar nicht leer sein");
+            return;
         }
-        this.currentTask = createTaskObjekt();                  /* Object Task is created */
-        VBoxTask vBoxnewTask = createNewGuiElemnts();               /* VboxTask will be created  */
-        vBoxnewTask.setTaskID(this.currentTask.getTaskId());            /*  Add TaskID from Object */
-        currentTask.setTaskListId(vboxTodoList.getTaskListID());            /* Add TaskList-ID to Object from taskList */
-        vboxTodoList.getChildren().add(vBoxnewTask);
+        int indexVBoxTaskList = -1;
+        if (vBoxTask != null) {
+            indexVBoxTaskList = updateVBoxTask();
+            this.vboxTaskList.getTaskList().deleteTask(currentTask);   /* Object Task is removed to TaskList */
+        }
+        this.currentTask = createTaskObjekt();               /* Object Task is created */
+        this.vboxTaskList.getTaskList().addTask(currentTask);   /* Object Task is add to TaskList */
+        VBoxTask vBoxNewTask = createNewGuiElemnts();               /* VboxTask will be created  */
+        vBoxNewTask.setTaskID(this.currentTask.getTaskId());            /*  Add TaskID from Object */
+        currentTask.setTaskListId(vboxTaskList.getTaskListID());            /* Add TaskList-ID to Object from taskList */
+        if (indexVBoxTaskList != -1) {
+            vboxTaskList.getChildren().add(indexVBoxTaskList, vBoxNewTask);
+        } else {
+            vboxTaskList.getChildren().add(vBoxNewTask);
+        }
+        vboxTaskList.getvBoxTaskArrayList().add(vBoxNewTask);                              /* Add VboxTask to VboxTaskList  */
         Stage stage = (Stage) this.buttonCreateTask.getScene().getWindow();
         stage.close();
         MyLogger.LOGGER.exiting(getClass().toString(), "createTask");
@@ -323,9 +341,9 @@ public class ControllerTask implements Initializable {
     public VBoxTask createNewGuiElemnts() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "createNewGuiElemnts");
-        VBoxTask vBoxTask = new VBoxTask(currentTask, vboxTodoList);
+        VBoxTask vBoxTask = new VBoxTask(currentTask, vboxTaskList);
         addEventDragDetected(vBoxTask, this.currentTask);
-        this.vboxTodoList.setMargin(vBoxTask, new Insets(5, 10, 5, 10));
+        this.vboxTaskList.setMargin(vBoxTask, new Insets(5, 10, 5, 10));
         MyLogger.LOGGER.exiting(getClass().toString(), "createNewGuiElemnts", vBoxTask);
         return vBoxTask;
 

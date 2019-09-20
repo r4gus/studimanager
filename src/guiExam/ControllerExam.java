@@ -5,6 +5,7 @@ import exam.Exam;
 import exam.ExamList;
 import guiExam.EditWindow.ControllerEditWindow;
 import guiExam.EditWindowExamResult.ControllerEditWindowExamResult;
+import input.elements.textfield.IntTextField;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,7 +35,7 @@ import java.util.ResourceBundle;
 public class ControllerExam implements Initializable {
 
     @FXML
-    public TextField textfieldLectureNumber;
+    public IntTextField textfieldLectureNumber;
     @FXML
     public TableView<Exam> tableviewExams;
     @FXML
@@ -70,7 +71,7 @@ public class ControllerExam implements Initializable {
 
 
     @FXML
-    public ChoiceBox<String> stringChoiceBoxTableView;
+    public input.elements.combobox.ComboBox<String> stringChoiceBoxTableView;
 
     private static final String choiceBoxValue1 = "Aktuelle Klausuren";
     private static final String choiceBoxValue2 = "Bestandene Klausuren";
@@ -78,14 +79,12 @@ public class ControllerExam implements Initializable {
     private static final String pathControllerEditWindowLesson = "EditWindow/layoutEditWindow.fxml";
     private static final String pathControllerEditWindowLessonInsisted = "EditWindowExamResult/layoutEditWindowExamResult.fxml";
 
-    private ObservableList<Exam> exams = FXCollections.observableArrayList(new Exam("test", "testname", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2.0", false, false)
-            , new Exam("Analysis", "Mathe", "3", "2019-04-12", "9.00", "1:30", "R0.23", "G1", "1", "2.3", "3.0", false, false));
-
-
-    private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList(new Exam("GDM", "Mathe", "3", "2019-04-12", "9.00", "2:00", "R0.23", "G1", "1", "2.3", "2,5", true, false));
+    private ObservableList<Exam> exams = FXCollections.observableArrayList();
+    private ObservableList<Exam> examsInsisted = FXCollections.observableArrayList();
     private ObservableList<String> observableListChoiceBox = FXCollections.observableArrayList(ControllerExam.choiceBoxValue1, ControllerExam.choiceBoxValue2);
 
-    private static ExamList examList = null;
+    // Muss später wieder auf null gesetzt werden
+    private static ExamList examList = new ExamList();
 
 
     /**
@@ -133,6 +132,7 @@ public class ControllerExam implements Initializable {
      */
 
     private void deleteTableViewItems(ObservableList<Exam> selectedItems) {
+        removeExam(selectedItems);
         exams.removeAll(selectedItems);
         tableviewExams.getSelectionModel().clearSelection();
     }
@@ -145,6 +145,7 @@ public class ControllerExam implements Initializable {
      */
 
     private void deleteTableViewItemsInsisted(ObservableList<Exam> selectedItems) {
+        removeExam(selectedItems);
         examsInsisted.removeAll(selectedItems);
         tableviewExamsInsisted.getSelectionModel().clearSelection();
     }
@@ -158,18 +159,15 @@ public class ControllerExam implements Initializable {
 
     public void clickAddExam(ActionEvent actionEvent) {
 
-        String examNumber = textfieldLectureNumber.getText();
-        if (examNumber.trim().isEmpty()) {
-            try {
-                throw new UserException("Info" ,"Sie müssen eine Klausurnummer in das Textfeld eingeben");
-            } catch (UserException e) {
-
-            }
-
-        } else {
-            addExam(examNumber);
-            textfieldLectureNumber.clear();
+        if(textfieldLectureNumber.getText().trim().isEmpty())
+        {
+            textfieldLectureNumber.showError("Texrfeld darf nicht leer sein");
+            return;
         }
+        String examNumber = textfieldLectureNumber.getText();
+        addExam(examNumber);
+        textfieldLectureNumber.clear();
+
     }
 
 
@@ -181,20 +179,16 @@ public class ControllerExam implements Initializable {
 
     public void clickClearList(ActionEvent actionEvent) {
 
-        try {
 
             if (stringChoiceBoxTableView.getValue() == null) {
-                throw new UserException( "Info" ,"Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!");
+                stringChoiceBoxTableView.showError("Sie müssen einen Eintrag auswählen");
+                return;
             }
             if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue1) && tableviewExams.getItems() != null) {
                 tableviewExams.getItems().clear();
             } else if (stringChoiceBoxTableView.getValue().equals(ControllerExam.choiceBoxValue2) && tableviewExamsInsisted.getItems() != null) {
                 tableviewExamsInsisted.getItems().clear();
             }
-        } catch (UserException e) {
-            /* remember Exception logs automatically */
-
-        }
     }
 
 
@@ -204,7 +198,23 @@ public class ControllerExam implements Initializable {
 
     private void addExam(String examNumber) {
 
-        exams.add(new Exam(examNumber));
+        Exam exam = new Exam(examNumber);
+        this.examList.addExam(exam);
+        exams.add(exam);
+    }
+
+    /**
+     * the method removes  elements Exam from examList.
+     *
+     * @param exams List of Objects which should be deleted.
+     */
+
+    private void removeExam(ObservableList<Exam> exams) {
+
+        for (Exam exam : exams) {
+
+            this.examList.deleteExam(exam);
+        }
     }
 
 
@@ -330,6 +340,17 @@ public class ControllerExam implements Initializable {
 
 
     /**
+     * loads data from ExamList into corseponding lists
+     */
+
+    private void loadDataIntoLists() {
+
+        exams = examList.getExamWithSpecalProperties("upc");
+        examsInsisted = examList.getExamWithSpecalProperties("pas");
+    }
+
+
+    /**
      * Called to initialize a controller after its root element has been completely processed
      *
      * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
@@ -339,6 +360,8 @@ public class ControllerExam implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        if(examList != null)
+            loadDataIntoLists();
 
         tableviewExams.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableviewExams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="809.0" prefWidth="827.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="809.0" prefWidth="1001.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" layoutX="324.0" layoutY="38.0" prefHeight="41.0" prefWidth="625.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
          <children>
@@ -19,7 +19,7 @@
                </HBox.margin></Label>
          </children>
       </HBox>
-      <VBox layoutX="35.0" layoutY="97.0" prefWidth="356.0" spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="100.0">
+      <VBox layoutX="35.0" layoutY="97.0" prefWidth="450.0" spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox alignment="TOP_CENTER" minHeight="200.0" prefHeight="234.0" prefWidth="356.0" spacing="10.0" styleClass="vBox">
                <children>
@@ -74,7 +74,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox layoutX="421.0" layoutY="97.0" prefHeight="513.0" prefWidth="356.0" spacing="15.0" AnchorPane.bottomAnchor="110.0" AnchorPane.topAnchor="100.0">
+      <VBox layoutX="421.0" layoutY="97.0" prefHeight="599.0" prefWidth="450.0" spacing="15.0" AnchorPane.bottomAnchor="110.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="97.0" prefWidth="356.0" spacing="10.0" styleClass="vBox">
                <children>
@@ -100,7 +100,7 @@
                   </Label>
                   <HBox prefHeight="234.0" prefWidth="311.0" spacing="5.0">
                      <children>
-                        <VBox fx:id="vBoxUncompletedTask" prefWidth="178.0" spacing="10.0">
+                        <VBox fx:id="vBoxUncompletedTask" prefWidth="215.0" spacing="10.0">
                            <children>
                               <Label style="-fx-text-fill: #ff0000;" styleClass="label-h3" text="Offene Aufgaben:">
                                  <VBox.margin>
@@ -109,13 +109,13 @@
                               </Label>
                            </children>
                            <HBox.margin>
-                              <Insets left="5.0" />
+                              <Insets left="10.0" />
                            </HBox.margin>
                            <padding>
                               <Insets left="10.0" />
                            </padding>
                         </VBox>
-                        <VBox fx:id="vBoxCompletedTask" prefWidth="200.0" spacing="10.0">
+                        <VBox fx:id="vBoxCompletedTask" prefWidth="215.0" spacing="10.0">
                            <children>
                               <Label style="-fx-text-fill: #04B45F;" styleClass="label-h3" text="Erledigte Aufgaben:">
                                  <VBox.margin>
@@ -145,6 +145,9 @@
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
             </VBox>
          </children>
       </VBox>

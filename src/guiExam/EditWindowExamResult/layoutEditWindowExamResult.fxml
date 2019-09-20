@@ -23,7 +23,7 @@
       </HBox>
       <HBox alignment="CENTER" layoutX="76.0" layoutY="157.0" prefHeight="219.0" prefWidth="347.0" spacing="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="110.0">
          <children>
-            <VBox prefHeight="234.0" prefWidth="114.0" spacing="17.0">
+            <VBox prefHeight="234.0" prefWidth="114.0" spacing="20.0">
                <children>
                   <Label text="Fachnummer:">
                      <VBox.margin>

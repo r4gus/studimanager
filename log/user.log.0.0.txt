@@ -1020,36 +1020,17 @@ Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
 Sep 12, 2019 3:07:26 PM timetable.Timetable loadJson
 WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
 Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
-Sep 12, 2019 10:31:41 PM timetable.Timetable loadJson
-WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
-Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
-Sep 12, 2019 10:35:56 PM timetable.Timetable loadJson
-WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
-Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
-Sep 12, 2019 10:42:37 PM timetable.Timetable loadJson
-WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
-Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
-Sep 12, 2019 10:43:26 PM timetable.Timetable loadJson
-WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
-Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
-Sep 12, 2019 10:44:41 PM timetable.Timetable loadJson
-WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
-Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
-Sep 12, 2019 10:44:51 PM timetable.Timetable loadJson
-WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
-Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
-Sep 13, 2019 7:23:13 PM timetable.Timetable loadJson
-WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
-Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
-Sep 20, 2019 11:02:55 AM config.Config loadJson
-WARNING: config/config.json (No such file or directory)
+Sep. 13, 2019 9:19:49 VORM. config.Config loadJson
+WARNING: config\config.json (Das System kann die angegebene Datei nicht finden)
 Specified Path: config/config.json
-Sep 20, 2019 11:10:34 AM timetable.Timetable loadJson
-WARNING: files/timetable.json (No such file or directory)
+Sep. 13, 2019 9:19:49 VORM. timetable.Timetable loadJson
+WARNING: files\timetable.json (Das System kann den angegebenen Pfad nicht finden)
 Specified Path: files/timetable.json
-Sep 20, 2019 11:13:29 AM timetable.Timetable loadJson
-WARNING: files/timetable.json (No such file or directory)
-Specified Path: files/timetable.json
-Sep 20, 2019 11:15:50 AM timetable.Timetable loadJson
-WARNING: files/timetable.json (No such file or directory)
-Specified Path: files/timetable.json
+Sep. 14, 2019 10:32:48 VORM. timetable.Timetable loadJson
+WARNING: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json (Das System kann die angegebene Datei nicht finden)
+Specified Path: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json
+Sep. 14, 2019 10:37:19 VORM. timetable.Timetable loadJson
+WARNING: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json (Das System kann die angegebene Datei nicht finden)
+Specified Path: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json
+Sep. 14, 2019 12:39:58 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
