@@ -1034,3 +1034,49 @@ WARNING: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json (Das
 Specified Path: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json
 Sep. 14, 2019 12:39:58 NACHM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie im Dropdownmenü eine der verfügung stehenden Optionen aus!
+Sep 20, 2019 1:10:34 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 20, 2019 1:11:03 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 20, 2019 1:11:39 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 20, 2019 1:12:16 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 20, 2019 1:13:20 PM timetable.Timetable loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 20, 2019 1:43:43 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 20, 2019 1:44:57 PM config.Config loadJson
+WARNING: config/config.json (No such file or directory)
+Specified Path: config/config.json
+Sep 20, 2019 1:44:57 PM serializer.SerializerIO loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Sep 20, 2019 1:59:17 PM serializer.SerializerIO storeJson
+SEVERE: No serializer found for class exam.ExamList and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS)
+Specified Path: files/timetable.json
+Sep 20, 2019 1:59:51 PM serializer.SerializerIO storeJson
+SEVERE: No serializer found for class exam.ExamList and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS)
+Specified Path: files/timetable.json
+Sep 20, 2019 2:08:43 PM serializer.SerializerIO storeJson
+SEVERE: Can not start an object, expecting field name (context: Object)
+Specified Path: files/timetable.json
+Sep 20, 2019 2:09:11 PM serializer.SerializerIO loadJson
+SEVERE: Unexpected end-of-input: expected close marker for Object (start marker at [Source: (FileInputStream); line: 1, column: 1])
+ at [Source: (FileInputStream); line: 1, column: 3]
+Specified Path: files/timetable.json
+Sep 20, 2019 2:12:15 PM serializer.SerializerIO loadJson
+SEVERE: Unexpected end-of-input: expected close marker for Object (start marker at [Source: (FileInputStream); line: 1, column: 1])
+ at [Source: (FileInputStream); line: 1, column: 3]
+Specified Path: files/timetable.json
+Sep 20, 2019 2:13:17 PM serializer.SerializerIO storeJson
+SEVERE: Can not start an object, expecting field name (context: Object)
+Specified Path: files/timetable.json
+Sep 20, 2019 4:00:57 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.

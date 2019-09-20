@@ -3,6 +3,8 @@ package guiCalendar.create.lecturer;
 import guiCalendar.Updatable;
 import guiCalendar.calendar.ControllerCalendar;
 import guiCalendar.create.facility.NewFacilityController;
+import input.elements.combobox.ComboBox;
+import input.elements.textfield.TextField;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -96,7 +98,8 @@ public class NewLecturerController implements Initializable, Updatable {
          */
         Label firstNameTitle = new Label(Main.getBundle().getString("FirstName") + ":");
         gridPane.add(firstNameTitle, 0, 1);
-        TextField firstNameTextfield = new TextField();
+
+        input.elements.textfield.TextField firstNameTextfield = new input.elements.textfield.TextField();
         if (preservedFirstName != null) firstNameTextfield.setText(preservedFirstName);
         gridPane.add(firstNameTextfield, 1, 1);
 
@@ -105,7 +108,8 @@ public class NewLecturerController implements Initializable, Updatable {
          */
         Label lastNameTitle = new Label(Main.getBundle().getString("LastName") + ":");
         gridPane.add(lastNameTitle, 0, 2);
-        TextField lastNameTextfield = new TextField();
+
+        input.elements.textfield.TextField lastNameTextfield = new input.elements.textfield.TextField();
         if (preservedLastName != null) lastNameTextfield.setText(preservedLastName);
         gridPane.add(lastNameTextfield, 1, 2);
 
@@ -114,6 +118,7 @@ public class NewLecturerController implements Initializable, Updatable {
          */
         Label emailTitle = new Label(Main.getBundle().getString("EMail") + ":");
         gridPane.add(emailTitle, 0, 3);
+
         TextField emailTextfield = new TextField();
         if (preservedEmail != null) emailTextfield.setText(preservedEmail);
         gridPane.add(emailTextfield, 1, 3);
@@ -155,8 +160,7 @@ public class NewLecturerController implements Initializable, Updatable {
                 ------------- GET VALUES ----------------------------------------------
                  */
                 if (lastNameTextfield.getText().isEmpty()) {
-                    showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error",
-                            "Please enter a last name");
+                    lastNameTextfield.showError(Main.getBundle().getString("EnterLastName"));
                     return;
                 } else {
                     lastName = lastNameTextfield.getText();

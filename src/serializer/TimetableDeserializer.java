@@ -1,4 +1,4 @@
-package timetable;
+package serializer;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -6,16 +6,29 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import exam.Exam;
+import exam.ExamList;
+import timetable.*;
+import todolist.Task;
+import todolist.TaskCheckListItem;
+import todolist.TaskList;
+import todolist.TaskListCollection;
 
+import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * Deserializer for the {@link Timetable} class that facilitates the {@code Jackson}(JasonParser).
  * @author David Sugar
  */
-public class TimetableDeserializer extends StdDeserializer<Timetable> {
+public class TimetableDeserializer extends StdDeserializer<TimetableObjectCollection> {
 
-    public TimetableDeserializer(Class<Timetable> vc) {
+    public TimetableDeserializer(Class<TimetableObjectCollection> vc) {
         super(vc);
     }
 
@@ -29,11 +42,13 @@ public class TimetableDeserializer extends StdDeserializer<Timetable> {
      * @throws IOException
      * @throws JsonProcessingException
      */
-    public Timetable deserialize(JsonParser jsonParser,
+    public TimetableObjectCollection deserialize(JsonParser jsonParser,
                                  DeserializationContext deserializationContext)
             throws IOException, JsonProcessingException
     {
         Timetable timetable = null;
+        TaskListCollection taskListCollection = null;
+        ExamList examList = null;
 
         ObjectCodec oc = jsonParser.getCodec();
         JsonNode node = oc.readTree(jsonParser);
@@ -88,10 +103,10 @@ public class TimetableDeserializer extends StdDeserializer<Timetable> {
                     ------------------ ADD LECTURE ----------------------------------------
                      */
                     String      title       = null;
-                    Facility    facility    = null;
-                    Lecturer    lecturer    = null;
+                    Facility facility    = null;
+                    Lecturer lecturer    = null;
                     boolean     elective;
-                    Lecture     newLecture = null;
+                    Lecture newLecture = null;
 
                     title       = lecture.get("title").asText();
                     elective    = lecture.get("elective").asBoolean();
@@ -159,6 +174,125 @@ public class TimetableDeserializer extends StdDeserializer<Timetable> {
             i += 1;
         }
 
-        return timetable;
+        /*
+        ------------------------------- DESERIALIZE EXAMS --------------------------------------
+         */
+        examList = new ExamList();
+
+        for(JsonNode exam: node.get("exams")) {
+            examList.addExam(new Exam(exam.get("subjectNumber").asText(),
+                    exam.get("technicalName").asText(),
+                    exam.get("semester").asText(),
+                    exam.get("date").asText(),
+                    exam.get("begin").asText(),
+                    exam.get("duration").asText(),
+                    exam.get("building").asText(),
+                    exam.get("roomNumber").asText(),
+                    exam.get("trialNumber").asText(),
+                    exam.get("mark").asText(),
+                    exam.get("modulMark").asText(),
+                    exam.get("insisted").asBoolean(),
+                    exam.get("currentExam").asBoolean()
+                    ));
+        }
+
+        /*
+        ----------------------------- DESERIALIZE Can-Ban Board ---------------------------
+         */
+        taskListCollection = new TaskListCollection();
+
+        for(JsonNode section: node.get("toDoList")) {
+            TaskList taskList = new TaskList();
+            taskList.setHeading(section.get("heading").asText());
+
+            for(JsonNode task: section.get("tasks")) { // iterate over each task of a task list
+
+                /* ##################################################################
+                                    GET ALL REQUIRED ELEMENTS FOR EACH TASK
+                 ######################################################################*/
+                String projectTitle = task.get("projectTitle").asText();
+                int taskId = task.get("taskId").asInt();
+                int taskListId = task.get("taskListId").asInt();
+                String projectDescription = task.get("projectDescription").asText();
+                String notes = task.get("notes").asText();
+                String priority = task.get("priority").asText();
+
+                /* ###################### ITEMS CHECK LIST ############# */
+                ArrayList<TaskCheckListItem> itemsChecklist = new ArrayList<>();
+                for(JsonNode item: task.get("itemsChecklist")) {
+                    itemsChecklist.add(new TaskCheckListItem(
+                            item.get("checklistTaskName").asText(),
+                            item.get("checkListTaskID").asInt(),
+                            item.get("checklistTaskCompleted").asBoolean()
+                    ));
+                }
+
+                /* ###################### FILES ########################### */
+                ArrayList<File> fileArrayList = new ArrayList<>();
+                for(JsonNode file: task.get("fileArrayList")) {
+                    fileArrayList.add(new File(file.asText()));
+                }
+
+                int projectStatus = task.get("projectStatus").asInt();
+
+                /* ###################### DATES ########################## */
+                JsonNode time;
+
+                LocalDate projectStart = null;
+                time = task.get("projectStart");
+                if(!time.isNull()) {
+                    projectStart = LocalDate.of(
+                            time.get("year").asInt(),
+                            time.get("monthValue").asInt(),
+                            time.get("dayOfMonth").asInt()
+                    );
+                }
+
+                LocalTime projectDuration = null;
+
+                LocalDate deadline = null;
+                time = task.get("deadline");
+                if(!time.isNull()) {
+                    deadline = LocalDate.of(
+                            time.get("year").asInt(),
+                            time.get("monthValue").asInt(),
+                            time.get("dayOfMonth").asInt()
+                    );
+                }
+
+
+                LocalDateTime remindTime = null;
+
+                boolean remindMe = task.get("remindMe").asBoolean();
+
+                boolean done = task.get("done").asBoolean();
+
+                /* #######################################################
+                                CREATE TASK OBJECT
+                 ########################################################### */
+                Task x = new Task(projectTitle,
+                        projectDescription,
+                        priority,
+                        notes,
+                        itemsChecklist,
+                        fileArrayList,
+                        projectStatus,
+                        projectStart,
+                        projectDuration,
+                        deadline,
+                        remindMe,
+                        remindTime);
+
+                x.setTaskListId(taskListId);
+                x.setTaskId(taskId);
+                x.setDone(done);
+
+                taskList.addTask(x);
+            }
+
+            taskListCollection.add(taskList);
+        }
+
+        return new TimetableObjectCollection(timetable, examList, taskListCollection);
     }
 }

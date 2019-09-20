@@ -1,8 +1,9 @@
 package guiCalendar.create.timetable;
 
+import input.elements.combobox.ComboBox;
 import input.elements.textfield.AlphaNumTextField;
 import guiCalendar.calendar.ControllerCalendar;
-import input.elements.ComboBoxFactory;
+import input.elements.textfield.IntTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -67,7 +68,7 @@ public class TimetableController implements Initializable {
     private void makeForm(GridPane gridPane) {
         MyLogger.LOGGER.entering(getClass().toString(), "makeForm", gridPane);
 
-        Text sceneTitle = new Text(Main.getBundle().getString("New") + " " + Main.getBundle().getString("Timetable"));
+        Text sceneTitle = new Text(Main.getBundle().getString("NewTimetable"));
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         sceneTitle.setStyle("-fx-font-weight: bold");
         gridPane.add(sceneTitle, 0, 0, 2, 1);
@@ -78,9 +79,7 @@ public class TimetableController implements Initializable {
         Label semesterTitle = new Label(Main.getBundle().getString("Semester") + ":");
         gridPane.add(semesterTitle, 0, 1);
 
-//        TextField semesterTextfield = TextFieldFactory.getIntTextField(3, true);
-        AlphaNumTextField semesterTextfield = new AlphaNumTextField(5);
-
+        IntTextField semesterTextfield = new IntTextField(2, false);
         semesterTextfield.setPrefSize(80.0, 30.0);
         gridPane.add(semesterTextfield, 1, 1);
 
@@ -91,7 +90,9 @@ public class TimetableController implements Initializable {
         gridPane.add(daysLabel, 0, 2);
 
         input.elements.combobox.ComboBox<Integer> daysComboBox = new input.elements.combobox.ComboBox<>();
-        daysComboBox.getItems().add(3);
+        for(int i = 1; i <= 7; i++) {
+            daysComboBox.getItems().add(i);
+        }
         daysComboBox.setPrefSize(80.0, 30.0);
         gridPane.add(daysComboBox, 1, 2);
 
@@ -105,7 +106,10 @@ public class TimetableController implements Initializable {
         Label lessonsLabel = new Label(Main.getBundle().getString("Lessons") + ":");
         gridPane.add(lessonsLabel, 0, 4);
 
-        ComboBox<Integer> lessonsComboBox = ComboBoxFactory.getIntComboBox(1, Timetable.MAX_UNITS);
+        input.elements.combobox.ComboBox<Integer> lessonsComboBox = new input.elements.combobox.ComboBox<>();
+        for(int i = 1; i <= 7; i++) {
+            lessonsComboBox.getItems().add(i);
+        }
         lessonsComboBox.setPrefSize(80.0, 30.0);
         gridPane.add(lessonsComboBox, 1, 4);
 
@@ -115,11 +119,17 @@ public class TimetableController implements Initializable {
         Label beginLabel = new Label(Main.getBundle().getString("Begin") + ":");
         gridPane.add(beginLabel, 0, 5);
 
-        ComboBox<Integer> beginHourComboBox = ComboBoxFactory.getIntComboBox(0, 23);
+        input.elements.combobox.ComboBox<Integer> beginHourComboBox = new input.elements.combobox.ComboBox<>();
+        for(int i = 6; i <= 15; i++) {
+            beginHourComboBox.getItems().add(i);
+        }
         beginHourComboBox.setPrefSize(80.0, 30.0);
         gridPane.add(beginHourComboBox, 1, 5);
 
-        ComboBox<Integer> beginMinuteComboBox = ComboBoxFactory.getIntComboBox(0, 59);
+        input.elements.combobox.ComboBox<Integer> beginMinuteComboBox = new input.elements.combobox.ComboBox<>();
+        for(int i = 0; i <= 59; i += 15) {
+            beginMinuteComboBox.getItems().add(i);
+        }
         beginMinuteComboBox.setPrefSize(80.0, 30.0);
         gridPane.add(beginMinuteComboBox, 2, 5);
 
@@ -132,7 +142,10 @@ public class TimetableController implements Initializable {
         Label lessonDurationLabel = new Label(Main.getBundle().getString("Duration"));
         gridPane.add(lessonDurationLabel, 0, 6);
 
-        ComboBox<Integer> lessonDurationComboBox = ComboBoxFactory.getIntComboBox(1, 180);
+        input.elements.combobox.ComboBox<Integer> lessonDurationComboBox = new input.elements.combobox.ComboBox<>();
+        for(int i = 45; i <= 120; i += 15) {
+            lessonDurationComboBox.getItems().add(i);
+        }
         lessonDurationComboBox.setPrefSize(80.0, 30.0);
         gridPane.add(lessonDurationComboBox, 1, 6);
 
@@ -145,7 +158,10 @@ public class TimetableController implements Initializable {
         Label breakTimeLabel = new Label(Main.getBundle().getString("Breaktime"));
         gridPane.add(breakTimeLabel, 0, 7);
 
-        ComboBox<Integer> breakTimeComboBox = ComboBoxFactory.getIntComboBox(1, 180);
+        input.elements.combobox.ComboBox<Integer> breakTimeComboBox = new input.elements.combobox.ComboBox<>();
+        for(int i = 5; i <= 30; i += 5) {
+            breakTimeComboBox.getItems().add(i);
+        }
         breakTimeComboBox.setPrefSize(80.0, 30.0);
         gridPane.add(breakTimeComboBox, 1, 7);
 
@@ -161,11 +177,17 @@ public class TimetableController implements Initializable {
         Label lunchLabel = new Label(Main.getBundle().getString("Lunchtime") + ":");
         gridPane.add(lunchLabel, 0, 9);
 
-        ComboBox<Integer> lunchHComboBox = ComboBoxFactory.getIntComboBox(0, 23);
+        input.elements.combobox.ComboBox<Integer> lunchHComboBox = new input.elements.combobox.ComboBox<>();
+        for(int i = 11; i <= 14; i++) {
+            lunchHComboBox.getItems().add(i);
+        }
         lunchHComboBox.setPrefSize(80.0, 30.0);
         gridPane.add(lunchHComboBox, 1, 9);
 
-        ComboBox<Integer> lunchMComboBox = ComboBoxFactory.getIntComboBox(0, 59);
+        input.elements.combobox.ComboBox<Integer> lunchMComboBox = new input.elements.combobox.ComboBox<>();
+        for(int i = 0; i <= 45; i += 15) {
+            lunchMComboBox.getItems().add(i);
+        }
         lunchMComboBox.setPrefSize(80.0, 30.0);
         gridPane.add(lunchMComboBox, 2, 9);
 
@@ -178,12 +200,31 @@ public class TimetableController implements Initializable {
         Label lunchDuration = new Label(Main.getBundle().getString("Duration"));
         gridPane.add(lunchDuration, 0, 10);
 
-        ComboBox<Integer> lunchDurationComboBox = ComboBoxFactory.getIntComboBox(1, 180);
+        ComboBox<Integer> lunchDurationComboBox = new ComboBox<>();
+        for(int i = 15; i <= 90; i += 15) {
+            lunchDurationComboBox.getItems().add(i);
+        }
         lunchDurationComboBox.setPrefSize(80.0, 30.0);
         gridPane.add(lunchDurationComboBox, 1, 10);
 
         Label lunchDurationHM = new Label(Main.getBundle().getString("Minute"));
         gridPane.add(lunchDurationHM, 3, 10);
+
+        /*
+        #############################################################################
+        #                            DEFAULT VALUES                                 #
+        #############################################################################
+         */
+        daysComboBox.setValue(6); // Mo - Sa
+        lessonsComboBox.setValue(6);
+        beginHourComboBox.setValue(8);
+        beginMinuteComboBox.setValue(0);
+        lessonDurationComboBox.setValue(90);
+        breakTimeComboBox.setValue(15);
+        lunchHComboBox.setValue(13);
+        lunchMComboBox.setValue(0);
+        lunchDurationComboBox.setValue(60);
+
 
         /*
         ----------------------- BUTTONS --------------------------------------------
@@ -206,7 +247,7 @@ public class TimetableController implements Initializable {
             if(!semesterTextfield.getText().isEmpty())
                 semester = Integer.parseInt((String) semesterTextfield.getText());
             else {
-                semesterTextfield.showError("Lol du Dödel");
+                semesterTextfield.showError(Main.getBundle().getString("NeedInput"));
                 allValid = false;
             }
 
@@ -214,7 +255,7 @@ public class TimetableController implements Initializable {
             if(!daysComboBox.getSelectionModel().isEmpty())
                 days = daysComboBox.getValue();
             else {
-                daysComboBox.showError("hello world");
+                daysComboBox.showError(Main.getBundle().getString("NeedInput"));
                 allValid = false;
             }
 
@@ -222,7 +263,7 @@ public class TimetableController implements Initializable {
             if(!lessonsComboBox.getSelectionModel().isEmpty())
                 lessons = lessonsComboBox.getValue();
             else {
-                lessonsComboBox.setStyle("-fx-border-color: red");
+                lessonsComboBox.showError(Main.getBundle().getString("NeedInput"));
                 allValid = false;
             }
 
@@ -230,21 +271,21 @@ public class TimetableController implements Initializable {
             if(!beginHourComboBox.getSelectionModel().isEmpty())
                 beginH = beginHourComboBox.getValue();
             else {
-                beginHourComboBox.setStyle("-fx-border-color: red");
+                beginHourComboBox.showError(Main.getBundle().getString("NeedInput"));
                 allValid = false;
             }
 
             if(!beginMinuteComboBox.getSelectionModel().isEmpty())
                 beginM = beginMinuteComboBox.getValue();
             else {
-                beginMinuteComboBox.setStyle("-fx-border-color: red");
+                beginMinuteComboBox.showError(Main.getBundle().getString("NeedInput"));
                 allValid = false;
             }
 
             if(!lessonDurationComboBox.getSelectionModel().isEmpty())
                 duration = lessonDurationComboBox.getValue();
             else {
-                lessonDurationComboBox.setStyle("-fx-border-color: red");
+                lessonDurationComboBox.showError(Main.getBundle().getString("NeedInput"));
                 allValid = false;
             }
 
@@ -252,28 +293,28 @@ public class TimetableController implements Initializable {
             if(!breakTimeComboBox.getSelectionModel().isEmpty())
                 breakTime = breakTimeComboBox.getValue();
             else {
-                breakTimeComboBox.setStyle("-fx-border-color: red");
+                breakTimeComboBox.showError(Main.getBundle().getString("NeedInput"));
                 allValid = false;
             }
 
             if(!lunchHComboBox.getSelectionModel().isEmpty())
                 lunchTimeH = lunchHComboBox.getValue();
             else {
-                lunchHComboBox.setStyle("-fx-border-color: red");
+                lunchHComboBox.showError(Main.getBundle().getString("NeedInput"));
                 allValid = false;
             }
 
             if(!lunchMComboBox.getSelectionModel().isEmpty())
                 lunchTimeM = lunchMComboBox.getValue();
             else {
-                lunchMComboBox.setStyle("-fx-border-color: red");
+                lunchMComboBox.showError(Main.getBundle().getString("NeedInput"));
                 allValid = false;
             }
 
             if(!lunchDurationComboBox.getSelectionModel().isEmpty())
                 lunchTime = lunchDurationComboBox.getValue();
             else {
-                lunchDurationComboBox.setStyle("-fx-border-color: red");
+                lunchDurationComboBox.showError(Main.getBundle().getString("NeedInput"));
                 allValid = false;
             }
 

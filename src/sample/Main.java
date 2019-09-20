@@ -3,6 +3,8 @@ package sample;
 
 import config.Config;
 import guiCalendar.calendar.ControllerCalendar;
+import guiExam.ControllerExam;
+import guiTodolist.ControllerTodolist;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import timetable.Timetable;
+import serializer.TimetableObjectCollection;
+
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -36,7 +40,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Timetable timetable;
+        TimetableObjectCollection timetableObjectCollection;
         setPrimaryStage(primaryStage);
 
         /* ################## LOAD CONFIG DATA ########################################################## */
@@ -61,21 +65,27 @@ public class Main extends Application {
             case FR:
                 bundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle", new Locale("fr", "FR"));
                 break;
+            case EN:
+                bundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle", new Locale("en", "US"));
+                break;
             default:
-                bundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle");
+                bundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle", new Locale("en", "US"));
         }
 
         /* #################### OPEN APPLICATION ######################################################## */
         try {
             /* ------------------------- LOAD TIMETABLE ------------------------------------ */
-            timetable = Timetable.load(config.getTimetablePath());
-            ControllerCalendar.setTimetable(timetable);
+            timetableObjectCollection = Timetable.load(config.getTimetablePath());
+            // set all required objects
+            ControllerCalendar.setTimetable(timetableObjectCollection.getTimetable());
+            ControllerExam.setExamList(timetableObjectCollection.getExamList());
+            ControllerTodolist.setTaskListCollection(timetableObjectCollection.getTaskListCollection());
 
             Parent root = FXMLLoader.load(getClass().getResource(Main.fxml));
             primaryStage.setTitle(Main.TITLE);
             primaryStage.setScene(new Scene(root, Main.WIDTH , Main.HEIGHT));
             primaryStage.show();
-        } catch (FileNotFoundException exc) {
+        } catch (IOException exc) {
             /* ------------------------- OPEN WELCOME SCREEN ON FAILURE -------------------- */
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/guiCalendar/welcome_screen/layoutWelcomeScreen.fxml"));
             Parent root = loader.load();
@@ -88,8 +98,6 @@ public class Main extends Application {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(Main.getPrimaryStage());
             stage.show();
-        } catch (IOException exc) {
-            exc.printStackTrace();
         }
     }
 

@@ -1,17 +1,19 @@
-package timetable.test;
+package serializer.test;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import serializer.SerializerIO;
+import serializer.TimetableObjectCollection;
 import timetable.*;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TimetableDeserializerTest {
+    TimetableObjectCollection timetableObjectCollection = null;
     Timetable timetable = null;
     Lecture l1, l2, l3, l4;
 
@@ -63,7 +65,8 @@ class TimetableDeserializerTest {
 
         // check if everything got parsed the right way
         try {
-            timetable = Timetable.loadJson("files/test.json");
+            timetableObjectCollection = SerializerIO.loadJson("files/test.json");
+            timetable = timetableObjectCollection.getTimetable();
         } catch (IOException exc) {
             fail();
         }
