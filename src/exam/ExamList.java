@@ -96,4 +96,14 @@ public class ExamList {
         MyLogger.LOGGER.exiting(getClass().toString(), "getExamWithSpecalProperties", new Object[]{obserList});
         return obserList;
     }
+
+    public ArrayList<Exam> getExams() {
+        return exams;
+    }
+
+    public void setExams(ArrayList<Exam> exams) {
+        this.exams = exams;
+    }
 }
+
+

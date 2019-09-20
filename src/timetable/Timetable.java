@@ -9,7 +9,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import custom_exceptions.UserException;
+import guiExam.ControllerExam;
+import guiTodolist.ControllerTodolist;
+import guiTodolist.InfoTask.ControllerInfoTask;
+import guiTodolist.Task.ControllerTask;
 import logging.MyLogger;
+import serializer.SerializerIO;
+import serializer.TimetableDeserializer;
+import serializer.TimetableObjectCollection;
+import serializer.TimetableSerializer;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -308,82 +316,24 @@ public class Timetable implements Serializable {
      * couldn't be opened.
      */
     public void store(String path) throws IOException {
-        storeJson(path);
+        SerializerIO.storeJson(path, this, ControllerTodolist.getTaskListCollection(), ControllerExam.getExamList());
     }
     
-    /**
-     * Calls a custom serializer {@link TimetableSerializer#serialize(Timetable, JsonGenerator, SerializerProvider)}
-     * method to store a {@code Timetable} objects data in a Json file at the specified location.
-     * @param path Destination
-     * @throws IOException Either because a problem occurred while parsing the specified object or because the file
-     * couldn't be opened.
-     */
-    public void storeJson(String path) throws IOException {
-        MyLogger.LOGGER.entering(getClass().toString(), "storeJson", path);
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        TimetableSerializer timetableSerializer = new TimetableSerializer(Timetable.class);
-
-        SimpleModule module = new SimpleModule("TimetableSerializer",
-                new Version(0, 1, 0, null, null, null));
-        module.addSerializer(Timetable.class, timetableSerializer);
-
-        objectMapper.registerModule(module);
-
-        try (FileOutputStream fout = new FileOutputStream(path)) {
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(fout, this);
-        } catch (JsonProcessingException exc) {
-            MyLogger.LOGGER.log(Level.SEVERE, exc.getMessage() + "\nSpecified Path: " + path);
-            throw exc;
-        } catch (IOException e) {
-            MyLogger.LOGGER.log(Level.WARNING, e.getMessage() + "\nSpecified Path: " + path);
-            throw e;
-        }
-
-        MyLogger.LOGGER.exiting(getClass().toString(), "storeJson");
-    }
 
     /**
      * Loads data that has previously been stored by the {@code store()} method.
      * @param path File to retrieve the data from
-     * @return Timetable object on success, null otherwise
+     * @return TimetableObjectCollection object on success, null otherwise
      * @throws IOException if the specified file couldn't be found or because of an parsing error
      */
-    public static Timetable load(String path) throws IOException {
+    public static TimetableObjectCollection load(String path) throws IOException {
         try {
-            return loadJson(path);
+            return SerializerIO.loadJson(path);
         } catch (IOException exc) {
             throw exc;
         }
     }
 
-    /**
-     * Calls a custom deserializer {@link TimetableDeserializer#deserialize(JsonParser, DeserializationContext)}
-     * method to retrieve data from a json file.
-     * @param path Path to the Json file
-     * @return Timetable object on success, null otherwise
-     * @throws IOException if the specified file couldn't be found or because of an parsing error
-     */
-    public static Timetable loadJson(String path) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        Timetable timetable = null;
 
-        SimpleModule module = new SimpleModule("TimetableDeserializer",
-                new Version(0, 1, 0, null, null, null));
-        module.addDeserializer(Timetable.class, new TimetableDeserializer(Timetable.class));
-
-        objectMapper.registerModule(module);
-
-        try(FileInputStream fin = new FileInputStream(path)) {
-            timetable = objectMapper.readValue(fin, Timetable.class);
-        } catch (JsonProcessingException exc) {
-            MyLogger.LOGGER.log(Level.SEVERE, exc.getMessage() + "\nSpecified Path: " + path);
-            throw exc;
-        } catch (IOException exc) {
-            MyLogger.LOGGER.log(Level.WARNING, exc.getMessage() + "\nSpecified Path: " + path);
-            throw exc;
-        }
-
-        return timetable;
-    }
 }

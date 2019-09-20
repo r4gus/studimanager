@@ -87,7 +87,7 @@ public class NewFacilityController implements Initializable {
         Label buildingTitle = new Label(Main.getBundle().getString("Building") + ":");
         gridPane.add(buildingTitle, 0, 1);
 
-        AlphaNumTextField buildingTextfield = new AlphaNumTextField(10);
+        AlphaNumTextField buildingTextfield = new AlphaNumTextField(20);
         gridPane.add(buildingTextfield, 1, 1);
 
         /*
@@ -96,7 +96,7 @@ public class NewFacilityController implements Initializable {
         Label roomTitle = new Label(Main.getBundle().getString("Room") + ":");
         gridPane.add(roomTitle, 0, 2);
 
-        AlphaNumTextField roomTextfield = new AlphaNumTextField(10);
+        AlphaNumTextField roomTextfield = new AlphaNumTextField(20);
         gridPane.add(roomTextfield, 1, 2);
 
         /*

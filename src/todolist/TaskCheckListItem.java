@@ -31,6 +31,14 @@ public class TaskCheckListItem implements Serializable {
         checkListTaskIDCounter++;
     }
 
+    public TaskCheckListItem(String checklistTaskName,
+                             int checkListTaskID,
+                             boolean checklistTaskCompleted) {
+        this.checklistTaskName = checklistTaskName;
+        this.checklistTaskCompleted = checklistTaskCompleted;
+        this.checkListTaskID = checkListTaskID;
+    }
+
     /**
      * getter and setter of the different parameters
      */

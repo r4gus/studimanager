@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import logging.MyLogger;
 import sample.Main;
 import timetable.Timetable;
+import serializer.TimetableObjectCollection;
 
 import java.io.File;
 import java.io.IOException;
@@ -115,7 +116,7 @@ public class ControllerWelcomeScreen implements Initializable {
                 choose File
                  */
                 File selectedFile = fileChooser.showOpenDialog(welcome_grid.getScene().getWindow());
-                Timetable timetable;
+                TimetableObjectCollection timetableObjectCollection;
                 Stage primaryStage = Main.getPrimaryStage();
 
                 if( selectedFile != null) {     // open the primary stage using the chosen File
@@ -123,8 +124,8 @@ public class ControllerWelcomeScreen implements Initializable {
                         /*
                         -------------- Set Timetable object ----------------------------------
                          */
-                        timetable = Timetable.load(selectedFile.getPath());
-                        ControllerCalendar.setTimetable(timetable);
+                        timetableObjectCollection = Timetable.load(selectedFile.getPath());
+                        ControllerCalendar.setTimetable(timetableObjectCollection.getTimetable());
 
                         /*
                         ----------------- UPDATE timetablePath IN CONFIG_FILE ----------------

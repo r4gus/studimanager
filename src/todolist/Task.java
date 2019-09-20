@@ -50,7 +50,18 @@ public class Task implements Serializable {
      * constructor
      */
 
-    public Task(String projectTitle, String projectDescription, String priority , String notes, ArrayList<TaskCheckListItem> itemsChecklist , ArrayList<File> files , int projectStatus, LocalDate projectStart, LocalTime projectDuration, LocalDate deadline, boolean remindMe, LocalDateTime remindTime) {
+    public Task(String projectTitle,
+                String projectDescription,
+                String priority ,
+                String notes,
+                ArrayList<TaskCheckListItem> itemsChecklist ,
+                ArrayList<File> files ,
+                int projectStatus,
+                LocalDate projectStart,
+                LocalTime projectDuration,
+                LocalDate deadline,
+                boolean remindMe,
+                LocalDateTime remindTime) {
 
         MyLogger.LOGGER.entering(getClass().toString(), "Task", new Object[]{projectTitle, projectDescription, notes, itemsChecklist , projectStatus, projectStart, projectDuration, deadline, remindMe, remindTime});
         this.projectTitle = projectTitle;
