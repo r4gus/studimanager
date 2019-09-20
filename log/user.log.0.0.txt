@@ -1089,3 +1089,56 @@ Specified Path: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.js
 Sep. 20, 2019 4:40:59 NACHM. serializer.SerializerIO loadJson
 WARNING: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json (Das System kann die angegebene Datei nicht finden)
 Specified Path: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json
+Sep. 20, 2019 4:52:53 NACHM. serializer.SerializerIO loadJson
+WARNING: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json (Das System kann die angegebene Datei nicht finden)
+Specified Path: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json
+Sep. 20, 2019 4:53:54 NACHM. serializer.SerializerIO loadJson
+WARNING: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json (Das System kann die angegebene Datei nicht finden)
+Specified Path: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json
+Sep. 20, 2019 4:57:41 NACHM. serializer.SerializerIO loadJson
+WARNING: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json (Das System kann die angegebene Datei nicht finden)
+Specified Path: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json
+Sep. 20, 2019 4:58:09 NACHM. serializer.SerializerIO loadJson
+WARNING: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json (Das System kann die angegebene Datei nicht finden)
+Specified Path: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json
+Sep. 20, 2019 4:59:30 NACHM. serializer.SerializerIO loadJson
+WARNING: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json (Das System kann die angegebene Datei nicht finden)
+Specified Path: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json
+Sep. 20, 2019 5:01:18 NACHM. serializer.SerializerIO loadJson
+WARNING: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json (Das System kann die angegebene Datei nicht finden)
+Specified Path: C:\Users\Lukas Mendel\IdeaProjects\studimanager\log\timetable.json
+Sep. 20, 2019 5:02:10 NACHM. config.Config loadJson
+WARNING: config\config.json (Das System kann die angegebene Datei nicht finden)
+Specified Path: config/config.json
+Sep. 20, 2019 5:02:10 NACHM. serializer.SerializerIO loadJson
+WARNING: files\timetable.json (Das System kann die angegebene Datei nicht finden)
+Specified Path: files/timetable.json
+Sep. 20, 2019 5:13:33 NACHM. serializer.SerializerIO loadJson
+WARNING: files\timetable.json (Das System kann die angegebene Datei nicht finden)
+Specified Path: files/timetable.json
+Sep. 20, 2019 5:40:37 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte Wählen Sie eine Klausur aus
+Sep. 20, 2019 5:56:21 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Sep. 20, 2019 5:56:26 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Sep. 20, 2019 5:56:40 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Sep. 20, 2019 5:56:43 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Sep. 20, 2019 5:57:51 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Sep. 20, 2019 5:57:52 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Sep. 20, 2019 6:04:43 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Sep. 20, 2019 6:04:48 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Sep. 20, 2019 6:06:50 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Sep. 20, 2019 6:06:52 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Sep. 20, 2019 6:08:09 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Sep. 20, 2019 6:09:04 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.

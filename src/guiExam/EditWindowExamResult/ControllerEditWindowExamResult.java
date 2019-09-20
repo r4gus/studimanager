@@ -7,8 +7,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.Main;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,6 +24,20 @@ import java.util.ResourceBundle;
  */
 
 public class ControllerEditWindowExamResult implements Initializable {
+
+    @FXML
+    public Label labelLectureNrResult;
+    @FXML
+    public Label labeltechnicalNameResult;
+    @FXML
+    public Label labelMarkResult;
+    @FXML
+    public Label labelModulMarkResult;
+    @FXML
+    public Label labelTrialNrResult;
+
+    @FXML
+    public Label heading4;
 
     @FXML
     public TextField textFieldLectureNrResult;
@@ -61,6 +78,15 @@ public class ControllerEditWindowExamResult implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        heading4.setText(Main.getBundle().getString("heading4"));
+        labelLectureNrResult.setText(Main.getBundle().getString("colSubjectNumber"));
+        labeltechnicalNameResult.setText(Main.getBundle().getString("coltechnicalName"));
+        labelMarkResult.setText(Main.getBundle().getString("colMarkInsisted"));
+        labelModulMarkResult.setText(Main.getBundle().getString("colModulMarkInsisted"));
+        labelTrialNrResult.setText(Main.getBundle().getString("colTrialsInsisted"));
+
+        buttonSaveExamChangesResults.setText(Main.getBundle().getString("buttonSave"));
 
         comboBoxTrialNrResult.getItems().addAll("1", "2", "3", "4", "5");
         textFieldLectureNrResult.setText(exam.getSubjectNumber());
