@@ -275,6 +275,7 @@ public class ControllerExam implements Initializable {
         ObservableList<Exam> selectedItems = tableviewExams.getSelectionModel().getSelectedItems();
         for (Exam e : selectedItems) {
             e.setInsisted(true);
+            e.setCurrentExam(false);
         }
         if (selectedItems.isEmpty()) {
             try {
