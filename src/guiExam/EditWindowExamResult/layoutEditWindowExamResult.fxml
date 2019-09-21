@@ -14,7 +14,7 @@
    <children>
       <HBox alignment="CENTER" layoutX="179.0" layoutY="85.0" prefHeight="24.0" prefWidth="220.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
          <children>
-            <Label text="Bestandene Klausur bearbeiten:" textFill="#a40f0f">
+            <Label fx:id="heading4" textFill="#a40f0f">
                <font>
                   <Font name="Eras Demi ITC" size="14.0" />
                </font>
@@ -25,15 +25,15 @@
          <children>
             <VBox prefHeight="234.0" prefWidth="114.0" spacing="20.0">
                <children>
-                  <Label text="Fachnummer:">
+                  <Label fx:id="labelLectureNrResult">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Fachbezeichnung:" />
-                  <Label text="Note" />
-                  <Label text="Modulnote" />
-                  <Label text="Anzahl Versuche:" />
+                  <Label fx:id="labeltechnicalNameResult"/>
+                  <Label fx:id="labelMarkResult" />
+                  <Label fx:id="labelModulMarkResult" />
+                  <Label fx:id="labelTrialNrResult" />
                </children>
                <HBox.margin>
                   <Insets />

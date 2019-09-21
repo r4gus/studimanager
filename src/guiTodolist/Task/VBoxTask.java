@@ -20,6 +20,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
+import sample.Main;
 import todolist.Task;
 import todolist.TaskCheckListItem;
 
@@ -127,11 +128,11 @@ public class VBoxTask extends VBox {
         } else {
             filepath = filepathLow;
         }
-        HBox hBoxPriority = generateHBoxPrio("Priorität: ", filepath);
+        HBox hBoxPriority = generateHBoxPrio(  Main.getBundle().getString("Priority") + ":  ", filepath);
         HBox hBoxDate = null;
         HBox hBoxProgressbar = null;
         if (task.getDeadline() != null) {
-            hBoxDate = generateHboxDate("Fälligkeitsdatum: ");
+            hBoxDate = generateHboxDate( Main.getBundle().getString("dueDate") + ": ");
         }
         if (task.getItemsChecklist().size() > 0) {
             hBoxProgressbar = generateProgressBar();

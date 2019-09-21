@@ -1,19 +1,24 @@
 package guiTodolist;
 
+import guiTodolist.Task.VBoxTask;
 import guiTodolist.Task.VBoxTasklist;
 import input.elements.textfield.AlphaNumTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import logging.MyLogger;
+import sample.Main;
+import todolist.Task;
 import todolist.TaskList;
 import todolist.TaskListCollection;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -29,6 +34,8 @@ public class ControllerTodolist implements Initializable {
     @FXML
     public AnchorPane anchorPaneToDoList;
 
+    @FXML
+    public Button buttonEditBoard;
     @FXML
     public Button buttonEditCanBan;
     @FXML
@@ -55,6 +62,8 @@ public class ControllerTodolist implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         initButtonEdit();
+        buttonEditBoard.setText(Main.getBundle().getString("EditBoardButton"));
+        textFieldHeaderToDoList.setPromptText(Main.getBundle().getString("listDesignation"));
         if (taskListCollection.getTaskLists().size() > 0) {
             initStoredDataForGui();
         }
@@ -69,7 +78,15 @@ public class ControllerTodolist implements Initializable {
 
         for (TaskList taskList : this.taskListCollection.getTaskLists()) {
 
-            new VBoxTasklist(this.taskListCollection, taskList, this.hboxToDoLists);
+           VBoxTasklist vBoxTasklist =  new VBoxTasklist(this.taskListCollection, taskList, this.hboxToDoLists);
+            ArrayList<VBoxTask> arrayListVBoxes = new ArrayList<>();
+            for (Task task : taskList.getTasks()) {
+                VBoxTask vBoxTask = new VBoxTask(task, vBoxTasklist);
+                vBoxTasklist.setMargin(vBoxTask, new Insets(5, 10, 5, 10));
+                vBoxTasklist.getChildren().add(vBoxTask);
+                arrayListVBoxes.add(vBoxTask);
+            }
+            vBoxTasklist.setvBoxTaskArrayList(arrayListVBoxes);
         }
     }
 

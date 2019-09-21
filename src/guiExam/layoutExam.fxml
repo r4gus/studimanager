@@ -31,7 +31,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="76.0" prefWidth="145.0" spacing="10.0">
                <children>
-                  <Button id="deleteExam" mnemonicParsing="false" onAction="#clickDeleteExam" prefHeight="25.0" prefWidth="140.0" text="Klausur(en) löschen" />
+                  <Button fx:id="buttonDeleteExam" id="deleteExam" mnemonicParsing="false" onAction="#clickDeleteExam" prefHeight="25.0" prefWidth="140.0" />
                </children>
             </VBox>
             <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="0.0">
@@ -41,13 +41,13 @@
             </Separator>
             <VBox alignment="CENTER" prefHeight="76.0" prefWidth="145.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addElementToTableviewExamsInsisted" prefHeight="27.0" prefWidth="153.0" text="Klausur(en) bestanden" />
-                  <Button mnemonicParsing="false" onAction="#editExamObject" prefHeight="25.0" prefWidth="140.0" text="Klausur bearbeiten" />
+                  <Button fx:id="buttonExamsPassed" mnemonicParsing="false" onAction="#addElementToTableviewExamsInsisted" prefHeight="27.0" prefWidth="153.0"  />
+                  <Button fx:id="buttonEditExams" mnemonicParsing="false" onAction="#editExamObject" prefHeight="25.0" prefWidth="140.0" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="76.0" prefWidth="145.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#secondTrialExam" prefHeight="25.0" prefWidth="140.0" text="Klausur zweitversuch" />
+                  <Button fx:id="buttonSecondTry" mnemonicParsing="false" onAction="#secondTrialExam" prefHeight="25.0" prefWidth="140.0"  />
                </children>
             </VBox>
          </children>

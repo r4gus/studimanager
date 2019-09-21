@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
+import sample.Main;
 import todolist.Task;
 import todolist.TaskList;
 import todolist.TaskListCollection;
@@ -277,18 +278,18 @@ public class VBoxTasklist extends VBox {
     private void generateContextMenuItems(ContextMenu contextMenuEditTask, VBox todoList) {
 
         MyLogger.LOGGER.entering(getClass().toString(), "generateContextMenuItems", new Object[]{contextMenuEditTask, todoList});
-        MenuItem menuItemNewTask = new MenuItem("Neue Aufgabe");
+        MenuItem menuItemNewTask = new MenuItem(Main.getBundle().getString("newTask"));
         generateAddTaskFunction(menuItemNewTask, todoList);
-        MenuItem menuItemEditList = new MenuItem("Liste bearbeiten");
-        Menu menuItemSort = new Menu("Sortieren nach:");
-        MenuItem subMmenuItemSortDate = new MenuItem("Nach Fälligkeitsdatum");
-        MenuItem subMmenuItemSortAlphabet = new MenuItem("Alphabetisch");
-        MenuItem subMmenuItemSortPriority = new MenuItem("Nach Priorität");
+        MenuItem menuItemEditList = new MenuItem(Main.getBundle().getString("EditList"));
+        Menu menuItemSort = new Menu(Main.getBundle().getString("SortBy"));
+        MenuItem subMmenuItemSortDate = new MenuItem(Main.getBundle().getString("byDueDate"));
+        MenuItem subMmenuItemSortAlphabet = new MenuItem(Main.getBundle().getString("Alphabetical"));
+        MenuItem subMmenuItemSortPriority = new MenuItem(Main.getBundle().getString("byPriority"));
         sortTasksAfterDateFunction(subMmenuItemSortDate, todoList);
         sortTasksAlphabeticalFunction(subMmenuItemSortAlphabet, todoList);
         sortTasksAfterPriorityFunction(subMmenuItemSortPriority, todoList);
         menuItemSort.getItems().addAll(subMmenuItemSortDate, subMmenuItemSortAlphabet, subMmenuItemSortPriority);
-        MenuItem menuItemDeleteList = new MenuItem("Liste löschen");
+        MenuItem menuItemDeleteList = new MenuItem(Main.getBundle().getString("DeleteList"));
         generateDeleteFunction(menuItemDeleteList, todoList);
         contextMenuEditTask.getItems().addAll(menuItemNewTask, menuItemEditList, menuItemSort, menuItemDeleteList);
         MyLogger.LOGGER.exiting(getClass().toString(), "generateContextMenuItems");

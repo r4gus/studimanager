@@ -5,11 +5,9 @@ import guiExam.ControllerExam;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import sample.Main;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -45,6 +43,29 @@ public class ControllerEditWindow implements Initializable {
     public ComboBox comboBoxTrialNumber;
 
     @FXML
+    public Label labelHeading3;
+
+    @FXML
+    public Label labelLectureNr;
+    @FXML
+    public Label labeltechnicalName;
+    @FXML
+    public Label labelSemester;
+    @FXML
+    public Label labelPickerFieldDate;
+    @FXML
+    public Label labelBegin;
+    @FXML
+    public Label labelDuration;
+    @FXML
+    public Label labelBuilding;
+    @FXML
+    public Label labelRoomNumber;
+    @FXML
+    public Label labelTrialNumber;
+
+
+    @FXML
     private Button buttonSaveExamChanges;
 
     private ControllerExam controllerExam;
@@ -71,6 +92,19 @@ public class ControllerEditWindow implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
+        labelHeading3.setText(Main.getBundle().getString("heading3"));
+        labelLectureNr.setText(Main.getBundle().getString("colSubjectNumber"));
+        labeltechnicalName.setText(Main.getBundle().getString("coltechnicalName"));
+        labelSemester.setText(Main.getBundle().getString("colSemester"));
+        labelPickerFieldDate.setText(Main.getBundle().getString("colDate"));
+        labelBegin.setText(Main.getBundle().getString("colBegin"));
+         labelDuration.setText(Main.getBundle().getString("colDuration"));
+        labelBuilding.setText(Main.getBundle().getString("colBuilding"));
+        labelRoomNumber.setText(Main.getBundle().getString("colRoomNumber"));
+        labelTrialNumber.setText(Main.getBundle().getString("colTrialNumber"));
+
+
         comboBoxSemester.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
         comboBoxTrialNumber.getItems().addAll("1", "2", "3", "4", "5");
         textFieldLectureNr.setText(exam.getSubjectNumber());
@@ -82,6 +116,8 @@ public class ControllerEditWindow implements Initializable {
         textFieldBuilding.setText(exam.getBuilding());
         textFieldRoomNumber.setText(exam.getRoomNumber());
         comboBoxTrialNumber.getSelectionModel().select(returnIndex(exam.getTrialNumber()));
+
+        buttonSaveExamChanges.setText(Main.getBundle().getString("buttonSave"));
     }
 
 

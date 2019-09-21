@@ -17,6 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
+import sample.Main;
 import todolist.Task;
 import todolist.TaskCheckListItem;
 
@@ -40,11 +41,18 @@ public class ControllerInfoTask implements Initializable {
     public Label labelHeading;
 
     @FXML
+    public Label labelDescriptionTitle;
+
+    @FXML
     public Label labelDescription;
 
     @FXML
+    public Label labelDateTitle;
+    @FXML
     public Label labelDate;
 
+    @FXML
+    public Label labelNotesTitle;
     @FXML
     public Label labelNotes;
 
@@ -55,16 +63,27 @@ public class ControllerInfoTask implements Initializable {
     public ImageView imageViewStatus;
 
     @FXML
+    public Label labelPriorityTitle;
+
+    @FXML
+    public Label labelChecklistTitle;
+    @FXML
     public VBox vBoxUncompletedTask;
+    @FXML
+    public Label labelOpenTasks;
+    @FXML
+    public Label labelCompletedTasks;
 
     @FXML
     public VBox vBoxCompletedTask;
 
     @FXML
+    public Label labelFileAttachmentsTitle;
+    @FXML
     public VBox vBoxFileAttachment;
 
     @FXML
-    public Button ButtonCloseInfo;
+    public Button buttonCloseInfo;
 
     @FXML
     public Button buttonEditUsertask;
@@ -102,6 +121,18 @@ public class ControllerInfoTask implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        labelDescriptionTitle.setText(Main.getBundle().getString("Description"));
+        labelDateTitle.setText(Main.getBundle().getString("dueDate"));
+        labelNotesTitle.setText(Main.getBundle().getString("Notification"));
+        labelPriorityTitle.setText(Main.getBundle().getString("Priority"));
+        labelChecklistTitle.setText(Main.getBundle().getString("Checklist"));
+        labelFileAttachmentsTitle.setText(Main.getBundle().getString("FileAttachments"));
+        labelOpenTasks.setText(Main.getBundle().getString("OpenTasks"));
+        labelCompletedTasks.setText(Main.getBundle().getString("CompletedTasks"));
+
+          buttonEditUsertask.setText(Main.getBundle().getString("EditTask"));
+          buttonCloseInfo.setText(Main.getBundle().getString("CloseInfo"));
 
         inizializeTextLabels();
         initializeChecklist();
@@ -225,7 +256,7 @@ public class ControllerInfoTask implements Initializable {
     public void ButtonCloseInfo() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "ButtonCloseInfo");
-        Stage stage = (Stage) this.ButtonCloseInfo.getScene().getWindow();
+        Stage stage = (Stage) this.buttonCloseInfo.getScene().getWindow();
         stage.close();
         MyLogger.LOGGER.exiting(getClass().toString(), "ButtonCloseInfo");
     }

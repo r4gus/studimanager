@@ -22,7 +22,7 @@
       <HBox fx:id="hboxToDoLists" layoutX="116.0" layoutY="265.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="140.0" />
       <HBox alignment="CENTER_LEFT" layoutX="50.0" layoutY="88.0" prefHeight="35.0" prefWidth="713.0" spacing="10.0" style="-fx-background-color: #FFFFFF;" styleClass="hBox" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="95.0">
          <children>
-            <Button mnemonicParsing="false" text="Edit Board">
+            <Button fx:id="buttonEditBoard" mnemonicParsing="false">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -33,7 +33,7 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <AlphaNumTextField fx:id="textFieldHeaderToDoList" prefHeight="30.0" prefWidth="200.0" promptText="Listenbezeichnung" >
+            <AlphaNumTextField fx:id="textFieldHeaderToDoList" prefHeight="30.0" prefWidth="200.0"  >
                <length>
                   <Integer fx:value= "25" />
                </length>

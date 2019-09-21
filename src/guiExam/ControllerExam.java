@@ -45,6 +45,15 @@ public class ControllerExam implements Initializable {
     @FXML
     public Button buttonDeleteList;
     @FXML
+    public Button buttonDeleteExam;
+    @FXML
+    public Button buttonExamsPassed;
+    @FXML
+    public Button buttonEditExams;
+    @FXML
+    public Button buttonSecondTry;
+
+    @FXML
     public IntTextField textfieldLectureNumber;
     @FXML
     public TableView<Exam> tableviewExams;
@@ -266,6 +275,7 @@ public class ControllerExam implements Initializable {
         ObservableList<Exam> selectedItems = tableviewExams.getSelectionModel().getSelectedItems();
         for (Exam e : selectedItems) {
             e.setInsisted(true);
+            e.setCurrentExam(false);
         }
         if (selectedItems.isEmpty()) {
             try {
@@ -379,6 +389,10 @@ public class ControllerExam implements Initializable {
         buttonAddExam.setText(Main.getBundle().getString("buttonAddExam"));
         textfieldLectureNumber.setPromptText(Main.getBundle().getString("colSubjectNumber"));
         buttonDeleteList.setText(Main.getBundle().getString("buttonDeleteList"));
+        buttonDeleteExam.setText(Main.getBundle().getString("buttonDeleteExam"));
+        buttonExamsPassed.setText(Main.getBundle().getString("buttonExamsPassed"));
+        buttonEditExams.setText(Main.getBundle().getString("buttonEditExams"));
+        buttonSecondTry.setText(Main.getBundle().getString("buttonSecondTry"));
 
         tableviewExams.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableviewExams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
