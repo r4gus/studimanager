@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import logging.MyLogger;
+import sample.Main;
 import todolist.TaskList;
 import todolist.TaskListCollection;
 
@@ -29,6 +30,8 @@ public class ControllerTodolist implements Initializable {
     @FXML
     public AnchorPane anchorPaneToDoList;
 
+    @FXML
+    public Button buttonEditBoard;
     @FXML
     public Button buttonEditCanBan;
     @FXML
@@ -55,6 +58,8 @@ public class ControllerTodolist implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         initButtonEdit();
+        buttonEditBoard.setText(Main.getBundle().getString("EditBoardButton"));
+        textFieldHeaderToDoList.setPromptText(Main.getBundle().getString("listDesignation"));
         if (taskListCollection.getTaskLists().size() > 0) {
             initStoredDataForGui();
         }
