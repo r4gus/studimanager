@@ -17,14 +17,12 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
 import sample.Main;
-import todolist.Task;
-import todolist.TaskList;
-import todolist.TaskListCollection;
+import todolist.*;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * The <code>ControllerTask</code> object represents the controller of the Gui CreateTask.
@@ -156,6 +154,33 @@ public class VBoxTasklist extends VBox {
             vBoxTasklistOLD.getTaskList().deleteTask(vBoxTaskOLD.getTask());        /*  Delete old Task from old TaskList */
             vBoxTasklistOLD.deleteVBoxTask(vBoxTaskOLD);                            /* Delete VBox from VBoxTaskArrayList in old VBoxTaskList */
 
+            /* Check if TaskId is use by other Task Object in TaskList */
+            ArrayList arrayListIDs = new ArrayList<>();
+            boolean iDalreadyExists = false;
+            int possibleNewID = 0;
+            for (Task task1: this.taskList.getTasks()) {
+                arrayListIDs.add(task1.getTaskId());
+                if(task1.getTaskId() == task.getTaskId())
+                {
+                    iDalreadyExists = true;
+                }
+            }
+                Collections.sort(arrayListIDs);
+            if(iDalreadyExists) {
+                for (int i = 0; i <= arrayListIDs.size(); i++) {
+
+                    if (i == arrayListIDs.size()) {
+                        possibleNewID++;
+                        task.setTaskId(possibleNewID);
+                    }
+                    if ((int) arrayListIDs.get(i) > possibleNewID) {
+                        task.setTaskId(possibleNewID);
+                        break;
+                    } else {
+                        possibleNewID++;
+                    }
+                }
+            }
             VBoxTask vBoxTask = new VBoxTask(task, vBoxToDoList);
             this.vBoxTaskArrayList.add(vBoxTask);                   /* add VBoxArrayList new Vboxtask */
             this.taskList.addTask(task);                            /*  add new Task to new TaskList */
@@ -329,31 +354,29 @@ public class VBoxTasklist extends VBox {
 
             ArrayList<Task> unsortedTaskList = this.taskList.getTasks();
             ArrayList<VBoxTask> unsortedVBoxList = this.vBoxTaskArrayList;
-            ArrayList<LocalDate> unsortedTaskDates = new ArrayList<>();
+            ArrayList<SortTaskObjectDate> arrayListSortTaskObjectDate = new ArrayList<>();
 
             for (Task task : unsortedTaskList) {
-                if(task.getDeadline() != null)
-                unsortedTaskDates.add(task.getDeadline());
+                if (task.getDeadline() != null)
+                    arrayListSortTaskObjectDate.add(new SortTaskObjectDate(task.getTaskId(), task.getDeadline()));
             }
-            Collections.sort(unsortedTaskDates);
+            Collections.sort(arrayListSortTaskObjectDate);
 
             ArrayList<VBoxTask> sortedVBoxList = new ArrayList<>();
             ArrayList<Task> sortedTaskList = new ArrayList<>();
 
-            for (int p = 0; p < unsortedTaskDates.size(); p++) {
+            for (int p = 0; p < arrayListSortTaskObjectDate.size(); p++) {
                 for (int i = 0; i < unsortedTaskList.size(); i++) {
 
-                    if(unsortedTaskDates.get(p).equals(unsortedTaskList.get(i).getDeadline()))
-                    {
+                    if (arrayListSortTaskObjectDate.get(p).getLocalDate().equals(unsortedTaskList.get(i).getDeadline()) && arrayListSortTaskObjectDate.get(p).getiD() == unsortedTaskList.get(i).getTaskId()) {
                         sortedTaskList.add(unsortedTaskList.get(i));
                         sortedVBoxList.add(unsortedVBoxList.get(i));
                     }
                 }
             }
             int counter = 0;
-            for (Task task: unsortedTaskList) {
-                if(task.getDeadline() == null)
-                {
+            for (Task task : unsortedTaskList) {
+                if (task.getDeadline() == null) {
                     sortedTaskList.add(unsortedTaskList.get(counter));
                     sortedVBoxList.add(unsortedVBoxList.get(counter));
                 }
@@ -385,11 +408,6 @@ public class VBoxTasklist extends VBox {
 
             ArrayList<Task> unsortedTaskList = this.taskList.getTasks();
             ArrayList<VBoxTask> unsortedVBoxList = this.vBoxTaskArrayList;
-            ArrayList<String> unsortedTaskTitles = new ArrayList<>();
-
-            for (Task task : unsortedTaskList) {
-                unsortedTaskTitles.add(task.getProjectTitle());
-            }
 
             ArrayList<VBoxTask> sortedVBoxList = new ArrayList<>();
             ArrayList<Task> sortedTaskList = new ArrayList<>();
@@ -441,18 +459,19 @@ public class VBoxTasklist extends VBox {
 
             ArrayList<Task> unsortedTaskList = this.taskList.getTasks();
             ArrayList<VBoxTask> unsortedVBoxList = this.vBoxTaskArrayList;
-            ArrayList<String> unsortedTaskTitles = new ArrayList<>();
+            ArrayList<SortTaskObject> ArrayListSortTaskObject = new ArrayList<>();
 
             for (Task task : unsortedTaskList) {
-                unsortedTaskTitles.add(task.getProjectTitle());
+                SortTaskObject sortTaskObject = new SortTaskObject(task.getTaskId(), task.getProjectTitle());
+                ArrayListSortTaskObject.add(sortTaskObject);
             }
-            Collections.sort(unsortedTaskTitles);
+            Collections.sort(ArrayListSortTaskObject);
 
             ArrayList<VBoxTask> sortedVBoxList = new ArrayList<>();
             ArrayList<Task> sortedTaskList = new ArrayList<>();
-            for (String projectTitle : unsortedTaskTitles) {
+            for (SortTaskObject sortTaskObject : ArrayListSortTaskObject) {
 
-                int index = findTaskObject(unsortedTaskList, projectTitle);
+                int index = findTaskObject(unsortedTaskList, sortTaskObject);
                 sortedVBoxList.add(unsortedVBoxList.get(index));
                 sortedTaskList.add(unsortedTaskList.get(index));
             }
@@ -473,16 +492,16 @@ public class VBoxTasklist extends VBox {
     /**
      * This method find an Object in an ArrayList and returns index
      *
-     * @param list         which you will find in the List.
-     * @param projectTitle list of tasks.
+     * @param list           which you will find in the List.
+     * @param sortTaskObject list of tasks.
      */
 
-    private int findTaskObject(ArrayList<Task> list, String projectTitle) {
+    private int findTaskObject(ArrayList<Task> list, SortTaskObject sortTaskObject) {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "findTaskObject", new Object[]{list, projectTitle});
+        MyLogger.LOGGER.entering(getClass().toString(), "findTaskObject", new Object[]{list, sortTaskObject});
         int index = 0;
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getProjectTitle().equals(projectTitle)) {
+            if (list.get(i).getProjectTitle().equals(sortTaskObject.getHeading()) && list.get(i).getTaskId() == sortTaskObject.getiD()) {
                 index = i;
                 break;
             }
