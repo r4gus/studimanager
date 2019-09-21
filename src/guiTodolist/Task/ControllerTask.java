@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import logging.MyLogger;
+import sample.Main;
 import todolist.Task;
 import todolist.TaskCheckListItem;
 
@@ -41,12 +42,18 @@ public class ControllerTask implements Initializable {
     public AlphaNumTextField textFieldHeadingTask;
 
     @FXML
+    public Label labelDescription;
+    @FXML
     public TextArea textAreaDescription;
     @FXML
     public TextArea textAreaNotes;
 
     @FXML
+    public Label labeldueDate;
+    @FXML
     public DatePicker datePickerDueDate;
+    @FXML
+    public Label labelNotification;
 
     @FXML
     public ListView listViewChecklist;
@@ -57,11 +64,18 @@ public class ControllerTask implements Initializable {
     public ListView listViewFileAttachment;
     @FXML
     public ComboBox comboboxPriority;
+    @FXML
+    public Label labelPriority;
 
+    @FXML
+    public Label labelChecklist;
     @FXML
     public Button buttonAddChecklistEntry;
     @FXML
     public Button buttonDeleteChecklistEntry;
+
+    @FXML
+    public Label labelFileAttachments;
     @FXML
     public Button buttonAddFileAttachment;
     @FXML
@@ -108,6 +122,17 @@ public class ControllerTask implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        textFieldHeadingTask.setPromptText(Main.getBundle().getString("ProjectTitle"));
+        labelDescription.setText(Main.getBundle().getString("Description"));
+        textAreaDescription.setPromptText(Main.getBundle().getString("DescriptionPrompt"));
+        labeldueDate.setText(Main.getBundle().getString("dueDate"));
+        labelNotification.setText(Main.getBundle().getString("Notification"));
+        textAreaNotes.setPromptText(Main.getBundle().getString("NotificationPrompt"));
+        buttonCreateTask.setText(Main.getBundle().getString("SaveTask"));
+        labelPriority.setText(Main.getBundle().getString("Priority"));
+        labelChecklist.setText(Main.getBundle().getString("Checklist"));
+        textFieldChecklistNewEntry.setPromptText(Main.getBundle().getString("checklistPrompt"));
+        labelFileAttachments.setText(Main.getBundle().getString("FileAttachments"));
 
         listViewChecklist.setItems(itemsChecklist);
         listViewFileAttachment.setItems(itemsFilesList);
