@@ -4,7 +4,6 @@ import guiCalendar.Updatable;
 import guiCalendar.calendar.ControllerCalendar;
 import input.elements.textfield.AlphaNumTextField;
 import input.elements.textfield.IntTextField;
-import input.elements.textfield.TextField;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -27,8 +25,6 @@ import timetable.Timetable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static message.Alert.showAlert;
 
 public class NewFacilityController implements Initializable {
     private final Timetable timetable = ControllerCalendar.getTimetable();

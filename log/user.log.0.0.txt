@@ -1083,3 +1083,24 @@ WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
 Sep 20, 2019 4:41:23 PM serializer.SerializerIO loadJson
 WARNING: files/timetable.json (No such file or directory)
 Specified Path: files/timetable.json
+Sep 20, 2019 4:52:41 PM serializer.SerializerIO loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Sep 20, 2019 4:53:53 PM serializer.SerializerIO loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Sep 20, 2019 4:55:15 PM serializer.SerializerIO loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Sep 20, 2019 4:59:21 PM serializer.SerializerIO loadJson
+WARNING: files/timetable.json (No such file or directory)
+Specified Path: files/timetable.json
+Sep 20, 2019 5:07:22 PM serializer.SerializerIO loadJson
+SEVERE: Unexpected character ('#' (code 35)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: (FileInputStream); line: 1, column: 2]
+Specified Path: /home/sugar/IdeaProjects/studimanager/README.md
+Sep 21, 2019 9:35:08 PM guiCalendar.create.timetable.TimetableController lambda$makeForm$1
+SEVERE: Couldn't create new Timetable
+
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/sample/sample.fxml
+

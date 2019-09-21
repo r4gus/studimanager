@@ -31,8 +31,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static message.Alert.showAlert;
-
 public class NewLectureController implements Initializable, Updatable {
     private final Timetable timetable = ControllerCalendar.getTimetable();
     @FXML
