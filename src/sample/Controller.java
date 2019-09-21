@@ -7,11 +7,19 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.web.WebView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import message.Notification;
+import org.controlsfx.control.NotificationPane;
+import org.controlsfx.control.Notifications;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -43,11 +51,13 @@ public class Controller implements Initializable {
                     /*
                     visual notification: FILE SAVED
                      */
+                    Notification.showConfirm("SUCCESS", "FILE SAVED");
                 } catch (FileNotFoundException exc) {
                     /*
                     something is wrong with the specified path
                      */
                 } catch (JsonProcessingException exc) {
+
                     /*
                     worst case
                      */

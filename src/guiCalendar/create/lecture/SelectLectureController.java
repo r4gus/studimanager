@@ -2,35 +2,24 @@ package guiCalendar.create.lecture;
 
 import guiCalendar.Updatable;
 import guiCalendar.calendar.ControllerCalendar;
-import guiCalendar.create.facility.NewFacilityController;
-import guiCalendar.create.lecturer.NewLecturerController;
 import input.elements.combobox.ComboBox;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
 import sample.Main;
 import timetable.*;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static message.Alert.showAlert;
 
 public class SelectLectureController implements Initializable {
     private final Timetable timetable = ControllerCalendar.getTimetable();

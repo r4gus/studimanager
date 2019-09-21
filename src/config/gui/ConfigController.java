@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 
-import static message.Alert.showAlert;
+import static message.Notification.showAlertWindow;
 
 public class ConfigController implements Initializable {
 
@@ -111,7 +111,7 @@ public class ConfigController implements Initializable {
                 stage.close();
 
                 /* ################# show info message ############################### */
-                showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), Main.getBundle().getString("Success"),
+                showAlertWindow(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), Main.getBundle().getString("Success"),
                         Main.getBundle().getString("RestartMsg"));
             } catch (IOException exc) {
                 MyLogger.LOGGER.log(Level.SEVERE, exc.getMessage() + "\nIn: src.config.gui.ConfigController" +

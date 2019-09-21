@@ -21,6 +21,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
+import message.Notification;
 import sample.Main;
 import timetable.Timetable;
 import serializer.TimetableObjectCollection;
@@ -136,7 +137,6 @@ public class ControllerWelcomeScreen implements Initializable {
                         } catch (IOException e) {
                             MyLogger.LOGGER.log(Level.SEVERE, "Couldn't update config data." +
                                     "\nClass: " + getClass().toString() + "\nMethod: handle()" + "\n" + e.getMessage());
-                            e.printStackTrace();
                         }
 
                         /*
@@ -158,11 +158,7 @@ public class ControllerWelcomeScreen implements Initializable {
                          */
 
                     } catch (IOException exc) {
-                        /*
-                        Unable to open the file...
-
-                        choose another one or create a new timetable
-                         */
+                        Notification.showInfo("UNABLE TO OPEN FILE", "Please choose a valid file");
                     }
                 }
             }
