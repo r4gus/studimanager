@@ -1142,3 +1142,15 @@ Sep. 20, 2019 6:08:09 NACHM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
 Sep. 20, 2019 6:09:04 NACHM. custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Sep. 21, 2019 4:02:43 NACHM. guiCalendar.create.timetable.TimetableController lambda$makeForm$1
+SEVERE: Couldn't create new Timetable
+
+/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/guiTodolist/layoutTodolist.fxml
+/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/sample/sample.fxml:51
+
+Sep. 21, 2019 4:02:43 NACHM. guiCalendar.create.timetable.TimetableController lambda$makeForm$1
+SEVERE: Couldn't create new Timetable
+
+/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/guiTodolist/layoutTodolist.fxml
+/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/sample/sample.fxml:51
+
