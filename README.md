@@ -15,6 +15,7 @@ What things you need to install the software and how to install them
 1. Java version 11 or newer
 2. JavaFx 12
 3. Jackson library
+4. controlsfx
 
 ##### 1. Java version 11.04 or later recommended
 
@@ -90,6 +91,11 @@ __Windows__
 ###### 3. Add Junit 5
 
 Just let Intellij import Junit for you.
+
+###### 4. Add controlsfx-11.0.0
+Download __controlsfx-11.0.0__ from [here](https://github.com/controlsfx/controlsfx) and add it to the existing
+libraries under __File -> Project Structure -> Libraries__.
+
 
 
 ## Running the tests

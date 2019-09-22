@@ -258,10 +258,19 @@ public class ControllerLectureInfo implements Initializable, Updatable {
                 }
             }
         });
-
         deleteButton.getStyleClass().addAll("delete-button", "delete-button:hover");
 
-        hButtonBox.getChildren().addAll(editButton, deleteButton);
+        Button setAsHeadButton = new Button(Main.getBundle().getString("Display"));
+        if(unit.getHead().equals(lecture)) setAsHeadButton.setDisable(true);
+        setAsHeadButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                unit.setHead(lecture);
+                update();
+            }
+        });
+
+        hButtonBox.getChildren().addAll(editButton, deleteButton, setAsHeadButton);
         gridPane.add(hButtonBox, 0, 0, 4, 1);
 
 
