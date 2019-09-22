@@ -1154,3 +1154,24 @@ SEVERE: Couldn't create new Timetable
 /C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/guiTodolist/layoutTodolist.fxml
 /C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/sample/sample.fxml:51
 
+Sep 21, 2019 11:24:39 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 21, 2019 11:24:48 PM serializer.SerializerIO loadJson
+SEVERE: Unexpected character ('>' (code 62)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: (FileInputStream); line: 1, column: 2]
+Specified Path: /home/sugar/IdeaProjects/studimanager/exceptionReminder.txt
+Sep 21, 2019 11:28:52 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 21, 2019 11:28:58 PM serializer.SerializerIO loadJson
+SEVERE: Unexpected character ('#' (code 35)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: (FileInputStream); line: 1, column: 2]
+Specified Path: /home/sugar/IdeaProjects/studimanager/README.md
+Sep 21, 2019 11:29:52 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 21, 2019 11:29:57 PM serializer.SerializerIO loadJson
+SEVERE: Unexpected character ('<' (code 60)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: (FileInputStream); line: 1, column: 2]
+Specified Path: /home/sugar/IdeaProjects/studimanager/studimanager.iml

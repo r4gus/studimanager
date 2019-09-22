@@ -51,7 +51,8 @@ public class Controller implements Initializable {
                     /*
                     visual notification: FILE SAVED
                      */
-                    Notification.showConfirm("SUCCESS", "FILE SAVED");
+                    Notification.showConfirm(Main.getBundle().getString("Success"),
+                            Main.getBundle().getString("FileSaved"), Main.getPrimaryStage());
                 } catch (FileNotFoundException exc) {
                     /*
                     something is wrong with the specified path

@@ -158,7 +158,9 @@ public class ControllerWelcomeScreen implements Initializable {
                          */
 
                     } catch (IOException exc) {
-                        Notification.showInfo("UNABLE TO OPEN FILE", "Please choose a valid file");
+                        Notification.showInfo(Main.getBundle().getString("Failure"),
+                                Main.getBundle().getString("CantOpenFile"),
+                                welcome_grid.getScene().getWindow());
                     }
                 }
             }
