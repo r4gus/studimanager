@@ -9,21 +9,21 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="809.0" prefWidth="827.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="809.0" prefWidth="1001.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" layoutX="324.0" layoutY="38.0" prefHeight="41.0" prefWidth="625.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
          <children>
-            <Label fx:id="labelHeading" styleClass="label-h1" text="Überschrift">
+            <Label fx:id="labelHeading" styleClass="label-h1">
                <HBox.margin>
                   <Insets />
                </HBox.margin></Label>
          </children>
       </HBox>
-      <VBox layoutX="35.0" layoutY="97.0" prefWidth="356.0" spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="100.0">
+      <VBox layoutX="35.0" layoutY="97.0" prefWidth="450.0" spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox alignment="TOP_CENTER" minHeight="200.0" prefHeight="234.0" prefWidth="356.0" spacing="10.0" styleClass="vBox">
                <children>
-                  <Label styleClass="label-h2" text="Beschreibung:">
+                  <Label fx:id="labelDescriptionTitle" styleClass="label-h2" >
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -37,7 +37,7 @@
             </VBox>
             <VBox alignment="TOP_CENTER" minHeight="83.0" prefHeight="80.0" spacing="10.0" styleClass="vBox">
                <children>
-                  <Label styleClass="label-h2" text="Fälligkeitsdatum:">
+                  <Label fx:id="labelDateTitle" styleClass="label-h2" >
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -51,7 +51,7 @@
             </VBox>
             <VBox alignment="TOP_CENTER" minHeight="200.0" prefHeight="252.0" prefWidth="356.0" spacing="10.0" styleClass="vBox">
                <children>
-                  <Label styleClass="label-h2" text="Anmerkungen:">
+                  <Label fx:id="labelNotesTitle" styleClass="label-h2" >
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -65,7 +65,7 @@
             </VBox>
             <HBox alignment="CENTER" prefHeight="23.0" prefWidth="311.0" spacing="10.0">
                <children>
-                  <Button fx:id="ButtonCloseInfo" mnemonicParsing="false" onAction="#ButtonCloseInfo" text="Info Schließen" />
+                  <Button fx:id="buttonCloseInfo" mnemonicParsing="false" onAction="#ButtonCloseInfo" text="Info Schließen" />
                   <Button fx:id="buttonEditUsertask" mnemonicParsing="false" onAction="#buttonEditTask" text="Task bearbeiten" />
                </children>
                <padding>
@@ -74,11 +74,11 @@
             </HBox>
          </children>
       </VBox>
-      <VBox layoutX="421.0" layoutY="97.0" prefHeight="513.0" prefWidth="356.0" spacing="15.0" AnchorPane.bottomAnchor="110.0" AnchorPane.topAnchor="100.0">
+      <VBox layoutX="421.0" layoutY="97.0" prefHeight="599.0" prefWidth="450.0" spacing="15.0" AnchorPane.bottomAnchor="110.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="97.0" prefWidth="356.0" spacing="10.0" styleClass="vBox">
                <children>
-                  <Label styleClass="label-h2" text="Priorität:">
+                  <Label fx:id="labelPriorityTitle" styleClass="label-h2" >
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -93,31 +93,31 @@
             </VBox>
             <VBox fx:id="VboxChecklist" alignment="TOP_CENTER" minHeight="231.0" prefHeight="295.0" prefWidth="356.0" spacing="15.0" styleClass="vBox">
                <children>
-                  <Label styleClass="label-h2" text="Checklist:">
+                  <Label fx:id="labelChecklistTitle" styleClass="label-h2" >
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
                   <HBox prefHeight="234.0" prefWidth="311.0" spacing="5.0">
                      <children>
-                        <VBox fx:id="vBoxUncompletedTask" prefWidth="178.0" spacing="10.0">
+                        <VBox fx:id="vBoxUncompletedTask" prefWidth="215.0" spacing="10.0">
                            <children>
-                              <Label style="-fx-text-fill: #ff0000;" styleClass="label-h3" text="Offene Aufgaben:">
+                              <Label fx:id="labelOpenTasks" style="-fx-text-fill: #ff0000;" styleClass="label-h3" text="Offene Aufgaben:">
                                  <VBox.margin>
                                     <Insets left="10.0" />
                                  </VBox.margin>
                               </Label>
                            </children>
                            <HBox.margin>
-                              <Insets left="5.0" />
+                              <Insets left="10.0" />
                            </HBox.margin>
                            <padding>
                               <Insets left="10.0" />
                            </padding>
                         </VBox>
-                        <VBox fx:id="vBoxCompletedTask" prefWidth="200.0" spacing="10.0">
+                        <VBox fx:id="vBoxCompletedTask" prefWidth="215.0" spacing="10.0">
                            <children>
-                              <Label style="-fx-text-fill: #04B45F;" styleClass="label-h3" text="Erledigte Aufgaben:">
+                              <Label fx:id="labelCompletedTasks" style="-fx-text-fill: #04B45F;" styleClass="label-h3" text="Erledigte Aufgaben:">
                                  <VBox.margin>
                                     <Insets left="10.0" />
                                  </VBox.margin>
@@ -136,7 +136,7 @@
             </VBox>
             <VBox fx:id="vBoxFileAttachment" minHeight="100.0" prefHeight="184.0" prefWidth="356.0" styleClass="vBox">
                <children>
-                  <Label styleClass="label-h2" text="Dateianhänge:">
+                  <Label fx:id="labelFileAttachmentsTitle" styleClass="label-h2" >
                      <VBox.margin>
                         <Insets bottom="15.0" left="115.0" top="10.0" />
                      </VBox.margin>
@@ -145,6 +145,9 @@
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
             </VBox>
          </children>
       </VBox>

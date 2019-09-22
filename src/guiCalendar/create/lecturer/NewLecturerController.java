@@ -3,6 +3,8 @@ package guiCalendar.create.lecturer;
 import guiCalendar.Updatable;
 import guiCalendar.calendar.ControllerCalendar;
 import guiCalendar.create.facility.NewFacilityController;
+import input.elements.combobox.ComboBox;
+import input.elements.textfield.TextField;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,8 +22,8 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import logging.MyLogger;
+import sample.Main;
 import timetable.Facility;
 import timetable.Lecture;
 import timetable.Timetable;
@@ -46,7 +48,7 @@ public class NewLecturerController implements Initializable, Updatable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        newLecturer_grid.getStylesheets().add(getClass().getResource("../create.css").toExternalForm());
+        newLecturer_grid.getStylesheets().add(getClass().getResource("../../../main.css").toExternalForm());
 
         adjustGridPane(newLecturer_grid);
 
@@ -85,33 +87,36 @@ public class NewLecturerController implements Initializable, Updatable {
     private void makeForm(GridPane gridPane) {
         MyLogger.LOGGER.entering(getClass().toString(), "makeForm", gridPane);
 
-        Text sceneTitle = new Text("New Lecturer");
+        Text sceneTitle = new Text(Main.getBundle().getString("New") + " " + Main.getBundle().getString("Lecturer"));
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         gridPane.add(sceneTitle, 0, 0, 2, 1);
 
         /*
         -------------- FIRST NAME -------------------------------------
          */
-        Label firstNameTitle = new Label("First Name:");
+        Label firstNameTitle = new Label(Main.getBundle().getString("FirstName") + ":");
         gridPane.add(firstNameTitle, 0, 1);
-        TextField firstNameTextfield = new TextField();
+
+        input.elements.textfield.TextField firstNameTextfield = new input.elements.textfield.TextField();
         if (preservedFirstName != null) firstNameTextfield.setText(preservedFirstName);
         gridPane.add(firstNameTextfield, 1, 1);
 
         /*
         -------------- LAST NAME --------------------------------
          */
-        Label lastNameTitle = new Label("Last Name:");
+        Label lastNameTitle = new Label(Main.getBundle().getString("LastName") + ":");
         gridPane.add(lastNameTitle, 0, 2);
-        TextField lastNameTextfield = new TextField();
+
+        input.elements.textfield.TextField lastNameTextfield = new input.elements.textfield.TextField();
         if (preservedLastName != null) lastNameTextfield.setText(preservedLastName);
         gridPane.add(lastNameTextfield, 1, 2);
 
         /*
         -------------- E-MAIL --------------------------------
          */
-        Label emailTitle = new Label("E-Mail:");
+        Label emailTitle = new Label(Main.getBundle().getString("EMail") + ":");
         gridPane.add(emailTitle, 0, 3);
+
         TextField emailTextfield = new TextField();
         if (preservedEmail != null) emailTextfield.setText(preservedEmail);
         gridPane.add(emailTextfield, 1, 3);
@@ -120,7 +125,7 @@ public class NewLecturerController implements Initializable, Updatable {
         /*
         ------------- FACILITY ---------------------------------
          */
-        Label facilityTitle = new Label("Facility:");
+        Label facilityTitle = new Label(Main.getBundle().getString("Facility") + ":");
         gridPane.add(facilityTitle, 0, 4);
 
         ComboBox<Facility> facilityComboBox = new ComboBox<>();
@@ -139,7 +144,7 @@ public class NewLecturerController implements Initializable, Updatable {
         ------------- SUBMIT BUTTON --------------------------------
          */
 
-        Button createButton = new Button("create");
+        Button createButton = new Button(Main.getBundle().getString("Create"));
 
         createButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -153,8 +158,7 @@ public class NewLecturerController implements Initializable, Updatable {
                 ------------- GET VALUES ----------------------------------------------
                  */
                 if (lastNameTextfield.getText().isEmpty()) {
-                    showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error",
-                            "Please enter a last name");
+                    lastNameTextfield.showError(Main.getBundle().getString("EnterLastName"));
                     return;
                 } else {
                     lastName = lastNameTextfield.getText();
@@ -186,7 +190,7 @@ public class NewLecturerController implements Initializable, Updatable {
         /*
         ---------------------------- NEW FACILITY BUTTON ---------------------------------
          */
-        Button addFacilityButton = new Button("new");
+        Button addFacilityButton = new Button(Main.getBundle().getString("New"));
         addFacilityButton.getStyleClass().addAll("add-button", "add-button:hover");
 
         Updatable parent = this;
@@ -212,7 +216,7 @@ public class NewLecturerController implements Initializable, Updatable {
                     // show info-page scene
                     Stage stage = new Stage();
                     stage.setScene(new Scene(root));
-                    stage.setTitle("new facility");
+                    stage.setTitle(Main.getBundle().getString("New") + " " + Main.getBundle().getString("Facility"));
 
                     // prevents interaction with the primary stage until the new window is closed.
                     stage.initModality(Modality.WINDOW_MODAL);
@@ -227,15 +231,6 @@ public class NewLecturerController implements Initializable, Updatable {
         gridPane.add(addFacilityButton, 2, 4);
 
         MyLogger.LOGGER.exiting(getClass().toString(), "makeForm");
-    }
-
-    private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.initOwner(owner);
-        alert.show();
     }
 
     public void setParentController(Updatable c) {

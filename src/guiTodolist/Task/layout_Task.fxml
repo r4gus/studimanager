@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import input.elements.textfield.AlphaNumTextField?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.Integer?>
 <?import java.net.URL?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-
-<AnchorPane fx:id="anchorPaneCreateTask" prefHeight="779.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPaneCreateTask" prefHeight="779.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" layoutX="130.0" layoutY="38.0" prefHeight="40.0" prefWidth="218.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="30.0">
          <children>
-            <TextField fx:id="textFieldHeadingTask" promptText="Task Überschrift" />
+            <AlphaNumTextField fx:id="textFieldHeadingTask"  >
+               <length>
+                  <Integer fx:value= "20" />
+               </length>
+            </AlphaNumTextField>
          </children>
       </HBox>
       <VBox layoutX="50.0" layoutY="100.0" spacing="15.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="234.0" prefWidth="350.0" spacing="10.0" styleClass="vBox">
+            <VBox alignment="CENTER" prefHeight="234.0" prefWidth="400.0" spacing="10.0" styleClass="vBox">
                <children>
-                  <Label styleClass="label-h2" text="Beschreibung:" />
-                  <TextArea fx:id="textAreaDescription" prefHeight="208.0" prefWidth="340.0" promptText="Allgemeine Beschreibung der Aufgabe" styleClass="textarea" wrapText="true">
+                  <Label fx:id="labelDescription" styleClass="label-h2" />
+                  <TextArea fx:id="textAreaDescription" prefHeight="208.0" prefWidth="340.0" styleClass="textarea" wrapText="true">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin></TextArea>
@@ -35,9 +31,9 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="61.0" prefWidth="350.0" spacing="10.0" styleClass="vBox">
+            <VBox alignment="CENTER" prefHeight="61.0" prefWidth="400.0" spacing="10.0" styleClass="vBox">
                <children>
-                  <Label styleClass="label-h2" text="Fälligkeitsdatum:" />
+                  <Label fx:id="labeldueDate" styleClass="label-h2" />
                   <DatePicker fx:id="datePickerDueDate">
                      <VBox.margin>
                         <Insets bottom="10.0" />
@@ -47,13 +43,13 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="249.0" prefWidth="350.0" spacing="10.0" styleClass="vBox">
+            <VBox alignment="CENTER" prefHeight="249.0" prefWidth="400.0" spacing="10.0" styleClass="vBox">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <children>
-                  <Label styleClass="label-h2" text="Anmerkungen:" />
-                  <TextArea fx:id="textAreaNotes" prefHeight="200.0" prefWidth="200.0" promptText="Allgemeine Notizen / Anmerkungen zu der Aufgabe" styleClass="textarea" wrapText="true">
+                  <Label fx:id="labelNotification" styleClass="label-h2" />
+                  <TextArea fx:id="textAreaNotes" prefHeight="200.0" prefWidth="200.0" styleClass="textarea" wrapText="true">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin></TextArea>
@@ -61,12 +57,12 @@
             </VBox>
          </children>
       </VBox>
-      <Button fx:id="buttonCreateTask" layoutX="60.0" layoutY="326.0" mnemonicParsing="false" onAction="#createTask" text="Aufgabe Speichern" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="60.0" />
-      <VBox alignment="TOP_CENTER" layoutX="432.0" layoutY="100.0" spacing="15.0">
+      <Button fx:id="buttonCreateTask" layoutX="60.0" layoutY="326.0" mnemonicParsing="false" onAction="#createTask"  AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="60.0" />
+      <VBox alignment="TOP_CENTER" layoutX="480.0" layoutY="100.0" spacing="15.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="67.0" prefWidth="328.0" spacing="10.0" styleClass="vBox">
+            <VBox alignment="TOP_CENTER" prefHeight="67.0" prefWidth="400.0" spacing="10.0" styleClass="vBox">
                <children>
-                  <Label styleClass="label-h2" text="Priorität:">
+                  <Label fx:id="labelPriority" styleClass="label-h2" >
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -79,14 +75,18 @@
             </VBox>
             <VBox alignment="CENTER" spacing="10.0" styleClass="vBox">
                <children>
-                  <Label styleClass="label-h2" text="Checklist:" />
+                  <Label fx:id="labelChecklist" styleClass="label-h2" />
                   <ListView fx:id="listViewChecklist" prefHeight="142.0" prefWidth="318.0" />
                   <HBox alignment="CENTER" spacing="10.0">
                      <children>
-                        <Button fx:id="buttonDeleteChecklistEntry" mnemonicParsing="false" onAction="#deleteEntryToChecklist" styleClass="delete-button" />
-                        <Separator orientation="VERTICAL" prefHeight="10.0" />
                         <Button fx:id="buttonAddChecklistEntry" mnemonicParsing="false" onAction="#addEntryToChecklist" styleClass="add-button" />
-                        <TextField fx:id="textFieldChecklistNewEntry" prefHeight="27.0" prefWidth="196.0" promptText="Neuer Eintrag der Checkliste" />
+                        <AlphaNumTextField fx:id="textFieldChecklistNewEntry" prefHeight="27.0" prefWidth="196.0" >
+                           <length>
+                              <Integer fx:value= "20" />
+                           </length>
+                        </AlphaNumTextField>
+                        <Separator orientation="VERTICAL" prefHeight="10.0" />
+                        <Button fx:id="buttonDeleteChecklistEntry" mnemonicParsing="false" onAction="#deleteEntryToChecklist" styleClass="delete-button" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" />
@@ -102,14 +102,13 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <children>
-                  <Label styleClass="label-h2" text="Dateianhänge:" />
+                  <Label fx:id="labelFileAttachments" styleClass="label-h2" />
                   <ListView fx:id="listViewFileAttachment" prefHeight="200.0" prefWidth="200.0" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <Button fx:id="buttonDeleteFileAttachment" mnemonicParsing="false" onAction="#deleteFileAttachmentToTask" styleClass="delete-button" />
-                        <Separator orientation="VERTICAL" prefHeight="200.0" />
                         <Button fx:id="buttonAddFileAttachment" mnemonicParsing="false" onAction="#AddFileAttachmentToTask" styleClass="add-button" />
-                        <TextField fx:id="textFieldNewFileEntry" promptText="Dokumentenbezeichnung" />
+                        <Separator orientation="VERTICAL" maxHeight="30" />
+                        <Button fx:id="buttonDeleteFileAttachment" mnemonicParsing="false" onAction="#deleteFileAttachmentToTask" styleClass="delete-button" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="10.0" />

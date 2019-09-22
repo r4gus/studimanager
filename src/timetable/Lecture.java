@@ -3,6 +3,8 @@ package timetable;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import logging.MyLogger;
 
 /**
@@ -16,6 +18,8 @@ public class Lecture implements Serializable {
     private Facility facility;
     private Lecturer lecturer;
     private boolean elective;
+
+    @JsonIgnore
     private Notes notes;
 
     public Lecture(String title, Facility facility, Lecturer lecturer, boolean elective, Notes notes) {
@@ -97,13 +101,12 @@ public class Lecture implements Serializable {
      *
      * @param n The node to add.
      * @return True if the note has been successfully added, false otherwise.
-     * @throws IllegalArgumentException If a similar note already exists or if null has been passed as an argument.
      */
-    public boolean addNote(Note n) throws IllegalArgumentException {
+    public boolean addNote(Note n)  {
         MyLogger.LOGGER.entering(getClass().toString(), "addNote", n);
 
-        if (n == null) throw new IllegalArgumentException("null passed as an argument");
-        if (findNote(n) != -1) throw new IllegalArgumentException("The specified note already exists");
+        if (n == null) return false;
+        if (findNote(n) != -1) return false;
 
         var ret = this.notes.add(n);
 

@@ -1,5 +1,7 @@
 package timetable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 
 /**
@@ -26,6 +28,7 @@ public abstract class Container<T> {
      *
      * @return Number of elements as int.
      */
+    @JsonIgnore
     public int getSize() {
         return container.size();
     }

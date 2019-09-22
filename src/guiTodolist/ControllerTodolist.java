@@ -1,19 +1,24 @@
 package guiTodolist;
 
-import custom_exceptions.UserException;
+import guiTodolist.Task.VBoxTask;
 import guiTodolist.Task.VBoxTasklist;
+import input.elements.textfield.AlphaNumTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import logging.MyLogger;
+import sample.Main;
+import todolist.Task;
 import todolist.TaskList;
+import todolist.TaskListCollection;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -30,9 +35,11 @@ public class ControllerTodolist implements Initializable {
     public AnchorPane anchorPaneToDoList;
 
     @FXML
+    public Button buttonEditBoard;
+    @FXML
     public Button buttonEditCanBan;
     @FXML
-    public TextField textFieldHeaderToDoList;
+    public AlphaNumTextField textFieldHeaderToDoList;
 
     @FXML
     public HBox hboxToDoLists;
@@ -40,6 +47,9 @@ public class ControllerTodolist implements Initializable {
     private static final String pathControllerTask = "Task/layout_Task.fxml";
 
     private final String filepathAddIcon = "guiTodolist/Task/Icons/icons8-hinzufuegen-48.png";
+
+    // Muss später wieder auf Null gesetzt werden, Wenn Objekt geliefert wird...!!!!
+    private static TaskListCollection taskListCollection = new TaskListCollection();
 
     /**
      * Called to initialize a controller after its root element has been completely processed
@@ -52,6 +62,32 @@ public class ControllerTodolist implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         initButtonEdit();
+        buttonEditBoard.setText(Main.getBundle().getString("EditBoardButton"));
+        textFieldHeaderToDoList.setPromptText(Main.getBundle().getString("listDesignation"));
+        if (taskListCollection.getTaskLists().size() > 0) {
+            initStoredDataForGui();
+        }
+    }
+
+
+    /**
+     * init Graphical Objects from Json File
+     */
+
+    private void initStoredDataForGui() {            //Muss noch fertiggestellt werden
+
+        for (TaskList taskList : this.taskListCollection.getTaskLists()) {
+
+           VBoxTasklist vBoxTasklist =  new VBoxTasklist(this.taskListCollection, taskList, this.hboxToDoLists);
+            ArrayList<VBoxTask> arrayListVBoxes = new ArrayList<>();
+            for (Task task : taskList.getTasks()) {
+                VBoxTask vBoxTask = new VBoxTask(task, vBoxTasklist);
+                vBoxTasklist.setMargin(vBoxTask, new Insets(5, 10, 5, 10));
+                vBoxTasklist.getChildren().add(vBoxTask);
+                arrayListVBoxes.add(vBoxTask);
+            }
+            vBoxTasklist.setvBoxTaskArrayList(arrayListVBoxes);
+        }
     }
 
 
@@ -59,7 +95,7 @@ public class ControllerTodolist implements Initializable {
      * add image to Button.
      */
 
-    private void initButtonEdit(){
+    private void initButtonEdit() {
 
         MyLogger.LOGGER.entering(getClass().toString(), "initButtonEdit");
         ImageView imageView = new ImageView(new Image(this.filepathAddIcon));
@@ -77,21 +113,25 @@ public class ControllerTodolist implements Initializable {
 
     public void createNewSection() {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "createNewSection");
-        try {
-            if (textFieldHeaderToDoList.getText().trim().isEmpty()) {
-                throw new UserException("Info", "Bitte geben Sie einen Titel für die neue Tasklist ein");
-            }
-
-        } catch (UserException e) {
-            /* Exception logs automatically and creates InfoWindow For User */
+        if(textFieldHeaderToDoList.getText().trim().length() == 0)
+        {
+            textFieldHeaderToDoList.showError("Textfeld darf nicht leer sein");
             return;
         }
+        MyLogger.LOGGER.entering(getClass().toString(), "createNewSection");
         TaskList taskList = new TaskList();
         taskList.setHeading(textFieldHeaderToDoList.getText());
+        this.taskListCollection.add(taskList);
         textFieldHeaderToDoList.clear();
-        new VBoxTasklist(taskList, this.hboxToDoLists);
+        new VBoxTasklist(this.taskListCollection, taskList, this.hboxToDoLists);
         MyLogger.LOGGER.exiting(getClass().toString(), "createNewSection");
     }
 
+    public static TaskListCollection getTaskListCollection() {
+        return taskListCollection;
+    }
+
+    public static void setTaskListCollection(TaskListCollection taskListCollection) {
+        ControllerTodolist.taskListCollection = taskListCollection;
+    }
 }

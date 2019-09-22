@@ -5,10 +5,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
+<?import input.elements.textfield.AlphaNumTextField?>
+
+
+<?import java.lang.Integer?>
 <AnchorPane fx:id="anchorPaneToDoList" prefHeight="559.0" prefWidth="813.0" styleClass="background-color" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiTodolist.ControllerTodolist">
    <children>
       <HBox alignment="CENTER" layoutX="379.0" layoutY="59.0" prefHeight="47.0" prefWidth="513.0" stylesheets="@style_ToDoList.css" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="25.0">
@@ -19,7 +22,7 @@
       <HBox fx:id="hboxToDoLists" layoutX="116.0" layoutY="265.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="140.0" />
       <HBox alignment="CENTER_LEFT" layoutX="50.0" layoutY="88.0" prefHeight="35.0" prefWidth="713.0" spacing="10.0" style="-fx-background-color: #FFFFFF;" styleClass="hBox" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="95.0">
          <children>
-            <Button mnemonicParsing="false" text="Edit Board">
+            <Button fx:id="buttonEditBoard" mnemonicParsing="false">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -30,7 +33,11 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <TextField fx:id="textFieldHeaderToDoList" prefHeight="30.0" prefWidth="140.0" promptText="Listenbezeichnung" />
+            <AlphaNumTextField fx:id="textFieldHeaderToDoList" prefHeight="30.0" prefWidth="200.0"  >
+               <length>
+                  <Integer fx:value= "25" />
+               </length>
+            </AlphaNumTextField>
          </children>
       </HBox>
    </children>

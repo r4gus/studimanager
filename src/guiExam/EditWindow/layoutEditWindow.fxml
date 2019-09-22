@@ -16,7 +16,7 @@
    <children>
       <HBox alignment="CENTER" layoutX="36.0" layoutY="61.0" prefHeight="25.0" prefWidth="367.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
          <children>
-            <Label text="Klausur bearbeiten:" textFill="#a40f0f">
+            <Label fx:id="labelHeading3"  textFill="#a40f0f">
                <font>
                   <Font name="Eras Demi ITC" size="14.0" />
                </font>
@@ -25,17 +25,17 @@
       </HBox>
       <HBox alignment="CENTER" layoutX="80.0" layoutY="133.0" spacing="60.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="95.0">
          <children>
-            <VBox prefHeight="384.0" prefWidth="115.0" spacing="16.0">
+            <VBox prefHeight="384.0" prefWidth="115.0" spacing="18.0">
                <children>
-                  <Label text="Fachnummer:" />
-                  <Label text="Fachbezeichnung:" />
-                  <Label text="Semester:" />
-                  <Label text="Datum:" />
-                  <Label text="Beginn:" />
-                  <Label text="Dauer:" />
-                  <Label text="Gebäude:" />
-                  <Label text="Raum:" />
-                  <Label text="Versuch Nr:" />
+                  <Label fx:id="labelLectureNr" />
+                  <Label fx:id="labeltechnicalName" />
+                  <Label fx:id="labelSemester"  />
+                  <Label fx:id="labelPickerFieldDate"  />
+                  <Label fx:id="labelBegin"  />
+                  <Label fx:id="labelDuration"  />
+                  <Label fx:id="labelBuilding"  />
+                  <Label fx:id="labelRoomNumber"  />
+                  <Label fx:id="labelTrialNumber"  />
                </children>
                <padding>
                   <Insets top="7.0" />

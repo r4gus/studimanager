@@ -28,41 +28,25 @@ public class ExamList {
      * @param exam Element Exam which should be added to the ArrayList
      */
 
-    public void addExam(Exam exam) throws UserException {
+    public void addExam(Exam exam) {
 
         MyLogger.LOGGER.entering(getClass().toString(), "addExam", new Object[]{exam});
-        for (Exam e : exams) {
-
-            try {
-
-                if (exam.equals(e)) {
-                    throw new IllegalArgumentException("Eintrag ist bereits vorhanden");
-                }
-            } catch (IllegalArgumentException exception) {
-
-                MyLogger.LOGGER.log(Level.WARNING, exception.getMessage(), exception);
-                throw new UserException("Die Prüfung mit dieser Nummer exisitert bereits");
-            }
-
-        }
         exams.add(exam);
+
         MyLogger.LOGGER.exiting(getClass().toString(), "addExam");
     }
 
     /**
      * the method deletes an element Exam from the arrayList in Exams
      *
-     * @param index index indicates which element should be deleted from ArrayList
+     * @param exam which should be deleted from ArrayList
      */
 
-    public void deleteExam(int index) {
+    public void deleteExam(Exam exam) {
 
-        MyLogger.LOGGER.entering(getClass().toString(), "deleteExam", new Object[]{index});
-        if (exams.size() > index) {
-            exams.remove(index);
-        } else {
-            throw new IllegalArgumentException("Index out of Bounds");
-        }
+        MyLogger.LOGGER.entering(getClass().toString(), "deleteExam", new Object[]{exam});
+        this.exams.remove(exam);
+
         MyLogger.LOGGER.exiting(getClass().toString(), "deleteExam");
     }
 
@@ -112,4 +96,14 @@ public class ExamList {
         MyLogger.LOGGER.exiting(getClass().toString(), "getExamWithSpecalProperties", new Object[]{obserList});
         return obserList;
     }
+
+    public ArrayList<Exam> getExams() {
+        return exams;
+    }
+
+    public void setExams(ArrayList<Exam> exams) {
+        this.exams = exams;
+    }
 }
+
+

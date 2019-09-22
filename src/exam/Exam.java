@@ -39,7 +39,19 @@ public class Exam {
     }
 
 
-    public Exam(String subjectNumber, String technicalName, String semester, String date, String begin, String duration, String building, String roomNumber, String trialNumber, String mark, String modulMark , boolean insisted, boolean currentExam) {
+    public Exam(String subjectNumber,
+                String technicalName,
+                String semester,
+                String date,
+                String begin,
+                String duration,
+                String building,
+                String roomNumber,
+                String trialNumber,
+                String mark,
+                String modulMark ,
+                boolean insisted,
+                boolean currentExam) {
 
         MyLogger.LOGGER.entering(getClass().toString(), "Exam", new Object[]{subjectNumber, technicalName, semester, date, begin, duration, building, roomNumber, trialNumber});
         this.subjectNumber = new SimpleStringProperty(subjectNumber);
