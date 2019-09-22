@@ -45,6 +45,13 @@ Visit [maven.org](https://search.maven.org/search?q=jackson-core), search for
 **jackson-core** and download: __jackson-core__, __jackson-databind__ and
 __jackson-annotations__ ( Group ID must be: **com.fasterxml.jackson.core**).
 
+---
+
+##### 4. Add controlsfx-11.0.0
+Download __controlsfx-11.0.0__ from [here](https://github.com/controlsfx/controlsfx) and add it to the existing
+libraries under __File -> Project Structure -> Libraries__.
+
+
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
@@ -92,9 +99,6 @@ __Windows__
 
 Just let Intellij import Junit for you.
 
-###### 4. Add controlsfx-11.0.0
-Download __controlsfx-11.0.0__ from [here](https://github.com/controlsfx/controlsfx) and add it to the existing
-libraries under __File -> Project Structure -> Libraries__.
 
 
 
