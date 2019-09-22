@@ -1175,3 +1175,21 @@ Sep 21, 2019 11:29:57 PM serializer.SerializerIO loadJson
 SEVERE: Unexpected character ('<' (code 60)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
  at [Source: (FileInputStream); line: 1, column: 2]
 Specified Path: /home/sugar/IdeaProjects/studimanager/studimanager.iml
+Sep 22, 2019 7:04:10 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Sep 22, 2019 7:08:25 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Sep 22, 2019 7:08:45 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Sep 22, 2019 7:08:51 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Sep 22, 2019 7:10:10 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Sep 22, 2019 7:10:16 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Sep 22, 2019 7:10:50 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Sep 22, 2019 7:10:56 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
+Sep 22, 2019 7:11:32 PM custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.

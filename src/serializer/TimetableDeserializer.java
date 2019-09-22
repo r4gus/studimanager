@@ -150,9 +150,8 @@ public class TimetableDeserializer extends StdDeserializer<TimetableObjectCollec
                      */
                     newLecture = timetable.newLecture(title, facility, lecturer, elective, null);
 
-                    /*
+                    /* to serialize notes: uncomment this block and remove @JsonIgnore annotation in Lecture
                     ################### NOTES ##########################
-                     */
                     JsonNode lectureNotes      = lecture.get("notes").get("container");
                     for(JsonNode n: lectureNotes) {     // iterate over all existing notes
                         newLecture.addNote(new Note(n.get("title").asText(),
@@ -160,6 +159,7 @@ public class TimetableDeserializer extends StdDeserializer<TimetableObjectCollec
                                                     null,
                                                     n.get("important").asBoolean()));
                     }
+                     */
 
                     /*
                     ######################### ADD LECTURE TO TIMETABLE ###############
@@ -213,8 +213,13 @@ public class TimetableDeserializer extends StdDeserializer<TimetableObjectCollec
                 String projectTitle = task.get("projectTitle").asText();
                 int taskId = task.get("taskId").asInt();
                 int taskListId = task.get("taskListId").asInt();
+
                 String projectDescription = task.get("projectDescription").asText();
+                if(projectDescription.equals("null")) projectDescription = null;
+
                 String notes = task.get("notes").asText();
+                if(notes.equals("null")) notes = null;
+
                 String priority = task.get("priority").asText();
 
                 /* ###################### ITEMS CHECK LIST ############# */

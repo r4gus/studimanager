@@ -40,7 +40,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
 
     private Lectures lectures;
 
-    private static final String colHeadlines[] = {"Facility", "Lecturer", "Elective", "Notes"};
+    private static final String colHeadlines[] = {"Facility", "Lecturer"};
 
     private Updatable parentController = null;
 
@@ -192,11 +192,9 @@ public class ControllerLectureInfo implements Initializable, Updatable {
          */
 
         // sets the specified constraints and also automatically resize the grid
-        ColumnConstraints col30 = new ColumnConstraints();
-        ColumnConstraints col10 = new ColumnConstraints();
-        col30.setPercentWidth(30.0);
-        col10.setPercentWidth(10.0);
-        gridPane.getColumnConstraints().addAll(col30, col30, col10, col30);
+        ColumnConstraints col50 = new ColumnConstraints();
+        col50.setPercentWidth(50.0);
+        gridPane.getColumnConstraints().addAll(col50, col50);
 
         gridPane.setHgap(5);
         gridPane.setVgap(5);
@@ -330,6 +328,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             lecturer.setRoot(lecturerRootItem);
         }
 
+/*
         // elective
         Text elective = (lecture.isElective() ? new Text(Main.getBundle().getString("True")) : new Text(Main.getBundle().getString("False")));
         gridPane.setHalignment(elective, HPos.CENTER);
@@ -349,6 +348,9 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         notes.setShowRoot(false);
 
         gridPane.addRow(2, facility, lecturer, elective, notes);
+*/
+
+        gridPane.addRow(2, facility, lecturer);
 
         MyLogger.LOGGER.exiting(getClass().toString(), "makeLectureGrid", gridPane);
         return gridPane;

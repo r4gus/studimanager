@@ -3,6 +3,8 @@ package timetable;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import logging.MyLogger;
 
 /**
@@ -16,6 +18,8 @@ public class Lecture implements Serializable {
     private Facility facility;
     private Lecturer lecturer;
     private boolean elective;
+
+    @JsonIgnore
     private Notes notes;
 
     public Lecture(String title, Facility facility, Lecturer lecturer, boolean elective, Notes notes) {
