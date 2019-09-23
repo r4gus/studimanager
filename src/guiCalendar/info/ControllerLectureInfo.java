@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -84,7 +85,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             VBox vBox = new VBox();
             vBox.setSpacing(10);
 
-            vBox.getChildren().addAll(makeLectureAccordion(lectures), makeAddButton(lectures));
+            vBox.getChildren().addAll(makeLectureAccordion(lectures), makeButtonBox());
             li_scrollPane.setContent(vBox);
 
             /*
@@ -94,6 +95,26 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         }
 
         MyLogger.LOGGER.exiting(getClass().toString(), "update");
+    }
+
+    private HBox makeButtonBox() {
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.CENTER);
+        Region region = new Region();
+        region.prefWidth(1000.0);           // region is used as spacing between the two elements
+        hBox.setHgrow(region, Priority.ALWAYS);     // region must always grow and shrink when the window is resized
+        hBox.getChildren().addAll(makeAddButton(lectures), region, makeApplyButton());
+
+        return hBox;
+    }
+
+    private Button makeApplyButton() {
+        Button button = new Button(Main.getBundle().getString("Apply"));
+        button.setOnAction(e -> {
+            Stage stage = (Stage) li_anchorPane.getScene().getWindow();
+            stage.close();
+        });
+        return button;
     }
 
     private MenuButton makeAddButton(Lectures unit) {
@@ -290,7 +311,11 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             parentController.update();
         });
 
-        hButtonBox.getChildren().addAll(editButton, deleteButton, setAsHeadButton, colorPicker);
+        Region region = new Region();
+        region.prefWidth(1000.0);
+        hButtonBox.setHgrow(region, Priority.ALWAYS);
+
+        hButtonBox.getChildren().addAll(editButton, deleteButton, region, setAsHeadButton, colorPicker);
         gridPane.add(hButtonBox, 0, 0, 4, 1);
 
 

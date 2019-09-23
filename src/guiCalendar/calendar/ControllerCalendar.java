@@ -207,6 +207,9 @@ public class ControllerCalendar implements Initializable, Updatable {
                     stage.setTitle(ControllerCalendar.DAYS[day] + " - " +
                             unit.getFrom());
 
+                    stage.setMinWidth(550.0);
+                    stage.setMinHeight(550.0);
+
                     // prevents interaction with the primary stage until the new window is closed.
                     stage.initModality(Modality.WINDOW_MODAL);
                     stage.initOwner(Main.getPrimaryStage());
