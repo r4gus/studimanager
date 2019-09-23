@@ -12,7 +12,7 @@
    <children>
       <HBox alignment="CENTER" layoutX="34.0" layoutY="15.0" spacing="15.0" styleClass="hBox" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="84.0" prefWidth="145.0" spacing="10.0">
+            <VBox alignment="CENTER" prefHeight="84.0" prefWidth="155.0" spacing="10.0">
                <children>
                   <Button fx:id="buttonAddExam" id="addExam" mnemonicParsing="false" onAction="#clickAddExam" prefHeight="25.0" prefWidth="155" />
                   <IntTextField fx:id="textfieldLectureNumber" prefHeight="25.0" prefWidth="155.0">
@@ -23,13 +23,13 @@
                </children>
             </VBox>
             <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="0.0" />
-            <VBox alignment="CENTER" prefHeight="76.0" prefWidth="145.0" spacing="10.0">
+            <VBox alignment="CENTER" prefHeight="76.0" prefWidth="155.0" spacing="10.0">
                <children>
                   <Button fx:id="buttonDeleteList" id="deleteList" mnemonicParsing="false" onAction="#clickClearList" prefHeight="25.0" prefWidth="155.0" />
                   <ComboBox fx:id="stringChoiceBoxTableView" prefHeight="25.0" prefWidth="155.0" />
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="76.0" prefWidth="145.0" spacing="10.0">
+            <VBox alignment="CENTER" prefHeight="76.0" prefWidth="155.0" spacing="10.0">
                <children>
                   <Button fx:id="buttonDeleteExam" id="deleteExam" mnemonicParsing="false" onAction="#clickDeleteExam" prefHeight="25.0" prefWidth="155.0" />
                </children>
@@ -39,13 +39,13 @@
                   <Insets />
                </HBox.margin>
             </Separator>
-            <VBox alignment="CENTER" prefHeight="76.0" prefWidth="145.0" spacing="10.0">
+            <VBox alignment="CENTER" prefHeight="76.0" prefWidth="155.0" spacing="10.0">
                <children>
                   <Button fx:id="buttonExamsPassed" mnemonicParsing="false" onAction="#addElementToTableviewExamsInsisted" prefHeight="27.0" prefWidth="155.0"  />
                   <Button fx:id="buttonEditExams" mnemonicParsing="false" onAction="#editExamObject" prefHeight="25.0" prefWidth="155.0" />
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="76.0" prefWidth="145.0" spacing="10.0">
+            <VBox alignment="CENTER" prefHeight="76.0" prefWidth="155.0" spacing="10.0">
                <children>
                   <Button fx:id="buttonSecondTry" mnemonicParsing="false" onAction="#secondTrialExam" prefHeight="25.0" prefWidth="155.0"  />
                </children>
