@@ -7,7 +7,7 @@ package todolist;
  * @author Lukas Mendel
  */
 
-import custom_exceptions.UserException;
+
 import logging.MyLogger;
 import java.util.ArrayList;
 import java.util.logging.Level;
