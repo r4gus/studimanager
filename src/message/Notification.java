@@ -17,31 +17,31 @@ public class Notification {
         alert.show();
     }
 
-    public static void showConfirm(String title, String text)  {
+    public static void showConfirm(String title, String text, Window window)  {
         Notifications.create()
                 .title(title)
                 .text(text)
-                .owner(Main.getPrimaryStage())
+                .owner(window)
                 .position(Pos.BOTTOM_RIGHT)
                 .graphic(new ImageView("file:resources/icons8-ok-48.png"))
                 .show();
     }
 
-    public static void showInfo(String title, String text)  {
+    public static void showInfo(String title, String text, Window window)  {
         Notifications.create()
                 .title(title)
                 .text(text)
-                .owner(Main.getPrimaryStage())
+                .owner(window)
                 .position(Pos.BOTTOM_RIGHT)
                 .graphic(new ImageView("file:resources/icons8-info-48.png"))
                 .show();
     }
 
-    public static void showAlert(String title, String text)  {
+    public static void showAlert(String title, String text, Window window)  {
         Notifications.create()
                 .title(title)
                 .text(text)
-                .owner(Main.getPrimaryStage())
+                .owner(window)
                 .position(Pos.BOTTOM_RIGHT)
                 .graphic(new ImageView("file:resources/icons8-cancel-48.png"))
                 .show();

@@ -97,7 +97,6 @@ public class TimetableDeserializer extends StdDeserializer<TimetableObjectCollec
             for(final JsonNode unit: row) {                     // iterate over each unit of a row
 
                 final JsonNode lectures  = unit.get("container");   // get the lectures of each unit
-
                 for(final JsonNode lecture: lectures) {             // iterate over each lecture
                     /*
                     ------------------ ADD LECTURE ----------------------------------------
@@ -150,9 +149,8 @@ public class TimetableDeserializer extends StdDeserializer<TimetableObjectCollec
                      */
                     newLecture = timetable.newLecture(title, facility, lecturer, elective, null);
 
-                    /*
+                    /* to serialize notes: uncomment this block and remove @JsonIgnore annotation in Lecture
                     ################### NOTES ##########################
-                     */
                     JsonNode lectureNotes      = lecture.get("notes").get("container");
                     for(JsonNode n: lectureNotes) {     // iterate over all existing notes
                         newLecture.addNote(new Note(n.get("title").asText(),
@@ -160,11 +158,68 @@ public class TimetableDeserializer extends StdDeserializer<TimetableObjectCollec
                                                     null,
                                                     n.get("important").asBoolean()));
                     }
+                     */
 
                     /*
                     ######################### ADD LECTURE TO TIMETABLE ###############
                      */
                     timetable.addLecture(i, j, newLecture);
+
+                }
+
+                final JsonNode head = unit.get("head");
+                if(!head.isNull()) {
+/*
+                    ------------------ ADD HEAD LECTURE ----------------------------------------
+                     */
+                    String      title       = null;
+                    Facility facility    = null;
+                    Lecturer lecturer    = null;
+                    boolean     elective;
+                    Lecture newLecture = null;
+
+                    title       = head.get("title").asText();
+                    elective    = head.get("elective").asBoolean();
+
+                    /*
+                    ############## FACILITY ##############
+                     */
+                    JsonNode lectureFacility   = head.get("facility");
+                    if(!lectureFacility.isNull()) {
+                        facility = timetable.newFacility(lectureFacility.get("building").asText(),
+                                lectureFacility.get("room").asText(),
+                                lectureFacility.get("street").asText(),
+                                lectureFacility.get("zipcode").asText(),
+                                lectureFacility.get("city").asText());
+                    }
+
+                    /*
+                    ############### LECTURER #############
+                     */
+                    JsonNode lectureLecturer   = head.get("lecturer");
+                    if(!lectureLecturer.isNull()) {
+                        JsonNode lecturerFacility = lectureLecturer.get("facility");
+                        Facility f = null;
+
+                        if(!lecturerFacility.isNull()) {
+                            f = timetable.newFacility(lecturerFacility.get("building").asText(),
+                                    lecturerFacility.get("room").asText(),
+                                    lecturerFacility.get("street").asText(),
+                                    lecturerFacility.get("zipcode").asText(),
+                                    lecturerFacility.get("city").asText());
+                        }
+
+                        lecturer = timetable.newLecturer(lectureLecturer.get("firstName").asText(),
+                                lectureLecturer.get("lastName").asText(),
+                                lectureLecturer.get("email").asText(),
+                                f);
+                    }
+
+                    /*
+                    ################## LECTURE ########################
+                     */
+                    newLecture = timetable.newLecture(title, facility, lecturer, elective, null);
+                    timetable.getUnit()[i][j].setHead(newLecture);
 
                 }
 
@@ -213,8 +268,13 @@ public class TimetableDeserializer extends StdDeserializer<TimetableObjectCollec
                 String projectTitle = task.get("projectTitle").asText();
                 int taskId = task.get("taskId").asInt();
                 int taskListId = task.get("taskListId").asInt();
+
                 String projectDescription = task.get("projectDescription").asText();
+                if(projectDescription.equals("null")) projectDescription = null;
+
                 String notes = task.get("notes").asText();
+                if(notes.equals("null")) notes = null;
+
                 String priority = task.get("priority").asText();
 
                 /* ###################### ITEMS CHECK LIST ############# */

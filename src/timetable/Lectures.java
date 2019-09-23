@@ -18,7 +18,7 @@ public class Lectures extends Container<Lecture> implements Serializable {
     private LocalTime from;  // start of the lecture
     @JsonIgnore
     private LocalTime to;    // end of the lecture
-    @JsonIgnore
+
     private Lecture head; // lecture to display inside the grid pane
 
     public Lectures() {
