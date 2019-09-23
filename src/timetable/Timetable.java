@@ -285,14 +285,6 @@ public class Timetable implements Serializable {
         return f;
     }
 
-    public boolean removeFromLECTURE(Lecture l) throws UserException {
-        return false;
-    }
-
-    public Lecture removeFromLECTURE(int i) throws UserException {
-        return null;
-    }
-
     /**
      * Obtain a {@link Lecture} object from the specified unit.
      * @param unit The unit to get the lecture from.
