@@ -282,7 +282,7 @@ public class ControllerCalendar implements Initializable, Updatable {
         gridPane.setHgap(5); // horizontal space between elements
         gridPane.setAlignment(Pos.TOP_LEFT); // alignment of the GridPane
         gridPane.setMinSize(1000.0, 700.0);
-        gridPane.setMaxSize(1300.0, 910.0);
+        gridPane.setMaxSize(1800.0, 1100.0);
 
         //gridPane.setGridLinesVisible(true);
 

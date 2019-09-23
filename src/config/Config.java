@@ -21,7 +21,7 @@ public class Config {
 
     private static final String PATH = "config/config.json";
 
-    private String timetablePath = "files/timetable.json";
+    private String timetablePath = "";
 
     private Language language = Language.EN;   // used to specify the preferred language
 

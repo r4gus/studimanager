@@ -1,5 +1,7 @@
 package guiCalendar.create.timetable;
 
+import config.Config;
+import config.gui.ConfigController;
 import input.elements.combobox.ComboBox;
 import input.elements.textfield.AlphaNumTextField;
 import guiCalendar.calendar.ControllerCalendar;
@@ -339,6 +341,7 @@ public class TimetableController implements Initializable {
                     Stage stage = (Stage) gridPane.getScene().getWindow();
                     parent.close();
                     stage.close();
+                    Main.getConfig().setTimetablePath(""); // reset the timetable path
                 } catch (IOException exc) {
                     MyLogger.LOGGER.log(Level.SEVERE, "Couldn't create new Timetable" + "\n" + exc.getMessage());
                     exc.printStackTrace();

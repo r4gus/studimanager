@@ -1,7 +1,8 @@
 package guiCalendar.welcome_screen;
 
 import guiCalendar.calendar.ControllerCalendar;
-import guiCalendar.create.timetable.TimetableController;
+import input.elements.button.CustomButton;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,7 +19,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
 import message.Notification;
@@ -63,10 +63,13 @@ public class ControllerWelcomeScreen implements Initializable {
         /*
         ##################### NEW TIMETABLE ###################################
          */
-        Label newTimetableTitle = new Label(Main.getBundle().getString("ChoiceNew") + ":");
-        welcome_grid.add(newTimetableTitle, 0,1);
-        Button newTimetableButton = new Button(Main.getBundle().getString("New"));
-        welcome_grid.add(newTimetableButton, 1, 1);
+        Platform.runLater(() -> {
+            Label newTimetableTitle = new Label(Main.getBundle().getString("ChoiceNew") + ":");
+            welcome_grid.add(newTimetableTitle, 0,1);
+            Button newTimetableButton = CustomButton.makeNewTimetableButton((Stage) welcome_grid.getScene().getWindow());
+            welcome_grid.add(newTimetableButton, 1, 1);
+
+        });
 
         /*
         ###################### IMPORT #########################################
@@ -77,37 +80,6 @@ public class ControllerWelcomeScreen implements Initializable {
         welcome_grid.add(importTimetableButton, 1, 2);
 
         /*
-        ###################### BUTTON EVENTS #################################
-         */
-        newTimetableButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../create/timetable/layoutTimetable.fxml"));
-                    Parent root = loader.load();
-
-                    /* assign this stage as parent (this stage should only be closed after the successful creation of a new timetable)*/
-                    TimetableController timetableController = loader.getController();
-                    timetableController.setParent((Stage) welcome_grid.getScene().getWindow());
-
-                    Stage stage = new Stage();
-                    stage.setScene(new Scene(root));
-                    stage.setTitle(Main.getBundle().getString("New") + " " + Main.getBundle().getString("Timetable"));
-
-                    // prevent interaction with the primary stage until the new window is closed
-                    stage.initModality(Modality.WINDOW_MODAL);
-                    stage.initOwner(welcome_grid.getScene().getWindow());
-                    stage.setResizable(false);
-                    // show window
-                    stage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });
-
-        /*
         Let the user choose a Json file and open it.
          */
         importTimetableButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -116,6 +88,7 @@ public class ControllerWelcomeScreen implements Initializable {
                 /*
                 choose File
                  */
+
                 File selectedFile = fileChooser.showOpenDialog(welcome_grid.getScene().getWindow());
                 TimetableObjectCollection timetableObjectCollection;
                 Stage primaryStage = Main.getPrimaryStage();
