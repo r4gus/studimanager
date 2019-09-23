@@ -1,6 +1,6 @@
 package exam.test;
 
-import custom_exceptions.UserException;
+
 import exam.Exam;
 import exam.ExamList;
 import javafx.collections.FXCollections;

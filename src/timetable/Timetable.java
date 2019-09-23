@@ -1,25 +1,14 @@
 package timetable;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.Version;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import custom_exceptions.UserException;
+
 import guiExam.ControllerExam;
 import guiTodolist.ControllerTodolist;
-import guiTodolist.InfoTask.ControllerInfoTask;
-import guiTodolist.Task.ControllerTask;
 import logging.MyLogger;
 import serializer.SerializerIO;
-import serializer.TimetableDeserializer;
 import serializer.TimetableObjectCollection;
-import serializer.TimetableSerializer;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -258,11 +247,11 @@ public class Timetable implements Serializable {
         return f;
     }
 
-    public boolean removeFromLECTURE(Lecture l) throws UserException {
+    public boolean removeFromLECTURE(Lecture l) throws Exception {
         return false;
     }
 
-    public Lecture removeFromLECTURE(int i) throws UserException {
+    public Lecture removeFromLECTURE(int i) throws Exception {
         return null;
     }
 

@@ -1,6 +1,5 @@
 package guiExam;
 
-import custom_exceptions.UserException;
 import exam.Exam;
 import exam.ExamList;
 import guiExam.EditWindow.ControllerEditWindow;
@@ -131,8 +130,8 @@ public class ControllerExam implements Initializable {
         }
         if (selectedItems.size() == 0) {
             try {
-                throw new UserException("Info", "Bitte wählen Sie eine Klausur aus die Sie löschen möchten.");
-            } catch (UserException e) {
+
+            } catch (Exception e) {
 
                 return;
             }
@@ -247,8 +246,8 @@ public class ControllerExam implements Initializable {
 
         if (selectedItems.isEmpty()) {
             try {
-                throw new UserException("Info", "Bitte wählen Sie eine Klausur aus, bei wecher die Versuchnummer erhöht werden soll.");
-            } catch (UserException e) {
+
+            } catch (Exception e) {
 
                 return;
             }
@@ -279,8 +278,8 @@ public class ControllerExam implements Initializable {
         }
         if (selectedItems.isEmpty()) {
             try {
-                throw new UserException("Info", "Bitte Wählen Sie eine Klausur aus");
-            } catch (UserException ex) {
+
+            } catch (Exception ex) {
 
             }
         }
@@ -315,8 +314,8 @@ public class ControllerExam implements Initializable {
         }
         if (exam == null) {
             try {
-                throw new UserException("Info", "Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.");
-            } catch (UserException e) {
+
+            } catch (Exception e) {
 
                 return;
             }
