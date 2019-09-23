@@ -1193,3 +1193,6 @@ Sep 22, 2019 7:10:56 PM custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
 Sep 22, 2019 7:11:32 PM custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Sep. 23, 2019 2:59:34 NACHM. serializer.SerializerIO loadJson
+WARNING: files\timetable.json (Das System kann die angegebene Datei nicht finden)
+Specified Path: files/timetable.json
