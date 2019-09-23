@@ -313,12 +313,8 @@ public class ControllerExam implements Initializable {
             tableviewExamsInsisted.getSelectionModel().clearSelection();
         }
         if (exam == null) {
-            try {
 
-            } catch (Exception e) {
-
-                return;
-            }
+            return;
         }
         if (!exam.isInsisted()) {
             ControllerEditWindow controllerLesson = new ControllerEditWindow(this, exam);
