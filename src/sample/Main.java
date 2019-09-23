@@ -98,6 +98,7 @@ public class Main extends Application {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(Main.getPrimaryStage());
             stage.show();
+
         }
     }
 

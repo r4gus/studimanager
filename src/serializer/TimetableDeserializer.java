@@ -155,22 +155,14 @@ public class TimetableDeserializer extends StdDeserializer<TimetableObjectCollec
                             colorNode.get("blue").asDouble(),
                             colorNode.get("opacity").asDouble());
 
+                    /* ################### NOTES ########################## */
+                    String notes = lecture.get("whiteBoard").asText();
+                    if(notes.equals("null")) notes = "";
+
                     /*
                     ################## LECTURE ########################
                      */
-                    newLecture = timetable.newLecture(title, facility, lecturer, elective, null);
-                    newLecture.setColor(color);
-
-                    /* to serialize notes: uncomment this block and remove @JsonIgnore annotation in Lecture
-                    ################### NOTES ##########################
-                    JsonNode lectureNotes      = lecture.get("notes").get("container");
-                    for(JsonNode n: lectureNotes) {     // iterate over all existing notes
-                        newLecture.addNote(new Note(n.get("title").asText(),
-                                                    n.get("body").asText(),
-                                                    null,
-                                                    n.get("important").asBoolean()));
-                    }
-                     */
+                    newLecture = timetable.newLecture(title, facility, lecturer, elective, color, notes);
 
                     /*
                     ######################### ADD LECTURE TO TIMETABLE ###############
@@ -228,9 +220,23 @@ public class TimetableDeserializer extends StdDeserializer<TimetableObjectCollec
                     }
 
                     /*
+                    ################### COLOR #########################
+                     */
+                    JsonNode colorNode = head.get("color");
+                    Color color = new Color(colorNode.get("red").asDouble(),
+                            colorNode.get("green").asDouble(),
+                            colorNode.get("blue").asDouble(),
+                            colorNode.get("opacity").asDouble());
+
+                    /* ################### NOTES ########################## */
+                    String notes = head.get("whiteBoard").asText();
+                    if(notes.equals("null")) notes = "";
+
+                    /*
                     ################## LECTURE ########################
                      */
-                    newLecture = timetable.newLecture(title, facility, lecturer, elective, null);
+                    newLecture = timetable.newLecture(title, facility, lecturer, elective, color, notes);
+
                     timetable.getUnit()[i][j].setHead(newLecture);
 
                 }

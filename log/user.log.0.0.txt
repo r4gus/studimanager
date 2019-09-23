@@ -1196,3 +1196,26 @@ WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
 Sep 23, 2019 4:46:19 PM serializer.SerializerIO loadJson
 WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
 Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 4:48:46 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 5:42:38 PM timetable.Lectures addLecture
+WARNING: Invalid argument: null
+Sep 23, 2019 5:42:38 PM timetable.Lectures removeLecture
+WARNING: Invalid argument: null
+Sep 23, 2019 5:42:38 PM timetable.Lectures addLecture
+WARNING: Invalid argument: null
+Sep 23, 2019 5:42:38 PM timetable.Timetable addLecture
+WARNING: Invalid argument: null
+Sep 23, 2019 5:42:38 PM timetable.Facilities addFacility
+WARNING: null pointer passed!
+Sep 23, 2019 5:42:38 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Sep 23, 2019 5:42:38 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Sep 23, 2019 5:42:38 PM timetable.Lecturers addLecturer
+WARNING: null pointer passed!
+Sep 23, 2019 5:42:38 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Sep 23, 2019 5:42:38 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!

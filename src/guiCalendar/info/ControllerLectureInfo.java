@@ -44,7 +44,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
 
     private Lectures lectures;
 
-    private static final String colHeadlines[] = {"Facility", "Lecturer"};
+    private static final String colHeadlines[] = {"Facility", "Lecturer", "Notes"};
 
     private Updatable parentController = null;
 
@@ -205,8 +205,10 @@ public class ControllerLectureInfo implements Initializable, Updatable {
 
         // sets the specified constraints and also automatically resize the grid
         ColumnConstraints col50 = new ColumnConstraints();
+        ColumnConstraints col25 = new ColumnConstraints();
         col50.setPercentWidth(50.0);
-        gridPane.getColumnConstraints().addAll(col50, col50);
+        col25.setPercentWidth(25.0);
+        gridPane.getColumnConstraints().addAll(col25, col25, col50);
 
         gridPane.setHgap(5);
         gridPane.setVgap(5);
@@ -355,29 +357,15 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             lecturer.setRoot(lecturerRootItem);
         }
 
-/*
-        // elective
-        Text elective = (lecture.isElective() ? new Text(Main.getBundle().getString("True")) : new Text(Main.getBundle().getString("False")));
-        gridPane.setHalignment(elective, HPos.CENTER);
-
         // notes
-        TreeView<String> notes = new TreeView<>();
-        TreeItem<String> notesRootItem = new TreeItem<>(Main.getBundle().getString("Notes"));
-        for (int j = 0; j < lecture.getNotes().size(); j++) {
-            Note note = lecture.getNotes().getElement(j);
+        TextArea notes = new TextArea();
+        notes.setText(lecture.getWhiteBoard());
+        notes.textProperty().addListener(e -> {
+            lecture.setWhiteBoard(notes.getText());
+        });
 
-            TreeItem<String> t_title = new TreeItem<>(note.getTitle());
-            TreeItem<String> t_body = new TreeItem<>(note.getBody());
-            t_title.getChildren().add(t_body);
-            notesRootItem.getChildren().add(t_title);
-        }
-        notes.setRoot(notesRootItem);
-        notes.setShowRoot(false);
 
-        gridPane.addRow(2, facility, lecturer, elective, notes);
-*/
-
-        gridPane.addRow(2, facility, lecturer);
+        gridPane.addRow(2, facility, lecturer, notes);
 
         MyLogger.LOGGER.exiting(getClass().toString(), "makeLectureGrid", gridPane);
         return gridPane;
