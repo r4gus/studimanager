@@ -1196,3 +1196,9 @@ WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
 Sep. 23, 2019 2:59:34 NACHM. serializer.SerializerIO loadJson
 WARNING: files\timetable.json (Das System kann die angegebene Datei nicht finden)
 Specified Path: files/timetable.json
+Sep. 23, 2019 5:20:35 NACHM. guiCalendar.create.timetable.TimetableController lambda$makeForm$1
+SEVERE: Couldn't create new Timetable
+
+/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/guiTodolist/layoutTodolist.fxml
+/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/sample/sample.fxml:52
+

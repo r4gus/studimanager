@@ -305,7 +305,7 @@ public class VBoxTasklist extends VBox {
         MyLogger.LOGGER.entering(getClass().toString(), "generateContextMenuItems", new Object[]{contextMenuEditTask, todoList});
         MenuItem menuItemNewTask = new MenuItem(Main.getBundle().getString("newTask"));
         generateAddTaskFunction(menuItemNewTask, todoList);
-        MenuItem menuItemEditList = new MenuItem(Main.getBundle().getString("EditList"));
+        MenuItem menuItemEditList = new MenuItem(Main.getBundle().getString("EditList"));           //derzeit nicht in verwendung
         Menu menuItemSort = new Menu(Main.getBundle().getString("SortBy"));
         MenuItem subMmenuItemSortDate = new MenuItem(Main.getBundle().getString("byDueDate"));
         MenuItem subMmenuItemSortAlphabet = new MenuItem(Main.getBundle().getString("Alphabetical"));
@@ -316,7 +316,7 @@ public class VBoxTasklist extends VBox {
         menuItemSort.getItems().addAll(subMmenuItemSortDate, subMmenuItemSortAlphabet, subMmenuItemSortPriority);
         MenuItem menuItemDeleteList = new MenuItem(Main.getBundle().getString("DeleteList"));
         generateDeleteFunction(menuItemDeleteList, todoList);
-        contextMenuEditTask.getItems().addAll(menuItemNewTask, menuItemEditList, menuItemSort, menuItemDeleteList);
+        contextMenuEditTask.getItems().addAll(menuItemNewTask, menuItemSort, menuItemDeleteList);
         MyLogger.LOGGER.exiting(getClass().toString(), "generateContextMenuItems");
     }
 

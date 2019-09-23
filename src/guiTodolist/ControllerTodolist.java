@@ -62,7 +62,6 @@ public class ControllerTodolist implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         initButtonEdit();
-        buttonEditBoard.setText(Main.getBundle().getString("EditBoardButton"));
         textFieldHeaderToDoList.setPromptText(Main.getBundle().getString("listDesignation"));
         if (taskListCollection.getTaskLists().size() > 0) {
             initStoredDataForGui();
