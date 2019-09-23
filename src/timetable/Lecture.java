@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import javafx.scene.paint.Color;
 import logging.MyLogger;
 
 /**
@@ -18,6 +19,7 @@ public class Lecture implements Serializable {
     private Facility facility;
     private Lecturer lecturer;
     private boolean elective;
+    private Color color;        // color: is used to highlight lectures visually on the timetable
 
     @JsonIgnore
     private Notes notes;
@@ -34,6 +36,8 @@ public class Lecture implements Serializable {
 
         if (notes == null) this.notes = new Notes();
         else this.notes = notes;
+
+        this.color = Color.WHITE;
 
         MyLogger.LOGGER.exiting(getClass().toString(), "Lecture");
     }
@@ -234,5 +238,13 @@ public class Lecture implements Serializable {
     @Override
     public String toString() {
         return title + "\n" + facility + "\n" + lecturer;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 }

@@ -1193,3 +1193,6 @@ Sep 22, 2019 7:10:56 PM custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
 Sep 22, 2019 7:11:32 PM custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Sep 23, 2019 4:46:19 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json

@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import exam.Exam;
 import exam.ExamList;
+import javafx.scene.paint.Color;
 import timetable.*;
 import todolist.Task;
 import todolist.TaskCheckListItem;
@@ -106,6 +107,7 @@ public class TimetableDeserializer extends StdDeserializer<TimetableObjectCollec
                     Lecturer lecturer    = null;
                     boolean     elective;
                     Lecture newLecture = null;
+                    Color color = null;
 
                     title       = lecture.get("title").asText();
                     elective    = lecture.get("elective").asBoolean();
@@ -145,9 +147,19 @@ public class TimetableDeserializer extends StdDeserializer<TimetableObjectCollec
                     }
 
                     /*
+                    ################### COLOR #########################
+                     */
+                    JsonNode colorNode = lecture.get("color");
+                    color = new Color(colorNode.get("red").asDouble(),
+                            colorNode.get("green").asDouble(),
+                            colorNode.get("blue").asDouble(),
+                            colorNode.get("opacity").asDouble());
+
+                    /*
                     ################## LECTURE ########################
                      */
                     newLecture = timetable.newLecture(title, facility, lecturer, elective, null);
+                    newLecture.setColor(color);
 
                     /* to serialize notes: uncomment this block and remove @JsonIgnore annotation in Lecture
                     ################### NOTES ##########################

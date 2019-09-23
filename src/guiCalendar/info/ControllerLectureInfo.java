@@ -281,7 +281,14 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             }
         });
 
-        hButtonBox.getChildren().addAll(editButton, deleteButton, setAsHeadButton);
+        ColorPicker colorPicker = new ColorPicker();
+        colorPicker.setValue(lecture.getColor());
+        colorPicker.setOnAction(e -> {
+            lecture.setColor(colorPicker.getValue());
+            parentController.update();
+        });
+
+        hButtonBox.getChildren().addAll(editButton, deleteButton, setAsHeadButton, colorPicker);
         gridPane.add(hButtonBox, 0, 0, 4, 1);
 
 
