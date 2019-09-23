@@ -257,6 +257,10 @@ public class ControllerCalendar implements Initializable, Updatable {
 
 
             button.setGraphic(vBox);                                // add vBox to button
+
+            /* ################### SET BACKGROUND COLOR ############################### */
+            button.setStyle("-fx-background-color: rgb(" + (head.getColor().getRed() * 255) + "," +
+                    (head.getColor().getGreen() * 255) + "," + (head.getColor().getBlue() * 255) +")");
         }
 
         return button;

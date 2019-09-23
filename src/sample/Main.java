@@ -85,7 +85,7 @@ public class Main extends Application {
             primaryStage.setTitle(Main.TITLE);
             primaryStage.setScene(new Scene(root, Main.WIDTH , Main.HEIGHT));
             primaryStage.show();
-        } catch (IOException exc) {
+        } catch (Exception exc) {
             /* ------------------------- OPEN WELCOME SCREEN ON FAILURE -------------------- */
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/guiCalendar/welcome_screen/layoutWelcomeScreen.fxml"));
             Parent root = loader.load();

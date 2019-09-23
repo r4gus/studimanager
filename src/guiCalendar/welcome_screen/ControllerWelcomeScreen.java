@@ -157,8 +157,8 @@ public class ControllerWelcomeScreen implements Initializable {
                         ------------------ Set new path / or copy file to files (not yet decided) ----------
                          */
 
-                    } catch (IOException exc) {
-                        Notification.showInfo(Main.getBundle().getString("Failure"),
+                    } catch (Exception exc) {
+                        Notification.showInfo("Oops...",
                                 Main.getBundle().getString("CantOpenFile"),
                                 welcome_grid.getScene().getWindow());
                     }

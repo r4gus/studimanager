@@ -1193,14 +1193,6 @@ Sep 22, 2019 7:10:56 PM custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
 Sep 22, 2019 7:11:32 PM custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
-Sep. 23, 2019 2:59:34 NACHM. serializer.SerializerIO loadJson
-WARNING: files\timetable.json (Das System kann die angegebene Datei nicht finden)
-Specified Path: files/timetable.json
-Sep. 23, 2019 5:20:35 NACHM. guiCalendar.create.timetable.TimetableController lambda$makeForm$1
-SEVERE: Couldn't create new Timetable
-
-/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/guiTodolist/layoutTodolist.fxml
-/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/sample/sample.fxml:52
-
-Sep. 23, 2019 5:41:04 NACHM. custom_exceptions.UserException <init>
-WARNING: Bitte Wählen Sie eine Klausur aus
+Sep 23, 2019 4:46:19 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json

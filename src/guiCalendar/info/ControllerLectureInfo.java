@@ -21,15 +21,19 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import logging.MyLogger;
+import message.Notification;
 import sample.Main;
 import timetable.Lecture;
 import timetable.Lectures;
 import timetable.Note;
 
+import javax.management.NotificationFilter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class ControllerLectureInfo implements Initializable, Updatable {
 
@@ -43,6 +47,10 @@ public class ControllerLectureInfo implements Initializable, Updatable {
     private static final String colHeadlines[] = {"Facility", "Lecturer"};
 
     private Updatable parentController = null;
+
+    public Window getWindow() {
+        return li_anchorPane.getScene().getWindow();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -118,7 +126,9 @@ public class ControllerLectureInfo implements Initializable, Updatable {
                     // show window
                     stage.show();
                 } catch (IOException exc) {
-                    exc.printStackTrace();
+                    MyLogger.LOGGER.log(Level.SEVERE, "Couldn't open 'New Lecture' window.\n" + exc.getMessage());
+                    Notification.showAlertWindow(Alert.AlertType.ERROR, li_anchorPane.getScene().getWindow(),
+                            "Oops", Main.getBundle().getString("Oops"));
                 }
             }
         });
@@ -146,7 +156,9 @@ public class ControllerLectureInfo implements Initializable, Updatable {
                 // show window
                 stage.show();
             } catch (IOException exc) {
-                exc.printStackTrace();
+                MyLogger.LOGGER.log(Level.SEVERE, "Couldn't open 'Select Lecture' window.\n" + exc.getMessage());
+                Notification.showAlertWindow(Alert.AlertType.ERROR, li_anchorPane.getScene().getWindow(),
+                        "Oops", Main.getBundle().getString("Oops"));
             }
         });
 
@@ -230,7 +242,9 @@ public class ControllerLectureInfo implements Initializable, Updatable {
                     // show window
                     stage.show();
                 } catch (IOException exc) {
-                    exc.printStackTrace();
+                    MyLogger.LOGGER.log(Level.SEVERE, "Couldn't open 'Select Lecture' window.\n" + exc.getMessage());
+                    Notification.showAlertWindow(Alert.AlertType.ERROR, li_anchorPane.getScene().getWindow(),
+                            "Oops", Main.getBundle().getString("Oops"));
                 }
             }
         });
@@ -245,14 +259,11 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             public void handle(ActionEvent actionEvent) {
                 try {
                     if (!unit.removeLecture(lecture)) {
-                        /*
-                        error message
-                         */
+                        Notification.showInfo(Main.getBundle().getString("NotAbleToDelete"), "",
+                                li_anchorPane.getScene().getWindow());
                     }
                 } catch (IllegalArgumentException exc) {
-                    /*
-                    error message
-                     */
+                    MyLogger.LOGGER.log(Level.SEVERE, "Bad argument passed to removeLecure()!\n" + exc.getMessage());
                 } finally {
                     update();
                 }
@@ -270,7 +281,14 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             }
         });
 
-        hButtonBox.getChildren().addAll(editButton, deleteButton, setAsHeadButton);
+        ColorPicker colorPicker = new ColorPicker();
+        colorPicker.setValue(lecture.getColor());
+        colorPicker.setOnAction(e -> {
+            lecture.setColor(colorPicker.getValue());
+            parentController.update();
+        });
+
+        hButtonBox.getChildren().addAll(editButton, deleteButton, setAsHeadButton, colorPicker);
         gridPane.add(hButtonBox, 0, 0, 4, 1);
 
 
