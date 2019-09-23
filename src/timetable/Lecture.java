@@ -20,10 +20,12 @@ public class Lecture implements Serializable {
     private Lecturer lecturer;
     private boolean elective;
     private Color color;        // color: is used to highlight lectures visually on the timetable
+    private String whiteBoard; // replacement for notes
 
     @JsonIgnore
-    private Notes notes;
+    private Notes notes = null;
 
+    @Deprecated
     public Lecture(String title, Facility facility, Lecturer lecturer, boolean elective, Notes notes) {
         MyLogger.LOGGER.entering(getClass().toString(), "Lecture", new Object[]{
                 title, facility, lecturer, elective, notes
@@ -38,6 +40,23 @@ public class Lecture implements Serializable {
         else this.notes = notes;
 
         this.color = Color.WHITE;
+
+        MyLogger.LOGGER.exiting(getClass().toString(), "Lecture");
+    }
+
+    public Lecture(String title, Facility facility, Lecturer lecturer, boolean elective, Color color, String notes) {
+        MyLogger.LOGGER.entering(getClass().toString(), "Lecture", new Object[]{
+                title, facility, lecturer, elective, color, notes
+        });
+
+        this.title = title;
+        this.facility = facility;
+        this.lecturer = lecturer;
+        this.elective = elective;
+        this.color = color;
+
+        if(notes == null) notes = "";
+        else this.whiteBoard = notes;
 
         MyLogger.LOGGER.exiting(getClass().toString(), "Lecture");
     }
@@ -246,5 +265,13 @@ public class Lecture implements Serializable {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public String getWhiteBoard() {
+        return whiteBoard;
+    }
+
+    public void setWhiteBoard(String whiteBoard) {
+        this.whiteBoard = whiteBoard;
     }
 }

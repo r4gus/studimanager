@@ -13,6 +13,7 @@ import guiExam.ControllerExam;
 import guiTodolist.ControllerTodolist;
 import guiTodolist.InfoTask.ControllerInfoTask;
 import guiTodolist.Task.ControllerTask;
+import javafx.scene.paint.Color;
 import logging.MyLogger;
 import serializer.SerializerIO;
 import serializer.TimetableDeserializer;
@@ -195,9 +196,35 @@ public class Timetable implements Serializable {
      * @param notes Notes object
      * @return {@link Lecture} object
      */
+    @Deprecated
     public Lecture newLecture(String title, Facility facility, Lecturer lecturer, boolean elective, Notes notes) {
         MyLogger.LOGGER.entering(getClass().toString(), "newLecture", new Object[]{title, facility, lecturer, elective, notes});
         Lecture l = new Lecture(title, facility, lecturer, elective, notes);
+
+        if(LECTURES.find(l) == -1) {
+            LECTURES.addLecture(l);
+        } else {
+            l = LECTURES.getElement(LECTURES.find(l));
+        }
+
+        MyLogger.LOGGER.exiting(getClass().toString(), "newLecture", l);
+        return l;
+    }
+
+    /**
+     *  This method returns an Lecture object. First it checks if an object with the given
+     *  parameters already exists. If true a reference to the existing object is returned. Otherwise a new object
+     *  is created.
+     * @param title Title String
+     * @param facility Facility object
+     * @param lecturer Lecturer object
+     * @param elective boolean
+     * @param notes Notes object
+     * @return {@link Lecture} object
+     */
+    public Lecture newLecture(String title, Facility facility, Lecturer lecturer, boolean elective, Color color, String notes) {
+        MyLogger.LOGGER.entering(getClass().toString(), "newLecture", new Object[]{title, facility, lecturer, elective, notes, color});
+        Lecture l = new Lecture(title, facility, lecturer, elective, color, notes);
 
         if(LECTURES.find(l) == -1) {
             LECTURES.addLecture(l);
