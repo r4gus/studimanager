@@ -42,17 +42,17 @@
                     <fx:include source="../guiCalendar/calendar/layoutCalendar.fxml"/>
                   </content>
                 </Tab>
-                <Tab text="Klausuren - Übersicht">
-                  <content>
-                      <fx:include source="../guiExam/layoutExam.fxml"/>
-                  </content>
-                </Tab>
                   <Tab text="Task - ToDoList">
                     <content>
                       <fx:include source="../guiTodolist/layoutTodolist.fxml"/>
                     </content>
                   </Tab>
               </tabs>
+              <Tab text="Klausuren - Übersicht">
+                <content>
+                  <fx:include source="../guiExam/layoutExam.fxml"/>
+                </content>
+              </Tab>
             </TabPane>
       </children>
     </AnchorPane>
