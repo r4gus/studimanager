@@ -2,6 +2,7 @@ package guiCalendar.create.lecture;
 
 import guiCalendar.Updatable;
 import guiCalendar.calendar.ControllerCalendar;
+import guiCalendar.info.ControllerLectureInfo;
 import input.elements.combobox.ComboBox;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -15,11 +16,13 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import logging.MyLogger;
+import message.Notification;
 import sample.Main;
 import timetable.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class SelectLectureController implements Initializable {
     private final Timetable timetable = ControllerCalendar.getTimetable();
@@ -85,22 +88,23 @@ public class SelectLectureController implements Initializable {
         ------------------- SELECT BUTTON ----------------------------
          */
         Button select = new Button(Main.getBundle().getString("Select"));
-        select.setPrefSize(70, 65);
+        select.setPrefSize(125, 65);
         select.setOnAction(e -> {
             if(lectureComboBox.getSelectionModel().isEmpty()) {
                 lectureComboBox.showError(Main.getBundle().getString("EnterLecture"));
             } else {
                 try {
-                    unit.addLecture(lectureComboBox.getSelectionModel().getSelectedItem());
+                    if(!unit.addLecture(lectureComboBox.getSelectionModel().getSelectedItem())) {
+                        ControllerLectureInfo window = (ControllerLectureInfo) parentController;
 
+                        Notification.showInfo(Main.getBundle().getString("NotPossible"),
+                                Main.getBundle().getString("DoesAlreadyExist"), window.getWindow());
+                    }
                     parentController.update();
                     Stage stage = (Stage) gridPane.getScene().getWindow();
                     stage.close();
                 } catch (IllegalArgumentException exc) {
-                    /*
-                    perfect use case for a small info box:
-                    lecture does already exist!
-                     */
+                    MyLogger.LOGGER.log(Level.SEVERE, exc.getMessage());
                 }
             }
         });
