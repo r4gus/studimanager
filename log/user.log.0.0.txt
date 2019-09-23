@@ -1154,3 +1154,7 @@ SEVERE: Couldn't create new Timetable
 /C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/guiTodolist/layoutTodolist.fxml
 /C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/sample/sample.fxml:51
 
+Sep. 22, 2019 7:08:50 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte Wählen Sie eine Klausur aus
+Sep. 22, 2019 7:10:10 NACHM. custom_exceptions.UserException <init>
+WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
