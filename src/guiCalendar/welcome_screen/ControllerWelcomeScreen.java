@@ -22,7 +22,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import logging.MyLogger;
 import message.Notification;
-import sample.Main;
+import Main.Main;
 import timetable.Timetable;
 import serializer.TimetableObjectCollection;
 
@@ -119,7 +119,7 @@ public class ControllerWelcomeScreen implements Initializable {
                         /*
                         --------------- Show primary stage ------------------------------------
                          */
-                        Parent root = FXMLLoader.load(getClass().getResource("../../sample/" + Main.fxml));
+                        Parent root = FXMLLoader.load(getClass().getResource("../../Main/" + Main.fxml));
                         primaryStage.setTitle(Main.TITLE);
                         primaryStage.setScene(new Scene(root, Main.WIDTH , Main.HEIGHT));
                         primaryStage.show();

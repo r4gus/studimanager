@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
-import sample.Main;
+import Main.Main;
 
 import java.io.IOException;
 import java.util.logging.Level;

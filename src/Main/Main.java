@@ -1,4 +1,4 @@
-package sample;
+package Main;
 
 
 import config.Config;
@@ -17,14 +17,13 @@ import serializer.TimetableObjectCollection;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main extends Application {
 
     private static Stage primaryStage;
 
-    public static final String fxml = "sample.fxml";
+    public static final String fxml = "Main.fxml";
 
     private static final String RESOURCE_BUNDLE_PATH = "files/";
 

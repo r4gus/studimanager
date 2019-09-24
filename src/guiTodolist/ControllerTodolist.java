@@ -12,7 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import logging.MyLogger;
-import sample.Main;
+import Main.Main;
 import todolist.Task;
 import todolist.TaskList;
 import todolist.TaskListCollection;

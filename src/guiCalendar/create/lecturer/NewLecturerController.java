@@ -23,7 +23,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
-import sample.Main;
+import Main.Main;
 import timetable.Facility;
 import timetable.Lecture;
 import timetable.Timetable;

@@ -1146,13 +1146,13 @@ Sep. 21, 2019 4:02:43 NACHM. guiCalendar.create.timetable.TimetableController la
 SEVERE: Couldn't create new Timetable
 
 /C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/guiTodolist/layoutTodolist.fxml
-/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/sample/sample.fxml:51
+/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/Main/Main.fxml:51
 
 Sep. 21, 2019 4:02:43 NACHM. guiCalendar.create.timetable.TimetableController lambda$makeForm$1
 SEVERE: Couldn't create new Timetable
 
 /C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/guiTodolist/layoutTodolist.fxml
-/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/sample/sample.fxml:51
+/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/Main/Main.fxml:51
 
 Sep 21, 2019 11:24:39 PM serializer.SerializerIO loadJson
 WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
@@ -1319,3 +1319,13 @@ Sep 24, 2019 9:33:21 AM serializer.SerializerIO loadJson
 SEVERE: Unexpected character ('#' (code 35)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
  at [Source: (FileInputStream); line: 1, column: 2]
 Specified Path: /home/sugar/IdeaProjects/studimanager/README.md
+Sep 24, 2019 10:01:44 AM serializer.SerializerIO loadJson
+SEVERE: Unexpected character ('.' (code 46)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: (FileInputStream); line: 1, column: 2]
+Specified Path: /home/sugar/IdeaProjects/studimanager/src/main.css
+Sep 24, 2019 3:56:49 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 24, 2019 3:57:09 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json

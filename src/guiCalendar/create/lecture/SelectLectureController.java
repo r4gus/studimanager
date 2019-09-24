@@ -17,7 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import logging.MyLogger;
 import message.Notification;
-import sample.Main;
+import Main.Main;
 import timetable.*;
 
 import java.net.URL;

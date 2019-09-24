@@ -14,7 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import logging.MyLogger;
-import sample.Main;
+import Main.Main;
 import todolist.Task;
 import todolist.TaskCheckListItem;
 

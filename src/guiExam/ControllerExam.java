@@ -18,7 +18,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import sample.Main;
+import Main.Main;
 
 import java.io.IOException;
 import java.net.URL;

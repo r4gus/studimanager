@@ -25,12 +25,10 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import logging.MyLogger;
 import message.Notification;
-import sample.Main;
+import Main.Main;
 import timetable.Lecture;
 import timetable.Lectures;
-import timetable.Note;
 
-import javax.management.NotificationFilter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

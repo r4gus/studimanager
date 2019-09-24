@@ -19,7 +19,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import logging.MyLogger;
-import sample.Main;
+import Main.Main;
 import timetable.Lecture;
 import timetable.Timetable;
 

@@ -16,13 +16,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
-import sample.Main;
+import Main.Main;
 import todolist.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * The <code>ControllerTask</code> object represents the controller of the Gui CreateTask.

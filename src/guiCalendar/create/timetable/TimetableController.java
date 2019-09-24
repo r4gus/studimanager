@@ -1,9 +1,6 @@
 package guiCalendar.create.timetable;
 
-import config.Config;
-import config.gui.ConfigController;
 import input.elements.combobox.ComboBox;
-import input.elements.textfield.AlphaNumTextField;
 import guiCalendar.calendar.ControllerCalendar;
 import input.elements.textfield.IntTextField;
 import javafx.fxml.FXML;
@@ -21,7 +18,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import logging.MyLogger;
-import sample.Main;
+import Main.Main;
 import timetable.Timetable;
 
 import java.io.IOException;
@@ -330,7 +327,7 @@ public class TimetableController implements Initializable {
                  --------------- Show primary stage ------------------------------------
                  */
                     Stage primaryStage = new Stage();
-                    Parent root = FXMLLoader.load(getClass().getResource("../../../sample/" + Main.fxml));
+                    Parent root = FXMLLoader.load(getClass().getResource("../../../Main/" + Main.fxml));
                     primaryStage.setTitle(Main.TITLE);
                     primaryStage.setScene(new Scene(root, Main.WIDTH, Main.HEIGHT));
                     primaryStage.show();

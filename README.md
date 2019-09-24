@@ -120,7 +120,7 @@ Bundle'TimetableResourceBundle'__. To add support for a new language follow thes
 For example, to support Italian name the file: ```TimetableResourceBundle_it_IT.properties```
 2. Translate all values of the key-value pairs depending on the language.
 3. Add the __language-code__ to   ```src.config.Language```
-4. Add a new case to the switch statement in ```sample.Main``` and don't forget the ```break```
+4. Add a new case to the switch statement in ```Main.Main``` and don't forget the ```break```
 
 ### Example
 
