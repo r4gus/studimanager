@@ -2,7 +2,6 @@
 
 
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.control.Pagination?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.Font?>
@@ -30,7 +29,7 @@
 
     <Label fx:id="facilityTitle" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
     <ComboBox fx:id="facilityComboBox" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-    <Button fx:id="newFacility" styleClass="add-button, add-button:hover" onAction="#handleNewFacilityButtonAction" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+    <Button fx:id="newFacility" styleClass="add-button" onAction="#handleNewFacilityButtonAction" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
 
     <Button fx:id="create" onAction="#handleCreateButtonAction" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
 </GridPane>
