@@ -1,6 +1,7 @@
 package guiCalendar.create.facility;
 
 import config.Language;
+import guiCalendar.IFacility;
 import guiCalendar.Updatable;
 import guiCalendar.calendar.ControllerCalendar;
 import input.elements.textfield.AlphaNumTextField;
@@ -14,11 +15,16 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import Main.Main;
+import timetable.Facility;
 import timetable.Timetable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Form for creating a new {@code Facility}.
+ * @author David Sugar
+ */
 public class NewFacilityController implements Initializable {
     private final Timetable timetable = ControllerCalendar.getTimetable();
     @FXML
@@ -60,7 +66,7 @@ public class NewFacilityController implements Initializable {
     @FXML
     private Button submit;
 
-    private Updatable parentController = null;
+    private IFacility parentController = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -79,7 +85,7 @@ public class NewFacilityController implements Initializable {
         streetTitle.setText(Main.getBundle().getString("Street") + ":");
         zipCodeTitle.setText(Main.getBundle().getString("ZipCode") + ":");
         cityTitle.setText(Main.getBundle().getString("City") + ":");
-        submit.setText(Main.getBundle().getString("Submit"));
+        submit.setText(Main.getBundle().getString("Create"));
     }
 
     @FXML
@@ -107,18 +113,21 @@ public class NewFacilityController implements Initializable {
 
         city = cityTextfield.getText();
 
+        Facility facility = null;
         if(valid)
-            timetable.newFacility(building, room, street, zipCode, city);
+            facility = timetable.newFacility(building, room, street, zipCode, city);
         else
             return;
+
         /* ------------------ CLOSE WINDOW ----------------------------------- */
 
         Stage stage = (Stage) newFacility_grid.getScene().getWindow();
+        parentController.setFacility(facility);
         parentController.update();
         stage.close();
     }
 
-    public void setParentController(Updatable c) {
+    public void setParentController(IFacility c) {
         this.parentController = c;
     }
 

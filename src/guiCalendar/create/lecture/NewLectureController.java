@@ -1,5 +1,7 @@
 package guiCalendar.create.lecture;
 
+import guiCalendar.IFacility;
+import guiCalendar.ILecturer;
 import guiCalendar.Updatable;
 import guiCalendar.calendar.ControllerCalendar;
 import guiCalendar.create.facility.NewFacilityController;
@@ -31,7 +33,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class NewLectureController implements Initializable, Updatable {
+public class NewLectureController implements Initializable, IFacility, ILecturer {
     private final Timetable timetable = ControllerCalendar.getTimetable();
     @FXML
     private GridPane newLecture_grid;
@@ -206,7 +208,7 @@ public class NewLectureController implements Initializable, Updatable {
         Button addFacilityButton = new Button(Main.getBundle().getString("New"));
         addFacilityButton.getStyleClass().addAll("add-button", "add-button:hover");
 
-        Updatable parent = this;
+        IFacility parent = this;
         addFacilityButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -297,5 +299,15 @@ public class NewLectureController implements Initializable, Updatable {
 
     public void setParentController(Updatable c) {
         this.parentController = c;
+    }
+
+    @Override
+    public void setFacility(Facility facility) {
+
+    }
+
+    @Override
+    public void setLecturer(Lecturer lecturer) {
+
     }
 }

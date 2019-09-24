@@ -1,5 +1,7 @@
 package guiCalendar.edit;
 
+import guiCalendar.IFacility;
+import guiCalendar.ILecturer;
 import guiCalendar.Updatable;
 import guiCalendar.calendar.ControllerCalendar;
 import guiCalendar.create.facility.NewFacilityController;
@@ -34,7 +36,7 @@ import java.util.ResourceBundle;
 /**
  * @author David Sugar
  */
-public class ControllerLectureEdit implements Initializable, Updatable {
+public class ControllerLectureEdit implements Initializable, IFacility, ILecturer {
 
     @FXML
     private GridPane edit_grid;
@@ -217,7 +219,7 @@ public class ControllerLectureEdit implements Initializable, Updatable {
          */
         Button addFacilityButton = new Button(Main.getBundle().getString("New"));
         addFacilityButton.getStyleClass().addAll("add-button", "add-button:hover");
-        Updatable parent = this;
+        IFacility parent = this;
         addFacilityButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -309,5 +311,15 @@ public class ControllerLectureEdit implements Initializable, Updatable {
 
     public void setParentController(Updatable c) {
         this.parentController = c;
+    }
+
+    @Override
+    public void setFacility(Facility facility) {
+
+    }
+
+    @Override
+    public void setLecturer(Lecturer lecturer) {
+
     }
 }
