@@ -261,6 +261,7 @@ public class ControllerLectureEdit implements Initializable, IFacility, ILecture
          */
         Button addLecturerButton = new Button(Main.getBundle().getString("New"));
         addLecturerButton.getStyleClass().addAll("add-button", "add-button:hover");
+        ILecturer parent1 = this;
         addLecturerButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -278,7 +279,7 @@ public class ControllerLectureEdit implements Initializable, IFacility, ILecture
                     // get controller
                     NewLecturerController newLecturerController = loader.getController();
                     // pass Lectures object
-                    newLecturerController.setParentController(parent);
+                    newLecturerController.setParentController(parent1);
 
                     // show info-page scene
                     Stage stage = new Stage();

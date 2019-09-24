@@ -2,7 +2,7 @@ package guiCalendar.create.lecturer;
 
 import config.Language;
 import guiCalendar.IFacility;
-import guiCalendar.Updatable;
+import guiCalendar.ILecturer;
 import guiCalendar.calendar.ControllerCalendar;
 import guiCalendar.create.facility.NewFacilityController;
 import input.elements.textfield.TextField;
@@ -21,6 +21,7 @@ import logging.MyLogger;
 import Main.Main;
 import message.Notification;
 import timetable.Facility;
+import timetable.Lecturer;
 import timetable.Timetable;
 
 import java.io.IOException;
@@ -67,7 +68,7 @@ public class NewLecturerController implements Initializable, IFacility {
     @FXML
     private Button create;
 
-    private Updatable parentController = null;
+    private ILecturer parentController = null;
 
     /* ################## PRESERVED FIELDS ########################### */
     private String preservedFirstName = null;
@@ -168,19 +169,21 @@ public class NewLecturerController implements Initializable, IFacility {
 
         facility = facilityComboBox.getValue();
 
-        timetable.newLecturer(firstName, lastName, email, facility);
+        Lecturer l = timetable.newLecturer(firstName, lastName, email, facility);
 
         Stage stage = (Stage) newLecturer_grid.getScene().getWindow();
+        parentController.setLecturer(l);
         parentController.update();
         stage.close();
     }
 
-    public void setParentController(Updatable c) {
+    public void setParentController(ILecturer c) {
         this.parentController = c;
     }
 
     public void setFacility(Facility facility) {
         this.preservedFacility = facility;
+        this.facilityComboBox.getItems().add(facility);
     }
 
 }
