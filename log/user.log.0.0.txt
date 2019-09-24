@@ -1329,3 +1329,19 @@ Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
 Sep 24, 2019 3:57:09 PM serializer.SerializerIO loadJson
 WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
 Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 24, 2019 5:57:11 PM serializer.SerializerIO loadJson
+SEVERE: Unexpected character ('#' (code 35)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: (FileInputStream); line: 1, column: 2]
+Specified Path: /home/sugar/IdeaProjects/studimanager/README.md
+Sep 24, 2019 6:15:11 PM guiCalendar.create.timetable.TimetableController lambda$makeForm$1
+SEVERE: Couldn't create new Timetable
+
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/guiCalendar/calendar/layoutCalendar.fxml
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/Main/Main.fxml:42
+
+Sep 24, 2019 6:17:16 PM guiCalendar.create.timetable.TimetableController lambda$makeForm$1
+SEVERE: Couldn't create new Timetable
+
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/guiCalendar/calendar/layoutCalendar.fxml
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/Main/Main.fxml:42
+
