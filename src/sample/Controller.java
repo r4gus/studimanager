@@ -23,6 +23,8 @@ import logging.MyLogger;
 import message.Notification;
 import org.controlsfx.control.NotificationPane;
 import org.controlsfx.control.Notifications;
+import serializer.TimetableObjectCollection;
+import timetable.Timetable;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -45,6 +47,12 @@ public class Controller implements Initializable {
 
     @FXML
     public MenuItem newTimetable;
+
+    @FXML
+    public MenuItem saveAsButton;
+
+    @FXML
+    public MenuItem openTimetable;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -78,22 +86,40 @@ public class Controller implements Initializable {
                      */
                     Notification.showConfirm(Main.getBundle().getString("Success"),
                             Main.getBundle().getString("FileSaved"), Main.getPrimaryStage());
-                } catch (FileNotFoundException exc) {
-                    /*
-                    something is wrong with the specified path
-                     */
-                } catch (JsonProcessingException exc) {
-
-                    /*
-                    worst case
-                     */
-                } catch (IOException exc) {
-                    /*
-                    general error message
-                     */
+                }  catch (Exception exc) {
+                    Notification.showAlert(Main.getBundle().getString("Failure"),
+                            Main.getBundle().getString("FileNotSaved"), Main.getPrimaryStage());
                 }
             }
         });
+
+        saveAsButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                String path = Main.getConfig().getTimetablePath();
+                FileChooser fileChooser = new FileChooser();
+
+                fileChooser.setInitialFileName("timetable_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) + ".json");
+                File file = fileChooser.showSaveDialog(Main.getPrimaryStage());
+
+                if(file == null) return;
+
+                path = file.getPath();
+                Main.getConfig().setTimetablePath(path);
+                try {
+                    Main.getConfig().store();
+                    ControllerCalendar.getTimetable().store(path);
+                } catch (Exception exc) {
+                    Notification.showAlert(Main.getBundle().getString("Failure"),
+                            Main.getBundle().getString("FileNotSaved"), Main.getPrimaryStage());
+                }
+
+                Notification.showConfirm(Main.getBundle().getString("Success"),
+                        Main.getBundle().getString("FileSaved"), Main.getPrimaryStage());
+            }
+        });
+
+
 
         settingsButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -142,6 +168,56 @@ public class Controller implements Initializable {
                     stage.show();
                 } catch (IOException e) {
                     MyLogger.LOGGER.log(Level.SEVERE, "Unable to open New Lecture dialog window.\n" + e.getMessage());
+                }
+            }
+        });
+
+        openTimetable.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                FileChooser fileChooser = new FileChooser();
+                Stage primaryStage = Main.getPrimaryStage();
+
+                File selectedFile = fileChooser.showOpenDialog(primaryStage);
+                TimetableObjectCollection timetableObjectCollection;
+
+                if( selectedFile != null) {     // open the primary stage using the chosen File
+                    try {
+                        /*
+                        -------------- Set Timetable object ----------------------------------
+                         */
+                        timetableObjectCollection = Timetable.load(selectedFile.getPath());
+                        ControllerCalendar.setTimetable(timetableObjectCollection.getTimetable());
+
+                        /*
+                        ----------------- UPDATE timetablePath IN CONFIG_FILE ----------------
+                         */
+                        Main.getConfig().setTimetablePath(selectedFile.getPath());
+                        try {
+                            Main.getConfig().store();
+                        } catch (IOException e) {
+                            MyLogger.LOGGER.log(Level.SEVERE, "Couldn't update config data." +
+                                    "\nClass: " + getClass().toString() + "\nMethod: handle()" + "\n" + e.getMessage());
+                        }
+
+                        /*
+                        --------------- Show primary stage ------------------------------------
+                         */
+                        Parent root = FXMLLoader.load(getClass().getResource(Main.fxml));
+                        primaryStage.setTitle(Main.TITLE);
+                        primaryStage.setScene(new Scene(root, Main.WIDTH , Main.HEIGHT));
+                        primaryStage.show();
+
+
+                        /*
+                        ------------------ Set new path / or copy file to files (not yet decided) ----------
+                         */
+
+                    } catch (Exception exc) {
+                        Notification.showInfo("Oops...",
+                                Main.getBundle().getString("CantOpenFile"),
+                                primaryStage);
+                    }
                 }
             }
         });

@@ -50,6 +50,10 @@ public class ControllerWelcomeScreen implements Initializable {
         welcome_grid.setPadding(new Insets(25, 25, 25, 25));
         welcome_grid.setAlignment(Pos.CENTER);
 
+        buildGrid();
+    }
+
+    public void buildGrid() {
         FileChooser fileChooser = new FileChooser();
         /*
         ########################## TITLE #####################################

@@ -16,11 +16,11 @@
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
+            <MenuItem mnemonicParsing="false" text="New" fx:id="newTimetable"/>
+            <MenuItem mnemonicParsing="false" text="Open…" fx:id="openTimetable"/>
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Save" fx:id="saveButton"/>
-            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Save As…" fx:id="saveAsButton"/>
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Settings" fx:id="settingsButton"/>
             <SeparatorMenuItem mnemonicParsing="false" />

@@ -1294,3 +1294,28 @@ Specified Path:
 Sep 23, 2019 11:36:28 PM serializer.SerializerIO loadJson
 WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable_23.09.2019.json (No such file or directory)
 Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable_23.09.2019.json
+Sep 24, 2019 8:18:31 AM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 24, 2019 8:19:06 AM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 24, 2019 8:19:28 AM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 24, 2019 8:21:30 AM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 24, 2019 8:39:23 AM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable_24.09.2019.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable_24.09.2019.json
+Sep 24, 2019 8:40:51 AM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable_24.09.2019.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable_24.09.2019.json
+Sep 24, 2019 9:29:48 AM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable_24.09.2019.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable_24.09.2019.json
+Sep 24, 2019 9:33:21 AM serializer.SerializerIO loadJson
+SEVERE: Unexpected character ('#' (code 35)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: (FileInputStream); line: 1, column: 2]
+Specified Path: /home/sugar/IdeaProjects/studimanager/README.md
