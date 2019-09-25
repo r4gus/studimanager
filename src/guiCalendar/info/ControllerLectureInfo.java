@@ -43,7 +43,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
 
     private Lectures lectures;
 
-    private static final String colHeadlines[] = {"Facility", "Lecturer", "Notes"};
+    private static final String[] colHeadlines = {"Facility", "Lecturer", "Notes"};
 
     private Updatable parentController = null;
 
@@ -53,22 +53,13 @@ public class ControllerLectureInfo implements Initializable, Updatable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        AnchorPane.setTopAnchor(li_scrollPane, 8.0);
-        AnchorPane.setBottomAnchor(li_scrollPane, 8.0);
-        AnchorPane.setLeftAnchor(li_scrollPane, 8.0);
-        AnchorPane.setRightAnchor(li_scrollPane, 8.0);
+        li_scrollPane.getStylesheets().add(getClass().getResource("/main.css").toExternalForm());
 
-        li_scrollPane.getStylesheets().add(getClass().getResource("../../main.css").toExternalForm());
-
-        li_anchorPane.getStyleClass().add("background-color");
-
-        /**
+        /*
          * Run makeAddButton and makeLectureAccordion on the JavaFX Application Thread at some time in the future.
          * Gives the calling method time to set the lectures member using {@code #setLectures(Lectures)}.
          */
-        Platform.runLater(() -> {
-            update();
-        });
+        Platform.runLater(this::update);
     }
 
     /**
@@ -100,7 +91,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         hBox.setAlignment(Pos.CENTER);
         Region region = new Region();
         region.prefWidth(1000.0);           // region is used as spacing between the two elements
-        hBox.setHgrow(region, Priority.ALWAYS);     // region must always grow and shrink when the window is resized
+        HBox.setHgrow(region, Priority.ALWAYS);     // region must always grow and shrink when the window is resized
         hBox.getChildren().addAll(makeAddButton(lectures), region, makeApplyButton());
 
         return hBox;
@@ -120,7 +111,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         MenuItem existingButton = new MenuItem(Main.getBundle().getString("Existing"));
 
         ControllerLectureInfo parent = this;
-        newButton.setOnAction(new EventHandler<ActionEvent>() {
+        newButton.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
@@ -209,7 +200,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
     }
 
     /**
-     * Creates and returns a JavaFx {@cod GridPane} object that contains all relevant information about a {@link Lecture}.
+     * Creates and returns a JavaFx {@code GridPane} object that contains all relevant information about a {@link Lecture}.
      * @param lecture The {@code Lecture} object to process.
      * @return GridPane object.
      */
@@ -237,7 +228,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
          */
         Button editButton = new Button(Main.getBundle().getString("Edit"));
         ControllerLectureInfo parent = this;
-        editButton.setOnAction(new EventHandler<ActionEvent>() {
+        editButton.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
@@ -275,31 +266,25 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         hButtonBox.setPadding(new Insets(10, 10, 10, 0));
 
         Button deleteButton = new Button(Main.getBundle().getString("Delete"));
-        deleteButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                try {
-                    if (!unit.removeLecture(lecture)) {
-                        Notification.showInfo(Main.getBundle().getString("NotAbleToDelete"), "",
-                                li_anchorPane.getScene().getWindow());
-                    }
-                } catch (IllegalArgumentException exc) {
-                    MyLogger.LOGGER.log(Level.SEVERE, "Bad argument passed to removeLecure()!\n" + exc.getMessage());
-                } finally {
-                    update();
+        deleteButton.setOnAction(actionEvent -> {
+            try {
+                if (!unit.removeLecture(lecture)) {
+                    Notification.showInfo(Main.getBundle().getString("NotAbleToDelete"), "",
+                            li_anchorPane.getScene().getWindow());
                 }
+            } catch (IllegalArgumentException exc) {
+                MyLogger.LOGGER.log(Level.SEVERE, "Bad argument passed to removeLecure()!\n" + exc.getMessage());
+            } finally {
+                update();
             }
         });
         deleteButton.getStyleClass().addAll("delete-button", "delete-button:hover");
 
         Button setAsHeadButton = new Button(Main.getBundle().getString("Display"));
         if(unit.getHead().equals(lecture)) setAsHeadButton.setDisable(true);
-        setAsHeadButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                unit.setHead(lecture);
-                update();
-            }
+        setAsHeadButton.setOnAction(actionEvent -> {
+            unit.setHead(lecture);
+            update();
         });
 
         ColorPicker colorPicker = new ColorPicker();
@@ -311,7 +296,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
 
         Region region = new Region();
         region.prefWidth(1000.0);
-        hButtonBox.setHgrow(region, Priority.ALWAYS);
+        HBox.setHgrow(region, Priority.ALWAYS);
 
         hButtonBox.getChildren().addAll(editButton, deleteButton, region, setAsHeadButton, colorPicker);
         gridPane.add(hButtonBox, 0, 0, 4, 1);
@@ -328,7 +313,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             t.setFont(new Font(ControllerCalendar.MEDIUM_FONT_SIZE));
             p.getStyleClass().add("heading-background");
 
-            gridPane.setHalignment(t, HPos.CENTER);
+            GridPane.setHalignment(t, HPos.CENTER);
             gridPane.add(p, i, 1);
             gridPane.add(t, i, 1);
         }
@@ -337,7 +322,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         ########################## ADD LECTURE INFO ######################################################
          */
         // facility
-        TreeView<String> facility = new TreeView<String>();
+        TreeView<String> facility = new TreeView<>();
         if (lecture.getFacility() != null) {
             TreeItem<String> facilityRootItem = new TreeItem<>(lecture.getFacility().toString());
             TreeItem<String> t_building = new TreeItem<>(Main.getBundle().getString("Building") + ": " + lecture.getFacility().getBuilding());
@@ -383,9 +368,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         // notes
         TextArea notes = new TextArea();
         notes.setText(lecture.getWhiteBoard());
-        notes.textProperty().addListener(e -> {
-            lecture.setWhiteBoard(notes.getText());
-        });
+        notes.textProperty().addListener(e -> lecture.setWhiteBoard(notes.getText()));
 
 
         gridPane.addRow(2, facility, lecturer, notes);
