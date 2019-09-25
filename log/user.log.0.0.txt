@@ -1146,13 +1146,13 @@ Sep. 21, 2019 4:02:43 NACHM. guiCalendar.create.timetable.TimetableController la
 SEVERE: Couldn't create new Timetable
 
 /C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/guiTodolist/layoutTodolist.fxml
-/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/sample/sample.fxml:51
+/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/Main/Main.fxml:51
 
 Sep. 21, 2019 4:02:43 NACHM. guiCalendar.create.timetable.TimetableController lambda$makeForm$1
 SEVERE: Couldn't create new Timetable
 
 /C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/guiTodolist/layoutTodolist.fxml
-/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/sample/sample.fxml:51
+/C:/Users/Lukas%20Mendel/IdeaProjects/studimanager/out/production/studimanager/Main/Main.fxml:51
 
 Sep 21, 2019 11:24:39 PM serializer.SerializerIO loadJson
 WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
@@ -1193,3 +1193,185 @@ Sep 22, 2019 7:10:56 PM custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus die Sie bearbeiten möchten.
 Sep 22, 2019 7:11:32 PM custom_exceptions.UserException <init>
 WARNING: Bitte wählen Sie eine Klausur aus die Sie löschen möchten.
+Sep 23, 2019 4:46:19 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 4:48:46 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 5:42:38 PM timetable.Lectures addLecture
+WARNING: Invalid argument: null
+Sep 23, 2019 5:42:38 PM timetable.Lectures removeLecture
+WARNING: Invalid argument: null
+Sep 23, 2019 5:42:38 PM timetable.Lectures addLecture
+WARNING: Invalid argument: null
+Sep 23, 2019 5:42:38 PM timetable.Timetable addLecture
+WARNING: Invalid argument: null
+Sep 23, 2019 5:42:38 PM timetable.Facilities addFacility
+WARNING: null pointer passed!
+Sep 23, 2019 5:42:38 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Sep 23, 2019 5:42:38 PM timetable.Facilities addFacility
+WARNING: The specified Facility already exists
+Sep 23, 2019 5:42:38 PM timetable.Lecturers addLecturer
+WARNING: null pointer passed!
+Sep 23, 2019 5:42:38 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Sep 23, 2019 5:42:38 PM timetable.Lecturers addLecturer
+WARNING: The specified Lecturer already exists!
+Sep 23, 2019 10:28:40 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:32:23 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:34:07 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:38:34 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:40:56 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:41:44 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:42:09 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:44:40 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:45:04 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:45:58 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:46:34 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:47:09 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:50:29 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:51:22 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:51:44 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:52:51 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:53:20 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:54:56 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:55:35 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:56:07 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 10:57:03 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 11:03:11 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 23, 2019 11:33:45 PM serializer.SerializerIO loadJson
+WARNING:  (No such file or directory)
+Specified Path: 
+Sep 23, 2019 11:34:59 PM serializer.SerializerIO loadJson
+WARNING:  (No such file or directory)
+Specified Path: 
+Sep 23, 2019 11:36:28 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable_23.09.2019.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable_23.09.2019.json
+Sep 24, 2019 8:18:31 AM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 24, 2019 8:19:06 AM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 24, 2019 8:19:28 AM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 24, 2019 8:21:30 AM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 24, 2019 8:39:23 AM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable_24.09.2019.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable_24.09.2019.json
+Sep 24, 2019 8:40:51 AM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable_24.09.2019.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable_24.09.2019.json
+Sep 24, 2019 9:29:48 AM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable_24.09.2019.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable_24.09.2019.json
+Sep 24, 2019 9:33:21 AM serializer.SerializerIO loadJson
+SEVERE: Unexpected character ('#' (code 35)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: (FileInputStream); line: 1, column: 2]
+Specified Path: /home/sugar/IdeaProjects/studimanager/README.md
+Sep 24, 2019 10:01:44 AM serializer.SerializerIO loadJson
+SEVERE: Unexpected character ('.' (code 46)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: (FileInputStream); line: 1, column: 2]
+Specified Path: /home/sugar/IdeaProjects/studimanager/src/main.css
+Sep 24, 2019 3:56:49 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 24, 2019 3:57:09 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 24, 2019 5:57:11 PM serializer.SerializerIO loadJson
+SEVERE: Unexpected character ('#' (code 35)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: (FileInputStream); line: 1, column: 2]
+Specified Path: /home/sugar/IdeaProjects/studimanager/README.md
+Sep 24, 2019 6:15:11 PM guiCalendar.create.timetable.TimetableController lambda$makeForm$1
+SEVERE: Couldn't create new Timetable
+
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/guiCalendar/calendar/layoutCalendar.fxml
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/Main/Main.fxml:42
+
+Sep 24, 2019 6:17:16 PM guiCalendar.create.timetable.TimetableController lambda$makeForm$1
+SEVERE: Couldn't create new Timetable
+
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/guiCalendar/calendar/layoutCalendar.fxml
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/Main/Main.fxml:42
+
+Sep 25, 2019 10:48:46 AM guiCalendar.info.ControllerLectureInfo$2 handle
+SEVERE: Couldn't open 'Select Lecture' window.
+
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/guiCalendar/edit/layoutLectureEdit.fxml
+
+Sep 25, 2019 10:49:29 AM guiCalendar.info.ControllerLectureInfo$2 handle
+SEVERE: Couldn't open 'Select Lecture' window.
+
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/guiCalendar/edit/layoutLectureEdit.fxml
+
+Sep 25, 2019 10:49:57 AM guiCalendar.info.ControllerLectureInfo$2 handle
+SEVERE: Couldn't open 'Select Lecture' window.
+
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/guiCalendar/edit/layoutLectureEdit.fxml
+
+Sep 25, 2019 10:52:58 AM guiCalendar.info.ControllerLectureInfo$2 handle
+SEVERE: Couldn't open 'Select Lecture' window.
+
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/guiCalendar/edit/layoutLectureEdit.fxml
+
+Sep 25, 2019 12:45:02 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 25, 2019 12:45:22 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 25, 2019 12:45:28 PM serializer.SerializerIO loadJson
+SEVERE: Unexpected character ('>' (code 62)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: (FileInputStream); line: 1, column: 2]
+Specified Path: /home/sugar/IdeaProjects/studimanager/exceptionReminder.txt

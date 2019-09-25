@@ -3,12 +3,10 @@
 
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane fx:id="li_anchorPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiCalendar.info.ControllerLectureInfo">
-    <children>
-        <ScrollPane fx:id="li_scrollPane" fitToWidth="true" fitToHeight="true">
-            <content>
+<AnchorPane fx:id="li_anchorPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1"
+            styleClass="background-color" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiCalendar.info.ControllerLectureInfo">
+        <ScrollPane fx:id="li_scrollPane" fitToWidth="true" fitToHeight="true"
+                AnchorPane.topAnchor="8.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0">
 
-            </content>
         </ScrollPane>
-    </children>
 </AnchorPane>

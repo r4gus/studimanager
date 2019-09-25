@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import sample.Main;
+import Main.Main;
 
 import java.net.URL;
 import java.time.LocalDate;

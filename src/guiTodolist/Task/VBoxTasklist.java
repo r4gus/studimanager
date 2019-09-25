@@ -16,13 +16,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
-import sample.Main;
+import Main.Main;
 import todolist.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * The <code>ControllerTask</code> object represents the controller of the Gui CreateTask.
@@ -305,7 +304,7 @@ public class VBoxTasklist extends VBox {
         MyLogger.LOGGER.entering(getClass().toString(), "generateContextMenuItems", new Object[]{contextMenuEditTask, todoList});
         MenuItem menuItemNewTask = new MenuItem(Main.getBundle().getString("newTask"));
         generateAddTaskFunction(menuItemNewTask, todoList);
-        MenuItem menuItemEditList = new MenuItem(Main.getBundle().getString("EditList"));
+        MenuItem menuItemEditList = new MenuItem(Main.getBundle().getString("EditList"));           //derzeit nicht in verwendung
         Menu menuItemSort = new Menu(Main.getBundle().getString("SortBy"));
         MenuItem subMmenuItemSortDate = new MenuItem(Main.getBundle().getString("byDueDate"));
         MenuItem subMmenuItemSortAlphabet = new MenuItem(Main.getBundle().getString("Alphabetical"));
@@ -316,7 +315,7 @@ public class VBoxTasklist extends VBox {
         menuItemSort.getItems().addAll(subMmenuItemSortDate, subMmenuItemSortAlphabet, subMmenuItemSortPriority);
         MenuItem menuItemDeleteList = new MenuItem(Main.getBundle().getString("DeleteList"));
         generateDeleteFunction(menuItemDeleteList, todoList);
-        contextMenuEditTask.getItems().addAll(menuItemNewTask, menuItemEditList, menuItemSort, menuItemDeleteList);
+        contextMenuEditTask.getItems().addAll(menuItemNewTask, menuItemSort, menuItemDeleteList);
         MyLogger.LOGGER.exiting(getClass().toString(), "generateContextMenuItems");
     }
 

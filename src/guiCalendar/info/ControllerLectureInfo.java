@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -21,15 +22,17 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import logging.MyLogger;
-import sample.Main;
+import message.Notification;
+import Main.Main;
 import timetable.Lecture;
 import timetable.Lectures;
-import timetable.Note;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class ControllerLectureInfo implements Initializable, Updatable {
 
@@ -40,28 +43,23 @@ public class ControllerLectureInfo implements Initializable, Updatable {
 
     private Lectures lectures;
 
-    private static final String colHeadlines[] = {"Facility", "Lecturer"};
+    private static final String[] colHeadlines = {"Facility", "Lecturer", "Notes"};
 
     private Updatable parentController = null;
 
+    public Window getWindow() {
+        return li_anchorPane.getScene().getWindow();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        AnchorPane.setTopAnchor(li_scrollPane, 8.0);
-        AnchorPane.setBottomAnchor(li_scrollPane, 8.0);
-        AnchorPane.setLeftAnchor(li_scrollPane, 8.0);
-        AnchorPane.setRightAnchor(li_scrollPane, 8.0);
+        li_scrollPane.getStylesheets().add(getClass().getResource("/main.css").toExternalForm());
 
-        li_scrollPane.getStylesheets().add(getClass().getResource("../../main.css").toExternalForm());
-
-        li_anchorPane.getStyleClass().add("background-color");
-
-        /**
+        /*
          * Run makeAddButton and makeLectureAccordion on the JavaFX Application Thread at some time in the future.
          * Gives the calling method time to set the lectures member using {@code #setLectures(Lectures)}.
          */
-        Platform.runLater(() -> {
-            update();
-        });
+        Platform.runLater(this::update);
     }
 
     /**
@@ -76,7 +74,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             VBox vBox = new VBox();
             vBox.setSpacing(10);
 
-            vBox.getChildren().addAll(makeLectureAccordion(lectures), makeAddButton(lectures));
+            vBox.getChildren().addAll(makeLectureAccordion(lectures), makeButtonBox());
             li_scrollPane.setContent(vBox);
 
             /*
@@ -88,12 +86,32 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         MyLogger.LOGGER.exiting(getClass().toString(), "update");
     }
 
+    private HBox makeButtonBox() {
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.CENTER);
+        Region region = new Region();
+        region.prefWidth(1000.0);           // region is used as spacing between the two elements
+        HBox.setHgrow(region, Priority.ALWAYS);     // region must always grow and shrink when the window is resized
+        hBox.getChildren().addAll(makeAddButton(lectures), region, makeApplyButton());
+
+        return hBox;
+    }
+
+    private Button makeApplyButton() {
+        Button button = new Button(Main.getBundle().getString("Apply"));
+        button.setOnAction(e -> {
+            Stage stage = (Stage) li_anchorPane.getScene().getWindow();
+            stage.close();
+        });
+        return button;
+    }
+
     private MenuButton makeAddButton(Lectures unit) {
         MenuItem newButton = new MenuItem(Main.getBundle().getString("New"));
         MenuItem existingButton = new MenuItem(Main.getBundle().getString("Existing"));
 
         ControllerLectureInfo parent = this;
-        newButton.setOnAction(new EventHandler<ActionEvent>() {
+        newButton.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
@@ -118,7 +136,9 @@ public class ControllerLectureInfo implements Initializable, Updatable {
                     // show window
                     stage.show();
                 } catch (IOException exc) {
-                    exc.printStackTrace();
+                    MyLogger.LOGGER.log(Level.SEVERE, "Couldn't open 'New Lecture' window.\n" + exc.getMessage());
+                    Notification.showAlertWindow(Alert.AlertType.ERROR, li_anchorPane.getScene().getWindow(),
+                            "Oops", Main.getBundle().getString("Oops"));
                 }
             }
         });
@@ -146,7 +166,9 @@ public class ControllerLectureInfo implements Initializable, Updatable {
                 // show window
                 stage.show();
             } catch (IOException exc) {
-                exc.printStackTrace();
+                MyLogger.LOGGER.log(Level.SEVERE, "Couldn't open 'Select Lecture' window.\n" + exc.getMessage());
+                Notification.showAlertWindow(Alert.AlertType.ERROR, li_anchorPane.getScene().getWindow(),
+                        "Oops", Main.getBundle().getString("Oops"));
             }
         });
 
@@ -178,7 +200,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
     }
 
     /**
-     * Creates and returns a JavaFx {@cod GridPane} object that contains all relevant information about a {@link Lecture}.
+     * Creates and returns a JavaFx {@code GridPane} object that contains all relevant information about a {@link Lecture}.
      * @param lecture The {@code Lecture} object to process.
      * @return GridPane object.
      */
@@ -193,8 +215,10 @@ public class ControllerLectureInfo implements Initializable, Updatable {
 
         // sets the specified constraints and also automatically resize the grid
         ColumnConstraints col50 = new ColumnConstraints();
+        ColumnConstraints col25 = new ColumnConstraints();
         col50.setPercentWidth(50.0);
-        gridPane.getColumnConstraints().addAll(col50, col50);
+        col25.setPercentWidth(25.0);
+        gridPane.getColumnConstraints().addAll(col25, col25, col50);
 
         gridPane.setHgap(5);
         gridPane.setVgap(5);
@@ -204,7 +228,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
          */
         Button editButton = new Button(Main.getBundle().getString("Edit"));
         ControllerLectureInfo parent = this;
-        editButton.setOnAction(new EventHandler<ActionEvent>() {
+        editButton.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
@@ -230,7 +254,9 @@ public class ControllerLectureInfo implements Initializable, Updatable {
                     // show window
                     stage.show();
                 } catch (IOException exc) {
-                    exc.printStackTrace();
+                    MyLogger.LOGGER.log(Level.SEVERE, "Couldn't open 'Select Lecture' window.\n" + exc.getMessage());
+                    Notification.showAlertWindow(Alert.AlertType.ERROR, li_anchorPane.getScene().getWindow(),
+                            "Oops", Main.getBundle().getString("Oops"));
                 }
             }
         });
@@ -240,37 +266,39 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         hButtonBox.setPadding(new Insets(10, 10, 10, 0));
 
         Button deleteButton = new Button(Main.getBundle().getString("Delete"));
-        deleteButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                try {
-                    if (!unit.removeLecture(lecture)) {
-                        /*
-                        error message
-                         */
-                    }
-                } catch (IllegalArgumentException exc) {
-                    /*
-                    error message
-                     */
-                } finally {
-                    update();
+        deleteButton.setOnAction(actionEvent -> {
+            try {
+                if (!unit.removeLecture(lecture)) {
+                    Notification.showInfo(Main.getBundle().getString("NotAbleToDelete"), "",
+                            li_anchorPane.getScene().getWindow());
                 }
+            } catch (IllegalArgumentException exc) {
+                MyLogger.LOGGER.log(Level.SEVERE, "Bad argument passed to removeLecure()!\n" + exc.getMessage());
+            } finally {
+                update();
             }
         });
         deleteButton.getStyleClass().addAll("delete-button", "delete-button:hover");
 
         Button setAsHeadButton = new Button(Main.getBundle().getString("Display"));
         if(unit.getHead().equals(lecture)) setAsHeadButton.setDisable(true);
-        setAsHeadButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                unit.setHead(lecture);
-                update();
-            }
+        setAsHeadButton.setOnAction(actionEvent -> {
+            unit.setHead(lecture);
+            update();
         });
 
-        hButtonBox.getChildren().addAll(editButton, deleteButton, setAsHeadButton);
+        ColorPicker colorPicker = new ColorPicker();
+        colorPicker.setValue(lecture.getColor());
+        colorPicker.setOnAction(e -> {
+            lecture.setColor(colorPicker.getValue());
+            parentController.update();
+        });
+
+        Region region = new Region();
+        region.prefWidth(1000.0);
+        HBox.setHgrow(region, Priority.ALWAYS);
+
+        hButtonBox.getChildren().addAll(editButton, deleteButton, region, setAsHeadButton, colorPicker);
         gridPane.add(hButtonBox, 0, 0, 4, 1);
 
 
@@ -285,7 +313,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             t.setFont(new Font(ControllerCalendar.MEDIUM_FONT_SIZE));
             p.getStyleClass().add("heading-background");
 
-            gridPane.setHalignment(t, HPos.CENTER);
+            GridPane.setHalignment(t, HPos.CENTER);
             gridPane.add(p, i, 1);
             gridPane.add(t, i, 1);
         }
@@ -294,7 +322,7 @@ public class ControllerLectureInfo implements Initializable, Updatable {
         ########################## ADD LECTURE INFO ######################################################
          */
         // facility
-        TreeView<String> facility = new TreeView<String>();
+        TreeView<String> facility = new TreeView<>();
         if (lecture.getFacility() != null) {
             TreeItem<String> facilityRootItem = new TreeItem<>(lecture.getFacility().toString());
             TreeItem<String> t_building = new TreeItem<>(Main.getBundle().getString("Building") + ": " + lecture.getFacility().getBuilding());
@@ -337,29 +365,13 @@ public class ControllerLectureInfo implements Initializable, Updatable {
             lecturer.setRoot(lecturerRootItem);
         }
 
-/*
-        // elective
-        Text elective = (lecture.isElective() ? new Text(Main.getBundle().getString("True")) : new Text(Main.getBundle().getString("False")));
-        gridPane.setHalignment(elective, HPos.CENTER);
-
         // notes
-        TreeView<String> notes = new TreeView<>();
-        TreeItem<String> notesRootItem = new TreeItem<>(Main.getBundle().getString("Notes"));
-        for (int j = 0; j < lecture.getNotes().size(); j++) {
-            Note note = lecture.getNotes().getElement(j);
+        TextArea notes = new TextArea();
+        notes.setText(lecture.getWhiteBoard());
+        notes.textProperty().addListener(e -> lecture.setWhiteBoard(notes.getText()));
 
-            TreeItem<String> t_title = new TreeItem<>(note.getTitle());
-            TreeItem<String> t_body = new TreeItem<>(note.getBody());
-            t_title.getChildren().add(t_body);
-            notesRootItem.getChildren().add(t_title);
-        }
-        notes.setRoot(notesRootItem);
-        notes.setShowRoot(false);
 
-        gridPane.addRow(2, facility, lecturer, elective, notes);
-*/
-
-        gridPane.addRow(2, facility, lecturer);
+        gridPane.addRow(2, facility, lecturer, notes);
 
         MyLogger.LOGGER.exiting(getClass().toString(), "makeLectureGrid", gridPane);
         return gridPane;

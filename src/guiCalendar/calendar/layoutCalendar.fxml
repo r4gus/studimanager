@@ -4,7 +4,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.ScrollPane?>
 <AnchorPane fx:id="tt_anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiCalendar.calendar.ControllerCalendar">
-   <children>
-   </children>
+        <Label fx:id="date" AnchorPane.topAnchor="25.0" AnchorPane.leftAnchor="8.0" >
+            <font><Font size="25"/></font>
+        </Label>
+
+        <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" AnchorPane.topAnchor="85.0"
+                AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0">
+
+        </ScrollPane>
 </AnchorPane>

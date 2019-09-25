@@ -20,17 +20,13 @@
          </children>
       </HBox>
       <HBox fx:id="hboxToDoLists" layoutX="116.0" layoutY="265.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="140.0" />
-      <HBox alignment="CENTER_LEFT" layoutX="50.0" layoutY="88.0" prefHeight="35.0" prefWidth="713.0" spacing="10.0" style="-fx-background-color: #FFFFFF;" styleClass="hBox" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="95.0">
+      <HBox alignment="CENTER_LEFT"  layoutX="50.0" layoutY="88.0" prefHeight="35.0" prefWidth="713.0" spacing="10.0" style="-fx-background-color: #FFFFFF;" styleClass="hBox" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="95.0">
          <children>
-            <Button fx:id="buttonEditBoard" mnemonicParsing="false">
+            <Button  fx:id="buttonEditCanBan" mnemonicParsing="false" onAction="#createNewSection" prefHeight="25.0" prefWidth="67.0" styleClass="add-button">
                <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Button>
-            <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <Button fx:id="buttonEditCanBan" mnemonicParsing="false" onAction="#createNewSection" prefHeight="25.0" prefWidth="67.0" styleClass="add-button">
-               <HBox.margin>
-                  <Insets />
+                  <Insets>
+                     <left>10</left>
+                  </Insets>
                </HBox.margin>
             </Button>
             <AlphaNumTextField fx:id="textFieldHeaderToDoList" prefHeight="30.0" prefWidth="200.0"  >

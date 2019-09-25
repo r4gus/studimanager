@@ -1,4 +1,4 @@
-package sample;
+package Main;
 
 
 import config.Config;
@@ -17,20 +17,21 @@ import serializer.TimetableObjectCollection;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main extends Application {
 
     private static Stage primaryStage;
 
-    public static final String fxml = "sample.fxml";
+    public static final String fxml = "Main.fxml";
 
     private static final String RESOURCE_BUNDLE_PATH = "files/";
 
-    public static final int WIDTH = 1000;
+    public static final int WIDTH = 1280;
+    public static final int HEIGHT = 960;
+    public static final int MIN_WIDTH = 600;
+    public static final int MIN_HEIGHT = 400;
 
-    public static final int HEIGHT = 700;
 
     public static final String TITLE = "Studimanager";
 
@@ -84,8 +85,10 @@ public class Main extends Application {
             Parent root = FXMLLoader.load(getClass().getResource(Main.fxml));
             primaryStage.setTitle(Main.TITLE);
             primaryStage.setScene(new Scene(root, Main.WIDTH , Main.HEIGHT));
+            primaryStage.setMinWidth(MIN_WIDTH);
+            primaryStage.setMinHeight(MIN_HEIGHT);
             primaryStage.show();
-        } catch (IOException exc) {
+        } catch (Exception exc) {
             /* ------------------------- OPEN WELCOME SCREEN ON FAILURE -------------------- */
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/guiCalendar/welcome_screen/layoutWelcomeScreen.fxml"));
             Parent root = loader.load();
@@ -98,6 +101,7 @@ public class Main extends Application {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(Main.getPrimaryStage());
             stage.show();
+
         }
     }
 

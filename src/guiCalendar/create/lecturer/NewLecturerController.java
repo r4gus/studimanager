@@ -1,42 +1,73 @@
 package guiCalendar.create.lecturer;
 
-import guiCalendar.Updatable;
+import config.Language;
+import guiCalendar.IFacility;
+import guiCalendar.ILecturer;
 import guiCalendar.calendar.ControllerCalendar;
 import guiCalendar.create.facility.NewFacilityController;
-import input.elements.combobox.ComboBox;
 import input.elements.textfield.TextField;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
-import sample.Main;
+import Main.Main;
+import message.Notification;
 import timetable.Facility;
-import timetable.Lecture;
+import timetable.Lecturer;
 import timetable.Timetable;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
-public class NewLecturerController implements Initializable, Updatable {
+public class NewLecturerController implements Initializable, IFacility {
     private final Timetable timetable = ControllerCalendar.getTimetable();
+
     @FXML
     private GridPane newLecturer_grid;
-    private Updatable parentController = null;
+
+    @FXML
+    private Text newLecturerTitle;
+
+    @FXML
+    private Label firstNameTitle;
+
+    @FXML
+    private TextField firstNameTextField;
+
+    @FXML
+    private Label lastNameTitle;
+
+    @FXML
+    private TextField lastNameTextField;
+
+    @FXML
+    private Label eMailTitle;
+
+    @FXML
+    private TextField eMailTextField;
+
+    @FXML
+    private Label facilityTitle;
+
+    @FXML
+    public ComboBox<Facility> facilityComboBox;
+
+    @FXML
+    private Button newFacility;
+
+    @FXML
+    private Button create;
+
+    private ILecturer parentController = null;
 
     /* ################## PRESERVED FIELDS ########################### */
     private String preservedFirstName = null;
@@ -49,191 +80,109 @@ public class NewLecturerController implements Initializable, Updatable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         newLecturer_grid.getStylesheets().add(getClass().getResource("../../../main.css").toExternalForm());
-
-        adjustGridPane(newLecturer_grid);
-
-        /**
-         * Run {@code populateGrid} on the JavaFX Application Thread at some time in the future.
-         * Gives the calling method time to set the lectures member using {@link #setLecture(Lecture)}
-         */
-        Platform.runLater(() -> {
-            update();
-        });
-
-
-    }
-
-    public void update() {
-        makeForm(newLecturer_grid);
+        setLanguage();
+        populateFacilityComboBox();
+        update();
     }
 
     /**
-     * Setup the specified {@link GridPane}. All adjustments to the gridPane should be made within this method to
-     * keep everything at one place.
-     *
-     * @param gridPane The {@link GridPane} to adjust.
+     * Set the text for all elements depending on the language {@link Language} settings specified
+     * in {@link config.Config}.
      */
-    private void adjustGridPane(GridPane gridPane) {
-        MyLogger.LOGGER.entering(getClass().toString(), "adjustGridPane", gridPane);
-
-        gridPane.setHgap(10);
-        gridPane.setVgap(10);
-        gridPane.setPadding(new Insets(25, 25, 25, 25));
-        gridPane.setAlignment(Pos.CENTER);
-
-        MyLogger.LOGGER.exiting(getClass().toString(), "adjustGridPane");
+    private void setLanguage() {
+        newLecturerTitle.setText(Main.getBundle().getString("NewLecturer"));
+        firstNameTitle.setText(Main.getBundle().getString("FirstName") + ":");
+        lastNameTitle.setText(Main.getBundle().getString("LastName") + ":");
+        eMailTitle.setText(Main.getBundle().getString("EMail") + ":");
+        facilityTitle.setText(Main.getBundle().getString("Facility") + ":");
+        newFacility.setText(Main.getBundle().getString("New"));
+        create.setText(Main.getBundle().getString("Create"));
     }
 
-    private void makeForm(GridPane gridPane) {
-        MyLogger.LOGGER.entering(getClass().toString(), "makeForm", gridPane);
+    private void setFields() {
+        if (preservedFirstName != null) firstNameTextField.setText(preservedFirstName);
+        if (preservedLastName != null) lastNameTextField.setText(preservedLastName);
+        if (preservedEmail != null) eMailTextField.setText(preservedEmail);
+        if (preservedFacility != null) facilityComboBox.getSelectionModel().select(preservedFacility);
+    }
 
-        Text sceneTitle = new Text(Main.getBundle().getString("New") + " " + Main.getBundle().getString("Lecturer"));
-        sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        gridPane.add(sceneTitle, 0, 0, 2, 1);
+    public void update() {
+        setFields();
+    }
 
-        /*
-        -------------- FIRST NAME -------------------------------------
-         */
-        Label firstNameTitle = new Label(Main.getBundle().getString("FirstName") + ":");
-        gridPane.add(firstNameTitle, 0, 1);
-
-        input.elements.textfield.TextField firstNameTextfield = new input.elements.textfield.TextField();
-        if (preservedFirstName != null) firstNameTextfield.setText(preservedFirstName);
-        gridPane.add(firstNameTextfield, 1, 1);
-
-        /*
-        -------------- LAST NAME --------------------------------
-         */
-        Label lastNameTitle = new Label(Main.getBundle().getString("LastName") + ":");
-        gridPane.add(lastNameTitle, 0, 2);
-
-        input.elements.textfield.TextField lastNameTextfield = new input.elements.textfield.TextField();
-        if (preservedLastName != null) lastNameTextfield.setText(preservedLastName);
-        gridPane.add(lastNameTextfield, 1, 2);
-
-        /*
-        -------------- E-MAIL --------------------------------
-         */
-        Label emailTitle = new Label(Main.getBundle().getString("EMail") + ":");
-        gridPane.add(emailTitle, 0, 3);
-
-        TextField emailTextfield = new TextField();
-        if (preservedEmail != null) emailTextfield.setText(preservedEmail);
-        gridPane.add(emailTextfield, 1, 3);
-
-
-        /*
-        ------------- FACILITY ---------------------------------
-         */
-        Label facilityTitle = new Label(Main.getBundle().getString("Facility") + ":");
-        gridPane.add(facilityTitle, 0, 4);
-
-        ComboBox<Facility> facilityComboBox = new ComboBox<>();
+    private void populateFacilityComboBox() {
         for (int i = 0; i < timetable.getFACILITIES().getSize(); i++) {                  // add already existing facilities
             Facility facility = timetable.getFACILITIES().getElement(i);                // as choices to the ComboBox
 
             facilityComboBox.getItems().add(facility);
         }
-        if (preservedFacility != null) facilityComboBox.getSelectionModel().select(preservedFacility);
-        gridPane.add(facilityComboBox, 1, 4);
-
-
-
-
-        /*
-        ------------- SUBMIT BUTTON --------------------------------
-         */
-
-        Button createButton = new Button(Main.getBundle().getString("Create"));
-
-        createButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                String lastName = null;
-                String firstName = null;
-                String email = null;
-                Facility facility = null;
-
-                /*
-                ------------- GET VALUES ----------------------------------------------
-                 */
-                if (lastNameTextfield.getText().isEmpty()) {
-                    lastNameTextfield.showError(Main.getBundle().getString("EnterLastName"));
-                    return;
-                } else {
-                    lastName = lastNameTextfield.getText();
-                }
-
-                firstName = firstNameTextfield.getText();
-
-                email = emailTextfield.getText();
-
-                facility = facilityComboBox.getValue();
-
-                /*
-                ------------------- CREATE LECTURE --------------------------------
-                 */
-
-                timetable.newLecturer(firstName, lastName, email, facility);
-
-                /*
-                ------------------ CLOSE WINDOW -----------------------------------
-                 */
-
-                Stage stage = (Stage) gridPane.getScene().getWindow();
-                parentController.update();
-                stage.close();
-            }
-        });
-        gridPane.add(createButton, 0, 5, 3, 1);
-
-        /*
-        ---------------------------- NEW FACILITY BUTTON ---------------------------------
-         */
-        Button addFacilityButton = new Button(Main.getBundle().getString("New"));
-        addFacilityButton.getStyleClass().addAll("add-button", "add-button:hover");
-
-        Updatable parent = this;
-        addFacilityButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                try {
-                    // load info-page scene
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/guiCalendar/create/facility/layoutNewFacility.fxml"));
-                    Parent root = loader.load();
-
-                    /*------------- PRESERVE ALREADY ENTERED FIELDS ------------------------ */
-                    preservedFirstName = firstNameTextfield.getText();
-                    preservedLastName = lastNameTextfield.getText();
-                    preservedEmail = emailTextfield.getText();
-                    preservedFacility = facilityComboBox.getValue();
-
-                    // get controller
-                    NewFacilityController newFacilityController = loader.getController();
-                    // pass Lectures object
-                    newFacilityController.setParentController(parent);
-
-                    // show info-page scene
-                    Stage stage = new Stage();
-                    stage.setScene(new Scene(root));
-                    stage.setTitle(Main.getBundle().getString("New") + " " + Main.getBundle().getString("Facility"));
-
-                    // prevents interaction with the primary stage until the new window is closed.
-                    stage.initModality(Modality.WINDOW_MODAL);
-                    stage.initOwner(gridPane.getScene().getWindow());
-                    stage.setResizable(false);
-                    stage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        gridPane.add(addFacilityButton, 2, 4);
-
-        MyLogger.LOGGER.exiting(getClass().toString(), "makeForm");
     }
 
-    public void setParentController(Updatable c) {
+    @FXML
+    public void handleNewFacilityButtonAction() {
+        /*------------- PRESERVE ALREADY ENTERED FIELDS ------------------------ */
+        preservedFirstName = firstNameTextField.getText();
+        preservedLastName = lastNameTextField.getText();
+        preservedEmail = eMailTextField.getText();
+        preservedFacility = facilityComboBox.getValue();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/guiCalendar/create/facility/layoutNewFacility.fxml"));
+        try {
+            Parent root = loader.load();
+            NewFacilityController newFacilityController = loader.getController();
+            newFacilityController.setParentController(this);
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle(Main.getBundle().getString("NewFacility"));
+
+            // prevents interaction with the primary stage until the new window is closed.
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(newLecturer_grid.getScene().getWindow());
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            MyLogger.LOGGER.log(Level.SEVERE, e.getMessage());
+            Notification.showAlertWindow(Alert.AlertType.ERROR, Main.getPrimaryStage(),
+                    "Error", "Severe Error! fxml file missing.");
+        }
+    }
+
+    @FXML
+    public void handleCreateButtonAction() {
+        String lastName;
+        String firstName;
+        String email;
+        Facility facility;
+
+       if (lastNameTextField.getText().isEmpty()) {
+            lastNameTextField.showError(Main.getBundle().getString("EnterLastName"));
+            return;
+        } else {
+            lastName = lastNameTextField.getText();
+        }
+
+        firstName = firstNameTextField.getText();
+
+        email = eMailTextField.getText();
+
+        facility = facilityComboBox.getValue();
+
+        Lecturer l = timetable.newLecturer(firstName, lastName, email, facility);
+
+        Stage stage = (Stage) newLecturer_grid.getScene().getWindow();
+        parentController.setLecturer(l);
+        parentController.update();
+        stage.close();
+    }
+
+    public void setParentController(ILecturer c) {
         this.parentController = c;
     }
+
+    public void setFacility(Facility facility) {
+        this.preservedFacility = facility;
+        this.facilityComboBox.getItems().add(facility);
+    }
+
 }

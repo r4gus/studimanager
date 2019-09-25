@@ -10,17 +10,17 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.layout.HBox?>
-<VBox fx:id="main_vbox" prefHeight="400.0" prefWidth="640.0" stylesheets="@../main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<VBox fx:id="main_vbox" prefHeight="400.0" prefWidth="640.0" stylesheets="@../main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
+            <MenuItem mnemonicParsing="false" text="New" fx:id="newTimetable"/>
+            <MenuItem mnemonicParsing="false" text="Open…" fx:id="openTimetable"/>
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Save" fx:id="saveButton"/>
-            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Save As…" fx:id="saveAsButton"/>
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Settings" fx:id="settingsButton"/>
             <SeparatorMenuItem mnemonicParsing="false" />
@@ -28,7 +28,7 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Help">
           <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+            <MenuItem mnemonicParsing="false" text="About" fx:id="about" onAction="#handleAboutButtonAction"/>
           </items>
         </Menu>
       </menus>
@@ -42,17 +42,17 @@
                     <fx:include source="../guiCalendar/calendar/layoutCalendar.fxml"/>
                   </content>
                 </Tab>
-                <Tab text="Klausuren - Übersicht">
-                  <content>
-                      <fx:include source="../guiExam/layoutExam.fxml"/>
-                  </content>
-                </Tab>
                   <Tab text="Task - ToDoList">
                     <content>
                       <fx:include source="../guiTodolist/layoutTodolist.fxml"/>
                     </content>
                   </Tab>
               </tabs>
+              <Tab text="Klausuren - Übersicht">
+                <content>
+                  <fx:include source="../guiExam/layoutExam.fxml"/>
+                </content>
+              </Tab>
             </TabPane>
       </children>
     </AnchorPane>

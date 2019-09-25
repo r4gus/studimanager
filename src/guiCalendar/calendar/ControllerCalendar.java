@@ -20,7 +20,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
-import sample.Main;
+import Main.Main;
 import timetable.*;
 
 import java.io.IOException;
@@ -34,16 +34,21 @@ public class ControllerCalendar implements Initializable, Updatable {
 
     private static Timetable timetable = null;
 
-    private final static String DAYS[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+    private final static String[] DAYS = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
     private static final int BIG_FONT_SIZE = 22;
     public static final int MEDIUM_FONT_SIZE = 16;
-    public static final int SMALL_FONT_SIZE = 12;
     private double COLUMN_PERCENTAGE_WIDTH = 100.0;
     private double ROW_PERCENTAGE_HEIGHT = 100.0;
 
     @FXML
     public AnchorPane tt_anchorPane;
+
+    @FXML
+    private Label date;
+
+    @FXML
+    private ScrollPane scrollPane;
 
 
 
@@ -53,9 +58,7 @@ public class ControllerCalendar implements Initializable, Updatable {
                 new Object[]{url, resourceBundle});
 
         /* load stylesheet */
-        tt_anchorPane.getStylesheets().add(getClass().getResource("guicalendar.css").toExternalForm());
         tt_anchorPane.getStylesheets().add(getClass().getResource("../../main.css").toExternalForm());
-
         tt_anchorPane.getStyleClass().add("background-color");
 
         COLUMN_PERCENTAGE_WIDTH = 100.0 / timetable.getDays();
@@ -66,79 +69,28 @@ public class ControllerCalendar implements Initializable, Updatable {
         MyLogger.LOGGER.exiting(getClass().toString(), "initialize");
     }
 
+    /**
+     * Updates the view.
+     */
     public void update() {
         MyLogger.LOGGER.entering(getClass().toString(), "update");
 
-        GridPane gridPane = new GridPane();
-        /* setup gridPane */
-        adjustGridPane(gridPane);
-
-        /* object for displaying time and date */
-        Text date = new Text(timetable.getDate());
-        date.setFont(new Font(BIG_FONT_SIZE));
-
-
-        /* anchor date */
-        AnchorPane.setTopAnchor(date, 25.0);
-        AnchorPane.setLeftAnchor(date, 8.0);
-
-        /* add elements */
-        setDays(gridPane, DAYS);  // add mon, tue , wed to the grid
-        setTime(gridPane);  // add the beginning and end of each lecture to the grid
-        populateGrid(gridPane);
-
-        /*
-        Prevent artefact's by only adding nodes to the anchorPane if necessary.
-         */
-        if(tt_anchorPane.getChildren().size() > 0) {
-            ScrollPane sp = (ScrollPane) tt_anchorPane.getChildren().get(0);
-            sp.setContent(gridPane);
-        } else {
-            ScrollPane scrollPane = new ScrollPane();
-            scrollPane.setFitToHeight(true);            // automatically resize contents height
-            scrollPane.setFitToWidth(true);             // automatically resize contents width
-
-            /* anchor gridPane */
-            AnchorPane.setTopAnchor(scrollPane, 85.0);
-            AnchorPane.setBottomAnchor(scrollPane, 8.0);
-            AnchorPane.setRightAnchor(scrollPane, 8.0);
-            AnchorPane.setLeftAnchor(scrollPane, 8.0);
-
-            scrollPane.setContent(gridPane);
-            tt_anchorPane.getChildren().add(scrollPane);
-            tt_anchorPane.getChildren().add(date);
-        }
+        date.setText(timetable.getDate());
+        scrollPane.setContent(buildCalendar());
 
         MyLogger.LOGGER.exiting(getClass().toString(), "update");
     }
 
-    private void sampleLectures() {
-        timetable = new Timetable(7, 2, 6);
-        Facility f1 = timetable.newFacility("G2", "0.23", "", "73434", "Aalen");
-        Facility f2 = timetable.newFacility("G2", "0.23", "", "73434", "Aalen");
-        Facility f3 = timetable.newFacility("G1", "1.44", "", "73434", "Aalen");
+    private GridPane buildCalendar() {
+        GridPane gridPane = new GridPane();
+        adjustGridPane(gridPane);
+        setDays(gridPane);  // add mon, tue , wed to the grid
+        setTime(gridPane);  // add the beginning and end of each lecture to the grid
+        populateGrid(gridPane);
 
-        Lecturer lect1 = timetable.newLecturer("Max", "Mustermann", "mustermann@hs-aalen.de", f1);
-        Lecturer lect2 = timetable.newLecturer("Max", "Mustermann", "", f2);
-        Lecturer lect3 = timetable.newLecturer("Maya", "Mustermann", "musterfrau@gmx.de", f3);
-
-        Lecture l1 = timetable.newLecture("Algorithmen", f1, lect1, false, null);
-        Lecture l2 = timetable.newLecture("Algorithmen", f2, lect2, false, null);
-        Lecture l3 = timetable.newLecture("OOP", f3, lect3, true, null);
-
-        l1.addNote(new Note("Finish the paper before Friday", "Do what you've been told!", null, true));
-        l1.addNote(new Note("Eat more vegetables!", "One apple a day keeps the doctor away.", null, true));
-
-        try {
-            timetable.addLecture(0, 0, l1);
-            timetable.addLecture(0,0, l3);
-            timetable.addLecture(1, 0, l1);
-            timetable.addLecture(3,2, l2);
-            timetable.addLecture(1,4, l3);
-        } catch (IllegalArgumentException exc) {
-            System.out.println("FUCK!");
-        }
+        return gridPane;
     }
+
 
     /**
      * Add all existing lectures to the specified gridPane. The Timetable.lectureMap maps from lectures
@@ -177,11 +129,11 @@ public class ControllerCalendar implements Initializable, Updatable {
 
         // get information about all lectures assigned to this unit as tooltip
         if(unit.getSize() > 0) {
-            String toolTip = "";
+            StringBuilder toolTip = new StringBuilder();
             for (Lecture l : unit.getContainer()) {
-                toolTip += l.getTitle() + ": " + l.getFacility() + "\n";
+                toolTip.append(l.getTitle()).append(": ").append(l.getFacility()).append("\n");
             }
-            Tooltip lectureTooltip = new Tooltip(toolTip);
+            Tooltip lectureTooltip = new Tooltip(toolTip.toString());
             button.setTooltip(lectureTooltip);
         }
 
@@ -206,6 +158,9 @@ public class ControllerCalendar implements Initializable, Updatable {
                     stage.setScene(new Scene(root));
                     stage.setTitle(ControllerCalendar.DAYS[day] + " - " +
                             unit.getFrom());
+
+                    stage.setMinWidth(550.0);
+                    stage.setMinHeight(550.0);
 
                     // prevents interaction with the primary stage until the new window is closed.
                     stage.initModality(Modality.WINDOW_MODAL);
@@ -257,6 +212,10 @@ public class ControllerCalendar implements Initializable, Updatable {
 
 
             button.setGraphic(vBox);                                // add vBox to button
+
+            /* ################### SET BACKGROUND COLOR ############################### */
+            button.setStyle("-fx-background-color: rgb(" + (head.getColor().getRed() * 255) + "," +
+                    (head.getColor().getGreen() * 255) + "," + (head.getColor().getBlue() * 255) +")");
         }
 
         return button;
@@ -275,7 +234,7 @@ public class ControllerCalendar implements Initializable, Updatable {
         gridPane.setHgap(5); // horizontal space between elements
         gridPane.setAlignment(Pos.TOP_LEFT); // alignment of the GridPane
         gridPane.setMinSize(1000.0, 700.0);
-        gridPane.setMaxSize(1300.0, 910.0);
+        gridPane.setMaxSize(1800.0, 1100.0);
 
         //gridPane.setGridLinesVisible(true);
 
@@ -302,15 +261,14 @@ public class ControllerCalendar implements Initializable, Updatable {
      *
      * After calling this function the first row should look something like:
      * Mon | Tue | Wed | ... | Sat
+     *  @param gridPane The {@link GridPane} to add the elements to.
      *
-     * @param gridPane The {@link GridPane} to add the elements to.
-     * @param days String array holding "Monday", "Tuesday", ...
      */
-    private void setDays(GridPane gridPane, String days[]) {
+    private void setDays(GridPane gridPane) {
         MyLogger.LOGGER.entering(getClass().toString(), "setDays");
 
         for(int i = 0; i < timetable.getDays(); i++) {
-            Text t = new Text(Main.getBundle().getString(days[i]));
+            Text t = new Text(Main.getBundle().getString(ControllerCalendar.DAYS[i]));
             t.setFont(new Font(BIG_FONT_SIZE)); // set font size
             GridPane.setHalignment(t, HPos.CENTER); // center node (text object)
             gridPane.add(t, i+1, 0);  // add to gridPane

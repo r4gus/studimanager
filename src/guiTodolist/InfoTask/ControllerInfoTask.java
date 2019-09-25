@@ -17,7 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logging.MyLogger;
-import sample.Main;
+import Main.Main;
 import todolist.Task;
 import todolist.TaskCheckListItem;
 
@@ -233,9 +233,9 @@ public class ControllerInfoTask implements Initializable {
 
         MyLogger.LOGGER.entering(getClass().toString(), "initializePriority");
         String filepath;
-        if (task.getPriority() == "Hoch") {
+        if (task.getPriority().equals("Hoch")) {
             filepath = filepathHigh;
-        } else if (task.getPriority() == "Mittel") {
+        } else if (task.getPriority().equals("Mittel") ) {
             filepath = filepathMiddle;
         } else {
             filepath = filepathLow;

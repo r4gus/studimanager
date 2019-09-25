@@ -1,11 +1,10 @@
 package exam;
 
-import custom_exceptions.UserException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import logging.MyLogger;
+
 import java.util.ArrayList;
-import java.util.logging.Level;
 
 /**
  * The <code>ExamList</code> object represents a list of exams written at the end of a semester.

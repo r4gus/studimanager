@@ -3,9 +3,7 @@ package message;
 import javafx.geometry.Pos;
 import javafx.scene.image.ImageView;
 import javafx.stage.Window;
-import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
-import sample.Main;
 
 public class Notification {
     public static void showAlertWindow(javafx.scene.control.Alert.AlertType alertType, Window owner, String title, String message) {

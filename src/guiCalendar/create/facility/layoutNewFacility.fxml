@@ -2,9 +2,36 @@
 
 
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Label?>
+<?import input.elements.textfield.AlphaNumTextField?>
+<?import input.elements.textfield.IntTextField?>
+<?import javafx.scene.control.Button?>
 <GridPane xmlns:fx="http://javafx.com/fxml/1" fx:id="newFacility_grid" prefHeight="300.0" prefWidth="450.0"
-          xmlns="http://javafx.com/javafx/11.0.1" fx:controller="guiCalendar.create.facility.NewFacilityController">
-    <children>
+          hgap="10" vgap="10" alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="guiCalendar.create.facility.NewFacilityController">
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
 
-    </children>
+    <Text fx:id="sceneTitle" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2">
+        <font><Font size="20"/></font>
+    </Text>
+
+    <Label fx:id="buildingTitle" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <AlphaNumTextField length="20" fx:id="buildingTextfield" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <Label fx:id="roomTitle" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <AlphaNumTextField length="20" fx:id="roomTextfield" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <Label fx:id="streetTitle" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <AlphaNumTextField length="20" fx:id="streetTextfield" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+    <Label fx:id="zipCodeTitle" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <IntTextField length="5" IntZero="true" fx:id="zipCodeTextfield" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+    <Label fx:id="cityTitle" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <AlphaNumTextField length="20" fx:id="cityTextfield" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+    <Button fx:id="submit" onAction="#handleSubmitButtonAction" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+
 </GridPane>
