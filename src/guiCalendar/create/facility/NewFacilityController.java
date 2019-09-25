@@ -2,11 +2,9 @@ package guiCalendar.create.facility;
 
 import config.Language;
 import guiCalendar.IFacility;
-import guiCalendar.Updatable;
 import guiCalendar.calendar.ControllerCalendar;
 import input.elements.textfield.AlphaNumTextField;
 import input.elements.textfield.IntTextField;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -89,7 +87,7 @@ public class NewFacilityController implements Initializable {
     }
 
     @FXML
-    public void handleSubmitButtonAction(ActionEvent actionEvent) {
+    public void handleSubmitButtonAction() {
         String building = null, room = null, street, zipCode, city;
         boolean valid = true;
 
@@ -113,7 +111,7 @@ public class NewFacilityController implements Initializable {
 
         city = cityTextfield.getText();
 
-        Facility facility = null;
+        Facility facility;
         if(valid)
             facility = timetable.newFacility(building, room, street, zipCode, city);
         else

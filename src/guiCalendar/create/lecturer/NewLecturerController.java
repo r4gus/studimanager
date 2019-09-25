@@ -6,7 +6,6 @@ import guiCalendar.ILecturer;
 import guiCalendar.calendar.ControllerCalendar;
 import guiCalendar.create.facility.NewFacilityController;
 import input.elements.textfield.TextField;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -120,7 +119,7 @@ public class NewLecturerController implements Initializable, IFacility {
     }
 
     @FXML
-    public void handleNewFacilityButtonAction(ActionEvent actionEvent) {
+    public void handleNewFacilityButtonAction() {
         /*------------- PRESERVE ALREADY ENTERED FIELDS ------------------------ */
         preservedFirstName = firstNameTextField.getText();
         preservedLastName = lastNameTextField.getText();
@@ -150,7 +149,7 @@ public class NewLecturerController implements Initializable, IFacility {
     }
 
     @FXML
-    public void handleCreateButtonAction(ActionEvent actionEvent) {
+    public void handleCreateButtonAction() {
         String lastName;
         String firstName;
         String email;

@@ -9,7 +9,6 @@ import guiCalendar.create.facility.NewFacilityController;
 import guiCalendar.create.lecturer.NewLecturerController;
 import input.elements.combobox.ComboBox;
 import input.elements.textfield.TextField;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -134,7 +133,7 @@ public class NewLectureController implements Initializable, IFacility, ILecturer
     }
 
     @FXML
-    public void handleCreateButtonAction(ActionEvent actionEvent) {
+    public void handleCreateButtonAction() {
         String title;
         boolean isElective;
         Facility facility = null;
@@ -173,7 +172,7 @@ public class NewLectureController implements Initializable, IFacility, ILecturer
     }
 
     @FXML
-    public void handleNewFacilityButtonAction(ActionEvent actionEvent) {
+    public void handleNewFacilityButtonAction() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/guiCalendar/create/facility/layoutNewFacility.fxml"));
             Parent root = loader.load();
@@ -202,7 +201,7 @@ public class NewLectureController implements Initializable, IFacility, ILecturer
     }
 
     @FXML
-    public void handleNewLecturerButtonAction(ActionEvent actionEvent) {
+    public void handleNewLecturerButtonAction() {
         try {
             // load info-page scene
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/guiCalendar/create/lecturer/layoutNewLecturer.fxml"));
