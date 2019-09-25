@@ -1365,3 +1365,13 @@ SEVERE: Couldn't open 'Select Lecture' window.
 
 /home/sugar/IdeaProjects/studimanager/out/production/studimanager/guiCalendar/edit/layoutLectureEdit.fxml
 
+Sep 25, 2019 12:45:02 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 25, 2019 12:45:22 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/files/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/files/timetable.json
+Sep 25, 2019 12:45:28 PM serializer.SerializerIO loadJson
+SEVERE: Unexpected character ('>' (code 62)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: (FileInputStream); line: 1, column: 2]
+Specified Path: /home/sugar/IdeaProjects/studimanager/exceptionReminder.txt
