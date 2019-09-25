@@ -1345,3 +1345,23 @@ SEVERE: Couldn't create new Timetable
 /home/sugar/IdeaProjects/studimanager/out/production/studimanager/guiCalendar/calendar/layoutCalendar.fxml
 /home/sugar/IdeaProjects/studimanager/out/production/studimanager/Main/Main.fxml:42
 
+Sep 25, 2019 10:48:46 AM guiCalendar.info.ControllerLectureInfo$2 handle
+SEVERE: Couldn't open 'Select Lecture' window.
+
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/guiCalendar/edit/layoutLectureEdit.fxml
+
+Sep 25, 2019 10:49:29 AM guiCalendar.info.ControllerLectureInfo$2 handle
+SEVERE: Couldn't open 'Select Lecture' window.
+
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/guiCalendar/edit/layoutLectureEdit.fxml
+
+Sep 25, 2019 10:49:57 AM guiCalendar.info.ControllerLectureInfo$2 handle
+SEVERE: Couldn't open 'Select Lecture' window.
+
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/guiCalendar/edit/layoutLectureEdit.fxml
+
+Sep 25, 2019 10:52:58 AM guiCalendar.info.ControllerLectureInfo$2 handle
+SEVERE: Couldn't open 'Select Lecture' window.
+
+/home/sugar/IdeaProjects/studimanager/out/production/studimanager/guiCalendar/edit/layoutLectureEdit.fxml
+

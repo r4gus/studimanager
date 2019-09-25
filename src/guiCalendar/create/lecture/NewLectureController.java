@@ -33,7 +33,7 @@ public class NewLectureController implements Initializable, IFacility, ILecturer
     private final Timetable timetable = ControllerCalendar.getTimetable();
 
     @FXML
-    private GridPane newLecture_grid;
+    public GridPane newLecture_grid;
 
     @FXML
     private Text newLectureTitle;
@@ -42,19 +42,19 @@ public class NewLectureController implements Initializable, IFacility, ILecturer
     private Label lectureTitle;
 
     @FXML
-    private TextField lectureTitleTextField;
+    public TextField lectureTitleTextField;
 
     @FXML
     private Label isElective;
 
     @FXML
-    private CheckBox isElectiveBox;
+    public CheckBox isElectiveBox;
 
     @FXML
     private Label facilityTitle;
 
     @FXML
-    private ComboBox<Facility> facilityComboBox;
+    public ComboBox<Facility> facilityComboBox;
 
     @FXML
     private Button newFacility;
@@ -63,17 +63,17 @@ public class NewLectureController implements Initializable, IFacility, ILecturer
     private Label lecturerTitle;
 
     @FXML
-    private ComboBox<Lecturer> lecturerComboBox;
+    public ComboBox<Lecturer> lecturerComboBox;
 
     @FXML
-    private Button create;
+    public Button create;
 
     @FXML
     private Button newLecturer;
 
     private Lectures unit;
 
-    private Updatable parentController = null;
+    protected Updatable parentController = null;
 
     /* ################## PRESERVED TEXT-FIELDS ########################### */
     private String preservedTitle = null;

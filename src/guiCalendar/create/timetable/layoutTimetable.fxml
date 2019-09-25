@@ -55,10 +55,4 @@
 
     <Button fx:id="createButton" onAction="#handleCreateButtonAction" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
     <Button fx:id="cancelButton" onAction="#handleCancelButtonAction" GridPane.columnIndex="2" GridPane.rowIndex="12"/>
-
-
-
-
-
-
 </GridPane>
