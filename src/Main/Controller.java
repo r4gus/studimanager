@@ -2,6 +2,8 @@ package Main;
 
 import guiCalendar.calendar.ControllerCalendar;
 import guiCalendar.create.timetable.TimetableController;
+import guiExam.ControllerExam;
+import guiTodolist.ControllerTodolist;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -27,6 +30,9 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 
 public class Controller implements Initializable {
+
+    @FXML
+    private VBox main_vbox;
 
     @FXML
     public MenuItem saveButton;
@@ -52,65 +58,59 @@ public class Controller implements Initializable {
         /*
         ################### SAVE Timetable ###############################
          */
-        saveButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                try {
-                    String path = Main.getConfig().getTimetablePath();
-                    if(path.equals("")) {
-                        FileChooser fileChooser = new FileChooser();
-                        fileChooser.setInitialFileName("timetable_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) + ".json");
-                        File file = fileChooser.showSaveDialog(Main.getPrimaryStage());
-
-                        if(file == null) return;
-
-                        path = file.getPath();
-                        Main.getConfig().setTimetablePath(path);
-                        Main.getConfig().store();
-                    }
-
-                    ControllerCalendar.getTimetable().store(path);
-                    /*
-                    visual notification: FILE SAVED
-                     */
-                    Notification.showConfirm(Main.getBundle().getString("Success"),
-                            Main.getBundle().getString("FileSaved"), Main.getPrimaryStage());
-                }  catch (Exception exc) {
-                    Notification.showAlert(Main.getBundle().getString("Failure"),
-                            Main.getBundle().getString("FileNotSaved"), Main.getPrimaryStage());
-                }
-            }
-        });
-
-        saveAsButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
+        saveButton.setOnAction(actionEvent -> {
+            try {
                 String path = Main.getConfig().getTimetablePath();
-                FileChooser fileChooser = new FileChooser();
+                if(path.equals("")) {
+                    FileChooser fileChooser = new FileChooser();
+                    fileChooser.setInitialFileName("timetable_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) + ".json");
+                    File file = fileChooser.showSaveDialog(Main.getPrimaryStage());
 
-                fileChooser.setInitialFileName("timetable_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) + ".json");
-                File file = fileChooser.showSaveDialog(Main.getPrimaryStage());
+                    if(file == null) return;
 
-                if(file == null) return;
-
-                path = file.getPath();
-                Main.getConfig().setTimetablePath(path);
-                try {
+                    path = file.getPath();
+                    Main.getConfig().setTimetablePath(path);
                     Main.getConfig().store();
-                    ControllerCalendar.getTimetable().store(path);
-                } catch (Exception exc) {
-                    Notification.showAlert(Main.getBundle().getString("Failure"),
-                            Main.getBundle().getString("FileNotSaved"), Main.getPrimaryStage());
                 }
 
+                ControllerCalendar.getTimetable().store(path);
+                /*
+                visual notification: FILE SAVED
+                 */
                 Notification.showConfirm(Main.getBundle().getString("Success"),
                         Main.getBundle().getString("FileSaved"), Main.getPrimaryStage());
+            }  catch (Exception exc) {
+                Notification.showAlert(Main.getBundle().getString("Failure"),
+                        Main.getBundle().getString("FileNotSaved"), Main.getPrimaryStage());
             }
+        });
+
+        saveAsButton.setOnAction(actionEvent -> {
+            String path;
+            FileChooser fileChooser = new FileChooser();
+
+            fileChooser.setInitialFileName("timetable_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) + ".json");
+            File file = fileChooser.showSaveDialog(Main.getPrimaryStage());
+
+            if(file == null) return;
+
+            path = file.getPath();
+            Main.getConfig().setTimetablePath(path);
+            try {
+                Main.getConfig().store();
+                ControllerCalendar.getTimetable().store(path);
+            } catch (Exception exc) {
+                Notification.showAlert(Main.getBundle().getString("Failure"),
+                        Main.getBundle().getString("FileNotSaved"), Main.getPrimaryStage());
+            }
+
+            Notification.showConfirm(Main.getBundle().getString("Success"),
+                    Main.getBundle().getString("FileSaved"), Main.getPrimaryStage());
         });
 
 
 
-        settingsButton.setOnAction(new EventHandler<ActionEvent>() {
+        settingsButton.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
@@ -134,7 +134,7 @@ public class Controller implements Initializable {
             }
         });
 
-        newTimetable.setOnAction(new EventHandler<ActionEvent>() {
+        newTimetable.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
@@ -161,11 +161,11 @@ public class Controller implements Initializable {
             }
         });
 
-        openTimetable.setOnAction(new EventHandler<ActionEvent>() {
+        openTimetable.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 FileChooser fileChooser = new FileChooser();
-                Stage stage = Main.getPrimaryStage();
+                Stage stage = (Stage) main_vbox.getScene().getWindow();
 
                 File selectedFile = fileChooser.showOpenDialog(stage);
                 TimetableObjectCollection timetableObjectCollection;
@@ -177,6 +177,9 @@ public class Controller implements Initializable {
                          */
                         timetableObjectCollection = Timetable.load(selectedFile.getPath());
                         ControllerCalendar.setTimetable(timetableObjectCollection.getTimetable());
+                        ControllerExam.setExamList(timetableObjectCollection.getExamList());
+                        ControllerTodolist.setTaskListCollection(timetableObjectCollection.getTaskListCollection());
+
 
                         /*
                         ----------------- UPDATE timetablePath IN CONFIG_FILE ----------------
@@ -189,6 +192,8 @@ public class Controller implements Initializable {
                                     "\nClass: " + getClass().toString() + "\nMethod: handle()" + "\n" + e.getMessage());
                         }
 
+
+                        stage.close();
                         /*
                         --------------- Show primary stage ------------------------------------
                          */
@@ -196,7 +201,6 @@ public class Controller implements Initializable {
                         Main.getPrimaryStage().setTitle(Main.TITLE);
                         Main.getPrimaryStage().setScene(new Scene(root, Main.WIDTH , Main.HEIGHT));
                         Main.getPrimaryStage().show();
-
                     } catch (Exception exc) {
                         Notification.showInfo("Oops...",
                                 Main.getBundle().getString("CantOpenFile"),
