@@ -211,5 +211,18 @@ public class Controller implements Initializable {
         });
     }
 
+    @FXML
+    public void handleAboutButtonAction() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("about/layoutAbout.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("About");
+            stage.show();
+        } catch (IOException exc) {
+
+        }
+    }
+
 
 }
