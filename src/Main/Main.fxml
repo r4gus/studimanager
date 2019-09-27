@@ -14,7 +14,7 @@
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
-        <Menu mnemonicParsing="false" text="File">
+        <Menu mnemonicParsing="false" text="File" fx:id="fileButton">
           <items>
             <MenuItem mnemonicParsing="false" text="New" fx:id="newTimetable"/>
             <MenuItem mnemonicParsing="false" text="Open…" fx:id="openTimetable"/>
@@ -26,7 +26,7 @@
             <SeparatorMenuItem mnemonicParsing="false" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Help">
+        <Menu mnemonicParsing="false" text="Help" fx:id="helpButton">
           <items>
             <MenuItem mnemonicParsing="false" text="About" fx:id="about" onAction="#handleAboutButtonAction"/>
           </items>
@@ -37,18 +37,18 @@
       <children>
             <TabPane layoutX="14.0" layoutY="41.0" prefHeight="375.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <tabs>
-                <Tab text="Vorlesungsplan">
+                <Tab text="Vorlesungsplan" fx:id="tabTimetable">
                   <content>
                     <fx:include source="../guiCalendar/calendar/layoutCalendar.fxml"/>
                   </content>
                 </Tab>
-                  <Tab text="Task - ToDoList">
+                  <Tab text="Task - ToDoList" fx:id="tabToDoList">
                     <content>
                       <fx:include source="../guiTodolist/layoutTodolist.fxml"/>
                     </content>
                   </Tab>
               </tabs>
-              <Tab text="Klausuren - Übersicht">
+              <Tab text="Klausuren - Übersicht" fx:id="tabExamOverview">
                 <content>
                   <fx:include source="../guiExam/layoutExam.fxml"/>
                 </content>
