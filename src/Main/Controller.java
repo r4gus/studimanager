@@ -250,9 +250,11 @@ public class Controller implements Initializable {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("About");
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(Main.getPrimaryStage());
             stage.show();
         } catch (IOException exc) {
-
+            MyLogger.LOGGER.log(Level.SEVERE, "in: src.Main.Controller\nat:handleAboutButtonAction\n" + exc.getMessage());
         }
     }
 
