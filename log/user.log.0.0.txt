@@ -1375,3 +1375,15 @@ Sep 25, 2019 12:45:28 PM serializer.SerializerIO loadJson
 SEVERE: Unexpected character ('>' (code 62)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
  at [Source: (FileInputStream); line: 1, column: 2]
 Specified Path: /home/sugar/IdeaProjects/studimanager/exceptionReminder.txt
+Sep 27, 2019 2:40:09 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 27, 2019 2:40:45 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 27, 2019 3:39:19 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json
+Sep 27, 2019 3:45:53 PM serializer.SerializerIO loadJson
+WARNING: /home/sugar/IdeaProjects/studimanager/log/timetable.json (No such file or directory)
+Specified Path: /home/sugar/IdeaProjects/studimanager/log/timetable.json

@@ -79,7 +79,7 @@ public class NewLecturerController implements Initializable, IFacility {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        newLecturer_grid.getStylesheets().add(getClass().getResource("../../../main.css").toExternalForm());
+        newLecturer_grid.getStylesheets().add(getClass().getResource("/main.css").toExternalForm());
         setLanguage();
         populateFacilityComboBox();
         update();

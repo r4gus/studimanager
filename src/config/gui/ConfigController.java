@@ -51,7 +51,7 @@ public class ConfigController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        config_grid.getStylesheets().add(getClass().getResource("../../main.css").toExternalForm());
+        config_grid.getStylesheets().add(getClass().getResource("/main.css").toExternalForm());
 
         setLanguage();
         populateLanguageSelectComboBox();
