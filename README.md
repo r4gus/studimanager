@@ -1,6 +1,7 @@
 # Studimanager
 
-A Course-Schedule/ productivity application written in Java.
+A Course-Schedule/ productivity application written in Java. Keep track of your lessons with the built in weekly
+calendar and manage your tasks with a fully customizable Kanban-board.
 
 ## Getting Started
 
