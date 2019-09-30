@@ -200,6 +200,7 @@ or just use that java version in the first place.
 
 * [JavaFx 12](https://rometools.github.io/rome/) - Used to build the GUI
 * [Jackson](https://github.com/FasterXML/jackson) - Used for data processing
+* [controlsfx](https://github.com/controlsfx/controlsfx) - Push notifications
 
 ## Contributing
 

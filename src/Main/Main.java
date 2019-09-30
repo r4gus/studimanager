@@ -25,8 +25,6 @@ public class Main extends Application {
 
     public static final String fxml = "Main.fxml";
 
-    private static final String RESOURCE_BUNDLE_PATH = "files/";
-
     public static final int WIDTH = 1280;
     public static final int HEIGHT = 960;
     public static final int MIN_WIDTH = 600;
