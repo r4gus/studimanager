@@ -151,7 +151,49 @@ break;
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+### 1. Create a .jar file from the project
+#### IntelliJ:
+First create an artifact under **File, Project Structure, Artifacts, add, jar, from Modules with dependency** and select
+**Main.Launcher** as the main class. After that add a copy of the javafx-sdk directory (**File, Poject Structure,
+ Artifacts, Add Copy Of, Directory Content, path/to/javafx-sdk-12.0.1**). Finally build the artifact with (**Build,
+ Build Artifact, studimanager, build/ rebuild**).
+ 
+#### Others:
+coming soon...
+
+### 2. Add the required folders
+Create a project folder and move the .jar file into it. Within the newly created folder add the following sub
+directories:
+
+1. resources (should contain: icons8-cancel-48.png, icons8-info-48.png and icons8-ok-48.png)
+2. log (contains the log files later on)
+3. files 
+4. config (has to contain: user.properties and verbose.properties)
+
+### 3. Run the program
+Run the program with:
+```
+java -jar <program_name>.jar
+```
+
+### Errors
+Java 11 and later may not contain specific libraries required for JavaFx. If that's the case you should get an
+error like: **...No suitable pipeline found...** or **...glass library missing...**.
+
+If you can't find a proper Java version to run the application, the only way to fix this issue is to obtain 
+the required libraries and add them to Java.
+
+#### Missing libraries may be:
+##### under Linux (add them to java-sdk/lib)
+libprism_es2.os, libprism_sw.so, libglass.so, libglassgtk3.so, libglassgtk2.so, libjavafx_font.so,
+libjavafx_font_freetype.so, libjavafx_font_pango.so
+
+##### under Windows (add them to java-sdk\bin)
+prism_d3d.dll, prism_sw.dll, javafx_font.dll, glass.dll
+
+If you're using IntelliJ ultimate, you should get those libraries from the java version that ships with the IDE
+or just use that java version in the first place.
+
 
 ## Built With
 

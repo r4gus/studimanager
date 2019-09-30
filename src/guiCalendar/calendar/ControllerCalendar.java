@@ -58,7 +58,7 @@ public class ControllerCalendar implements Initializable, Updatable {
                 new Object[]{url, resourceBundle});
 
         /* load stylesheet */
-        tt_anchorPane.getStylesheets().add(getClass().getResource("../../main.css").toExternalForm());
+        tt_anchorPane.getStylesheets().add(getClass().getResource("/main.css").toExternalForm());
         tt_anchorPane.getStyleClass().add("background-color");
 
         COLUMN_PERCENTAGE_WIDTH = 100.0 / timetable.getDays();

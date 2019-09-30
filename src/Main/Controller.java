@@ -11,7 +11,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Tab;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
@@ -35,6 +37,9 @@ public class Controller implements Initializable {
     private VBox main_vbox;
 
     @FXML
+    public Menu fileButton;
+
+    @FXML
     public MenuItem saveButton;
 
     @FXML
@@ -49,8 +54,35 @@ public class Controller implements Initializable {
     @FXML
     public MenuItem openTimetable;
 
+    @FXML
+    public Menu helpButton;
+    @FXML
+    public MenuItem about;
+
+    @FXML
+    public Tab tabTimetable;
+    @FXML
+    public Tab tabToDoList;
+    @FXML
+    public Tab tabExamOverview;
+
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        fileButton.setText(Main.getBundle().getString("File"));
+        newTimetable.setText(Main.getBundle().getString("New"));
+        openTimetable.setText(Main.getBundle().getString("Open"));
+        saveButton.setText(Main.getBundle().getString("Save"));
+        saveAsButton.setText(Main.getBundle().getString("SaveAs"));
+        settingsButton.setText(Main.getBundle().getString("Settings"));
+
+        helpButton.setText(Main.getBundle().getString("Help"));
+        about.setText(Main.getBundle().getString("Documetation"));
+
+        tabTimetable.setText(Main.getBundle().getString("Timetable"));
+        tabToDoList.setText(Main.getBundle().getString("ToDoList"));
+        tabExamOverview.setText(Main.getBundle().getString("ExamOverview"));
+
         registerButtonEvents();
     }
 
@@ -218,9 +250,11 @@ public class Controller implements Initializable {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("About");
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(Main.getPrimaryStage());
             stage.show();
         } catch (IOException exc) {
-
+            MyLogger.LOGGER.log(Level.SEVERE, "in: src.Main.Controller\nat:handleAboutButtonAction\n" + exc.getMessage());
         }
     }
 

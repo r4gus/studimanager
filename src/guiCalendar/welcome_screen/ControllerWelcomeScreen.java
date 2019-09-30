@@ -47,7 +47,7 @@ public class ControllerWelcomeScreen implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        welcome_grid.getStylesheets().add(getClass().getResource("../../main.css").toExternalForm());
+        welcome_grid.getStylesheets().add(getClass().getResource("/main.css").toExternalForm());
         setLanguage();
         setNewTimetableButton();
     }
@@ -99,7 +99,7 @@ public class ControllerWelcomeScreen implements Initializable {
                         /*
                         --------------- Show primary stage ------------------------------------
                          */
-                Parent root = FXMLLoader.load(getClass().getResource("../../Main/" + Main.fxml));
+                Parent root = FXMLLoader.load(getClass().getResource("/Main/" + Main.fxml));
                 primaryStage.setTitle(Main.TITLE);
                 primaryStage.setScene(new Scene(root, Main.WIDTH , Main.HEIGHT));
                 primaryStage.show();
