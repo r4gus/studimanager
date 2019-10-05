@@ -1423,3 +1423,9 @@ Specified Path:
 Sep. 27, 2019 3:22:20 NACHM. serializer.SerializerIO loadJson
 WARNING:  (Das System kann den angegebenen Pfad nicht finden)
 Specified Path: 
+Okt. 05, 2019 9:31:46 VORM. config.Config loadJson
+WARNUNG: config\config.json (Das System kann die angegebene Datei nicht finden)
+Specified Path: config/config.json
+Okt. 05, 2019 9:31:46 VORM. serializer.SerializerIO loadJson
+WARNUNG:  (Das System kann den angegebenen Pfad nicht finden)
+Specified Path: 

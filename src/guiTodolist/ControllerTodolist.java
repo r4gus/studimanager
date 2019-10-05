@@ -82,6 +82,9 @@ public class ControllerTodolist implements Initializable {
             for (Task task : taskList.getTasks()) {
                 VBoxTask vBoxTask = new VBoxTask(task, vBoxTasklist);
                 vBoxTasklist.setMargin(vBoxTask, new Insets(5, 10, 5, 10));
+
+                task.setTaskListId(vBoxTasklist.getTaskListID());            /* Add TaskList-ID to Object from taskList */
+
                 vBoxTasklist.getChildren().add(vBoxTask);
                 arrayListVBoxes.add(vBoxTask);
             }

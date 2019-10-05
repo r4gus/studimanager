@@ -272,6 +272,9 @@ public class ControllerTask implements Initializable {
 
 
         List<File> files = fileChooser.showOpenMultipleDialog(null);
+        if (files == null) {
+            return;
+        }
         for (File file : files) {
 
             this.itemsFilesList.add(file.getName());
