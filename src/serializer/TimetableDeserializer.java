@@ -361,8 +361,8 @@ public class TimetableDeserializer extends StdDeserializer<TimetableObjectCollec
                         remindMe,
                         remindTime);
 
-                x.setTaskListId(taskListId);
-                x.setTaskId(taskId);
+                //x.setTaskListId(taskListId);
+                //x.setTaskId(taskId);
                 x.setDone(done);
 
                 taskList.addTask(x);
