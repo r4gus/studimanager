@@ -7,8 +7,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="controlsfx-11.0.0" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="module-library">
       <library name="JUnit5.4">
         <CLASSES>
@@ -25,6 +25,5 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="jackson-annotations-2.10.0.pr1" level="project" />
   </component>
 </module>
