@@ -45,9 +45,6 @@ public class ControllerCalendar implements Initializable, Updatable {
     public AnchorPane tt_anchorPane;
 
     @FXML
-    private Label date;
-
-    @FXML
     private ScrollPane scrollPane;
 
 
@@ -75,7 +72,6 @@ public class ControllerCalendar implements Initializable, Updatable {
     public void update() {
         MyLogger.LOGGER.entering(getClass().toString(), "update");
 
-        date.setText(timetable.getDate());
         scrollPane.setContent(buildCalendar());
 
         MyLogger.LOGGER.exiting(getClass().toString(), "update");

@@ -64,9 +64,6 @@ public class Main extends Application {
             case FR:
                 bundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle", new Locale("fr", "FR"));
                 break;
-            case EN:
-                bundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle", new Locale("en", "US"));
-                break;
             default:
                 bundle = ResourceBundle.getBundle("config.i18n.TimetableResourceBundle", new Locale("en", "US"));
         }
@@ -126,10 +123,6 @@ public class Main extends Application {
 
     public static ResourceBundle getBundle() {
         return bundle;
-    }
-
-    public static void setBundle(ResourceBundle bundle) {
-        Main.bundle = bundle;
     }
 }
 
