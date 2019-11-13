@@ -174,26 +174,27 @@ public class ControllerCalendar implements Initializable, Updatable {
 
         // display lecture information if possible
         if (head != null) {
+            String brightness = calculateTextBrightness(head.getColor());
 
             vBox = new VBox(3);
             vBox.setAlignment(Pos.CENTER);
 
             // get text-info's about the lecture
             Label title = new Label(head.getTitle());
-            title.setStyle("-fx-font-size: 14px");
+            title.setStyle("-fx-font-size: 14px; " + brightness);
             vBox.getChildren().add(title);
 
             Label room;
             if (head.getFacility() != null) {
                 room = new Label(head.getFacility().toString());
-                room.setStyle("-fx-font-weight: normal; -fx-font-size: 10px");
+                room.setStyle("-fx-font-weight: normal; -fx-font-size: 10px; " + brightness);
                 vBox.getChildren().add(room);
             }
 
             Label lect;
             if (head.getLecturer() != null) {
                 lect = new Label(head.getLecturer().toString());
-                lect.setStyle("-fx-font-weight: normal; -fx-font-size: 10px");
+                lect.setStyle("-fx-font-weight: normal; -fx-font-size: 10px; " + brightness);
                 vBox.getChildren().add(lect);
             }
 
@@ -205,7 +206,7 @@ public class ControllerCalendar implements Initializable, Updatable {
             if (lecture_count > 1) {
                 // shows how many elements the unit contains
                 count = new Label("+ " + (lecture_count - 1));
-                count.setStyle("-fx-font-size: 11");
+                count.setStyle("-fx-font-size: 11; " + brightness);
                 count.setTextFill(Color.BLUE);
                 vBox.getChildren().add(count);
             }
@@ -219,6 +220,16 @@ public class ControllerCalendar implements Initializable, Updatable {
         }
 
         return button;
+    }
+
+    /**
+     * Uses the brightness attribute of the background color to decide if the text should be
+     * black or white.
+     * @param color color of the background
+     * @return fxCss string that can be used as a parameter for a setStyle() method call. Null on failure.
+     */
+    private String calculateTextBrightness(Color color) {
+        return (color == null || color.getBrightness() > 0.85 ? "-fx-text-fill: black;" : "-fx-text-fill: white;");
     }
 
     /**

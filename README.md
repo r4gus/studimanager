@@ -14,7 +14,7 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 1. Java version 11 or newer
-2. JavaFx 12
+2. JavaFx 11.0.1 (stable) or newer
 3. Jackson library
 4. controlsfx
 
@@ -36,7 +36,7 @@ $ sudo apt install oracle-java11-installer
 
 ---
 
-##### 2. This application uses JavaFx 12
+##### 2. This application uses OpenJFX
 Download the appropriate version [here](https://gluonhq.com/products/javafx/).
 
 ---
